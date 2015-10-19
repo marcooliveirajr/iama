@@ -1,14 +1,45 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Clinicaiama</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html class="ls-theme-light-green">
+  <head>
 
-<%= yield %>
+    <title> <%= SECRETS["site"]["title"] %> </title>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <%= stylesheet_link_tag    "application", SECRETS["locastyle"]["css"], :media => "screen" %>
+  <%= javascript_include_tag "application", SECRETS["locastyle"]["js"] %>
 
-</body>
+  </head>
+  <body>
+    <div class="ls-topbar">
+
+    <div class="ls-notification-topbar">
+      <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
+        <a href="#" class="ls-ico-user"><%#<%= user %> Nome do Usuário </a>
+        <nav class="ls-dropdown-nav ls-user-menu">
+        <ul>
+          <li>
+          <a href="/logout" class="help-suggestions ico-help-circle hidden-xs"><strong><%= t('report.logout') %></strong></a>
+          </li>
+        </ul>
+        </nav>
+      </div>
+    </div>
+
+      <span class="ls-show-sidebar ls-ico-menu"></span>
+      <!-- Nome do produto/marca -->
+      <h1 class="ls-brand-name"><a class="ls-ico-book" href="/"><%= link_to SECRETS["site"]["name"], root_path, title: SECRETS["site"]["name"] %></h1>
+    </div>
+    <main class="ls-main ">
+
+        <div class="container-fluid">
+          <%= yield %>
+        </div>
+
+    </main>
+
+  <%= render 'shared/menu' %>
+
+
+  </body>
 </html>
