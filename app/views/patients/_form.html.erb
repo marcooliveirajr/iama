@@ -13,19 +13,19 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-6">
+        <label class="ls-label col-md-3">
         <span class="ls-label-text"><%= f.label :cpf, "CPF" %></span>
-        <%= f.text_field :cpf %>
+        <%= f.text_field :cpf, class: 'ls-mask-cpf', placeholder: '000.000.000-00' %>
       </label>
      </div>
     </div>
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-8">
+        <label class="ls-label col-md-3">
         <span class="ls-label-text"><%= f.label :phone, "Telefone" %></span>
-        <%= f.text_field :phone %>
-      </label>
+        <%= f.text_field :phone, class: 'ls-mask-phone8_with_ddd', placeholder: '(99) 9999-9999' %>
+      </label
       </div>
     </div>
 
