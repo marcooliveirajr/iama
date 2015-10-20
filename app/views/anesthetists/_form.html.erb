@@ -1,0 +1,111 @@
+<%= form_for(@anesthetist, html: { class: "ls-form row" }) do |f| %>
+
+  <fieldset>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-6">
+        <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
+        <%= f.text_field :name %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-6">
+        <span class="ls-label-text"><%= f.label :cpf, "CPF" %></span>
+        <%= f.text_field :cpf %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%= f.label :phone, "Telefone" %></span>
+        <%= f.text_field :phone %>
+      </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :email, "Email" %></span>
+               <%= f.text_field :email %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :postal_code, "CEP" %></span>
+        <%= f.text_field :postal_code %>
+      </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :address, "Endereço" %></span>
+        <%= f.text_field :address %>
+      </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :address_number, "Número" %></span>
+        <%= f.text_field :address_number %>
+      </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :address_complement, "Complemento" %></span>
+        <%= f.text_field :address_complement %>
+      </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :district, "Bairro" %></span>
+        <%= f.text_field :district %>
+      </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :city, "Cidade" %></span>
+        <%= f.text_field :city %>
+      </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-5">
+        <span class="ls-label-text"><%= f.label :state, "Estado" %></span>
+        <%= f.text_field :state %>
+      </label>
+
+         <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
+         <%= f.submit "Limpar", :type => "reset",  class: "ls-btn-primary" %>
+         <%= link_to 'Voltar', anesthetists_path, class: "ls-btn-darker" %>
+    </div>
+    </div>
+
+ </fieldset>
+
+<% end %>
+

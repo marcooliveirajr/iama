@@ -1,0 +1,60 @@
+<h1 class="ls-title-intro ls-ico-cog">Pacientes</h1>
+
+<% @patients.each do |patient| %>
+
+<div class="ls-list">
+  <header class="ls-list-header">
+    <div class="ls-list-title col-md-9">
+      <strong>Nome</strong>
+      <small><%= link_to patient.name, patient %></small>
+    </div>
+  </header>
+  <div class="ls-list-content ">
+    <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">CPF</span>
+      <strong><%= patient.cpf %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Telefone</span>
+      <strong><%= patient.phone %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Email</span>
+      <strong><%= patient.email %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">CEP</span>
+      <strong><%= patient.postal_code %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Endereço</span>
+      <strong><%= patient.address %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Número</span>
+      <strong><%= patient.address_number %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Complemento</span>
+      <strong><%= patient.address_complement %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Bairro</span>
+      <strong><%= patient.district %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Cidade</span>
+      <strong><%= patient.city %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Estados</span>
+      <strong><%= patient.state %></strong>
+    </div>
+
+  </div>
+</div>
+<% end %>
+
+<div class="ls-pagination-filter ">
+     <%= link_to 'Cadastrar Paciente', new_patient_path(@patient) , class: "ls-btn-darker" %>
+</div>

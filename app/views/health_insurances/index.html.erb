@@ -1,0 +1,28 @@
+<h1 class="ls-title-intro ls-ico-cog">Convênios Médico</h1>
+
+<% @health_insurances.each do |health_insurance| %>
+
+<div class="ls-list">
+  <header class="ls-list-header">
+    <div class="ls-list-title col-md-9">
+      <strong>Nome</strong>
+      <small><%= link_to health_insurance.name, health_insurance %></small>
+    </div>
+  </header>
+  <div class="ls-list-content ">
+    <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Tipo</span>
+      <strong><%= health_insurance.type %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Status</span>
+      <strong><%= health_insurance.status %></strong>
+    </div>
+
+  </div>
+</div>
+<% end %>
+
+<div class="ls-pagination-filter ">
+     <%= link_to 'Cadastrar Convênio Médico', new_health_insurance_path(@health_insurance) , class: "ls-btn-darker" %>
+</div>

@@ -1,0 +1,48 @@
+<h1 class="ls-title-intro ls-ico-cog">Anestesistas</h1>
+<%= form_for(@anesthetist, html: { class: "ls-form row" }) do |f| %>
+<div class="ls-box">
+<div class="row">
+  <div class="col-md-12">
+    <div class="ls-box">
+      <p><strong>Nome</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.name %></p>
+      <hr>
+      <p><strong>CPF</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.cpf %></p>
+      <hr>
+      <p><strong>Telefone</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.phone %></p>
+      <hr>
+      <p><strong>Email</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.email %></p>
+      <hr>
+      <p><strong>CEP</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.postal_code %></p>
+      <hr>
+      <p><strong>Endereço</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.address %></p>
+      <hr>
+      <p><strong>Número</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.address_number %></p>
+      <hr>
+      <p><strong>Complemento</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.address_complement %></p>
+      <hr>
+      <p><strong>Bairro</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.district %></p>
+      <hr>
+      <p><strong>Cidade</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.city %></p>
+      <hr>
+      <p><strong>Estado</strong></p>
+      <p class="ls-break-text"><%= @anesthetist.state %></p>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<%= link_to 'Editar', edit_anesthetist_path(@anesthetist) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', anesthetists_path, class: "ls-btn-darker" %>
+
+<% end %>

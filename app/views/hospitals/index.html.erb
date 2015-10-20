@@ -1,0 +1,28 @@
+<h1 class="ls-title-intro ls-ico-cog">Hospitais</h1>
+
+<% @hospitals.each do |hospital| %>
+
+<div class="ls-list">
+  <header class="ls-list-header">
+    <div class="ls-list-title col-md-9">
+      <strong>Nome</strong>
+      <small><%= link_to hospital.name, hospital %></small>
+    </div>
+  </header>
+  <div class="ls-list-content ">
+    <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Tipo</span>
+      <strong><%= hospital.type %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Status</span>
+      <strong><%= hospital.status %></strong>
+    </div>
+
+  </div>
+</div>
+<% end %>
+
+<div class="ls-pagination-filter ">
+     <%= link_to 'Cadastrar Hospital', new_hospital_path(@hospital) , class: "ls-btn-darker" %>
+</div>

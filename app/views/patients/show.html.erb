@@ -1,0 +1,48 @@
+<h1 class="ls-title-intro ls-ico-cog">Pacientes</h1>
+<%= form_for(@patient, html: { class: "ls-form row" }) do |f| %>
+<div class="ls-box">
+<div class="row">
+  <div class="col-md-12">
+    <div class="ls-box">
+      <p><strong>Nome</strong></p>
+      <p class="ls-break-text"><%= @patient.name %></p>
+      <hr>
+      <p><strong>CPF</strong></p>
+      <p class="ls-break-text"><%= @patient.cpf %></p>
+      <hr>
+      <p><strong>Telefone</strong></p>
+      <p class="ls-break-text"><%= @patient.phone %></p>
+      <hr>
+      <p><strong>Email</strong></p>
+      <p class="ls-break-text"><%= @patient.email %></p>
+      <hr>
+      <p><strong>CEP</strong></p>
+      <p class="ls-break-text"><%= @patient.postal_code %></p>
+      <hr>
+      <p><strong>Endereço</strong></p>
+      <p class="ls-break-text"><%= @patient.address %></p>
+      <hr>
+      <p><strong>Número</strong></p>
+      <p class="ls-break-text"><%= @patient.address_number %></p>
+      <hr>
+      <p><strong>Complemento</strong></p>
+      <p class="ls-break-text"><%= @patient.address_complement %></p>
+      <hr>
+      <p><strong>Bairro</strong></p>
+      <p class="ls-break-text"><%= @patient.district %></p>
+      <hr>
+      <p><strong>Cidade</strong></p>
+      <p class="ls-break-text"><%= @patient.city %></p>
+      <hr>
+      <p><strong>Estado</strong></p>
+      <p class="ls-break-text"><%= @patient.state %></p>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<%= link_to 'Editar', edit_patient_path(@patient) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', patients_path, class: "ls-btn-darker" %>
+
+<% end %>

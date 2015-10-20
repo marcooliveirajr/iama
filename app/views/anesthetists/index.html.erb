@@ -1,0 +1,61 @@
+<h1 class="ls-title-intro ls-ico-cog">Anestesistas</h1>
+
+<% @anesthetists.each do |anesthetist| %>
+
+<div class="ls-list">
+  <header class="ls-list-header">
+    <div class="ls-list-title col-md-9">
+      <strong>Nome</strong>
+      <small><%= link_to anesthetist.name, anesthetist %></small>
+    </div>
+  </header>
+  <div class="ls-list-content ">
+    <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">CPF</span>
+      <strong><%= anesthetist.cpf %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Telefone</span>
+      <strong><%= anesthetist.phone %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Email</span>
+      <strong><%= anesthetist.email %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">CEP</span>
+      <strong><%= anesthetist.postal_code %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Endereço</span>
+      <strong><%= anesthetist.address %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Número</span>
+      <strong><%= anesthetist.address_number %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Complemento</span>
+      <strong><%= anesthetist.address_complement %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Bairro</span>
+      <strong><%= anesthetist.district %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Cidade</span>
+      <strong><%= anesthetist.city %></strong>
+    </div>
+    <div class="col-xs-12 col-md-6">
+      <span class="ls-list-label">Estados</span>
+      <strong><%= anesthetist.state %></strong>
+    </div>
+
+  </div>
+</div>
+<% end %>
+
+<div class="ls-pagination-filter ">
+     <%= link_to 'Cadastrar Anestesista', new_anesthetist_path(@anesthetist) , class: "ls-btn-darker" %>
+</div>
+

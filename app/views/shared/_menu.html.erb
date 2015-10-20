@@ -1,0 +1,58 @@
+<aside class="ls-sidebar">
+  <nav class="ls-menu">
+    <ul>
+
+      <li>
+        <a class="ls-ico-home" href="#"> Painel Inicial </a>
+      </li>
+
+      <li class="ls-submenu">
+        <a class="ls-ico-book" href=""> Iama </a>
+            <ul>
+                <li><a class="ls-submenu-item" href=""> Tabela Fato </a></li>
+           </ul>
+      </li>
+
+      <li class="ls-submenu">
+        <a class="ls-ico-cog" href="">  Cadastros </a>
+        <ul>
+          <%= link_to 'Hospital', hospitals_path, class: "ls-ico-plus-1" %>
+        </ul>
+        <ul>
+          <li><a class="ls-submenu-item" href=""> Quartos </a></li>
+        </ul>
+        <ul>
+          <%= link_to 'Paciente', patients_path, class: "ls-ico-user-add" %>
+        </ul>
+        <ul>
+          <li><a class="ls-submenu-item" href=""> TUSS </a></li>
+        </ul>
+        <ul>
+          <%= link_to 'Cirurgião', surgeons_path, class: "ls-ico-user-add" %>
+        </ul>
+        <ul>
+          <%= link_to 'Anestesita', anesthetists_path, class: "ls-ico-user-add" %>
+        </ul>
+        <ul>
+          <%= link_to 'Convênio Médico', health_insurances_path, class: "ls-ico-plus-1" %>
+        </ul>
+      </li>
+
+      <li class="ls-submenu">
+        <a class="ls-ico-chart-bar-up" href="">  Relatórios </a>
+        <ul>
+           <li><a class="ls-submenu-item" href=""> Mês </a></li>
+        </ul>
+        <ul>
+           <li><a class="ls-submenu-item" href=""> Semana </a></li>
+        </ul>
+      </li>
+
+      <li >
+        <a class="ls-ico-user-add" href="">  Administradores </a>
+      </li>
+    </ul>
+  </nav>
+</aside>
+
+
