@@ -4,7 +4,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-6">
+        <label class="ls-label col-md-8">
         <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
         <%= f.text_field :name %>
       </label>
@@ -15,7 +15,7 @@
       <div class="col-md-8">
         <label class="ls-label col-md-3">
         <span class="ls-label-text"><%= f.label :cpf, "CPF" %></span>
-        <%= f.text_field :cpf, class: 'ls-mask-cpf', placeholder: '000.000.000-00' %>
+        <%= f.text_field :cpf, class: 'ls-mask-cpf', placeholder: '000.000.000-00', maxlength: '14', autocomplete: 'off' %>
       </label>
      </div>
     </div>
@@ -40,7 +40,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4 ls-v-align-middle">
+        <label class="ls-label col-md-3 ls-v-align-middle">
           <span class="ls-label-text"><%= f.label :postal_code, "CEP" %></span>
           <%= f.text_field :postal_code, class: 'ls-mask-cep', placeholder: '00000-000', id: 'address_postal_code' %>
           <span class="ls-label col-md-3 ls-float-none"></span>
@@ -51,7 +51,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-8">
         <span class="ls-label-text"><%= f.label :address, "Endereço" %></span>
         <%= f.text_field :address, id: 'id_address' %>
       </label>
@@ -60,7 +60,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-2">
         <span class="ls-label-text"><%= f.label :address_number, "Número" %></span>
         <%= f.text_field :address_number %>
       </label>
@@ -69,7 +69,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-2">
+        <label class="ls-label col-md-3">
         <span class="ls-label-text"><%= f.label :address_complement, "Complemento" %></span>
         <%= f.text_field :address_complement %>
       </label>
@@ -99,15 +99,15 @@
 
         <label class="ls-label col-md-4">
         <span class="ls-label-text"><%= f.label :state, "Estado" %></span>
-        <div class="ls-custom-select">
-          <%= f.select(:state, Carmen::state_codes('BR'), {prompt: true}, class: "ls-state ls-select", id: "id_state" ) %>
-        </div>
-      </label>
+          <div class="ls-custom-select">
+            <%= f.select(:state, Carmen::state_codes('BR'), {prompt: true}, class: "ls-state ls-select", id: "id_state" ) %>
+          </div>
+        </label>
 
-       <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
-       <%= f.submit "Limpar", :type => "reset",  class: "ls-btn-primary" %>
-       <%= link_to 'Voltar', patients_path, class: "ls-btn-darker" %>
-    </div>
+        <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
+        <%= f.submit "Limpar", :type => "reset",  class: "ls-btn-primary" %>
+        <%= link_to 'Voltar', patients_path, class: "ls-btn-darker" %>
+      </div>
     </div>
 
  </fieldset>

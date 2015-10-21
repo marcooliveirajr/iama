@@ -7,7 +7,7 @@
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <%= stylesheet_link_tag    "application", SECRETS["locastyle"]["css"], :media => "screen" %>
-    
+
 
   </head>
   <body>
@@ -40,11 +40,11 @@
 
     <%= render 'shared/menu' %>
 
-<%= javascript_include_tag "application", SECRETS["locastyle"]["js"] %>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script type='text/javascript'>
       <%= yield :javascript %>
-    
     </script>
+    <%= javascript_include_tag "application", SECRETS["locastyle"]["js"] %>
 
   </body>
 </html>
