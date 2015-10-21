@@ -1,4 +1,4 @@
-<%= form_for(@surgeon, html: { class: "ls-form row" }) do |f| %>
+<%= form_for(entrie, html: { class: "ls-form row" }) do |f| %>
 
   <fieldset>
 
@@ -13,18 +13,18 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-6">
+        <label class="ls-label col-md-3">
         <span class="ls-label-text"><%= f.label :cpf, "CPF" %></span>
-        <%= f.text_field :cpf %>
+        <%= f.text_field :cpf, class: 'ls-mask-cpf', placeholder: '000.000.000-00' %>
       </label>
      </div>
     </div>
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-8">
+        <label class="ls-label col-md-3">
         <span class="ls-label-text"><%= f.label :phone, "Telefone" %></span>
-        <%= f.text_field :phone %>
+        <%= f.text_field :phone, class: 'ls-mask-phone8_with_ddd', placeholder: '(99) 9999-9999' %>
       </label>
       </div>
     </div>
@@ -33,16 +33,18 @@
       <div class="col-md-8">
         <label class="ls-label col-md-4">
         <span class="ls-label-text"><%= f.label :email, "Email" %></span>
-               <%= f.text_field :email %>
+        <%= f.text_field :email %>
         </label>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :postal_code, "CEP" %></span>
-        <%= f.text_field :postal_code %>
+        <label class="ls-label col-md-4 ls-v-align-middle">
+          <span class="ls-label-text"><%= f.label :postal_code, "CEP" %></span>
+          <%= f.text_field :postal_code, class: 'ls-mask-cep', placeholder: '00000-000', id: 'address_postal_code' %>
+          <span class="ls-label col-md-3 ls-float-none"></span>
+          <%= link_to 'Não sei o CEP', "http://www.buscacep.correios.com.br/", target: "_blank" %>
       </label>
       </div>
     </div>
@@ -51,7 +53,7 @@
       <div class="col-md-8">
         <label class="ls-label col-md-4">
         <span class="ls-label-text"><%= f.label :address, "Endereço" %></span>
-        <%= f.text_field :address %>
+        <%= f.text_field :address, id: 'id_address' %>
       </label>
       </div>
     </div>
@@ -67,7 +69,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-2">
         <span class="ls-label-text"><%= f.label :address_complement, "Complemento" %></span>
         <%= f.text_field :address_complement %>
       </label>
@@ -78,7 +80,7 @@
       <div class="col-md-8">
         <label class="ls-label col-md-4">
         <span class="ls-label-text"><%= f.label :district, "Bairro" %></span>
-        <%= f.text_field :district %>
+        <%= f.text_field :district, id: 'id_district' %>
       </label>
       </div>
     </div>
@@ -87,24 +89,36 @@
       <div class="col-md-8">
         <label class="ls-label col-md-4">
         <span class="ls-label-text"><%= f.label :city, "Cidade" %></span>
-        <%= f.text_field :city %>
+        <%= f.text_field :city, id: 'id_city' %>
       </label>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-5">
+        <label class="ls-label col-md-4">
         <span class="ls-label-text"><%= f.label :state, "Estado" %></span>
-        <%= f.text_field :state %>
+          <%= f.select(:state, Carmen::state_codes('BR'), {prompt: true}, class: "ls-state", id: "id_state" ) %>
+
       </label>
 
-         <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
-         <%= f.submit "Limpar", :type => "reset",  class: "ls-btn-primary" %>
-         <%= link_to 'Voltar', surgeons_path, class: "ls-btn-darker" %>
+       <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
+       <%= f.submit "Limpar", :type => "reset",  class: "ls-btn-primary" %>
+       <%= link_to 'Voltar', patients_path, class: "ls-btn-darker" %>
     </div>
     </div>
 
  </fieldset>
+
+ <% end %>
+
+<% content_for :javascript do %>
+
+  var configs_postal_code = { fields: { address: "#id_address", district: "#id_district", city: "#id_city", state: "#id_state" } }
+
+  $(document).ready(function(){
+    $("#address_postal_code").on({change: function(){ address.search(configs_postal_code, $(this).val()); }});
+
+  });
 
 <% end %>

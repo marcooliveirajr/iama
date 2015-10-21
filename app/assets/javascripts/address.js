@@ -1,7 +1,7 @@
 var address;
 (function(address){
 
-  function search(configs, value) {
+  function search(configs, value) { //alert ('tete')
     if(value === undefined || value == null)
       return;
 

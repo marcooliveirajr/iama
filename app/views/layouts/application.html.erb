@@ -38,8 +38,11 @@
 
     </main>
 
-  <%= render 'shared/menu' %>
+    <%= render 'shared/menu' %>
 
 
+    <script type='text/javascript'>
+      <%= yield :javascript %>
+    </script>
   </body>
 </html>

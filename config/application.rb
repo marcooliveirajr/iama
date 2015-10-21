@@ -18,6 +18,7 @@ Bundler.require(*Rails.groups)
 module Clinicaiama
   class Application < Rails::Application
 
+    config.eager_load_paths += %W(#{config.root}/lib)
     # config.i18n.enforce_available_locales = true
     # config.i18n.default_locale = :"pt-BR"
     # config.encoding = 'utf-8'

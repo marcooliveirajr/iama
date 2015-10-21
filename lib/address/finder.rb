@@ -17,7 +17,7 @@ module Address
     def parse_result(cep)
       return nil unless cep
       {
-        street:   cep[:address],
+        address:  cep[:address],
         district: cep[:neighborhood],
         city:     cep[:city],
         state:    cep[:state],
