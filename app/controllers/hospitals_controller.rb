@@ -69,6 +69,6 @@ class HospitalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hospital_params
-      params.require(:hospital).permit(:name, :type, :status)
+      params.require(:hospital).permit(:name, :kind, :status)
     end
 end

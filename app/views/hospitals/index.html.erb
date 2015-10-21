@@ -1,5 +1,76 @@
 <h1 class="ls-title-intro ls-ico-cog">Hospitais</h1>
 
+<div class="container-fluid">
+  <%= link_to 'Cadastrar Hospital', new_hospital_path(@hospital) , class: "ls-btn-primary" %>
+</div>
+
+<div class="ls-box-filter">
+  <form action="" class="ls-form ls-form-inline">
+    <input type="hidden" name="status" value="">
+    <label class="ls-label col-md-4 col-sm-4">
+      <b class="ls-label-text">Período</b>
+      <div class="ls-custom-select">
+        <select name="period" id="select_period" class="ls-select">
+            <option>Hoje</option>
+            <option>Ontem</option>
+            <option>Última semana</option>
+            <option>Últimos 30 dias</option>
+            <option>Últimos 6 meses</option>
+            <option>Últimos 12 meses</option>
+            <option>Personalizado</option>
+        </select>
+      </div>
+    </label>
+    <label class="ls-label col-md-2 col-sm-2">
+      <span id="new_feature_custom_filter_2" data-ls-module="popover" data-content="Escolha o período desejado e clique em 'Filtrar'."></span>
+      <input type="text" name="range_start" class="datepicker ls-daterange" placeholder="dd/mm/aaaa" id="datepicker3" data-ls-daterange="#datepicker4">
+    </label>
+    <label class="ls-label col-md-2 col-sm-2">
+      <span id="new_feature_custom_filter_3" data-ls-module="popover" data-content="Clique em 'Filtrar' para exibir  o período selecionado."></span>
+      <input type="text" name="range_end" class="datepicker ls-daterange" placeholder="dd/mm/aaaa" id="datepicker4">
+    </label>
+    <label class="ls-label col-md-1 col-sm-1">
+      <input type="submit" class="ls-btn-primary" value="Filtrar">
+    </label>
+    <div data-ls-module="dropdown" class="ls-dropdown ls-float-right" id="step4">
+      <a href="#" class="ls-btn" role="combobox" aria-expanded="false">Exportar</a>
+      <ul class="ls-dropdown-nav" aria-hidden="true">
+        <li>
+          <a href="" role="option" tabindex="-1">CSV</a>
+        </li>
+        <li>
+          <a data-action="open_modal_export" data-ls-module="modal" data-report-ext="XLS" data-target="#modal_export" href="" role="option" tabindex="-1">XLS</a>
+        </li>
+        <li>
+          <a class="ls-divider" data-action="open_modal_export" data-ls-module="modal" data-target="#modal_exported_reports" data-url="/panel/exports" href="" id="link_exported_reports" role="option" tabindex="-1">Relatórios exportados</a>
+        </li>
+      </ul>
+    </div>
+  </form>
+</div>
+
+
+<table class="ls-table ls-table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th class="hidden-xs">Tipo</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hospitals.each do |hospital| %>
+    <tr>
+      <td><%= link_to hospital.name, hospital %></td>
+      <td class="hidden-xs"><%= hospital.kind %></td>
+      <td><%= hospital.status %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
 <% @hospitals.each do |hospital| %>
 
 <div class="ls-list">
@@ -12,7 +83,7 @@
   <div class="ls-list-content ">
     <div class="col-xs-12 col-md-6">
         <span class="ls-list-label">Tipo</span>
-      <strong><%= hospital.type %></strong>
+      <strong><%= hospital.kind %></strong>
     </div>
     <div class="col-xs-12 col-md-6">
       <span class="ls-list-label">Status</span>
@@ -23,6 +94,3 @@
 </div>
 <% end %>
 
-<div class="ls-pagination-filter ">
-     <%= link_to 'Cadastrar Hospital', new_hospital_path(@hospital) , class: "ls-btn-darker" %>
-</div>

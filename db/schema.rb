@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20151020105236) do
 
   create_table "health_insurances", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "kind"
     t.boolean  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 20151020105236) do
 
   create_table "hospitals", force: :cascade do |t|
     t.string   "name"
-    t.string   "type"
+    t.string   "kind"
     t.boolean  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

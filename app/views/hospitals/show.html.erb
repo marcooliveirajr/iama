@@ -1,19 +1,23 @@
-<p id="notice"><%= notice %></p>
+<h1 class="ls-title-intro ls-ico-cog">Hospitais</h1>
+<%= form_for(@hospital, html: { class: "ls-form row" }) do |f| %>
+<div class="ls-box">
+<div class="row">
+  <div class="col-md-12">
+    <div class="ls-box">
+      <p><strong>Nome</strong></p>
+      <p class="ls-break-text"><%= @hospital.name %></p>
+      <hr>
+      <p><strong>Tipo</strong></p>
+      <p class="ls-break-text"><%= @hospital.kind %></p>
+      <hr>
+      <p><strong>Status</strong></p>
+      <p class="ls-break-text"><%= @hospital.status %></p>
+    </div>
+  </div>
+</div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @hospital.name %>
-</p>
+<%= link_to 'Editar', edit_hospital_path(@hospital) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', hospitals_path, class: "ls-btn-darker" %>
 
-<p>
-  <strong>Type:</strong>
-  <%= @hospital.type %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @hospital.status %>
-</p>
-
-<%= link_to 'Edit', edit_hospital_path(@hospital) %> |
-<%= link_to 'Back', hospitals_path %>
+<% end %>

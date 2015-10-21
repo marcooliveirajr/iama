@@ -1,19 +1,24 @@
-<p id="notice"><%= notice %></p>
+<h1 class="ls-title-intro ls-ico-cog">Convênios Médicos</h1>
+<%= form_for(@health_insurance, html: { class: "ls-form row" }) do |f| %>
+<div class="ls-box">
+<div class="row">
+  <div class="col-md-12">
+    <div class="ls-box">
+      <p><strong>Nome</strong></p>
+      <p class="ls-break-text"><%= @health_insurance.name %></p>
+      <hr>
+      <p><strong>Tipo</strong></p>
+      <p class="ls-break-text"><%= @health_insurance.kind %></p>
+      <hr>
+      <p><strong>Status</strong></p>
+      <p class="ls-break-text"><%= @health_insurance.status %></p>
+    </div>
+  </div>
+</div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @health_insurance.name %>
-</p>
+<%= link_to 'Editar', edit_health_insurance_path(@health_insurance) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', health_insurances_path, class: "ls-btn-darker" %>
 
-<p>
-  <strong>Type:</strong>
-  <%= @health_insurance.type %>
-</p>
+<% end %>
 
-<p>
-  <strong>Status:</strong>
-  <%= @health_insurance.status %>
-</p>
-
-<%= link_to 'Edit', edit_health_insurance_path(@health_insurance) %> |
-<%= link_to 'Back', health_insurances_path %>
