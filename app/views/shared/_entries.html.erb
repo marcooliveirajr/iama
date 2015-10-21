@@ -96,10 +96,12 @@
 
     <div class="row">
       <div class="col-md-8">
+
         <label class="ls-label col-md-4">
         <span class="ls-label-text"><%= f.label :state, "Estado" %></span>
-          <%= f.select(:state, Carmen::state_codes('BR'), {prompt: true}, class: "ls-state", id: "id_state" ) %>
-
+        <div class="ls-custom-select">
+          <%= f.select(:state, Carmen::state_codes('BR'), {prompt: true}, class: "ls-state ls-select", id: "id_state" ) %>
+        </div>
       </label>
 
        <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
