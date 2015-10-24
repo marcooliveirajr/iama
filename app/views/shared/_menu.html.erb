@@ -4,16 +4,10 @@
 
       <li class="ls-submenu">
         <a class="ls-ico-calendar-more" href=""> Iama </a>
-            <ul>
-                <li><a class="ls-submenu-item" href=""> Tabela Fato </a></li>
-           </ul>
       </li>
 
       <li class="ls-submenu">
         <a class="ls-ico-pencil" href="">  Cadastros </a>
-        <ul>
-          <li><a class="ls-submenu-item" href=""> TUSS </a></li>
-        </ul>
         <ul>
           <%= link_to 'Paciente', patients_path, class: "ls-ico-user-add" %>
         </ul>
@@ -27,10 +21,13 @@
           <%= link_to 'Hospital', hospitals_path, class: "ls-ico-text" %>
         </ul>
         <ul>
-          <li><a class="ls-submenu-item" href=""> Quartos </a></li>
+          <%= link_to 'Quartos', bedrooms_path, class: "ls-ico-text" %>
         </ul>
         <ul>
           <%= link_to 'Convênio Médico', health_insurances_path, class: "ls-ico-text" %>
+        </ul>
+        <ul>
+          <li><a class="ls-ico-text" href=""> TUSS </a></li>
         </ul>
       </li>
 

@@ -1,0 +1,21 @@
+<h1 class="ls-title-intro ls-ico-cog">Quartos</h1>
+<%= form_for(@bedroom, html: { class: "ls-form row" }) do |f| %>
+<div class="ls-box">
+<div class="row">
+  <div class="col-md-12">
+    <div class="ls-box">
+      <p><strong>Nome</strong></p>
+      <p class="ls-break-text"><%= @bedroom.name %></p>
+      <hr>
+      <p><strong>Hospitals</strong></p>
+      <p class="ls-break-text"><%= @bedroom.hospital.name %></p>
+      <hr>
+  </div>
+</div>
+</div>
+
+<%= link_to 'Editar', edit_bedroom_path(@bedroom) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', bedrooms_path, class: "ls-btn-darker" %>
+
+<% end %>
+

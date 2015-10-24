@@ -1,3 +1,4 @@
 <h1 class="ls-title-intro ls-ico-cog">Editar Convênio Médico</h1>
 
-<%= render 'form' %>
+<%= render partial: 'shared/entries_standard', locals: { entrie: @health_insurance, path: health_insurances_path } %>
+
