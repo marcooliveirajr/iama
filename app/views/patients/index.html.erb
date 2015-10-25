@@ -1,60 +1,72 @@
-<h1 class="ls-title-intro ls-ico-cog">Pacientes</h1>
+<h1 class="ls-title-intro ls-ico-users">Pacientes</h1>
 
-<% @patients.each do |patient| %>
+<a><%= link_to 'Cadastrar Paciente', new_patient_path(@patient) , class: "ls-btn-primary" %></a>
 
-<div class="ls-list">
-  <header class="ls-list-header">
-    <div class="ls-list-title col-md-9">
-      <strong>Nome</strong>
-      <small><%= link_to patient.name, patient %></small>
-    </div>
-  </header>
-  <div class="ls-list-content ">
-    <div class="col-xs-12 col-md-6">
-        <span class="ls-list-label">CPF</span>
-      <strong><%= patient.cpf %></strong>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <span class="ls-list-label">Telefone</span>
-      <strong><%= patient.phone %></strong>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <span class="ls-list-label">Email</span>
-      <strong><%= patient.email %></strong>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <span class="ls-list-label">CEP</span>
-      <strong><%= patient.postal_code %></strong>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <span class="ls-list-label">Endereço</span>
-      <strong><%= patient.address %></strong>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <span class="ls-list-label">Número</span>
-      <strong><%= patient.address_number %></strong>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <span class="ls-list-label">Complemento</span>
-      <strong><%= patient.address_complement %></strong>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <span class="ls-list-label">Bairro</span>
-      <strong><%= patient.district %></strong>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <span class="ls-list-label">Cidade</span>
-      <strong><%= patient.city %></strong>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <span class="ls-list-label">Estados</span>
-      <strong><%= patient.state %></strong>
-    </div>
+<div class="ls-box-filter">
+  <form method="get" accept-charset="UTF-8" action="/hospitals/search" id="new_customer_search" class="ls-form ls-form-inline" novalidate="novalidate"><input type="hidden" value="✓" name="utf8">
+    <label class="ls-label col-md-4">
+      <b class="ls-label-text">Buscar por:</b>
+      <div class="ls-custom-select">
+        <select name="" class="ls-select">
+          <option>Nome</option>
+          <option>CPF</option>
+          <option>Telefone</option>
+        </select>
+      </div>
+    </label>
 
-  </div>
+    <label role="search" class="ls-label col-md-4">
+      <div>
+        <input type="text" class="ls-field">
+      </div>
+    </label>
+    <label class="ls-label ">
+      <input type="submit" class="ls-btn" value="Buscar" name="commit" aria-expanded="false" role="combobox">
+    </label>
+  </form>
 </div>
-<% end %>
 
-<div class="ls-pagination-filter ">
-     <%= link_to 'Cadastrar Paciente', new_patient_path(@patient) , class: "ls-btn-darker" %>
+<table class="ls-table ls-table-striped">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th class="hidden-xs">CPF</th>
+      <th>Telefone</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @patients.each do |patient| %>
+    <tr>
+      <td><%= link_to patient.name, patient %></td>
+      <td class="hidden-xs"><%= patient.cpf %></td>
+      <td><%= patient.phone %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="ls-pagination-filter">
+  <ul class="ls-pagination">
+    <li class="ls-disabled"><a href="#">&laquo; Anterior</a></li>
+    <li class="ls-active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">Próximo &raquo;</a></li>
+  </ul>
+
+  <div class="ls-filter-view">
+      Exibir
+    <div class="ls-custom-select">
+      <select name="" id="" class="ls-select">
+        <option value="10">10</option>
+        <option value="30">30</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
+    </div>
+      ítens por página
+  </div>
 </div>

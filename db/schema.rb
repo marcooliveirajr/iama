@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(version: 20151024094441) do
   create_table "bedrooms", force: :cascade do |t|
     t.string   "name"
     t.integer  "hospital_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "bedrooms", ["hospital_id"], name: "index_bedrooms_on_hospital_id"

@@ -1,13 +1,11 @@
-<h1 class="ls-title-intro ls-ico-cog">Hospitais</h1>
+<h1 class="ls-title-intro ls-ico-text">Hospitais</h1>
 
-<div class="container-fluid">
-  <%= link_to 'Cadastrar Hospital', new_hospital_path(@hospital) , class: "ls-btn-primary" %>
-</div>
+<a><%= link_to 'Cadastrar Hospital', new_hospital_path(@hospital) , class: "ls-btn-primary" %></a>
 
 <div class="ls-box-filter">
-  <form action="" class="ls-form ls-form-inline ls-float-left">
-    <label class="ls-label col-md-8 col-sm-8">
-      <b class="ls-label-text">Buscar por</b>
+  <form method="get" accept-charset="UTF-8" action="/hospitals/search" id="new_customer_search" class="ls-form ls-form-inline" novalidate="novalidate"><input type="hidden" value="✓" name="utf8">
+    <label class="ls-label col-md-4">
+      <b class="ls-label-text">Buscar por:</b>
       <div class="ls-custom-select">
         <select name="" class="ls-select">
           <option>Nome</option>
@@ -16,20 +14,17 @@
         </select>
       </div>
     </label>
-  </form>
 
-  <form  action="" class="ls-form ls-form-inline ls-float-right">
-    <label class="ls-label" role="search">
-      <b class="ls-label-text ls-hidden-accessible">Nome do cliente</b>
-      <input type="text" id="q" name="q" required="" class="ls-field">
+    <label role="search" class="ls-label col-md-4">
+      <div>
+        <input type="text" class="ls-field">
+      </div>
     </label>
-    <div class="ls-actions-btn">
-      <input type="submit" value="Buscar" class="ls-btn" title="Buscar">
-    </div>
+    <label class="ls-label ">
+      <input type="submit" class="ls-btn" value="Buscar" name="commit" aria-expanded="false" role="combobox">
+    </label>
   </form>
 </div>
-
-
 
 <table class="ls-table ls-table-striped">
   <thead>
@@ -51,27 +46,27 @@
   </tbody>
 </table>
 
+<div class="ls-pagination-filter">
+  <ul class="ls-pagination">
+    <li class="ls-disabled"><a href="#">&laquo; Anterior</a></li>
+    <li class="ls-active"><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li><a href="#">Próximo &raquo;</a></li>
+  </ul>
 
-<% @hospitals.each do |hospital| %>
-
-<div class="ls-list">
-  <header class="ls-list-header">
-    <div class="ls-list-title col-md-9">
-      <strong>Nome</strong>
-      <small><%= link_to hospital.name, hospital %></small>
+  <div class="ls-filter-view">
+      Exibir
+    <div class="ls-custom-select">
+      <select name="" id="" class="ls-select">
+        <option value="10">10</option>
+        <option value="30">30</option>
+        <option value="50">50</option>
+        <option value="100">100</option>
+      </select>
     </div>
-  </header>
-  <div class="ls-list-content ">
-    <div class="col-xs-12 col-md-6">
-        <span class="ls-list-label">Tipo</span>
-      <strong><%= hospital.kind %></strong>
-    </div>
-    <div class="col-xs-12 col-md-6">
-      <span class="ls-list-label">Status</span>
-      <strong><%= hospital.status %></strong>
-    </div>
-
+      ítens por página
   </div>
 </div>
-<% end %>
-

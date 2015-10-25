@@ -8,9 +8,17 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   get '/address/search' => 'address#search_postal_code'
   root :to => 'home#index'
-  resources :surgeons
+  resources :surgeons do
+    collection do
+      get :search
+    end
+  end
   resources :users
-  resources :hospitals
+  resources :hospitals do
+    collection do
+      get :search
+    end
+  end
   resources :health_insurances
   resources :patients
   resources :anesthetists
