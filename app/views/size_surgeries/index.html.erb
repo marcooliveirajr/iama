@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Size Surgeries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Health insurance</th>
+      <th>Size</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @size_surgeries.each do |size_surgery| %>
+      <tr>
+        <td><%= size_surgery.health_insurance %></td>
+        <td><%= size_surgery.size %></td>
+        <td><%= size_surgery.value %></td>
+        <td><%= link_to 'Show', size_surgery %></td>
+        <td><%= link_to 'Edit', edit_size_surgery_path(size_surgery) %></td>
+        <td><%= link_to 'Destroy', size_surgery, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Size surgery', new_size_surgery_path %>

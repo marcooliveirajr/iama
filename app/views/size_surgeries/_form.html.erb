@@ -1,0 +1,29 @@
+<%= form_for(@size_surgery) do |f| %>
+  <% if @size_surgery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@size_surgery.errors.count, "error") %> prohibited this size_surgery from being saved:</h2>
+
+      <ul>
+      <% @size_surgery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :health_insurance_id %><br>
+    <%= f.text_field :health_insurance_id %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.text_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

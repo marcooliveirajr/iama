@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Health insurance:</strong>
+  <%= @size_surgery.health_insurance %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @size_surgery.size %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @size_surgery.value %>
+</p>
+
+<%= link_to 'Edit', edit_size_surgery_path(@size_surgery) %> |
+<%= link_to 'Back', size_surgeries_path %>

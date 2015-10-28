@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :size_surgeries
   devise_for :users
   resources :bedrooms
   # The priority is based upon order of creation: first created -> highest priority.
