@@ -13,6 +13,7 @@ gem 'carmen', '~> 0.2.12'
 gem 'iconv', '~> 1.0.3'
 gem 'correios-cep', '~> 0.3.3'
 gem 'devise'
+gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
   gem 'pry'

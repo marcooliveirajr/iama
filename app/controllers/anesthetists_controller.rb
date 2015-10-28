@@ -4,7 +4,10 @@ class AnesthetistsController < ApplicationController
   # GET /anesthetists
   # GET /anesthetists.json
   def index
-    @anesthetists = Anesthetist.all
+    #@anesthetists = Anesthetist.all
+    #@anesthetists = Anesthetist.order("name").page(params['page']).per(3)
+    #<%= paginate @anesthetists %>
+    @anesthetists = Anesthetist.paginate(:page => params[:page], :per_page => 3)
   end
 
   # GET /anesthetists/1
