@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'carmen', '~> 0.2.12'
 gem 'iconv', '~> 1.0.3'
 gem 'correios-cep', '~> 0.3.3'
+gem 'devise'
 
 group :development, :test do
   gem 'pry'
