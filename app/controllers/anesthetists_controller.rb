@@ -7,7 +7,8 @@ class AnesthetistsController < ApplicationController
     #@anesthetists = Anesthetist.all
     #@anesthetists = Anesthetist.order("name").page(params['page']).per(3)
     #<%= paginate @anesthetists %>
-    @anesthetists = Anesthetist.paginate(:page => params[:page], :per_page => 3)
+    per_page   = params[:per_page] if params[:per_page].present?
+    @anesthetists = Anesthetist.paginate(:page => params[:page], :per_page => per_page)
   end
 
   # GET /anesthetists/1
