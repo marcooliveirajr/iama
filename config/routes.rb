@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :health_terminologies
   resources :size_surgeries
   devise_for :users
   resources :bedrooms

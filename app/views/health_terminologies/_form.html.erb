@@ -1,0 +1,91 @@
+<%= form_for(@health_terminology, html: { class: "ls-form row" }) do |f| %>
+
+  <% if @health_terminology.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@health_terminology.errors.count, "error") %> prohibited this health_terminology from being saved:</h2>
+
+      <ul>
+      <% @health_terminology.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <fieldset>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%= f.label :code_tuss, "Código TUSS" %></span>
+        <%= f.number_field :code_tuss %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%= f.label :description_tuss, "Procedimento" %></span>
+        <%= f.text_field :description_tuss %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%= f.label :category_tuss, "Categoria" %></span>
+        <%= f.text_field :category_tuss %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%= f.label :ch_surgeon, "CH Cirurgião" %></span>
+        <%= f.number_field :ch_surgeon %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%= f.label :size, "Porte" %></span>
+        <%= f.number_field :size %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%= f.label :number_aux, "Número Auxiliar" %></span>
+        <%= f.number_field :number_aux %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%= f.label :version, "Versão da Tabela" %></span>
+        <%= f.number_field :version %>
+      </label>
+     </div>
+    </div>
+
+
+ </fieldset>
+
+  <div class="ls-actions-btn">
+      <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
+      <%= f.submit "Limpar", :type => "reset",  class: "ls-btn-primary" %>
+      <%= link_to 'Voltar', health_terminologies_path, class: "ls-btn-darker" %>
+  </div>
+
+<% end %>
+

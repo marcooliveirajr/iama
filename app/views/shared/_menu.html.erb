@@ -3,11 +3,14 @@
     <ul>
 
       <li class="ls-submenu">
-        <a class="ls-ico-calendar-more" href=""> Agenda de Cirurgias </a>
+        <a class="ls-ico-calendar-more" href=""> Mapa </a>
       </li>
 
       <li class="ls-submenu">
         <a class="ls-ico-pencil" href="">  Cadastros </a>
+        <ul>
+          <%= link_to 'TUSS', health_terminologies_path, class: "ls-ico-text" %>
+        </ul>
         <ul>
           <%= link_to 'Paciente', patients_path, class: "ls-ico-user-add" %>
         </ul>
@@ -29,23 +32,13 @@
         <ul>
           <%= link_to 'Porte de Cirurgia', size_surgeries_path, class: "ls-ico-text" %>
         </ul>
-        <ul>
-          <li><a class="ls-ico-text" href=""> TUSS </a></li>
-        </ul>
       </li>
 
       <li class="ls-submenu">
-        <a class="ls-ico-chart-bar-up" href="">  Relatórios </a>
+        <a class="ls-ico-cog" href="">  Configurações </a>
         <ul>
-           <li><a class="ls-submenu-item" href=""> Mês </a></li>
+          <%= link_to 'Cadastro de Usuário', users_path, class: "ls-ico-user-add" %>
         </ul>
-        <ul>
-           <li><a class="ls-submenu-item" href=""> Semana </a></li>
-        </ul>
-      </li>
-
-      <li >
-        <a class="ls-ico-user-add" href="">  Administradores </a>
       </li>
     </ul>
   </nav>

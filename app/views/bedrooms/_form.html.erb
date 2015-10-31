@@ -1,4 +1,4 @@
-<%= form_for(entrie, html: { class: "ls-form row" }) do |f| %>
+<%= form_for(@bedroom, html: { class: "ls-form row" }) do |f| %>
 
   <fieldset>
 
@@ -27,7 +27,7 @@
   <div class="ls-actions-btn">
       <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
       <%= f.submit "Limpar", :type => "reset",  class: "ls-btn-primary" %>
-      <%= link_to 'Voltar', path, class: "ls-btn-darker" %>
+      <%= link_to 'Voltar', bedrooms_path, class: "ls-btn-darker" %>
   </div>
 
 <% end %>

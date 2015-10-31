@@ -1,0 +1,33 @@
+<h1 class="ls-title-intro ls-ico-text">Procedimento</h1>
+<%= form_for(@health_terminology, html: { class: "ls-form row" }) do |f| %>
+<div class="ls-box">
+<div class="row">
+  <div class="col-md-12">
+    <div class="ls-box">
+      <p><strong>Código TUSS</strong></p>
+      <p class="ls-break-text"><%= @health_terminology.code_tuss %></p>
+      <hr>
+      <p><strong>Procedimento</strong></p>
+      <p class="ls-break-text"><%= @health_terminology.description_tuss %></p>
+      <hr>
+      <p><strong>Categoria</strong></p>
+      <p class="ls-break-text"><%= @health_terminology.category_tuss %></p>
+      <hr>
+      <p><strong>CH Cirurgião</strong></p>
+      <p class="ls-break-text"><%= @health_terminology.ch_surgeon %></p>
+      <hr>
+      <p><strong>Porte</strong></p>
+      <p class="ls-break-text"><%= @health_terminology.size %></p>
+      <hr>
+      <p><strong>Número Auxiliar</strong></p>
+      <p class="ls-break-text"><%= @health_terminology.number_aux %></p>
+    </div>
+  </div>
+</div>
+</div>
+
+<%= link_to 'Editar', edit_health_terminology_path(@health_terminology) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', health_terminologies_path, class: "ls-btn-darker" %>
+
+<% end %>
+

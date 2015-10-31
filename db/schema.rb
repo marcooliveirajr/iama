@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028002145) do
+ActiveRecord::Schema.define(version: 20151031134111) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +44,18 @@ ActiveRecord::Schema.define(version: 20151028002145) do
     t.boolean  "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "health_terminologies", force: :cascade do |t|
+    t.integer  "code_tuss"
+    t.string   "description_tuss"
+    t.string   "category_tuss"
+    t.integer  "ch_surgeon"
+    t.integer  "size"
+    t.integer  "number_aux"
+    t.integer  "version"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
   end
 
   create_table "hospitals", force: :cascade do |t|
