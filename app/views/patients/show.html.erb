@@ -1,5 +1,4 @@
 <h1 class="ls-title-intro ls-ico-user">Pacientes</h1>
-<%= form_for(@patient, html: { class: "ls-form row" }) do |f| %>
 <div class="ls-box">
 <div class="row">
   <div class="col-md-12">
@@ -44,5 +43,3 @@
 
 <%= link_to 'Editar', edit_patient_path(@patient) , class: "ls-btn-darker" %>
 <%= link_to 'Voltar', patients_path, class: "ls-btn-darker" %>
-
-<% end %>
