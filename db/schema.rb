@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031134111) do
+ActiveRecord::Schema.define(version: 20151031163640) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name"
@@ -65,6 +65,28 @@ ActiveRecord::Schema.define(version: 20151031134111) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "maps", force: :cascade do |t|
+    t.datetime "time_surgery"
+    t.integer  "hospital_id"
+    t.integer  "bedroom_id"
+    t.integer  "patient_id"
+    t.integer  "health_terminology_id"
+    t.integer  "surgeon_id"
+    t.integer  "anesthetist_id"
+    t.integer  "health_insurance_id"
+    t.text     "note"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "maps", ["anesthetist_id"], name: "index_maps_on_anesthetist_id"
+  add_index "maps", ["bedroom_id"], name: "index_maps_on_bedroom_id"
+  add_index "maps", ["health_insurance_id"], name: "index_maps_on_health_insurance_id"
+  add_index "maps", ["health_terminology_id"], name: "index_maps_on_health_terminology_id"
+  add_index "maps", ["hospital_id"], name: "index_maps_on_hospital_id"
+  add_index "maps", ["patient_id"], name: "index_maps_on_patient_id"
+  add_index "maps", ["surgeon_id"], name: "index_maps_on_surgeon_id"
 
   create_table "patients", force: :cascade do |t|
     t.string   "name"
