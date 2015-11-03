@@ -1,37 +1,23 @@
 <h1 class="ls-title-intro ls-ico-text">Mapa</h1>
+
 <div class="ls-box">
-<div class="row">
-  <div class="col-md-12">
-    <div class="ls-box">
-      <p><strong>Time surgery:</strong></p>
-      <p class="ls-break-text"><%= @map.time_surgery %></p>
-      <hr>
-      <p><strong>Hospital:</strong></p>
-      <p class="ls-break-text"><%= @map.hospital.name %></p>
-      <hr>
-      <p><strong>Bedroom:</strong></p>
-      <p class="ls-break-text"><%= @map.bedroom.name %></p>
-      <hr>
-      <p><strong>Patient:</strong></p>
-      <p class="ls-break-text"><%= @map.patient.name %></p>
-      <hr>
-      <p><strong>Health terminology:</strong></p>
-      <p class="ls-break-text"><%= @map.health_terminology.description_tuss %></p>
-      <hr>
-      <p><strong>Surgeon:</strong></p>
-      <p class="ls-break-text"><%= @map.surgeon.name %></p>
-      <hr>
-      <p><strong>Anesthetist:</strong></p>
-      <p class="ls-break-text"><%= @map.anesthetist.name %></p>
-      <hr>
-      <p><strong>Health insurance:</strong></p>
-      <p class="ls-break-text"><%= @map.health_insurance.name %></p>
-      <hr>
-      <p><strong>Note:</strong></p>
-      <p class="ls-break-text"><%= @map.note %></p>
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> <td> Hora: <label class="ls-title-6"><%= @map.time_surgery %></label> </td> </tr>
+            <tr> <td> Hospital: <label class="ls-title-6"><%= @map.hospital.name %></label> </td> </tr>
+            <tr> <td> Quarto: <label class="ls-title-6"><%= @map.bedroom.name %></label> </td> </tr>
+            <tr> <td> Paciente: <label class="ls-title-6"><%= @map.patient.name %></label> </td> </tr>
+            <tr> <td> Procedimento: <label class="ls-title-6"><%= @map.description_tuss %></label> </td> </tr>
+            <tr> <td> Cirurgião: <label class="ls-title-6"><%= @map.surgeon.name %></label> </td> </tr>
+            <tr> <td> Anestesista: <label class="ls-title-6"><%= @map.anesthetist.name %></label> </td> </tr>
+            <tr> <td> Convênio Médico: <label class="ls-title-6"><%= @map.health_insurance.name %></label> </td> </tr>
+            <tr> <td> Observação: <label class="ls-title-6"><%= @map.note %></label> </td> </tr>
+          </tbody>
+        </table>
     </div>
   </div>
-</div>
 </div>
 
 <%= link_to 'Editar', edit_map_path(@map) , class: "ls-btn-darker" %>

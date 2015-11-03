@@ -1,17 +1,18 @@
 <h1 class="ls-title-intro ls-ico-text">Quartos</h1>
+
 <div class="ls-box">
-<div class="row">
-  <div class="col-md-12">
-    <div class="ls-box">
-      <p><strong>Nome</strong></p>
-      <p class="ls-break-text"><%= @bedroom.name %></p>
-      <hr>
-      <p><strong>Hospital</strong></p>
-      <p class="ls-break-text"><%= @bedroom.hospital.name %></p>
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> <td> Nome: <label class="ls-title-6"><%= @bedroom.name %></label> </td> </tr>
+            <tr> <td> Hospital: <label class="ls-title-6"><%= @bedroom.hospital.name %></label> </td> </tr>
+          </tbody>
+        </table>
     </div>
   </div>
 </div>
-</div>
+
 
 <%= link_to 'Editar', edit_bedroom_path(@bedroom) , class: "ls-btn-darker" %>
 <%= link_to 'Voltar', bedrooms_path, class: "ls-btn-darker" %>

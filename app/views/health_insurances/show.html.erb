@@ -1,20 +1,19 @@
 <h1 class="ls-title-intro ls-ico-text">Convênios Médicos</h1>
+
 <div class="ls-box">
-<div class="row">
-  <div class="col-md-12">
-    <div class="ls-box">
-      <p><strong>Nome</strong></p>
-      <p class="ls-break-text"><%= @health_insurance.name %></p>
-      <hr>
-      <p><strong>Tipo</strong></p>
-      <p class="ls-break-text"><%= @health_insurance.kind %></p>
-      <hr>
-      <p><strong>Status</strong></p>
-      <p class="ls-break-text"><%= @health_insurance.status %></p>
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> <td> Nome: <label class="ls-title-6"><%= @health_insurance.name %></label> </td> </tr>
+            <tr> <td> Tipo: <label class="ls-title-6"><%= @health_insurance.kind %></label> </td> </tr>
+            <tr> <td> Status: <label class="ls-title-6"><%= @health_insurance.status %></label> </td> </tr>
+          </tbody>
+        </table>
     </div>
   </div>
-</div>
 </div>
 
 <%= link_to 'Editar', edit_health_insurance_path(@health_insurance) , class: "ls-btn-darker" %>
 <%= link_to 'Voltar', health_insurances_path, class: "ls-btn-darker" %>
+

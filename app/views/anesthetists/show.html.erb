@@ -1,44 +1,25 @@
-<h1 class="ls-title-intro ls-ico-user">Anestesistas</h1>
-<div class="ls-box">
-<div class="row">
-  <div class="col-md-12">
-    <div class="ls-box">
-      <p><strong>Nome</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.name %></p>
-      <hr>
-      <p><strong>CPF</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.cpf %></p>
-      <hr>
-      <p><strong>Telefone</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.phone %></p>
-      <hr>
-      <p><strong>Email</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.email %></p>
-      <hr>
-      <p><strong>CEP</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.postal_code %></p>
-      <hr>
-      <p><strong>Endereço</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.address %></p>
-      <hr>
-      <p><strong>Número</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.address_number %></p>
-      <hr>
-      <p><strong>Complemento</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.address_complement %></p>
-      <hr>
-      <p><strong>Bairro</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.district %></p>
-      <hr>
-      <p><strong>Cidade</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.city %></p>
-      <hr>
-      <p><strong>Estado</strong></p>
-      <p class="ls-break-text"><%= @anesthetist.state %></p>
+<h1 class="ls-title-intro ls-ico-user">Cadastro do Anestesista</h1>
 
+<div class="ls-box">
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> <td> Nome: <label class="ls-title-6"><%= @anesthetist.name %></label> </td> </tr>
+            <tr> <td> CPF: <label class="ls-title-6"><%= @anesthetist.cpf %></label> </td> </tr>
+            <tr> <td> Telefone: <label class="ls-title-6"><%= @anesthetist.phone %></label> </td> </tr>
+            <tr> <td> Email: <label class="ls-title-6"><%= @anesthetist.email %></label> </td> </tr>
+            <tr> <td> CEP: <label class="ls-title-6"><%= @anesthetist.postal_code %></label> </td> </tr>
+            <tr> <td> Endereço: <label class="ls-title-6"><%= @anesthetist.address %></label> </td> </tr>
+            <tr> <td> Número: <label class="ls-title-6"><%= @anesthetist.address_number %></label> </td> </tr>
+            <tr> <td> Complemento: <label class="ls-title-6"><%= @anesthetist.address_complement %></label> </td> </tr>
+            <tr> <td> Bairro: <label class="ls-title-6"><%= @anesthetist.district %></label> </td> </tr>
+            <tr> <td> Cidade: <label class="ls-title-6"><%= @anesthetist.city %></label> </td> </tr>
+            <tr> <td> Estado: <label class="ls-title-6"><%= @anesthetist.state %></label> </td> </tr>
+          </tbody>
+        </table>
     </div>
   </div>
-</div>
 </div>
 
 <%= link_to 'Editar', edit_anesthetist_path(@anesthetist) , class: "ls-btn-darker" %>

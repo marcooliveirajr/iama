@@ -1,19 +1,17 @@
 <h1 class="ls-title-intro ls-ico-user">Usuários</h1>
+
 <div class="ls-box">
-<div class="row">
-  <div class="col-md-12">
-    <div class="ls-box">
-      <p><strong>Usuário</strong></p>
-      <p class="ls-break-text"><%= @user.name %></p>
-      <hr>
-      <p><strong>Email</strong></p>
-      <p class="ls-break-text"><%= @user.email %></p>
-      <hr>
-      <p><strong>Senha</strong></p>
-      <p class="ls-break-text"><%= @user.password %></p>
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> <td> Usuário: <label class="ls-title-6"><%= @user.name %></label> </td> </tr>
+            <tr> <td> Email: <label class="ls-title-6"><%= @user.email %></label> </td> </tr>
+            <tr> <td> Senha: <label class="ls-title-6"><%= @user.password %></label> </td> </tr>
+          </tbody>
+        </table>
     </div>
   </div>
-</div>
 </div>
 
 <%= link_to 'Editar', edit_user_path(@user) , class: "ls-btn-darker" %>

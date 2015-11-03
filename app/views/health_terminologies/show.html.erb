@@ -1,28 +1,20 @@
 <h1 class="ls-title-intro ls-ico-text">Procedimento</h1>
+
 <div class="ls-box">
-<div class="row">
-  <div class="col-md-12">
-    <div class="ls-box">
-      <p><strong>Código TUSS</strong></p>
-      <p class="ls-break-text"><%= @health_terminology.code_tuss %></p>
-      <hr>
-      <p><strong>Procedimento</strong></p>
-      <p class="ls-break-text"><%= @health_terminology.description_tuss %></p>
-      <hr>
-      <p><strong>Categoria</strong></p>
-      <p class="ls-break-text"><%= @health_terminology.category_tuss %></p>
-      <hr>
-      <p><strong>CH Cirurgião</strong></p>
-      <p class="ls-break-text"><%= @health_terminology.ch_surgeon %></p>
-      <hr>
-      <p><strong>Porte</strong></p>
-      <p class="ls-break-text"><%= @health_terminology.size %></p>
-      <hr>
-      <p><strong>Número Auxiliar</strong></p>
-      <p class="ls-break-text"><%= @health_terminology.number_aux %></p>
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> <td> Código TUSS: <label class="ls-title-6"><%= @health_terminology.code_tuss %></label> </td> </tr>
+            <tr> <td> Procedimento: <label class="ls-title-6"><%= @health_terminology.description_tuss %></label> </td> </tr>
+            <tr> <td> Categoria: <label class="ls-title-6"><%= @health_terminology.category_tuss %></label> </td> </tr>
+            <tr> <td> CH Cirurgião: <label class="ls-title-6"><%= @health_terminology.ch_surgeon %></label> </td> </tr>
+            <tr> <td> Porte: <label class="ls-title-6"><%= @health_terminology.size %></label> </td> </tr>
+            <tr> <td> Número Auxiliar: <label class="ls-title-6"><%= @health_terminology.number_aux %></label> </td> </tr>
+          </tbody>
+        </table>
     </div>
   </div>
-</div>
 </div>
 
 <%= link_to 'Editar', edit_health_terminology_path(@health_terminology) , class: "ls-btn-darker" %>
