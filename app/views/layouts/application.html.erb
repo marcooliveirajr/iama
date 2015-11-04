@@ -8,11 +8,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
   <%= stylesheet_link_tag    "application", SECRETS["locastyle"]["css"], :media => "screen" %>
   <%= csrf_meta_tags %>
-
 </head>
 <body>
   <div class="ls-topbar">
-
     <div class="ls-notification-topbar">
       <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
         <a href="#" class="ls-ico-user">
@@ -24,7 +22,6 @@
             <li><%=link_to "Sair", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </nav>
-
       </div>
     </div>
 
