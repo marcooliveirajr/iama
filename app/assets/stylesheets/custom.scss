@@ -1,0 +1,55 @@
+.ls-cart-content
+  z-index: 2
+
+.text_date_separator
+  float: left
+  vertical-align: middle
+  margin-top: 25px
+
+.ls-error
+  select
+    border: 1px solid red!important
+
+.ea-tab-no-padding
+  fieldset
+    label
+      padding-left: 0px!important
+
+.circle
+  border-radius: 50%
+  width: 36px
+  height: 36px
+  padding: 8px
+  text-align: center
+  border-color: #254fa2
+  background: white
+  color: #254fa2
+  border: 2px solid
+
+.komerci-message
+  line-height: 150%
+
+.round
+  border-radius: 70%
+  overflow: hidden
+  width: 400px
+  height: 400px
+
+  img
+    display: block
+    min-width: 100%
+    min-height: 100%
+
+.ls-cart-content
+  z-index: 10
+
+.ls-help-message
+  font-weight: normal
+
+.ls-billet-paid
+  display: block
+  line-height: 25px
+
+  input[type="checkbox"]
+    margin: 0 4px
+

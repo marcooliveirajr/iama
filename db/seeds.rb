@@ -30,6 +30,17 @@ Hospital.create! :name => "Hospital Santa Casa", :kind => "tipo 1", :status => t
 Hospital.create! :name => "Hospital Unimed", :kind => "tipo 1", :status => false
 Hospital.create! :name => "Hospital Modelo", :kind => "tipo 2", :status => true
 
+puts 'Creating Bedroons for test...'
+Bedroom.create! :name => "Quarto 1", :hospital_id => 1
+Bedroom.create! :name => "Quarto 2", :hospital_id => 1
+Bedroom.create! :name => "Quarto 3", :hospital_id => 1
+Bedroom.create! :name => "Quarto 1", :hospital_id => 2
+Bedroom.create! :name => "Quarto 2", :hospital_id => 2
+Bedroom.create! :name => "Quarto 3", :hospital_id => 2
+Bedroom.create! :name => "Quarto 1", :hospital_id => 3
+Bedroom.create! :name => "Quarto 2", :hospital_id => 3
+Bedroom.create! :name => "Quarto 3", :hospital_id => 3
+
 puts 'Creating Health insureces for test...'
 HealthInsurance.create! :name => "Unimed", :kind => "tipo 1", :status => true
 HealthInsurance.create! :name => "Teste", :kind => "tipo 1", :status => false
