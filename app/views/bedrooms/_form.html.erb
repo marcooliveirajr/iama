@@ -1,5 +1,16 @@
 <%= form_for(@bedroom, html: { class: "ls-form row" }) do |f| %>
+  <% if @bedroom.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bedroom.errors.count, "error") %> prohibited this bedroom from being saved:</h2>
 
+      <ul>
+      <% @bedroom.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <fieldset>
 
     <div class="row">

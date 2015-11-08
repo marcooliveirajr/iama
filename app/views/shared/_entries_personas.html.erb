@@ -1,5 +1,16 @@
 <%= form_for(entrie, html: { class: "ls-form row" }) do |f| %>
+  <% if entrie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@map.errors.count, "error") %> prohibited this entrie from being saved:</h2>
 
+      <ul>
+      <% entrie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <fieldset>
 
     <div class="row">

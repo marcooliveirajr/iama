@@ -1,5 +1,16 @@
 <%= form_for(@size_surgery, html: { class: "ls-form row" }) do |f| %>
+  <% if @size_surgery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@size_surgery.errors.count, "error") %> prohibited this size_surgery from being saved:</h2>
 
+      <ul>
+      <% @size_surgery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
   <fieldset>
 
     <div class="row">
