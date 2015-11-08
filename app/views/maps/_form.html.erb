@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8">
-        <span class="ls-label-text"><%= f.label :time_surgery, "Data/Hora" %></span>
+        <span class="ls-label-text"><%=f.label :time_surgery, "Data/Hora" %></span>
         <%= f.datetime_select :time_surgery %>
       </label>
      </div>
@@ -24,7 +24,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-8">
         <span class="ls-label-text"><%= f.label :hospital_id, "Hospital" %></span>
           <div class="ls-custom-select">
             <%= f.collection_select(:hospital_id, Hospital.all, :id, :name, class: "ls-state ls-select") %>
@@ -46,7 +46,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-6">
         <span class="ls-label-text"><%= f.label :patient_id, "Paciente" %></span>
           <div class="ls-custom-select">
             <%= f.collection_select(:patient_id, Patient.all, :id, :name, class: "ls-state ls-select") %>
@@ -57,7 +57,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-8">
         <span class="ls-label-text"><%= f.label :health_terminology_id, "Procedimento" %></span>
           <div class="ls-custom-select">
             <%= f.collection_select(:health_terminology_id, HealthTerminology.all, :id, :description_tuss, class: "ls-state ls-select") %>
@@ -68,7 +68,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-8">
         <span class="ls-label-text"><%= f.label :surgeon_id, "Cirugião" %></span>
           <div class="ls-custom-select">
             <%= f.collection_select(:surgeon_id, Surgeon.all, :id, :name, class: "ls-state ls-select") %>
@@ -79,7 +79,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-8">
         <span class="ls-label-text"><%= f.label :anesthetist_id, "Anestesista" %></span>
           <div class="ls-custom-select">
             <%= f.collection_select(:anesthetist_id, Anesthetist.all, :id, :name, class: "ls-state ls-select") %>
@@ -90,7 +90,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-8">
         <span class="ls-label-text"><%= f.label :health_insurance_id, "Convênio Médico" %></span>
           <div class="ls-custom-select">
             <%= f.collection_select(:health_insurance_id, HealthInsurance.all, :id, :name, class: "ls-state ls-select") %>
@@ -101,7 +101,7 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-8">
+        <label class="ls-label col-md-12">
         <span class="ls-label-text"><%= f.label :note, "Observação" %></span>
         <%= f.text_area :note %>
       </label>
