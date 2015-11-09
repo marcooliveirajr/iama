@@ -1,0 +1,312 @@
+"pt-BR":
+  layouts:
+    application:
+      title: "Corporativo"
+  home:
+    title: "Corporativo"
+    subtitle: "Cliente Corporativo"
+  menu:
+    new_customer: "Novo Cliente"
+    customer: "Clientes"
+    cadastre: "Cadastro"
+    customers:
+      show: "Ficha Cadastral"
+    ordered:
+      title: "Pedidos"
+      new: "Criar Pedido"
+      list: "Lista de Pedidos"
+
+  customers:
+    search:
+      login: "Login"
+      id: "Código do Cliente"
+      by: "Buscar Cliente por:"
+      cpf: "CPF"
+      cnpj: "CNPJ"
+      manager_id: "Gerente de Contas"
+      result-message_html:
+        zero: "A busca por \"<b>%{type}</b>\" não retornou <b>nenhum resultado</b>. Refaça a sua busca no  campo acima utilizando outro termo."
+        one: "A busca por \"<b>%{type}</b>\" retornou <b>1 resultado</b>."
+        other: "A busca por \"<b>%{type}</b>\" retornou <b>%{count} resultados</b>."
+      notfound: "Não foi utilizado filtros"
+      types:
+        login: "Login"
+        id: "Código do Cliente"
+        cnpj: "CNPJ do Cliente"
+        cpf: "CPF do Cliente"
+        name: "Nome / Razão Social"
+        manager_id: "Gerente de Contas"
+      actions:
+        show: "Visualizar"
+    show:
+      title: "Cadastro do Cliente"
+    new:
+      lists:
+        payment1: '<p class="ls-text-md">Meio de Pagamento: <strong>Boleto</strong></p>'
+        payment2: '<p class="ls-text-md">Forma de Pagamento: <strong>Pós Pago</strong></p>'
+        payment3: '<p class="ls-text-md">Dia de Faturamento: <strong>01 de cada mês</strong></p>'
+      modal:
+        title: "Cliente cadastrado com sucesso"
+        message: "Gostaria de criar um Pedido para este cliente?"
+        after: "Depois"
+        order: "Criar Pedido"
+      success: "Cliente cadastrado com sucesso"
+      error: "Não foi possível finalizar o cadastro de cliente"
+      title:
+        page: "Novo Cliente"
+        step1: "Contratante"
+        step2: "Outros Contatos"
+        step3: "Pagamento"
+        step4: "Revisão do Cadastro"
+    orders:
+      title: "Criar Pedido"
+      filter_box:
+        title: "Selecione os produtos para o seu cliente"
+        description: "Utilize a Busca ou as Abas para encontrar os produtos e selecione para incluí-los no carrinho."
+        label: "Buscar Produto"
+        input: "Buscar"
+        cart:
+          title: "meu carrinho"
+          items: "%{amount} produto(s)"
+      steps:
+        step1:
+          cart_empty: 'Seu carrinho está vazio.'
+          next: "Configurar Produtos"
+      tabs:
+        others: "Outros"
+      pending_alert: "Este Pedido é um Rascunho. Edite para finalizar."
+
+    person:
+      legal:
+        title: "Pessoa Jurídica"
+        address_title: "Endereço da Empresa"
+      natural:
+        title: "Pessoa Física"
+        address_title: "Endereço"
+    contacts:
+      main_contact:
+        title: "Contato Principal"
+    steps:
+      unknown_cep: "Não sei o CEP"
+      step1:
+        number: 1
+        title: ""
+        subtitle: "Preencha todos os dados do contratante."
+        address: "Endereço"
+        login_title: "Criar Login"
+        login_unavailable: "Este usuário não está disponível. Informe outro usuário para cadastrar."
+        review_title: "Contratante"
+        warning_login_html: '<li>Deve conter de 2 a 20 caracteres</li><li>Utilize letras minúsculas e/ou números</li><li>Deve iniciar com uma letra</li>'
+        error_login: 'Login inválido, observe as dicas para criar um login.'
+      step2:
+        number: 2
+        title: "Se desejar, cadastre contatos específicos para cada área."
+        review_title: "Outros Contatos"
+        technical_contact:
+          title: "Contato Técnico"
+          box-title_html: "O contato cadastrado recebe informações sobre instalação de novos produtos nesta conta, e pode ser contatado pelo Suporte Locaweb para detalhes técnicos dos produtos contratados."
+        billing_contact:
+          title: "Contato de Cobrança"
+          box-title_html: "O contato cadastrado recebe boletos (por e-mail e físicos) e outras informações sobre cobrança da conta, como fechamento da fatura e confirmação de pagamento."
+      step3:
+        number: 3
+        title: "Configure a forma de faturamento e pagamento do cliente."
+        review_title: "Dados de Pagamento"
+        payment_boleto: "Pagamento por Boleto Bancário"
+        payment_type:
+          pre: "Pré Pago"
+          pos: "Pós Pago"
+        warning_html: '<b>ATENÇÃO</b>: A cobrança será sempre <b>Pós-paga</b> e o faturamento acontecerá no <b>dia 01</b> de cada mês.'
+      step4:
+        title: "Confira com atenção se todas as informações cadastradas estão corretas."
+        title_customer_natural: "Cadastro Pessoa Física"
+        title_customer_legal: "Cadastro Pessoa Jurídica"
+        addres: "Endereço"
+        billing_contact:
+          title: "Contato de Cobrança"
+    review:
+      notfound: "Não cadastrado"
+      customer:
+        id: "Código do Cliente"
+        customer_relation: "Suporte convencional"
+        name: "Razão Social"
+        cnpj: "CNPJ"
+        rg: "RG"
+        cpf: "CPF"
+        inscricao_estadual: "Inscrição Estadual"
+        inscricao_municipal: "Inscrição Municipal"
+        login: "Login do Cliente"
+        manager_id: "Gerente de Contas"
+        type: "Tipo de Cadastro"
+        person:
+          natural:
+            name: "Nome Completo"
+        email_0:
+          address: "E-mail principal"
+        email_1:
+          address: "E-mail secundário"
+      main_contact:
+        name: "Nome completo"
+        rg: "RG"
+        cpf: "CPF"
+        email: "E-mail"
+      technical_contact:
+        name: "Nome Completo"
+        email: "E-mail"
+      address:
+        postal_code: "CEP"
+        street: "Endereço"
+        district: "Bairro"
+        city: "Cidade"
+        state: "Estado"
+        number: "Número"
+      phones:
+        extension: "Ramal"
+        mobile: "Celular"
+        phone_0: "Telefone 1"
+        phone_1: "Telefone 2"
+      billing_info:
+        payment:
+          boleto: "Boleto Bancário"
+          account_debit: "Débito Automático"
+          credit_card: "Cartão de Crédito"
+        payment_type:
+          pre_pago: "Pré Pago"
+          pos_pago: "Pós Pago"
+
+    placeholder:
+      main_contact_name:  "Nome completo do responsável pela contratação"
+      customer_natural_name:  "Nome completo do contratante"
+
+    errors:
+      customer_not_found: "Cliente não encontrado."
+      customer_not_corporate: "Cliente informado não é um cliente corporativo."
+
+  helpers:
+    next: "Próximo"
+    new: "Novo"
+    delete: 'Excluir'
+    previous: "Anterior"
+    edit: "Editar"
+    save: "Salvar"
+    search: "Buscar"
+    new_order: "Criar Pedido"
+    show: "Exibir"
+    cancel: 'Cancelar'
+    per_page: "itens por página"
+    back: 'Voltar'
+    select:
+      prompt: "Selecione"
+    label:
+      customer:
+        customer_relation: "Suporte convencional"
+        name: "Razão Social*"
+        cnpj: "CNPJ*"
+        rg: "RG*"
+        cpf: "CPF*"
+        inscricao_estadual: "Inscrição Estadual"
+        inscricao_municipal: "Inscrição Municipal"
+        login: "Login do Cliente*"
+        password: "Senha*"
+        password_confirmation: "Confirmar senha*"
+        manager_id: "Gerente de Contas*"
+        person:
+          natural:
+            name: "Nome Completo*"
+        email_0:
+          address: "E-mail principal*"
+        email_1:
+          address: "E-mail secundário"
+      main_contact:
+        name: "Nome completo*"
+        rg: "RG*"
+        cpf: "CPF*"
+        email: "E-mail*"
+      technical_contact:
+        name: "Nome Completo*"
+        email: "E-mail*"
+      phone:
+        number: "Telefone*"
+        extension: "Ramal"
+      phone_0:
+        number: "Telefone 1*"
+        extension: "Ramal"
+      phone_1:
+        number: "Telefone 2"
+        extension: "Ramal"
+      phone_2:
+        number: "Celular"
+      emails:
+        address: "E-mail*"
+      address:
+        title: "Endereço"
+        postal_code: "CEP*"
+        street: "Endereço*"
+        number: "Número*"
+        complement: "Complemento"
+        district: "Bairro"
+        city: "Cidade*"
+        state: "Estado*"
+      billing_contact:
+        name: "Nome Completo*"
+        rg: "RG"
+        cpf: "CPF"
+        email: "E-mail*"
+      billing_address:
+        postal_code: "CEP*"
+        street: "Endereço*"
+        number: "Número*"
+        complement: "Complemento"
+        district: "Bairro"
+        city: "Cidade*"
+        state: "Estado*"
+      billing_phone:
+        number: "Telefone*"
+        extension: "Ramal"
+      payment_method:
+        payment_method: "Forma de Pagamento*"
+        payment_condition: "O vencimento do boleto deve acontecer quantos dias após o faturamento?"
+        billing_condition: "O faturamento dever acontecer:"
+
+  activemodel:
+    errors:
+      models:
+        customer:
+          attributes:
+            password_confirmation:
+              confirmation: "Informe novamente a senha digitada no campo anterior"
+              blank: "Informe a confirmação da senha"
+            manager_id:
+              blank: "Informe o gerente de contas"
+        order:
+          attributes:
+            payment_condition:
+              blank: 'Informe a condição de pagamento.'
+              invalid: 'Informe uma condição de pagamento válida.'
+
+  will_paginate:
+    previous_label: "&#8592; Anterior"
+    next_label: "Próximo &#8594;"
+    page_gap: "&hellip;"
+    page_entries_info:
+      single_page:
+        zero:  "%{model} não encontrado"
+        one:   "1 %{model} encontrado"
+        other: "%{count} %{model} encontrados"
+      single_page_html:
+        zero:  "<b>%{model}</b> não encontrado"
+        one:   "<b>1</b> %{model} encontrado"
+        other: "<b>%{count}</b> %{model} encontrados"
+      multi_page: "%{from}&nbsp; - &nbsp;%{to} %{model} de %{count}"
+      multi_page_html: "<label>%{model} &hellip; <b>%{from}&nbsp; - &nbsp;%{to}</b>  de <b>%{count}</b></label>"
+
+  number:
+    currency:
+      format:
+        format: "%u%n"
+        unit: "R$ "
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
