@@ -17,7 +17,8 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  resources :users
+  resources :users, path: 'teste'
+
   resources :hospitals do
     collection do
       get :search
