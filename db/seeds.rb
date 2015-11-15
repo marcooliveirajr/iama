@@ -5,11 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-puts ''
-
+puts 'Creating Role...'
+['registered', 'moderator', 'admin'].each do |role|
+  Role.find_or_create_by({name: role})
+end
 puts 'Creating User Admin...'
-User.create! :name => "admin", :email => "admin@admin.com", :password => "inicial1234"
+User.create! :name => "admin", :email => "admin@admin.com", :password => "inicial1234", :role_id => 3
 
+puts 'Tests'
 puts 'Creating Surgeon for test...'
 Surgeon.create! :name => "André Lucas", :cpf => "71155072871", :phone => "159990987", :email => "teste@teste.com", :address => "Rua Portugues", :address_number => "1", :address_complement => "1", :district => "Simus", :city => "Sorocaba", :postal_code => "18440000", :state => "SP"
 Surgeon.create! :name => "Pakita", :cpf => "67770445230", :phone => "15987654", :email => "www@teste", :address => "Alamenda Portugues", :address_number => "2", :address_complement => "1", :district => "Tiete", :city => "Ita", :postal_code => "18440000", :state => "SP"

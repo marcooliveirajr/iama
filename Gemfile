@@ -14,6 +14,7 @@ gem 'iconv', '~> 1.0.3'
 gem 'correios-cep', '~> 0.3.3'
 gem 'devise'
 gem 'will_paginate', '~> 3.0.6'
+gem 'cancancan', '~> 1.10'
 
 group :development, :test do
   gem 'pry'

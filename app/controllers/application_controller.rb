@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   layout :layout_by_resource
+
   protect_from_forgery with: :exception
 
   before_action :authenticate_user!
@@ -16,6 +17,16 @@ class ApplicationController < ActionController::Base
 
   def per_page
     params[:per_page] if params[:per_page].present?
+  end
+
+  def not_found(message = 'Not found')
+    raise ActionController::RoutingError.new(message)
+  end
+
+  def check_admin_role
+    unless current_user.admin?
+      raise ActionController::RoutingError.new('not allowed')
+    end
   end
 
   protected
