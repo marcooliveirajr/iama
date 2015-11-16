@@ -26,25 +26,40 @@
   </form>
 </div>
 
-<table class="ls-table ls-table-striped">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th class="hidden-xs">Tipo</th>
-      <th>Status</th>
-    </tr>
-  </thead>
+<tbody>
+  <% @health_insurances.each do |health_insurance| %>
 
-  <tbody>
-    <% @health_insurances.each do |health_insurance| %>
-    <tr>
-      <td><%= link_to health_insurance.name, health_insurance %></td>
-      <td class="hidden-xs"><%= health_insurance.kind %></td>
-      <td><%= health_insurance.status %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to health_insurance.name, health_insurance %></strong>
+        
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_health_insurance_path(health_insurance) %></li>
+            <li><%= link_to 'Visualizar', health_insurance %></li>
+            <li><%= link_to 'Excluir', health_insurance_path(health_insurance), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Tipo</span>
+        <strong><%= health_insurance.kind %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Ativo</span>
+        <strong><%= health_insurance.status %></strong>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+</tbody>
 
 <div class="ls-pagination-filter">
   <ul class="ls-pagination">
@@ -58,7 +73,7 @@
   </ul>
 
   <div class="ls-filter-view">
-      Exibir
+    Exibir
     <div class="ls-custom-select">
       <select name="" id="" class="ls-select">
         <option value="10">10</option>
@@ -67,6 +82,6 @@
         <option value="100">100</option>
       </select>
     </div>
-      ítens por página
+    ítens por página
   </div>
 </div>

@@ -26,38 +26,53 @@
   </form>
 </div>
 
-<table class="ls-table ls-table-striped">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th class="hidden-xs">CPF</th>
-      <th>Telefone</th>
-    </tr>
-  </thead>
+<tbody>
+  <% @anesthetists.each do |anesthetist| %>
 
-  <tbody>
-    <% @anesthetists.each do |anesthetist| %>
-    <tr>
-      <td><%= link_to anesthetist.name, anesthetist %></td>
-      <td class="hidden-xs"><%= anesthetist.cpf %></td>
-      <td><%= anesthetist.phone %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to anesthetist.name, anesthetist %></strong>
+        <small><%= anesthetist.email %></small>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_anesthetist_path(anesthetist) %></li>
+            <li><%= link_to 'Visualizar', anesthetist %></li>
+            <li><%= link_to 'Excluir', anesthetist_path(anesthetist), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">CPF</span>
+        <strong><%= anesthetist.cpf %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Telefone</span>
+        <strong><%= anesthetist.phone %></strong>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+</tbody>
 
 <% if @anesthetists %>
-  <div class="ls-pagination-filter">
-    <%= paginate @anesthetists if @anesthetists %>
+<div class="ls-pagination-filter">
+  <%= paginate @anesthetists if @anesthetists %>
 
-    <% if not @anesthetists.blank? %>
-      <div class="ls-filter-view">
-        <%= t 'helpers.show' %>
-        <div class="ls-custom-select">
-          <%= select_tag(:per_page_options, options_for_select(options_for_per_page, params[:per_page]))%>
-        </div>
-        <%= t 'helpers.per_page' %>
-      </div>
-    <% end %>
+  <% if not @anesthetists.blank? %>
+  <div class="ls-filter-view">
+    <%= t 'helpers.show' %>
+    <div class="ls-custom-select">
+      <%= select_tag(:per_page_options, options_for_select(options_for_per_page, params[:per_page]))%>
+    </div>
+    <%= t 'helpers.per_page' %>
   </div>
+  <% end %>
+</div>
 <% end %>
