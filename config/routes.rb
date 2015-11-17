@@ -17,7 +17,9 @@ Rails.application.routes.draw do
       get :search
     end
   end
-  resources :users, path: 'teste'
+  resources :users, path: 'customusers', shallow: true do
+    get 'search', to: 'users#search', as: 'search', on: :collection
+  end
 
   resources :hospitals do
     collection do
