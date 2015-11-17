@@ -3,30 +3,29 @@
 <a><%= link_to 'Cadastrar Usuário', new_user_path(@users) , class: "ls-btn-primary" %></a>
 
 <div class="ls-box-filter">
-  <form action="" class="ls-form ls-form-inline">
-    <%= form_for :search, url: search_users_path, method: :get, class: "ls-form ls-form-inline ls-float-left" do |f| %>
-    <input type="hidden" name="status" value="">
-    <label class="ls-label col-md-4 col-sm-4">
-      <b class="ls-label-text">Buscar por:</b>
-      <div class="ls-custom-select">
-        <%= f.select(:type, class: "ls-select") do %>
-        <% [['Usuário', 'name'], ['Email', 'email']].each do |c| %>
-        <%= content_tag(:option, c.first, value: c.last) %>
-        <% end %>
-        <% end %>
-      </div>
-    </label>
-    <label class="ls-label col-md-4 col-sm-4">
-      <%= f.text_field :text, class: 'ls-field' %>
-    </label>
+  <%= form_for :search, url: search_users_path, html: { :class => "ls-form ls-form-inline", method: :get } do |f| %>
+  <label class="ls-label col-md-4">
+    <b class="ls-label-text">Buscar por:</b>
+    <div class="ls-custom-select">
 
-    <div>
-    <%= submit_tag('Buscar', class: "ls-float-left ls-btn") %>
+      <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
+      <% [['Usuário', 'name'], ['Email', 'email']].each do |c| %>
+      <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+      <% end %>
+
     </div>
-    <% end %>
-  </form>
-</div>
+  </label>
 
+  <label class="ls-label col-md-4" role="search" id="text_order_search">
+    <%= f.text_field :text, class: 'ls-field' %>
+  </label>
+
+  <label class="ls-label ">
+    <%= submit_tag('Buscar', class: "ls-btn") %>
+  </label>
+  <%end%>
+</div>
 
 <table class="ls-table ls-table-striped">
   <thead>
