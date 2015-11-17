@@ -26,25 +26,38 @@
   </form>
 </div>
 
-<table class="ls-table ls-table-striped">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th class="hidden-xs">CPF</th>
-      <th>Telefone</th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @surgeons.each do |surgeon| %>
-    <tr>
-      <td><%= link_to surgeon.name, surgeon %></td>
-      <td class="hidden-xs"><%= surgeon.cpf %></td>
-      <td><%= surgeon.phone %></td>
-    </tr>
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to surgeon.name, surgeon %></strong>
+        <small><%= surgeon.email %></small>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_surgeon_path(surgeon) %></li>
+            <li><%= link_to 'Visualizar', surgeon %></li>
+            <li><%= link_to 'Excluir', surgeon_path(surgeon), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">CPF</span>
+        <strong><%= surgeon.cpf %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Telefone</span>
+        <strong><%= surgeon.phone %></strong>
+      </div>
+    </div>
+  </div>
     <% end %>
   </tbody>
-</table>
 
 <div class="ls-pagination-filter">
   <ul class="ls-pagination">

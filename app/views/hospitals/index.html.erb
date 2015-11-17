@@ -26,24 +26,39 @@
   </form>
 </div>
 
-<table class="ls-table ls-table-striped">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th class="hidden-xs">Tipo</th>
-      <th>Status</th>
-    </tr>
-  </thead>
+<tbody>
+  <% @hospitals.each do |hospital| %>
 
-  <tbody>
-    <% @hospitals.each do |hospital| %>
-    <tr>
-      <td><%= link_to hospital.name, hospital %></td>
-      <td class="hidden-xs"><%= hospital.kind %></td>
-      <td><%= hospital.status %></td>
-    </tr>
-    <% end %>
-  </tbody>
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to hospital.name, hospital %></strong>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_hospital_path(hospital) %></li>
+            <li><%= link_to 'Visualizar', hospital %></li>
+            <li><%= link_to 'Excluir', hospital_path(hospital), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Tipo</span>
+        <strong><%= hospital.kind %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Status</span>
+        <strong><%= hospital.status %></strong>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+</tbody>
 </table>
 
 <div class="ls-pagination-filter">
@@ -58,7 +73,7 @@
   </ul>
 
   <div class="ls-filter-view">
-      Exibir
+    Exibir
     <div class="ls-custom-select">
       <select name="" id="" class="ls-select">
         <option value="10">10</option>
@@ -67,6 +82,6 @@
         <option value="100">100</option>
       </select>
     </div>
-      ítens por página
+    ítens por página
   </div>
 </div>

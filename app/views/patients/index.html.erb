@@ -26,25 +26,38 @@
   </form>
 </div>
 
-<table class="ls-table ls-table-striped">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th class="hidden-xs">CPF</th>
-      <th>Telefone</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @patients.each do |patient| %>
-    <tr>
-      <td><%= link_to patient.name, patient %></td>
-      <td class="hidden-xs"><%= patient.cpf %></td>
-      <td><%= patient.phone %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+<tbody>
+  <% @patients.each do |patient| %>
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to patient.name, patient %></strong>
+        <small><%= patient.email %></small>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_patient_path(patient) %></li>
+            <li><%= link_to 'Visualizar', patient %></li>
+            <li><%= link_to 'Excluir', patient_path(patient), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">CPF</span>
+        <strong><%= patient.cpf %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Telefone</span>
+        <strong><%= patient.phone %></strong>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</tbody>
 
 <div class="ls-pagination-filter">
   <ul class="ls-pagination">
@@ -58,7 +71,7 @@
   </ul>
 
   <div class="ls-filter-view">
-      Exibir
+    Exibir
     <div class="ls-custom-select">
       <select name="" id="" class="ls-select">
         <option value="10">10</option>
@@ -67,6 +80,6 @@
         <option value="100">100</option>
       </select>
     </div>
-      ítens por página
+    ítens por página
   </div>
 </div>
