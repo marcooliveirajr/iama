@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   resources :users, path: 'customusers', shallow: true do
     get 'search', to: 'users#search', as: 'search', on: :collection
   end
+  resources :anesthetists, shallow: true do
+    get 'search', to: 'anesthetists#search', as: 'search', on: :collection
+  end
 
   resources :hospitals do
     collection do
@@ -28,7 +31,7 @@ Rails.application.routes.draw do
   end
   resources :health_insurances
   resources :patients
-  resources :anesthetists
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

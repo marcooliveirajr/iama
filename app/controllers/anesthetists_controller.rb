@@ -41,6 +41,11 @@ class AnesthetistsController < ApplicationController
     end
   end
 
+  def search
+    @anesthetists = ::Anesthetist::FinderService.find(search_params)
+    render action: 'index'
+  end
+
   # PATCH/PUT /anesthetists/1
   # PATCH/PUT /anesthetists/1.json
   def update
@@ -74,5 +79,9 @@ class AnesthetistsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def anesthetist_params
       params.require(:anesthetist).permit(:name, :cpf, :phone, :email, :address, :address_number, :address_complement, :district, :city, :postal_code, :state)
+    end
+
+    def search_params
+      params.require(:search).permit(:type, :text)
     end
 end
