@@ -4,7 +4,9 @@ class HealthInsurancesController < ApplicationController
   # GET /health_insurances
   # GET /health_insurances.json
   def index
-    @health_insurances = HealthInsurance.all
+    #@health_insurances = HealthInsurance.all
+    per_page = params[:per_page] if params[:per_page].present?
+    @health_insurances = HealthInsurance.paginate(:page => params[:page], :per_page => per_page)
   end
 
   # GET /health_insurances/1
@@ -35,6 +37,11 @@ class HealthInsurancesController < ApplicationController
         format.json { render json: @health_insurance.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def search
+    @health_insurances = ::HealthInsurance::FinderService.find(search_params)
+    render action: 'index'
   end
 
   # PATCH/PUT /health_insurances/1
@@ -70,5 +77,9 @@ class HealthInsurancesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def health_insurance_params
       params.require(:health_insurance).permit(:name, :kind, :status)
+    end
+
+    def search_params
+      params.require(:search).permit(:type, :text)
     end
 end

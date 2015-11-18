@@ -4,7 +4,9 @@ class SizeSurgeriesController < ApplicationController
   # GET /size_surgeries
   # GET /size_surgeries.json
   def index
-    @size_surgeries = SizeSurgery.all
+    #@size_surgeries = SizeSurgery.all
+    per_page = params[:per_page] if params[:per_page].present?
+    @size_surgeries = SizeSurgery.paginate(:page => params[:page], :per_page => per_page)
   end
 
   # GET /size_surgeries/1
@@ -35,6 +37,11 @@ class SizeSurgeriesController < ApplicationController
         format.json { render json: @size_surgery.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def search
+    @size_surgeries = ::SizeSurgery::FinderService.find(search_params)
+    render action: 'index'
   end
 
   # PATCH/PUT /size_surgeries/1
@@ -70,5 +77,9 @@ class SizeSurgeriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def size_surgery_params
       params.require(:size_surgery).permit(:health_insurance_id, :size, :value)
+    end
+
+    def search_params
+      params.require(:search).permit(:type, :text)
     end
 end

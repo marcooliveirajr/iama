@@ -4,7 +4,9 @@ class PatientsController < ApplicationController
   # GET /patients
   # GET /patients.json
   def index
-    @patients = Patient.all
+    #@patients = Patient.all
+    per_page = params[:per_page] if params[:per_page].present?
+    @patients = Patient.paginate(:page => params[:page], :per_page => per_page)
   end
 
   # GET /patients/1
@@ -35,6 +37,11 @@ class PatientsController < ApplicationController
         format.json { render json: @patient.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def search
+    @patients = ::Patient::FinderService.find(search_params)
+    render action: 'index'
   end
 
   # PATCH/PUT /patients/1
@@ -70,5 +77,9 @@ class PatientsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def patient_params
       params.require(:patient).permit(:name, :cpf, :phone, :email, :address, :address_number, :address_complement, :district, :city, :postal_code, :state)
+    end
+
+    def search_params
+      params.require(:search).permit(:type, :text)
     end
 end

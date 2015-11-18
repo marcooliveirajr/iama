@@ -4,7 +4,9 @@ class MapsController < ApplicationController
   # GET /maps
   # GET /maps.json
   def index
-    @maps = Map.all
+    #@maps = Map.all
+    per_page = params[:per_page] if params[:per_page].present?
+    @maps = Map.paginate(:page => params[:page], :per_page => per_page)
   end
 
   # GET /maps/1
@@ -35,6 +37,11 @@ class MapsController < ApplicationController
         format.json { render json: @map.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def search
+    @maps = ::Map::FinderService.find(search_params)
+    render action: 'index'
   end
 
   # PATCH/PUT /maps/1
@@ -70,5 +77,9 @@ class MapsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def map_params
       params.require(:map).permit(:time_surgery, :hospital_id, :bedroom_id, :patient_id, :health_terminology_id, :surgeon_id, :anesthetist_id, :health_insurance_id, :note)
+    end
+
+    def search_params
+      params.require(:search).permit(:type, :text)
     end
 end

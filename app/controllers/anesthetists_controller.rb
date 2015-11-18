@@ -7,7 +7,7 @@ class AnesthetistsController < ApplicationController
     #@anesthetists = Anesthetist.all
     #@anesthetists = Anesthetist.order("name").page(params['page']).per(3)
     #<%= paginate @anesthetists %>
-    per_page   = params[:per_page] if params[:per_page].present?
+    per_page = params[:per_page] if params[:per_page].present?
     @anesthetists = Anesthetist.paginate(:page => params[:page], :per_page => per_page)
   end
 
@@ -45,7 +45,7 @@ class AnesthetistsController < ApplicationController
     @anesthetists = ::Anesthetist::FinderService.find(search_params)
     render action: 'index'
   end
-
+  
   # PATCH/PUT /anesthetists/1
   # PATCH/PUT /anesthetists/1.json
   def update

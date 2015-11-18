@@ -4,7 +4,9 @@ class BedroomsController < ApplicationController
   # GET /bedrooms
   # GET /bedrooms.json
   def index
-    @bedrooms = Bedroom.all
+    #@bedrooms = Bedroom.all
+    per_page = params[:per_page] if params[:per_page].present?
+    @bedrooms = Bedroom.paginate(:page => params[:page], :per_page => per_page)
   end
 
   # GET /bedrooms/1
@@ -35,6 +37,11 @@ class BedroomsController < ApplicationController
         format.json { render json: @bedroom.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def search
+    @bedrooms = ::Bedroom::FinderService.find(search_params)
+    render action: 'index'
   end
 
   # PATCH/PUT /bedrooms/1
@@ -70,5 +77,9 @@ class BedroomsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def bedroom_params
       params.require(:bedroom).permit(:name, :hospital_id)
+    end
+
+    def search_params
+      params.require(:search).permit(:type, :text)
     end
 end

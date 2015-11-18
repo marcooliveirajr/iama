@@ -4,7 +4,9 @@ class HealthTerminologiesController < ApplicationController
   # GET /health_terminologies
   # GET /health_terminologies.json
   def index
-    @health_terminologies = HealthTerminology.all
+    #@health_terminologies = HealthTerminology.all
+    per_page = params[:per_page] if params[:per_page].present?
+    @health_terminologies = HealthTerminology.paginate(:page => params[:page], :per_page => per_page)
   end
 
   # GET /health_terminologies/1
@@ -35,6 +37,11 @@ class HealthTerminologiesController < ApplicationController
         format.json { render json: @health_terminology.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def search
+    @health_terminologies = ::HealthTerminology::FinderService.find(search_params)
+    render action: 'index'
   end
 
   # PATCH/PUT /health_terminologies/1
@@ -70,5 +77,9 @@ class HealthTerminologiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def health_terminology_params
       params.require(:health_terminology).permit(:code_tuss, :description_tuss, :category_tuss, :ch_surgeon, :size, :number_aux, :version)
+    end
+
+    def search_params
+      params.require(:search).permit(:type, :text)
     end
 end
