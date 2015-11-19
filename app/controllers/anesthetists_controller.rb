@@ -7,8 +7,8 @@ class AnesthetistsController < ApplicationController
     #@anesthetists = Anesthetist.all
     #@anesthetists = Anesthetist.order("name").page(params['page']).per(3)
     #<%= paginate @anesthetists %>
-    per_page = params[:per_page] if params[:per_page].present?
-    @anesthetists = Anesthetist.paginate(:page => params[:page], :per_page => per_page)
+    @anesthetists ||= Anesthetist.all
+    @anesthetists = make_paginate(@anesthetists)
   end
 
   # GET /anesthetists/1
@@ -43,9 +43,10 @@ class AnesthetistsController < ApplicationController
 
   def search
     @anesthetists = ::Anesthetist::FinderService.find(search_params)
+    @anesthetists = make_paginate(@anesthetists)
     render action: 'index'
   end
-  
+
   # PATCH/PUT /anesthetists/1
   # PATCH/PUT /anesthetists/1.json
   def update
@@ -71,17 +72,23 @@ class AnesthetistsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_anesthetist
-      @anesthetist = Anesthetist.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_anesthetist
+    @anesthetist = Anesthetist.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def anesthetist_params
-      params.require(:anesthetist).permit(:name, :cpf, :phone, :email, :address, :address_number, :address_complement, :district, :city, :postal_code, :state)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def anesthetist_params
+    params.require(:anesthetist).permit(:name, :cpf, :phone, :email, :address, :address_number, :address_complement, :district, :city, :postal_code, :state)
+  end
 
-    def search_params
-      params.require(:search).permit(:type, :text)
-    end
+  def search_params
+    params.require(:search).permit(:type, :text)
+  end
+
+  def make_paginate(list)
+    per_page = params[:per_page] if params[:per_page].present?
+    list.paginate(page: params[:page], per_page: per_page)
+  end
+
 end

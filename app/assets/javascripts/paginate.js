@@ -1,6 +1,6 @@
-var checkout_corp = checkout_corp || {}
+var clinica = clinica || {}
 
-checkout_corp.paginate = (function() {
+clinica.paginate = (function() {
   'use script';
 
   function init() {
@@ -23,4 +23,4 @@ checkout_corp.paginate = (function() {
   }
 }());
 
-checkout_corp.paginate.init();
+clinica.paginate.init();
