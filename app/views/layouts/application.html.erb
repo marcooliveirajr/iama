@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <%= stylesheet_link_tag    "application", SECRETS["locastyle"]["css"], :media => "screen" %>
+  <%= stylesheet_link_tag "application", SECRETS["locastyle"]["css"], :media => "screen" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -26,7 +26,6 @@
     </div>
 
     <span class="ls-show-sidebar ls-ico-menu"></span>
-    <!-- Nome do produto/marca -->
     <h1 class="ls-brand-name"><a class="ls-ico-accessibility" href="/"><%= link_to SECRETS["site"]["name"], root_path, title: SECRETS["site"]["name"] %></h1>
   </div>
   <main class="ls-main ">
