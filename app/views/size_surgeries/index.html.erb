@@ -3,28 +3,31 @@
 <a><%= link_to 'Cadastrar Porte', new_size_surgery_path(@bedroom) , class: "ls-btn-primary" %></a>
 
 <div class="ls-box-filter">
-  <form method="get" accept-charset="UTF-8" action="/hospitals/search" id="new_customer_search" class="ls-form ls-form-inline" novalidate="novalidate"><input type="hidden" value="✓" name="utf8">
-    <label class="ls-label col-md-4">
-      <b class="ls-label-text">Buscar por:</b>
-      <div class="ls-custom-select">
-        <select name="" class="ls-select">
-          <option>Convênio</option>
-          <option>Porte</option>
-          <option>Valor</option>
-        </select>
-      </div>
-    </label>
+  <%= form_for :search, url: search_size_surgeries_path, html: { :class => "ls-form ls-form-inline", method: :get } do |f| %>
+  <label class="ls-label col-md-4">
+    <b class="ls-label-text">Buscar por:</b>
+    <div class="ls-custom-select">
 
-    <label role="search" class="ls-label col-md-4">
-      <div>
-        <input type="text" class="ls-field">
-      </div>
-    </label>
-    <label class="ls-label ">
-      <input type="submit" class="ls-btn" value="Buscar" name="commit" aria-expanded="false" role="combobox">
-    </label>
-  </form>
+      <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
+      <% [['Convênio Médico', 'health_insurance.name'], ['Porte', 'size']].each do |c| %>
+      <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+      <% end %>
+
+    </div>
+  </label>
+
+  <label class="ls-label col-md-4" role="search" id="text_order_search">
+    <%= f.text_field :text, class: 'ls-field' %>
+  </label>
+
+  <label class="ls-label ">
+    <%= submit_tag('Buscar', class: "ls-btn") %>
+  </label>
+  <%= hidden_field_tag :per_page, params[:per_page] %>
+  <%end%>
 </div>
+
 <tbody>
   <% @size_surgeries.each do |size_surgery| %>
 

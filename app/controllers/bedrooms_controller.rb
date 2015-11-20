@@ -5,8 +5,8 @@ class BedroomsController < ApplicationController
   # GET /bedrooms.json
   def index
     #@bedrooms = Bedroom.all
-    per_page = params[:per_page] if params[:per_page].present?
-    @bedrooms = Bedroom.paginate(:page => params[:page], :per_page => per_page)
+    @bedrooms ||= Bedroom.all
+    @bedrooms = make_paginate(@bedrooms)
   end
 
   # GET /bedrooms/1
@@ -41,6 +41,7 @@ class BedroomsController < ApplicationController
 
   def search
     @bedrooms = ::Bedroom::FinderService.find(search_params)
+    @bedrooms = make_paginate(@bedrooms)
     render action: 'index'
   end
 

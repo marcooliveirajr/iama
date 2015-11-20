@@ -5,8 +5,8 @@ class HealthTerminologiesController < ApplicationController
   # GET /health_terminologies.json
   def index
     #@health_terminologies = HealthTerminology.all
-    per_page = params[:per_page] if params[:per_page].present?
-    @health_terminologies = HealthTerminology.paginate(:page => params[:page], :per_page => per_page)
+    @health_terminologies ||= HealthTerminology.all
+    @health_terminologies = make_paginate(@health_terminologies)
   end
 
   # GET /health_terminologies/1
@@ -41,6 +41,7 @@ class HealthTerminologiesController < ApplicationController
 
   def search
     @health_terminologies = ::HealthTerminology::FinderService.find(search_params)
+    @health_terminologies = make_paginate(@health_terminologies)
     render action: 'index'
   end
 

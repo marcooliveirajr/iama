@@ -7,8 +7,8 @@ class UsersController < ApplicationController
   # GET /users
   def index
     #@users ||= User.all
-    per_page = params[:per_page] if params[:per_page].present?
-    @users = User.paginate(:page => params[:page], :per_page => per_page)
+    @users ||= User.all
+    @users = make_paginate(@users)
   end
 
   # GET /users/new
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
 
   def search
     @users = ::User::FinderService.find(search_params)
+    @users = make_paginate(@users)
     render action: 'index'
   end
 

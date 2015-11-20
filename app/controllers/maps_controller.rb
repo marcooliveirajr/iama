@@ -5,8 +5,8 @@ class MapsController < ApplicationController
   # GET /maps.json
   def index
     #@maps = Map.all
-    per_page = params[:per_page] if params[:per_page].present?
-    @maps = Map.paginate(:page => params[:page], :per_page => per_page)
+    @maps ||= Map.all
+    @maps = make_paginate(@maps)
   end
 
   # GET /maps/1
@@ -41,6 +41,7 @@ class MapsController < ApplicationController
 
   def search
     @maps = ::Map::FinderService.find(search_params)
+    @maps = make_paginate(@maps)
     render action: 'index'
   end
 

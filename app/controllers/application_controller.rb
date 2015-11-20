@@ -19,6 +19,11 @@ class ApplicationController < ActionController::Base
     params[:per_page] if params[:per_page].present?
   end
 
+  def make_paginate(list)
+    per_page = params[:per_page] if params[:per_page].present?
+    list.paginate(page: params[:page], per_page: per_page)
+  end
+
   def not_found(message = 'Not found')
     raise ActionController::RoutingError.new(message)
   end

@@ -5,8 +5,8 @@ class HealthInsurancesController < ApplicationController
   # GET /health_insurances.json
   def index
     #@health_insurances = HealthInsurance.all
-    per_page = params[:per_page] if params[:per_page].present?
-    @health_insurances = HealthInsurance.paginate(:page => params[:page], :per_page => per_page)
+    @health_insurances ||= HealthInsurance.all
+    @health_insurances = make_paginate(@health_insurances)
   end
 
   # GET /health_insurances/1
@@ -41,6 +41,7 @@ class HealthInsurancesController < ApplicationController
 
   def search
     @health_insurances = ::HealthInsurance::FinderService.find(search_params)
+    @health_insurances = make_paginate(@health_insurances)
     render action: 'index'
   end
 

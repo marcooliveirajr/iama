@@ -86,9 +86,4 @@ class AnesthetistsController < ApplicationController
     params.require(:search).permit(:type, :text)
   end
 
-  def make_paginate(list)
-    per_page = params[:per_page] if params[:per_page].present?
-    list.paginate(page: params[:page], per_page: per_page)
-  end
-
 end

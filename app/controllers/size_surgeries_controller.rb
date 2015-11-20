@@ -5,8 +5,8 @@ class SizeSurgeriesController < ApplicationController
   # GET /size_surgeries.json
   def index
     #@size_surgeries = SizeSurgery.all
-    per_page = params[:per_page] if params[:per_page].present?
-    @size_surgeries = SizeSurgery.paginate(:page => params[:page], :per_page => per_page)
+    @size_surgeries ||= SizeSurgery.all
+    @size_surgeries = make_paginate(@size_surgeries)
   end
 
   # GET /size_surgeries/1
@@ -41,6 +41,7 @@ class SizeSurgeriesController < ApplicationController
 
   def search
     @size_surgeries = ::SizeSurgery::FinderService.find(search_params)
+    @size_surgeries = make_paginate(@size_surgeries)
     render action: 'index'
   end
 

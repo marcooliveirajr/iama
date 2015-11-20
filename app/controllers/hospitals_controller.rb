@@ -5,8 +5,8 @@ class HospitalsController < ApplicationController
   # GET /hospitals.json
   def index
     #@hospitals = Hospital.all
-    per_page = params[:per_page] if params[:per_page].present?
-    @hospitals = Hospital.paginate(:page => params[:page], :per_page => per_page)
+    @hospitals ||= Hospital.all
+    @hospitals = make_paginate(@hospitals)
   end
 
   # GET /hospitals/1
@@ -41,6 +41,7 @@ class HospitalsController < ApplicationController
 
   def search
     @hospitals = ::Hospital::FinderService.find(search_params)
+    @hospitals = make_paginate(@hospitals)
     render action: 'index'
   end
 
