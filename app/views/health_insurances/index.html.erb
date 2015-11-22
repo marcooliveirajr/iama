@@ -78,3 +78,7 @@
   <% end %>
 </div>
 <% end %>
+
+<%= content_for :javascript do %>
+  $(document).ready(clinica.paginate.init);
+<% end %>
