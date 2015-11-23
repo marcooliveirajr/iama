@@ -60,11 +60,11 @@
 
   <% if not @health_terminologies.blank? %>
   <div class="ls-filter-view">
-    <%= t 'helpers.show' %>
+    <%= t 'will_paginate.show' %>
     <div class="ls-custom-select">
       <%= select_tag(:per_page_options, options_for_select(options_for_per_page, params[:per_page]))%>
     </div>
-    <%= t 'helpers.per_page' %>
+    <%= t 'will_paginate.per_page' %>
   </div>
   <% end %>
 </div>
