@@ -10,42 +10,46 @@
 
   <div class="row">
     <div class="col-md-8">
-      <label class="ls-label col-md-8">
+      <label class="ls-label col-md-8 <%= class_error @user, :name %>">
         <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
         <%= f.text_field :name, autofocus: true %>
+        <%= show_message_error @user, :name %>
       </label>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-8">
-      <label class="ls-label col-md-8">
+      <label class="ls-label col-md-8 <%= class_error @user, :email %>">
         <span class="ls-label-text"><%= f.label :email, "Email" %></span>
         <%= f.email_field :email %>
+        <%= show_message_error @user, :email %>
       </label>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-8">
-      <label class="ls-label col-md-8">
+      <label class="ls-label col-md-8 <%= class_error @user, :password %>">
         <span class="ls-label-text"><%= f.label :password, "Senha" %></span>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
         <%= f.password_field :password, autocomplete: "off" %>
+        <%= show_message_error @user, :password %>
       </label>
     </div>
   </div>
 
   <div class="row">
     <div class="col-md-8">
-      <label class="ls-label col-md-8">
+      <label class="ls-label col-md-8 <%= class_error @user, :password_confirmation %>">
         <span class="ls-label-text"><%= f.label :password_confirmation, "Confirmação de Senha" %></span>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em>
         <% end %><br />
         <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        <%= show_message_error @user, :password_confirmation %>
       </label>
     </div>
   </div>
@@ -59,7 +63,7 @@
         </div>
       </label>
     </div>
-  </div>  
+  </div>
 
 </fieldset>
 

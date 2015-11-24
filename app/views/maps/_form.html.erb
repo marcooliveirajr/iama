@@ -38,7 +38,7 @@
         <label class="ls-label col-md-4">
         <span class="ls-label-text"><%= f.label :bedroom_id, "Quarto" %></span>
           <div class="ls-custom-select">
-            <%= f.collection_select(:bedroom_id, Bedroom.all, :id, :name, class: "ls-state ls-select") %>
+            <%= f.collection_select(:bedroom_id, Bedroom.all, :id, :name, class: "ls-state ls-select", {:selected => current_hospital.bedroom.map(&:id)}) %>
           </div>
         </label>
       </div>
