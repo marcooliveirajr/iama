@@ -30,7 +30,7 @@ class HospitalsController < ApplicationController
 
     respond_to do |format|
       if @hospital.save
-        format.html { redirect_to @hospital, notice: 'Hospital was successfully created.' }
+        format.html { redirect_to @hospital, notice: 'Hospital criado com sucesso.' }
         format.json { render :show, status: :created, location: @hospital }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class HospitalsController < ApplicationController
   def update
     respond_to do |format|
       if @hospital.update(hospital_params)
-        format.html { redirect_to @hospital, notice: 'Hospital was successfully updated.' }
+        format.html { redirect_to @hospital, notice: 'Hospital atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @hospital }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class HospitalsController < ApplicationController
   def destroy
     @hospital.destroy
     respond_to do |format|
-      format.html { redirect_to hospitals_url, notice: 'Hospital was successfully destroyed.' }
+      format.html { redirect_to hospitals_url, notice: 'Hospital excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

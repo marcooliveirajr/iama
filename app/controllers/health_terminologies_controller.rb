@@ -30,7 +30,7 @@ class HealthTerminologiesController < ApplicationController
 
     respond_to do |format|
       if @health_terminology.save
-        format.html { redirect_to @health_terminology, notice: 'Health terminology was successfully created.' }
+        format.html { redirect_to @health_terminology, notice: 'Procedimento TUSS criado com sucesso.' }
         format.json { render :show, status: :created, location: @health_terminology }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class HealthTerminologiesController < ApplicationController
   def update
     respond_to do |format|
       if @health_terminology.update(health_terminology_params)
-        format.html { redirect_to @health_terminology, notice: 'Health terminology was successfully updated.' }
+        format.html { redirect_to @health_terminology, notice: 'Procedimento TUSS atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @health_terminology }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class HealthTerminologiesController < ApplicationController
   def destroy
     @health_terminology.destroy
     respond_to do |format|
-      format.html { redirect_to health_terminologies_url, notice: 'Health terminology was successfully destroyed.' }
+      format.html { redirect_to health_terminologies_url, notice: 'Procedimento TUSS excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

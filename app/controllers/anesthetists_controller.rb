@@ -32,7 +32,7 @@ class AnesthetistsController < ApplicationController
 
     respond_to do |format|
       if @anesthetist.save
-        format.html { redirect_to @anesthetist, notice: 'Anesthetist was successfully created.' }
+        format.html { redirect_to @anesthetist, notice: 'Anestesista criado com sucesso.' }
         format.json { render :show, status: :created, location: @anesthetist }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class AnesthetistsController < ApplicationController
   def update
     respond_to do |format|
       if @anesthetist.update(anesthetist_params)
-        format.html { redirect_to @anesthetist, notice: 'Anesthetist was successfully updated.' }
+        format.html { redirect_to @anesthetist, notice: 'Anestesista atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @anesthetist }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class AnesthetistsController < ApplicationController
   def destroy
     @anesthetist.destroy
     respond_to do |format|
-      format.html { redirect_to anesthetists_url, notice: 'Anesthetist was successfully destroyed.' }
+      format.html { redirect_to anesthetists_url, notice: 'Anestesista excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

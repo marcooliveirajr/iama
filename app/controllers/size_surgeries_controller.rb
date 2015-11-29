@@ -30,7 +30,7 @@ class SizeSurgeriesController < ApplicationController
 
     respond_to do |format|
       if @size_surgery.save
-        format.html { redirect_to @size_surgery, notice: 'Size surgery was successfully created.' }
+        format.html { redirect_to @size_surgery, notice: 'Porte criado com sucesso.' }
         format.json { render :show, status: :created, location: @size_surgery }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class SizeSurgeriesController < ApplicationController
   def update
     respond_to do |format|
       if @size_surgery.update(size_surgery_params)
-        format.html { redirect_to @size_surgery, notice: 'Size surgery was successfully updated.' }
+        format.html { redirect_to @size_surgery, notice: 'Porte atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @size_surgery }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class SizeSurgeriesController < ApplicationController
   def destroy
     @size_surgery.destroy
     respond_to do |format|
-      format.html { redirect_to size_surgeries_url, notice: 'Size surgery was successfully destroyed.' }
+      format.html { redirect_to size_surgeries_url, notice: 'Porte excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

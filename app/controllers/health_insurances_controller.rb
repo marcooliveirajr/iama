@@ -30,7 +30,7 @@ class HealthInsurancesController < ApplicationController
 
     respond_to do |format|
       if @health_insurance.save
-        format.html { redirect_to @health_insurance, notice: 'Health insurance was successfully created.' }
+        format.html { redirect_to @health_insurance, notice: 'Convênio criado com sucesso.' }
         format.json { render :show, status: :created, location: @health_insurance }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class HealthInsurancesController < ApplicationController
   def update
     respond_to do |format|
       if @health_insurance.update(health_insurance_params)
-        format.html { redirect_to @health_insurance, notice: 'Health insurance was successfully updated.' }
+        format.html { redirect_to @health_insurance, notice: 'Convênio atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @health_insurance }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class HealthInsurancesController < ApplicationController
   def destroy
     @health_insurance.destroy
     respond_to do |format|
-      format.html { redirect_to health_insurances_url, notice: 'Health insurance was successfully destroyed.' }
+      format.html { redirect_to health_insurances_url, notice: 'Convênio excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

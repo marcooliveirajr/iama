@@ -30,7 +30,7 @@ class MapsController < ApplicationController
 
     respond_to do |format|
       if @map.save
-        format.html { redirect_to @map, notice: 'Map was successfully created.' }
+        format.html { redirect_to @map, notice: 'Mapa criado com sucesso.' }
         format.json { render :show, status: :created, location: @map }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class MapsController < ApplicationController
   def update
     respond_to do |format|
       if @map.update(map_params)
-        format.html { redirect_to @map, notice: 'Map was successfully updated.' }
+        format.html { redirect_to @map, notice: 'Mapa atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @map }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class MapsController < ApplicationController
   def destroy
     @map.destroy
     respond_to do |format|
-      format.html { redirect_to maps_url, notice: 'Map was successfully destroyed.' }
+      format.html { redirect_to maps_url, notice: 'Mapa excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

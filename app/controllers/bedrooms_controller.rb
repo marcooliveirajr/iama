@@ -30,7 +30,7 @@ class BedroomsController < ApplicationController
 
     respond_to do |format|
       if @bedroom.save
-        format.html { redirect_to @bedroom, notice: 'Bedroom was successfully created.' }
+        format.html { redirect_to @bedroom, notice: 'Quarto criado com sucesso.' }
         format.json { render :show, status: :created, location: @bedroom }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class BedroomsController < ApplicationController
   def update
     respond_to do |format|
       if @bedroom.update(bedroom_params)
-        format.html { redirect_to @bedroom, notice: 'Bedroom was successfully updated.' }
+        format.html { redirect_to @bedroom, notice: 'Quarto atualizado com sucesso.' }
         format.json { render :show, status: :ok, location: @bedroom }
       else
         format.html { render :edit }
@@ -64,7 +64,7 @@ class BedroomsController < ApplicationController
   def destroy
     @bedroom.destroy
     respond_to do |format|
-      format.html { redirect_to bedrooms_url, notice: 'Bedroom was successfully destroyed.' }
+      format.html { redirect_to bedrooms_url, notice: 'Quarto excluído com sucesso.' }
       format.json { head :no_content }
     end
   end
