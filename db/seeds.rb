@@ -9,8 +9,9 @@ puts 'Creating Role...'
 ['registered', 'moderator', 'admin'].each do |role|
   Role.find_or_create_by({name: role})
 end
-#puts 'Creating User Admin...'
-#User.create! :name => "admin", :email => "admin@admin.com", :password => "inicial1234", :role_id => 3
+
+puts 'Creating User Admin...'
+User.create! :name => "admin", :email => "admin@admin.com", :password => "inicial1234", :role_id => 3
 
 puts 'Tests'
 puts 'Creating Surgeon for test...'
@@ -64,22 +65,16 @@ puts 'Creating Health Terminologies for test...'
 HealthTerminology.find_or_create_by({:code_tuss => 1, 
 									 :description_tuss => "Procedimento 1", 
 									 :category_tuss => "Categoria 1",
-									 :ch_surgeon => 10,
 									 :size => 1,
-									 :number_aux => 11,
 									 :version => 100})
 HealthTerminology.find_or_create_by({:code_tuss => 2, 
 									 :description_tuss => "Procedimento 2", 
 									 :category_tuss => "Categoria 2",
-									 :ch_surgeon => 10,
 									 :size => 1,
-									 :number_aux => 11,
 									 :version => 100})
 HealthTerminology.find_or_create_by({:code_tuss => 3, 
 									 :description_tuss => "Procedimento 3", 
 									 :category_tuss => "Categoria 2",
-									 :ch_surgeon => 10,
 									 :size => 1,
-									 :number_aux => 11,
 									 :version => 100})
 

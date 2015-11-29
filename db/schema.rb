@@ -50,9 +50,7 @@ ActiveRecord::Schema.define(version: 20151112221139) do
     t.integer  "code_tuss"
     t.string   "description_tuss"
     t.string   "category_tuss"
-    t.integer  "ch_surgeon"
     t.integer  "size"
-    t.integer  "number_aux"
     t.integer  "version"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
@@ -75,6 +73,8 @@ ActiveRecord::Schema.define(version: 20151112221139) do
     t.integer  "surgeon_id"
     t.integer  "anesthetist_id"
     t.integer  "health_insurance_id"
+    t.date     "payment_date"
+    t.float    "value"
     t.text     "note"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false

@@ -4,9 +4,7 @@ class CreateHealthTerminologies < ActiveRecord::Migration
       t.integer :code_tuss
       t.string :description_tuss
       t.string :category_tuss
-      t.integer :ch_surgeon
       t.integer :size
-      t.integer :number_aux
       t.integer :version
 
       t.timestamps null: false

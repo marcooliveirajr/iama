@@ -38,7 +38,7 @@
         <label class="ls-label col-md-4">
         <span class="ls-label-text"><%= f.label :bedroom_id, "Quarto" %></span>
           <div class="ls-custom-select">
-            <%= f.collection_select(:bedroom_id, Bedroom.all, :id, :name, class: "ls-state ls-select", {:selected => current_hospital.bedroom.map(&:id)}) %>
+             <%= f.collection_select(:bedroom_id, Bedroom.all, :id, :name, class: "ls-state ls-select") %>
           </div>
         </label>
       </div>
@@ -97,6 +97,24 @@
           </div>
         </label>
       </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%=f.label :payment_date, "Pagamento" %></span>
+        <%= f.date_select :payment_date, {:order => [:day, :month, :year], :use_month_names=>["Janeiro" ,"Fevereiro", "Março", "Abril" ,"Maio", "Junho","Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ],:start_year => 1900, :end_year => Time.now.year}%>
+       </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :value, "Valor" %></span>
+        <%= f.text_field :value %>
+      </label>
+     </div>
     </div>
 
     <div class="row">
