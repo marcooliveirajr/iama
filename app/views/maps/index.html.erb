@@ -9,7 +9,7 @@
     <div class="ls-custom-select">
 
       <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
-      <% [['Hospital', 'hospital.name'], ['Paciente', 'patient.name']].each do |c| %>
+      <% [['Anestesista', 'anesthetist.name'],['Hospital', 'hospital.name'], ['Paciente', 'patient.name']].each do |c| %>
       <%= content_tag(:option, c.first, value: c.last) %>
       <% end %>
       <% end %>
@@ -40,7 +40,6 @@
       <th>Cirurgião</th>
       <th>Anestesista</th>
       <th>Convênio Médico</th>
-      <th class="hidden-xs">Observação</th>
     </tr>
   </thead>
 
@@ -55,7 +54,6 @@
       <td><%= map.surgeon.name %></td>
       <td><%= map.anesthetist.name %></td>
       <td><%= map.health_insurance.name %></td>
-      <td class="hidden-xs"><%= map.note %></td>
     </tr>
     <% end %>
   </tbody>
