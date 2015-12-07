@@ -28,34 +28,73 @@
   <%end%>
 </div>
 
-<table class="ls-table ls-table-striped">
-  <thead>
-    <tr>
-    <tr>
-      <th>Data/Hora</th>
-      <th>Hospital</th>
-      <th>Paciente</th>
-      <th>Procedimento</th>
-      <th>Cirurgião</th>
-      <th>Anestesista</th>
-      <th>Convênio Médico</th>
-    </tr>
-  </thead>
+<tbody>
+  <% @maps.each do |map| %>
 
-  <tbody>
-    <% @maps.each do |map| %>
-    <tr>
-      <td><%= link_to map.time_surgery, map %></td>
-      <td><%= map.hospital.name %></td>
-      <td><%= map.patient.name %></td>
-      <td><%= map.health_terminology.description_tuss %></td>
-      <td><%= map.surgeon.name %></td>
-      <td><%= map.anesthetist.name %></td>
-      <td><%= map.health_insurance.name %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to map.health_terminology.description_tuss, map %></strong>
+        <small><%= map.time_surgery %></small>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_map_path(map) %></li>
+            <li><%= link_to 'Visualizar', map %></li>
+            <li><%= link_to 'Excluir', map_path(map), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Hospital</span>
+        <strong><%= map.hospital.name %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Quarto</span>
+        <strong><%= map.bedroom.name %></strong>
+      </div>
+    </div>
+
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Paciente</span>
+        <strong><%= map.patient.name %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Cirurgião</span>
+        <strong><%= map.surgeon.name %></strong>
+      </div>
+    </div>
+
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Anestesista</span>
+        <strong><%= map.anesthetist.name %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Convênio</span>
+        <strong><%= map.health_insurance.name %></strong>
+      </div>
+    </div>
+
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Data do pagamento</span>
+        <strong><%= map.payment_date %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Valor</span>
+        <strong><%= map.value %></strong>
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+</tbody>
 
 <% if @maps %>
 <div class="ls-pagination-filter">
@@ -74,5 +113,5 @@
 <% end %>
 
 <%= content_for :javascript do %>
-  $(document).ready(clinica.paginate.init);
+$(document).ready(clinica.paginate.init);
 <% end %>
