@@ -28,27 +28,38 @@
   <%end%>
 </div>
 
-<table class="ls-table ls-table-striped">
-  <thead>
-    <tr>
-      <th>Código TUSS</th>
-      <th class="hidden-xs">Procedimento</th>
-      <th class="hidden-xs">Categoria</th>
-      <th class="hidden-xs">Porte</th>
-    </tr>
-  </thead>
+<tbody>
+  <% @health_terminologies.each do |health_terminology| %>
 
-  <tbody>
-    <% @health_terminologies.each do |health_terminology| %>
-    <tr>
-      <td><%= link_to health_terminology.code_tuss, health_terminology %></td>
-      <td class="hidden-xs"><%= health_terminology.description_tuss %></td>
-      <td class="hidden-xs"><%= health_terminology.category_tuss %></td>
-      <td class="hidden-xs"><%= health_terminology.size %></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to health_terminology.description_tuss, health_terminology %></strong>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_health_terminology_path(health_terminology) %></li>
+            <li><%= link_to 'Visualizar', health_terminology %></li>
+            <li><%= link_to 'Excluir', health_terminology_path(health_terminology), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Categoria</span>
+        <strong><%= health_terminology.category_tuss %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Porte</span>
+        <strong><%= health_terminology.size %></strong>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</tbody>
 
 <% if @health_terminologies %>
 <div class="ls-pagination-filter">
@@ -67,5 +78,5 @@
 <% end %>
 
 <%= content_for :javascript do %>
-  $(document).ready(clinica.paginate.init);
+$(document).ready(clinica.paginate.init);
 <% end %>
