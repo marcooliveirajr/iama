@@ -3,19 +3,21 @@
 <div class="ls-box">
   <div class="row">
     <div class="col-md-12">
-        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
-          <tbody>
-            <tr> <td> Data/Hora: <label class="ls-title-6"><%= @map.time_surgery %></label> </td> </tr>
-            <tr> <td> Hospital: <label class="ls-title-6"><%= @map.hospital.name %></label> </td> </tr>
-            <tr> <td> Quarto: <label class="ls-title-6"><%= @map.bedroom.name %></label> </td> </tr>
-            <tr> <td> Paciente: <label class="ls-title-6"><%= @map.patient.name %></label> </td> </tr>
-            <tr> <td> Procedimento: <label class="ls-title-6"><%= @map.health_terminology.description_tuss %></label> </td> </tr>
-            <tr> <td> Cirurgião: <label class="ls-title-6"><%= @map.surgeon.name %></label> </td> </tr>
-            <tr> <td> Anestesista: <label class="ls-title-6"><%= @map.anesthetist.name %></label> </td> </tr>
-            <tr> <td> Convênio Médico: <label class="ls-title-6"><%= @map.health_insurance.name %></label> </td> </tr>
-            <tr> <td> Observação: <label class="ls-title-6"><%= @map.note %></label> </td> </tr>
-          </tbody>
-        </table>
+      <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+        <tbody>
+          <tr> <td> Data/Hora: <label class="ls-title-6"><%= @map.time_surgery %></label> </td> </tr>
+          <tr> <td> Hospital: <label class="ls-title-6"><%= @map.hospital.name %></label> </td> </tr>
+          <tr> <td> Quarto: <label class="ls-title-6"><%= @map.bedroom.name %></label> </td> </tr>
+          <tr> <td> Paciente: <label class="ls-title-6"><%= @map.patient.name %></label> </td> </tr>
+          <tr> <td> Procedimento: <label class="ls-title-6"><%= @map.health_terminology.description_tuss %></label> </td> </tr>
+          <tr> <td> Cirurgião: <label class="ls-title-6"><%= @map.surgeon.name %></label> </td> </tr>
+          <tr> <td> Anestesista: <label class="ls-title-6"><%= @map.anesthetist.name %></label> </td> </tr>
+          <tr> <td> Convênio Médico: <label class="ls-title-6"><%= @map.health_insurance.name %></label> </td> </tr>
+          <tr> <td> Data do pagamento: <label class="ls-title-6"><%= @map.payment_date %></label> </td> </tr>
+          <tr> <td> Valor: <label class="ls-title-6"><%= @map.value %></label> </td> </tr>
+          <tr> <td> Observação: <label class="ls-title-6"><%= @map.note %></label> </td> </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
