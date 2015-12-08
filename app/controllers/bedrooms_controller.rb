@@ -1,5 +1,6 @@
 class BedroomsController < ApplicationController
   before_action :set_bedroom, only: [:show, :edit, :update, :destroy]
+  before_action :set_hospital, only: [:index_hospital]
 
   # GET /bedrooms
   # GET /bedrooms.json
@@ -7,6 +8,14 @@ class BedroomsController < ApplicationController
     #@bedrooms = Bedroom.all
     @bedrooms ||= Bedroom.all
     @bedrooms = make_paginate(@bedrooms)
+  end
+
+  # GET /bedrooms/hospital.json
+  def index_hospital
+    @bedrooms ||= Bedroom.where(hospital: @hospital).all
+    respond_to do |format|
+      format.json { render json: @bedrooms, render: :index_hospital }
+    end
   end
 
   # GET /bedrooms/1
@@ -73,6 +82,11 @@ class BedroomsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_bedroom
       @bedroom = Bedroom.find(params[:id])
+    end
+
+        # Use callbacks to share common setup or constraints between actions.
+    def set_hospital
+      @hospital = Hospital.find(params[:hospital_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
