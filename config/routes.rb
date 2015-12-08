@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   get '/address/search' => 'address#search_postal_code'
-  root :to => 'home#index'
+  root :to => 'maps#index'
 
   resources :users, path: 'customusers', shallow: true do
     get 'search', to: 'users#search', as: 'search', on: :collection
