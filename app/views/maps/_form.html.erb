@@ -17,7 +17,7 @@
       <div class="col-md-8">
         <label class="ls-label col-md-8">
         <span class="ls-label-text"><%=f.label :time_surgery, "Data/Hora" %></span>
-        <%= f.datetime_select :time_surgery, {:order => [:day, :month, :year], :datetime_separator => " - ", :use_month_names=>["Janeiro" ,"Fevereiro", "Março", "Abril" ,"Maio", "Junho","Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ],:start_year => 1900, :end_year => Time.now.year}%>
+        <%= f.datetime_select :time_surgery, {:order => [:day, :month, :year], :datetime_separator => " - ", :use_month_names=>["Janeiro" ,"Fevereiro", "Março", "Abril" ,"Maio", "Junho","Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ],:start_year => Time.now.year, :end_year => Time.now.year + 5 }%>
        </label>
      </div>
     </div>
@@ -102,8 +102,8 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8">
-        <span class="ls-label-text"><%=f.label :payment_date, "Pagamento" %></span>
-        <%= f.date_select :payment_date, {:order => [:day, :month, :year], :use_month_names=>["Janeiro" ,"Fevereiro", "Março", "Abril" ,"Maio", "Junho","Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ],:start_year => 1900, :end_year => Time.now.year}%>
+        <span class="ls-label-text"><%=f.label :payment_date, " Data do pagamento" %></span>
+        <%= f.date_select :payment_date, {:order => [:day, :month, :year], :use_month_names=>["Janeiro" ,"Fevereiro", "Março", "Abril" ,"Maio", "Junho","Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ],:start_year => Time.now.year, :end_year => Time.now.year + 1}%>
        </label>
      </div>
     </div>
