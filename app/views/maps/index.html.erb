@@ -9,7 +9,7 @@
     <div class="ls-custom-select">
 
       <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
-      <% [['Anestesista', 'anesthetist_id.name'],['Hospital', 'hospital.name'], ['Paciente', 'patient.name']].each do |c| %>
+      <% [['Anestesista', 'anesthetist'], ['Paciente', 'patient'], ['Cirurgião', 'surgeon'], ['Hospital', 'hospital']].each do |c| %>
       <%= content_tag(:option, c.first, value: c.last) %>
       <% end %>
       <% end %>
