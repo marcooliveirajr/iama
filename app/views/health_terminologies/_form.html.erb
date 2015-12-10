@@ -19,7 +19,8 @@
       <div class="col-md-8">
         <label class="ls-label col-md-8">
         <span class="ls-label-text"><%= f.label :code_tuss, "Código TUSS" %></span>
-        <%= f.number_field :code_tuss %>
+        <%#= f.number_field :code_tuss %>
+        <%= number_field_tag :code_tuss, nil, min: 1, max: 10 %>
       </label>
      </div>
     </div>
