@@ -62,18 +62,18 @@ SizeSurgery.find_or_create_by({:health_insurance_id => 3, :size => 2, :value => 
 SizeSurgery.find_or_create_by({:health_insurance_id => 3, :size => 3, :value => 30})
 
 puts 'Creating Health Terminologies for test...'
-HealthTerminology.find_or_create_by({:code_tuss => 1, 
-									 :description_tuss => "Procedimento 1", 
+HealthTerminology.find_or_create_by({:code_tuss => 9223372036854775807,
+									 :description_tuss => "Procedimento 1",
 									 :category_tuss => "Categoria 1",
 									 :size => 1,
 									 :version => 100})
-HealthTerminology.find_or_create_by({:code_tuss => 2, 
-									 :description_tuss => "Procedimento 2", 
+HealthTerminology.find_or_create_by({:code_tuss => 9223377516854775807,
+									 :description_tuss => "Procedimento 2",
 									 :category_tuss => "Categoria 2",
 									 :size => 1,
 									 :version => 100})
-HealthTerminology.find_or_create_by({:code_tuss => 3, 
-									 :description_tuss => "Procedimento 3", 
+HealthTerminology.find_or_create_by({:code_tuss => 9223372036874521807,
+									 :description_tuss => "Procedimento 3",
 									 :category_tuss => "Categoria 2",
 									 :size => 1,
 									 :version => 100})

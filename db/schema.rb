@@ -47,13 +47,13 @@ ActiveRecord::Schema.define(version: 20151112221139) do
   end
 
   create_table "health_terminologies", force: :cascade do |t|
-    t.integer  "code_tuss"
+    t.integer  "code_tuss",        limit: 8
     t.string   "description_tuss"
     t.string   "category_tuss"
     t.integer  "size"
     t.integer  "version"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "hospitals", force: :cascade do |t|

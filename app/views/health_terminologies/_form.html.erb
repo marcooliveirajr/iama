@@ -1,26 +1,13 @@
 <%= form_for(@health_terminology, html: { class: "ls-form row" }) do |f| %>
 
-  <% if @health_terminology.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@health_terminology.errors.count, "error") %> prohibited this health_terminology from being saved:</h2>
-
-      <ul>
-      <% @health_terminology.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-
   <fieldset>
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-8">
+        <label class="ls-label col-md-8 <%= class_error @health_terminology, :code_tuss %>">
         <span class="ls-label-text"><%= f.label :code_tuss, "Código TUSS" %></span>
-        <%#= f.number_field :code_tuss %>
-        <%= number_field_tag :code_tuss, nil, min: 1, max: 10 %>
+        <%= f.number_field :code_tuss %>
+        <%= show_message_error @health_terminology, :code_tuss %>
       </label>
      </div>
     </div>
