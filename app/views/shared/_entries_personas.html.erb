@@ -1,23 +1,12 @@
 <%= form_for(entrie, html: { class: "ls-form row" }) do |f| %>
-  <% if entrie.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@map.errors.count, "error") %> prohibited this entrie from being saved:</h2>
-
-      <ul>
-      <% entrie.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
   <fieldset>
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-8">
+        <label class="ls-label col-md-8 <%= class_error entrie, :name %>">
         <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
         <%= f.text_field :name %>
+        <%= show_message_error entrie, :name %>
       </label>
      </div>
     </div>
@@ -42,18 +31,20 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-8 <%= class_error entrie, :email %>">
         <span class="ls-label-text"><%= f.label :email, "Email" %></span>
         <%= f.text_field :email %>
+        <%= show_message_error entrie, :email %>
         </label>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-3 ls-v-align-middle">
+        <label class="ls-label col-md-3 ls-v-align-middle <%= class_error entrie, "CEP" %>">
           <span class="ls-label-text"><%= f.label :postal_code, "CEP" %></span>
           <%= f.text_field :postal_code, class: 'ls-mask-cep', placeholder: '00000-000', id: 'address_postal_code' %>
+          <%= show_message_error entrie, "CEP" %>
           <span class="ls-label col-md-3 ls-float-none"></span>
           <%= link_to 'Não sei o CEP', "http://www.buscacep.correios.com.br/", target: "_blank" %>
       </label>

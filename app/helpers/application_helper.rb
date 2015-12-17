@@ -1,6 +1,7 @@
 module ApplicationHelper
   ALERT_TYPES = [:success, :info, :warning, :danger] unless const_defined?(:ALERT_TYPES)
   TYPES = { notice: :success, alert: :warning, error: :danger, information: :info }
+
   def flash_messages
     content_tag(:div) do
       flash.each do |type, message|
