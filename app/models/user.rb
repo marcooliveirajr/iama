@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
   belongs_to :role
-
+  validates :name, presence: { message: :required_name }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   # :registerable,
-  devise :database_authenticatable, :recoverable, 
+  devise :database_authenticatable, :recoverable,
   		 :rememberable, :trackable, :validatable
 
   before_create :set_default_role
