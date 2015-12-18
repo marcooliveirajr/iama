@@ -27,25 +27,37 @@
   <%end%>
 </div>
 
-<table class="ls-table ls-table-striped">
-  <thead>
-    <tr>
-      <th>Usuário</th>
-      <th class="hidden-xs">Email</th>
-      <th class="hidden-xs">Role</th>
-    </tr>
-  </thead>
-
   <tbody>
     <% @users.each do |user| %>
-    <tr>
-      <td><%= link_to user.name, user %></td>
-      <td class="hidden-xs"><%= user.email %></td>
-      <td class="hidden-xs"><%= user.role.name %></td>
-    </tr>
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to user.name, user %></strong>
+        <small><%= user.email %></small>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_user_path(user) %></li>
+            <li><%= link_to 'Visualizar', user %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Email</span>
+        <strong><%= user.email %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Role</span>
+        <strong><%= user.role.name %></strong>
+      </div>
+    </div>
+  </div>
     <% end %>
   </tbody>
-</table>
 
 <% if @users %>
 <div class="ls-pagination-filter">

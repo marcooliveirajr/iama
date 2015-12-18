@@ -4,9 +4,10 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-8">
+        <label class="ls-label col-md-8 <%= class_error entrie, :name %>">
         <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
         <%= f.text_field :name %>
+        <%= show_message_error entrie, :name %>
       </label>
      </div>
     </div>
