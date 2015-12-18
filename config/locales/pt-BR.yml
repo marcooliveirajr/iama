@@ -98,6 +98,7 @@
   errors:
     format: "%{attribute} %{message}"
     messages:
+      invalid_phone: Telefone inválido
       required_name: Necessário informar um nome
       valid_email: Necessário informar um email válido
       accepted: Deve ser aceito
