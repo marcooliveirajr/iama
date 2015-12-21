@@ -139,6 +139,9 @@
       create: Criar %{model}
       submit: Salvar %{model}
       update: Atualizar %{model}
+    label:
+      payment_map:
+        payment: 'Pagamento'
   number:
     currency:
       format:
@@ -224,3 +227,14 @@
         other: "<b>%{count}</b> %{model} encontrados"
       multi_page: "%{from}&nbsp; - &nbsp;%{to} %{model} de %{count}"
       multi_page_html: "<label>%{model} &hellip; <b>%{from}&nbsp; - &nbsp;%{to}</b>  de <b>%{count}</b></label>"
+  actions:
+    create: 'Salvar'
+    edit: 'Editar'
+    destroy: 'Remover'
+    back: 'Voltar'
+  payment_map:
+    index:
+      new: 'Cadastrar Novo'
+      title: 'Pagamentos'
+    new:
+      title: 'Cadastro de pagamento'

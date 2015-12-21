@@ -9,8 +9,6 @@ class CreateMaps < ActiveRecord::Migration
       t.belongs_to :surgeon, index: true, foreign_key: true
       t.belongs_to :anesthetist, index: true, foreign_key: true
       t.belongs_to :health_insurance, index: true, foreign_key: true
-      t.date :payment_date
-      t.float :value
       t.text :note
 
       t.timestamps null: false

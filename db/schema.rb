@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151112221139) do
+ActiveRecord::Schema.define(version: 20151221121038) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name"
@@ -73,8 +73,6 @@ ActiveRecord::Schema.define(version: 20151112221139) do
     t.integer  "surgeon_id"
     t.integer  "anesthetist_id"
     t.integer  "health_insurance_id"
-    t.date     "payment_date"
-    t.float    "value"
     t.text     "note"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -103,6 +101,18 @@ ActiveRecord::Schema.define(version: 20151112221139) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
+
+  create_table "payment_maps", force: :cascade do |t|
+    t.integer  "map_id"
+    t.integer  "payment_id"
+    t.datetime "payment_date"
+    t.float    "payment_value"
+    t.float    "paid_value"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "payment_maps", ["map_id"], name: "index_payment_maps_on_map_id"
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
