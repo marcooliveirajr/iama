@@ -5,6 +5,7 @@ class PaymentMap
        payment_maps.each do |name, value|
         PaymentMap.create(
           map_id: map_id,
+          payment_id: value[:payment_id],
           payment_date: value[:payment_date],
           payment_value: value[:payment_value],
           paid_value: value[:paid_value]

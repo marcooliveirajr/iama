@@ -23,6 +23,7 @@
           <% @map.payment_maps.each do |payment_map| %>
           <tr>
             <td>1</td>
+            <td><%= payment_map.payment_id %></td>
             <td><%= payment_map.payment_date %></td>
             <td><%= payment_map.payment_value %></td>
             <td><%= payment_map.paid_value %></td>

@@ -5,6 +5,12 @@
     return $button;value
   }
 
+  function getLineNumber(value) {
+    var $input = $('<input />').attr('type', 'text').attr('class', 'col-md-12').attr('value', getNumber()).attr('name', 'map[payment_maps['+ value +'[payment_id]]]');
+
+    return $input;
+  }
+
   function getDatePayment(value) {
 
     var today = new Date();
@@ -35,7 +41,7 @@
   }
 
   function getValueInputHidden(value) {
-    var $input = $('<input />').attr('type', 'hidden').attr('name', 'map[payment_maps[' + value + '[payment_value]]]').attr('value', value);
+    var $input = $('<input />').attr('type', 'text').attr('class', 'col-md-12').attr('value', value).attr('name', 'map[payment_maps['+ value +'[payment_value]]]');
 
     return $input;
   }
@@ -49,15 +55,11 @@
     var $valuePayColumn = $('<td />');
     var $removeColumn = $('<td />');
 
-    $numberColumn.html(getLineNumber());
-
+    $numberColumn.html(getLineNumber(value));
+    //$numberColumn.html(getNumber());
     $datePaymentColumn.append(getDatePayment(value));
-
-    $valueColumn.html(value);
     $valueColumn.append(getValueInputHidden(value));
-
     $valuePayColumn.append(getValuePay(value));
-
     $removeColumn.append(getRemoveButton());
 
     $line.append($numberColumn);
@@ -73,8 +75,8 @@
     return $('#payments tbody tr').length;
   }
 
-  function getLineNumber() {
-    var lastLineNumber = $('#payments tbody tr:last').find('td:first').html();
+  function getNumber() {
+    var lastLineNumber = $('#payments tbody tr:last').find('td:first input').val();
     var number = 1;
 
     if(lastLineNumber) {
@@ -104,10 +106,7 @@
     $(this).parents('tr').remove();
 
     if(getLinesLength() === 0) {
-      $('.ls-btn-primary').attr('disabled', 'disabled');
       $('#payments').hide();
-    } else if(getLinesLength() === 1) {
-      $('#payments .root').attr('disabled', 'disabled');
     }
   }
 

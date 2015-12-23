@@ -31,7 +31,7 @@ class MapsController < ApplicationController
     respond_to do |format|
       Map.transaction do
         if @map.save
-        ::PaymentMap::CreaterService.create(params[:map][:payment_maps], @map.id)
+          ::PaymentMap::CreaterService.create(params[:map][:payment_maps], @map.id)
           format.html { redirect_to @map, notice: 'Mapa criado com sucesso.' }
           format.json { render :show, status: :created, location: @map }
         else
@@ -52,12 +52,15 @@ class MapsController < ApplicationController
   # PATCH/PUT /maps/1.json
   def update
     respond_to do |format|
-      if @map.update(map_params)
-        format.html { redirect_to @map, notice: 'Mapa atualizado com sucesso.' }
-        format.json { render :show, status: :ok, location: @map }
-      else
-        format.html { render :edit }
-        format.json { render json: @map.errors, status: :unprocessable_entity }
+      Map.transaction do
+        if @map.update(map_params)
+          ::PaymentMap::UpdaterService.update(params[:map][:payment_maps], @map.id)
+          format.html { redirect_to @map, notice: 'Mapa atualizado com sucesso.' }
+          format.json { render :show, status: :ok, location: @map }
+        else
+          format.html { render :edit }
+          format.json { render json: @map.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -86,4 +89,4 @@ class MapsController < ApplicationController
     def search_params
       params.require(:search).permit(:type, :text)
     end
-end
+  end

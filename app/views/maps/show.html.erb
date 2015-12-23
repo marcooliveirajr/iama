@@ -28,6 +28,7 @@
       <div class="col-md-12">
         <table class='ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top'>
           <thead>
+            <th>Parcela</th>
             <th>Vencimento</th>
             <th>Valor</th>
             <th>Valor Pago</th>
@@ -35,6 +36,7 @@
           <tbody>
             <% @map.payment_maps.each do |payment_map| %>
               <tr>
+                <td> <label class="ls-title-6"><%= payment_map.payment_id %></label> </td>
                 <td> <label class="ls-title-6"><%= payment_map.payment_date %></label> </td>
                 <td> <label class="ls-title-6"><%= payment_map.payment_value %></label> </td>
                 <td> <label class="ls-title-6"><%= payment_map.paid_value %></label> </td>
