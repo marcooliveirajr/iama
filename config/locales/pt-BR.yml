@@ -132,6 +132,12 @@
       header:
         one: 'Não foi possível gravar %{model}: 1 erro'
         other: 'Não foi possível gravar %{model}: %{count} erros.'
+    '403':
+      title: 'Acesso negado'
+      message: 'Você não está autorizado a acessar esta página.'
+    '404':
+      title: 'Recurso não encontrado'
+      message: 'O conteúdo pode ter sido removido ou não estar mais disponível.'
   helpers:
     select:
       prompt: Selecione
@@ -140,6 +146,24 @@
       submit: Salvar %{model}
       update: Atualizar %{model}
     label:
+      time_surgery:
+        time_surgery: 'Data/Hora'
+      health_terminology: 'Procedimento'
+      health_insurance:
+        health_insurance: 'Convênio Médico'
+      hospital:
+        hospital: 'Hospital'
+      bedroom:
+        bedroom: 'Quarto'
+      patient:
+        patient: 'Paciente'
+        name: 'Nome'
+      surgeon:
+        surgeon: 'Cirurgião'
+      anesthetist:
+        anesthetist: 'Anestesista'
+      note:
+        note: 'Observação'
       payment_map:
         payment: 'Pagamento'
   number:

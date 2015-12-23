@@ -6,6 +6,7 @@ class Map < ActiveRecord::Base
   belongs_to :surgeon
   belongs_to :anesthetist
   belongs_to :health_insurance
+  has_many :payment_maps
 
   validates :health_terminology_id, presence: { message: 'Necessário informar um Procedimento' }
   validates :patient_id, presence: { message: 'Necessário informar um Paciente' }

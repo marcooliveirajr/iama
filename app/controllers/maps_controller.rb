@@ -29,12 +29,15 @@ class MapsController < ApplicationController
     @map = Map.new(map_params)
 
     respond_to do |format|
-      if @map.save
-        format.html { redirect_to @map, notice: 'Mapa criado com sucesso.' }
-        format.json { render :show, status: :created, location: @map }
-      else
-        format.html { render :new }
-        format.json { render json: @map.errors, status: :unprocessable_entity }
+      Map.transaction do
+        if @map.save
+        ::PaymentMap::CreaterService.create(params[:map][:payment_maps], @map.id)
+          format.html { redirect_to @map, notice: 'Mapa criado com sucesso.' }
+          format.json { render :show, status: :created, location: @map }
+        else
+          format.html { render :new }
+          format.json { render json: @map.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -77,7 +80,7 @@ class MapsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def map_params
-      params.require(:map).permit(:time_surgery, :hospital_id, :bedroom_id, :patient_id, :health_terminology_id, :surgeon_id, :anesthetist_id, :health_insurance_id, :payment_date, :value, :note)
+      params.require(:map).permit(:time_surgery, :hospital_id, :bedroom_id, :patient_id, :health_terminology_id, :surgeon_id, :anesthetist_id, :health_insurance_id, :note)
     end
 
     def search_params

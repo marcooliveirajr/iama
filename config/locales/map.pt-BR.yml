@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    attributes:
+      map:
+        time_surgery: Data/Hora
+        health_terminology: Procedimento
+        hospital: 'Hospital'
+        bedroom: 'Quarto'
+        patient: 'Paciente'
+        surgeon: 'Cirurgião'
+        anesthetist: 'Anestesista'
+        health_insurance: 'Convênio Médico'
+        note: 'Observação'

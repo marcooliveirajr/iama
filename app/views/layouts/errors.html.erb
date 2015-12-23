@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="ls-theme-green ls-html-nobg ls-main-full ls-browser-chrome ls-screen-lg">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta charset="utf-8">
+
+  <title> <%= SECRETS["site"]["title"] %> </title>
+
+  <%= stylesheet_link_tag "application", SECRETS["locastyle"]["css"], :media => "screen" %>
+  <%= csrf_meta_tags %>
+
+  <meta http-equiv="X-Request-Id" content="<%= request.uuid %>">
+  <%= current_user.name if current_user %>
+  <body>
+    <div class="ls-topbar">
+
+      <div class="ls-notification-topbar">
+        <%= render 'layouts/dropdown_user'%>
+      </div>
+
+      <h1 class="ls-brand-name"><%= link_to SECRETS["site"]["name"], root_path, title: SECRETS["site"]["name"], class: "ls-ico-accessibility" %></h1>
+
+      <span class="ls-show-notifications ls-ico-question"></span></div>
+
+    <main class="ls-main">
+      <div class="container-fluid">
+        <div class="ls-box ls-no-bg ls-box-error">
+          <%= yield %>
+        </div>
+      </div>
+    </main>
+
+    <%= javascript_include_tag "//code.jquery.com/jquery-2.1.3.min.js" %>
+    <%= javascript_include_tag "application", SECRETS["locastyle"]["js"] %>
+  </body>
+</html>

@@ -32,6 +32,9 @@ class ApplicationController < ActionController::Base
     unless current_user.admin?
       raise ActionController::RoutingError.new('not allowed')
     end
+    rescue_from ActiveRecord::RecordNotFound do
+      render 'errors/404', layout: 'errors', status: 404
+    end
   end
 
   protected
