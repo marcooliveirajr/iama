@@ -34,7 +34,7 @@
   <div class="ls-list">
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
-        <strong><%= link_to map.health_terminology.description_tuss, map %></strong>
+        <strong><%= link_to map.health_terminology.try(:description_tuss), map %></strong>
         <small><%= map.time_surgery %></small>
       </div>
       <div class="col-md-3 ls-txt-right">
@@ -51,11 +51,11 @@
     <div class="ls-list-content ">
       <div class="col-sm-4">
         <span class="ls-list-label">Convênio</span>
-        <strong><%= map.health_insurance.name %></strong>
+        <strong><%= map.health_insurance.try(:name) %></strong>
       </div>
       <div class="col-sm-4">
         <span class="ls-list-label">Hospital</span>
-        <strong><%= map.hospital.name %></strong>
+        <strong><%= map.hospital.try(:name) %></strong>
       </div>
       <div class="col-sm-4">
         <span class="ls-list-label">Quarto</span>
@@ -66,15 +66,15 @@
     <div class="ls-list-content ">
       <div class="col-sm-4">
         <span class="ls-list-label">Paciente</span>
-        <strong><%= map.patient.name %></strong>
+        <strong><%= map.patient.try(:name) %></strong>
       </div>
       <div class="col-sm-4">
         <span class="ls-list-label">Cirurgião</span>
-        <strong><%= map.surgeon.name %></strong>
+        <strong><%= map.surgeon.try(:name) %></strong>
       </div>
       <div class="col-sm-4">
         <span class="ls-list-label">Anestesista</span>
-        <strong><%= map.anesthetist.name %></strong>
+        <strong><%= map.anesthetist.try(:name) %></strong>
       </div>
     </div>
   </div>

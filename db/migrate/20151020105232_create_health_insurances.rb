@@ -4,6 +4,7 @@ class CreateHealthInsurances < ActiveRecord::Migration
       t.string :name
       t.string :kind
       t.boolean :status
+      t.belongs_to :health_terminology, index: true, foreign_key: true
 
       t.timestamps null: false
     end

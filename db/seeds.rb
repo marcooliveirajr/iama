@@ -62,7 +62,7 @@ SizeSurgery.find_or_create_by({:health_insurance_id => 3, :size => 2, :value => 
 SizeSurgery.find_or_create_by({:health_insurance_id => 3, :size => 3, :value => 30})
 
 puts 'Creating Health Terminologies for test...'
-HealthTerminology.find_or_create_by({:code_tuss => 20102011, :description_tuss => "Holter De 24 Horas - 2 Ou Mais Canais - Analógico", :category_tuss => "Procedimentos Clínicos", :size => 0})
+HealthTerminology.find_or_create_by({:code_tuss => 20102011, :description_tuss => "Holter De 24 Horas - 2 Ou Mais Canais - Analógico", :category_tuss => "Procedimentos Clínicos", :size => 0, :conv => 1 })
 HealthTerminology.find_or_create_by({:code_tuss => 20102038, :description_tuss => "Monitorização Ambulatorial Da Pressão Arterial - Mapa (24 Horas)", :category_tuss => "Procedimentos Clínicos", :size => 0})
 HealthTerminology.find_or_create_by({:code_tuss => 20102070, :description_tuss => "Tilt Teste", :category_tuss => "Procedimentos Clínicos", :size => 0})
 HealthTerminology.find_or_create_by({:code_tuss => 20102089, :description_tuss => "Sistema Holter - 12 Horas - 1 Canal", :category_tuss => "Procedimentos Clínicos", :size => 0})

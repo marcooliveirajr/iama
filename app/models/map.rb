@@ -8,8 +8,7 @@ class Map < ActiveRecord::Base
   belongs_to :health_insurance
   has_many :payment_maps
 
-  validates :health_terminology_id, presence: { message: 'Necessário informar um Procedimento' }
-  validates :patient_id, presence: { message: 'Necessário informar um Paciente' }
+  validates :surgeon_id, presence: { message: 'Necessário informar um Cirurgião' }
 
   def bedroom_hospital
     return Bedroom.where(hospital: hospital).all unless hospital.nil?
