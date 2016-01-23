@@ -14,6 +14,15 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-3">
+        <span class="ls-label-text"><%= f.label :rg, "RG" %></span>
+        <%= f.text_field :rg, class: 'ls-mask-rg', placeholder: '00.000.000-0', maxlength: '9', autocomplete: 'off' %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-3">
         <span class="ls-label-text"><%= f.label :cpf, "CPF" %></span>
         <%= f.text_field :cpf, class: 'ls-mask-cpf', placeholder: '000.000.000-00', maxlength: '14', autocomplete: 'off' %>
       </label>
@@ -103,6 +112,15 @@
           <div class="ls-custom-select">
             <%= f.select(:state, Carmen::state_codes('BR'), {prompt: true}, class: "ls-state ls-select", id: "id_state" ) %>
           </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= label(:note, Map.human_attribute_name(:note)) %></span>
+          <%= f.text_area :note %>
         </label>
       </div>
     </div>

@@ -2,6 +2,7 @@ class CreatePatients < ActiveRecord::Migration
   def change
     create_table :patients do |t|
       t.string :name
+      t.string :rg
       t.string :cpf
       t.integer :phone
       t.string :email
@@ -12,6 +13,7 @@ class CreatePatients < ActiveRecord::Migration
       t.string :city
       t.integer :postal_code
       t.string :state
+      t.text :note
 
       t.timestamps null: false
     end

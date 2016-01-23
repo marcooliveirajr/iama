@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20151221121038) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name"
+    t.string   "rg"
     t.string   "cpf"
     t.integer  "phone"
     t.string   "email"
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 20151221121038) do
     t.string   "city"
     t.integer  "postal_code"
     t.string   "state"
+    t.text     "note"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
@@ -42,18 +44,21 @@ ActiveRecord::Schema.define(version: 20151221121038) do
     t.string   "name"
     t.string   "kind"
     t.boolean  "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "health_terminology_id"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
+  add_index "health_insurances", ["health_terminology_id"], name: "index_health_insurances_on_health_terminology_id"
+
   create_table "health_terminologies", force: :cascade do |t|
-    t.integer  "code_tuss"
+    t.integer  "code_tuss",        limit: 8
     t.string   "description_tuss"
     t.string   "category_tuss"
     t.integer  "size"
     t.integer  "version"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "hospitals", force: :cascade do |t|
@@ -73,8 +78,6 @@ ActiveRecord::Schema.define(version: 20151221121038) do
     t.integer  "surgeon_id"
     t.integer  "anesthetist_id"
     t.integer  "health_insurance_id"
-    t.date     "payment_date"
-    t.float    "value"
     t.text     "note"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -90,6 +93,7 @@ ActiveRecord::Schema.define(version: 20151221121038) do
 
   create_table "patients", force: :cascade do |t|
     t.string   "name"
+    t.string   "rg"
     t.string   "cpf"
     t.integer  "phone"
     t.string   "email"
@@ -100,6 +104,7 @@ ActiveRecord::Schema.define(version: 20151221121038) do
     t.string   "city"
     t.integer  "postal_code"
     t.string   "state"
+    t.text     "note"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
@@ -134,6 +139,7 @@ ActiveRecord::Schema.define(version: 20151221121038) do
 
   create_table "surgeons", force: :cascade do |t|
     t.string   "name"
+    t.string   "rg"
     t.string   "cpf"
     t.integer  "phone"
     t.string   "email"
@@ -144,6 +150,7 @@ ActiveRecord::Schema.define(version: 20151221121038) do
     t.string   "city"
     t.integer  "postal_code"
     t.string   "state"
+    t.text     "note"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
