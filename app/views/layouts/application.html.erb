@@ -45,10 +45,10 @@
   <%= render 'shared/menu' %>
 
   <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <%= javascript_include_tag "application", SECRETS["locastyle"]["js"] %>
   <script type='text/javascript'>
     <%= yield :javascript %>
   </script>
-  <%= javascript_include_tag "application", SECRETS["locastyle"]["js"] %>
-
+ 
 </body>
 </html>
