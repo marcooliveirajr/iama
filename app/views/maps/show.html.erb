@@ -6,7 +6,7 @@
     <div class="col-md-12">
       <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
         <tbody>
-          <tr> <td> Data/Hora: <label class="ls-title-6"><%= @map.time_surgery %></label> </td> </tr>   
+          <tr> <td> Data/Hora: <label class="ls-title-6"><%= @map.time_surgery.strftime("%d/%m/%Y %H:%m") %></label> </td> </tr>   
           <tr> <td> Convênio Médico: <label class="ls-title-6"><%= @map.health_insurance.try(:name) %></label> </td> </tr>
           <tr> <td> Procedimento: <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %></label> </td> </tr>
           <tr> <td> Hospital: <label class="ls-title-6"><%= @map.hospital.try(:name) %></label> </td> </tr>
@@ -37,7 +37,7 @@
             <% @map.payment_maps.each do |payment_map| %>
               <tr>
                 <td> <label class="ls-title-6"><%= payment_map.payment_id %></label> </td>
-                <td> <label class="ls-title-6"><%= payment_map.payment_date %></label> </td>
+                <td> <label class="ls-title-6"><%= payment_map.payment_date.strftime("%d/%m/%Y") %></label> </td>
                 <td> <label class="ls-title-6"><%= payment_map.payment_value %></label> </td>
                 <td> <label class="ls-title-6"><%= payment_map.paid_value %></label> </td>
               </tr>

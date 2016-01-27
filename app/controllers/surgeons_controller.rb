@@ -44,7 +44,13 @@ class SurgeonsController < ApplicationController
   def search
     @surgeons = ::Surgeon::FinderService.find(search_params)
     @surgeons = make_paginate(@surgeons)
-    render action: 'index'
+    if @surgeons.present?
+      flash[:error] = nil
+      render action: 'index'
+    else
+      flash[:error] = 'Não encontrou nenhum registro.'
+      render action: 'index'
+    end
   end
 
   # PATCH/PUT /surgeons/1

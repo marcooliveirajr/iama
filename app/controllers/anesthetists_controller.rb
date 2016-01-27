@@ -44,7 +44,13 @@ class AnesthetistsController < ApplicationController
   def search
     @anesthetists = ::Anesthetist::FinderService.find(search_params)
     @anesthetists = make_paginate(@anesthetists)
-    render action: 'index'
+    if @anesthetists.present?
+      flash[:error] = nil
+      render action: 'index'
+    else
+      flash[:error] = 'Não encontrou nenhum registro.'
+      render action: 'index'
+    end
   end
 
   # PATCH/PUT /anesthetists/1

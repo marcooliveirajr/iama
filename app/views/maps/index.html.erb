@@ -9,9 +9,9 @@
     <div class="ls-custom-select">
 
       <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
-      <% [['Data de Procedimento', 'time_surgery'], ['Anestesista', 'anesthetist'], ['Paciente', 'patient'], ['Cirurgião', 'surgeon'], ['Hospital', 'hospital']].each do |c| %>
-      <%= content_tag(:option, c.first, value: c.last) %>
-      <% end %>
+         <% [['Data de Procedimento', 'time_surgery'], ['Anestesista', 'anesthetist'], ['Paciente', 'patient'], ['Cirurgião', 'surgeon'], ['Hospital', 'hospital']].each do |c| %>
+         <%= content_tag(:option, c.first, value: c.last) %>
+       <% end %>
       <% end %>
 
     </div>
@@ -22,9 +22,8 @@
   </label>
 
   <label class="ls-label col-md-4 ls-display-none" role="search" id="data_order_search">
-    <!-- <input type="text" name="cel3" class="datepicker"  placeholder="dd/mm/aaaa"> -->
-    <%= f.text_field :date, class: 'datepicker', placeholder: "dd/mm/aaaa"%>
-    <a class="ls-label-text-prefix ls-ico-calendar" href="#"></a>
+    <%= f.text_field :date, class: 'datepicker', placeholder: "dd/mm/aaaa", id: 'datepicker'%>
+    <a class="ls-label-text-prefix ls-ico-calendar" href="#" data-trigger-calendar="#datepicker"></a>
   </label>
 
 
@@ -42,7 +41,7 @@
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
         <strong><%= link_to map.health_terminology.try(:description_tuss), map %></strong>
-        <small><%= map.time_surgery %></small>
+        <small><%= map.time_surgery.strftime("%d/%m/%Y %H:%m") %></small>
       </div>
       <div class="col-md-3 ls-txt-right">
         <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">

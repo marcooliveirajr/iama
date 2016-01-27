@@ -4,9 +4,9 @@
 
   <div class="row">
     <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= label(:time_surgery, Map.human_attribute_name(:time_surgery)) %></span>
-        <%= f.datetime_select :time_surgery, {:order => [:day, :month, :year], :datetime_separator => " - ", :use_month_names=>["Janeiro" ,"Fevereiro", "Março", "Abril" ,"Maio", "Junho","Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" ],:start_year => Time.now.year, :end_year => Time.now.year + 5 }%>
+      <label class="ls-label col-md-5">
+        <span class="ls-label-text"><%= label(:time_surgery_date, Map.human_attribute_name(:time_surgery_date)) %></span>
+        <%= f.datetime_field :time_surgery, class: 'ls-mask-date', id: 'datetimepicker'%>
       </label>
     </div>
   </div>
@@ -32,8 +32,6 @@
       </label>
     </div>
   </div>
-
-
 
   <div class="row">
     <div class="col-md-10">

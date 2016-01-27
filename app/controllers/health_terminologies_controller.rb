@@ -42,7 +42,13 @@ class HealthTerminologiesController < ApplicationController
   def search
     @health_terminologies = ::HealthTerminology::FinderService.find(search_params)
     @health_terminologies = make_paginate(@health_terminologies)
-    render action: 'index'
+    if @health_terminologies.present?
+      flash[:error] = nil
+      render action: 'index'
+    else
+      flash[:error] = 'Não encontrou nenhum registro.'
+      render action: 'index'
+    end
   end
 
   # PATCH/PUT /health_terminologies/1
