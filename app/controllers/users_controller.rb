@@ -34,7 +34,13 @@ class UsersController < ApplicationController
   def search
     @users = ::User::FinderService.find(search_params)
     @users = make_paginate(@users)
-    render action: 'index'
+    if @users.present?
+      flash[:error] = nil
+      render action: 'index'
+    else
+      flash[:error] = 'Não encontrou nenhum registro.'
+      render action: 'index'
+    end
   end
 
   # PATCH/PUT /users/1

@@ -42,7 +42,13 @@ class SizeSurgeriesController < ApplicationController
   def search
     @size_surgeries = ::SizeSurgery::FinderService.find(search_params)
     @size_surgeries = make_paginate(@size_surgeries)
-    render action: 'index'
+    if @size_surgeries.present?
+      flash[:error] = nil
+      render action: 'index'
+    else
+      flash[:error] = 'Não encontrou nenhum registro.'
+      render action: 'index'
+    end
   end
 
   # PATCH/PUT /size_surgeries/1

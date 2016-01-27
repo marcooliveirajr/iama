@@ -45,7 +45,13 @@ class MapsController < ApplicationController
   def search
     @maps = ::Map::FinderService.find(search_params)
     @maps = make_paginate(@maps)
-    render action: 'index'
+    if @maps.present?
+      flash[:error] = nil
+      render action: 'index'
+    else
+      flash[:error] = 'Não encontrou nenhum registro.'
+      render action: 'index'
+    end
   end
 
   # PATCH/PUT /maps/1
@@ -87,6 +93,6 @@ class MapsController < ApplicationController
     end
 
     def search_params
-      params.require(:search).permit(:type, :text)
+      params.require(:search).permit(:type, :text, :date)
     end
   end

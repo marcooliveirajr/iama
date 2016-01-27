@@ -51,7 +51,13 @@ class BedroomsController < ApplicationController
   def search
     @bedrooms = ::Bedroom::FinderService.find(search_params)
     @bedrooms = make_paginate(@bedrooms)
-    render action: 'index'
+    if @bedrooms.present?
+      flash[:error] = nil
+      render action: 'index'
+    else
+      flash[:error] = 'Não encontrou nenhum registro.'
+      render action: 'index'
+    end
   end
 
   # PATCH/PUT /bedrooms/1

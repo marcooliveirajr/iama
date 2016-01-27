@@ -42,7 +42,13 @@ class HealthInsurancesController < ApplicationController
   def search
     @health_insurances = ::HealthInsurance::FinderService.find(search_params)
     @health_insurances = make_paginate(@health_insurances)
-    render action: 'index'
+    if @health_insurances.present?
+      flash[:error] = nil
+      render action: 'index'
+    else
+      flash[:error] = 'Não encontrou nenhum registro.'
+      render action: 'index'
+    end
   end
 
   # PATCH/PUT /health_insurances/1

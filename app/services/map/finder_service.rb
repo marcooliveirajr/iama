@@ -3,7 +3,7 @@ class Map
     class << self
       def find(params)
         params = params.with_indifferent_access.symbolize_keys
-        if params[:text] != ""
+        if params[:text].present? || params[:date].present?
   				$param_type = params[:type]
   				case $param_type
   				when 'anesthetist'
@@ -14,6 +14,8 @@ class Map
   			    Map.joins(:surgeon).where("name like ?", "%#{params[:text]}%")
   				when 'hospital'
   			    Map.joins(:hospital).where("name like ?", "%#{params[:text]}%")
+          when 'time_surgery'
+            Map.where("time_surgery like ?", "#{Date.parse(params[:date])}%").all
   				end
         else
           Map.all

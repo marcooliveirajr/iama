@@ -2,7 +2,8 @@ pt-BR:
   activerecord:
     attributes:
       map:
-        time_surgery: Data/Hora
+        time_surgery_date: Data
+        time_surgery_time: Hora
         health_terminology: Procedimento
         hospital: 'Hospital'
         bedroom: 'Quarto'

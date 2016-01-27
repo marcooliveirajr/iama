@@ -9,9 +9,9 @@
     <div class="ls-custom-select">
 
       <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
-      <% [['Anestesista', 'anesthetist'], ['Paciente', 'patient'], ['Cirurgião', 'surgeon'], ['Hospital', 'hospital']].each do |c| %>
-      <%= content_tag(:option, c.first, value: c.last) %>
-      <% end %>
+         <% [['Data de Procedimento', 'time_surgery'], ['Anestesista', 'anesthetist'], ['Paciente', 'patient'], ['Cirurgião', 'surgeon'], ['Hospital', 'hospital']].each do |c| %>
+         <%= content_tag(:option, c.first, value: c.last) %>
+       <% end %>
       <% end %>
 
     </div>
@@ -20,6 +20,12 @@
   <label class="ls-label col-md-4" role="search" id="text_order_search">
     <%= f.text_field :text, class: 'ls-field' %>
   </label>
+
+  <label class="ls-label col-md-4 ls-display-none" role="search" id="data_order_search">
+    <%= f.text_field :date, class: 'datepicker', placeholder: "dd/mm/aaaa", id: 'datepicker'%>
+    <a class="ls-label-text-prefix ls-ico-calendar" href="#" data-trigger-calendar="#datepicker"></a>
+  </label>
+
 
   <label class="ls-label ">
     <%= submit_tag('Buscar', class: "ls-btn") %>
@@ -35,7 +41,7 @@
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
         <strong><%= link_to map.health_terminology.try(:description_tuss), map %></strong>
-        <small><%= map.time_surgery %></small>
+        <small><%= map.time_surgery.strftime("%d/%m/%Y %H:%m") %></small>
       </div>
       <div class="col-md-3 ls-txt-right">
         <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
@@ -97,3 +103,8 @@
   <% end %>
 </div>
 <% end %>
+
+
+  <%= content_for :javascript do %>
+    $(document).ready(clinica.date_time_surgery.init);
+  <% end %>

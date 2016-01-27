@@ -42,7 +42,13 @@ class PatientsController < ApplicationController
   def search
     @patients = ::Patient::FinderService.find(search_params)
     @patients = make_paginate(@patients)
-    render action: 'index'
+    if @patients.spresent?
+      flash[:error] = nil
+      render action: 'index'
+    else
+      flash[:error] = 'Não encontrou nenhum registro.'
+      render action: 'index'
+    end
   end
 
   # PATCH/PUT /patients/1
