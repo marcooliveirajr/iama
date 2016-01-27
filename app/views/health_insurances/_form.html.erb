@@ -1,0 +1,62 @@
+<%= form_for(@health_insurance, html: { class: "ls-form row" }) do |f| %>
+
+  <fieldset>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8 <%= class_error @health_insurance, :name %>">
+        <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
+        <%= f.text_field :name %>
+        <%= show_message_error @health_insurance, :name %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :kind, "Tipo" %></span>
+        <%= f.text_field :kind %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :status, "Status" %></span>
+        <%= f.text_field :status %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :status, "Status" %></span>
+        <%= f.text_field :status %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8 <%= class_error @health_insurance, :hospital_id %>">
+        <span class="ls-label-text"><%= f.label :health_terminology_id, "Versão TUSS" %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:health_terminology_id, HealthTerminology.all, :id, :version, class: "ls-state ls-select", prompt: true) %>
+          </div>
+          <%= show_message_error @health_insurance, :health_terminology_id %>
+        </label>
+      </div>
+    </div>
+
+
+ </fieldset>
+
+<div class="ls-actions-btn">
+    <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
+    <%= link_to 'Voltar', health_insurances_path, class: "ls-btn-darker" %>
+</div>
+
+<% end %>
