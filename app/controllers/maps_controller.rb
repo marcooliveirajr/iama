@@ -87,6 +87,6 @@ class MapsController < ApplicationController
     end
 
     def search_params
-      params.require(:search).permit(:type, :text)
+      params.require(:search).permit(:type, :text, :date)
     end
   end
