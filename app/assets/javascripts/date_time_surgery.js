@@ -1,6 +1,6 @@
 var clinica = clinica || {}
 
-clinica.teste = (function() {
+clinica.date_time_surgery = (function() {
     'use script';
 
     function init() {
@@ -13,7 +13,7 @@ clinica.teste = (function() {
               var text = $('#text_order_search');
                   var date = $('#data_order_search');
 
-                  if (value == 'patient') {
+                  if (value == 'time_surgery') {
                           enableElement(date, true)
                           enableElement(text, false)
                   } else {
