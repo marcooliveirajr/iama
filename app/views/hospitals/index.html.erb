@@ -54,7 +54,11 @@
       </div>
       <div class="col-xs-12 col-md-6">
         <span class="ls-list-label">Status</span>
-        <strong><%= hospital.status %></strong>
+        <% if  hospital.status == true %>
+          <strong>ativo</strong>
+        <% else %>
+          <strong>desativado</strong>
+        <% end %>
       </div>
     </div>
   </div>

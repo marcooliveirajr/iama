@@ -6,11 +6,17 @@
     <ul>
 
       <li class="ls-submenu">
-        <%= link_to 'Mapa', maps_path, class: "ls-ico-calendar-more" %>  
+        <%= link_to 'Mapa', maps_path, class: "ls-ico-calendar-more" %>
       </li>
 
       <li class="ls-submenu">
         <a class="ls-ico-pencil" href="">  Cadastros </a>
+        <ul>
+          <%= link_to 'Convênio Médico', health_insurances_path, class: "ls-ico-text" %>
+        </ul>
+        <ul>
+          <%= link_to 'Porte de Cirurgia', size_surgeries_path, class: "ls-ico-text" %>
+        </ul>
         <ul>
           <%= link_to 'TUSS', health_terminologies_path, class: "ls-ico-text" %>
         </ul>
@@ -28,12 +34,6 @@
         </ul>
         <ul>
           <%= link_to 'Quartos', bedrooms_path, class: "ls-ico-text" %>
-        </ul>
-        <ul>
-          <%= link_to 'Convênio Médico', health_insurances_path, class: "ls-ico-text" %>
-        </ul>
-        <ul>
-          <%= link_to 'Porte de Cirurgia', size_surgeries_path, class: "ls-ico-text" %>
         </ul>
       </li>
 

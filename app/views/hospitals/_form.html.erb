@@ -1,13 +1,13 @@
-<%= form_for(entrie, html: { class: "ls-form row" }) do |f| %>
+<%= form_for(@hospital, html: { class: "ls-form row" }) do |f| %>
 
   <fieldset>
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-8 <%= class_error entrie, :name %>">
+        <label class="ls-label col-md-8 <%= class_error @hospital, :name %>">
         <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
         <%= f.text_field :name %>
-        <%= show_message_error entrie, :name %>
+        <%= show_message_error @hospital, :name %>
       </label>
      </div>
     </div>
@@ -24,8 +24,8 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :status, "Status" %></span>
-        <%= f.text_field :status %>
+          <span class="ls-label-text"><%= f.label :status, "Ativo?" %></span>
+          <%= f.check_box :status , {}, "true", "false" %>
         </label>
       </div>
     </div>
@@ -34,7 +34,7 @@
 
 <div class="ls-actions-btn">
     <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
-    <%= link_to 'Voltar', path, class: "ls-btn-darker" %>
+    <%= link_to 'Voltar', hospitals_path, class: "ls-btn-darker" %>
 </div>
 
 <% end %>

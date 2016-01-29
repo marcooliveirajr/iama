@@ -63,14 +63,14 @@ SizeSurgery.find_or_create_by({:health_insurance_id => 3, :size => 3, :value => 
 
 puts 'Creating Health Terminologies for test...'
 HealthTerminology.find_or_create_by({:code_tuss => 20102011, :description_tuss => "Holter De 24 Horas - 2 Ou Mais Canais - Analógico", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1 })
-HealthTerminology.find_or_create_by({:code_tuss => 20102038, :description_tuss => "Monitorização Ambulatorial Da Pressão Arterial - Mapa (24 Horas)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
+HealthTerminology.find_or_create_by({:code_tuss => 20102038, :description_tuss => "Monitorização Ambulatorial Da Pressão Arterial - Mapa (24 Horas)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 2})
 HealthTerminology.find_or_create_by({:code_tuss => 20102070, :description_tuss => "Tilt Teste", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
-HealthTerminology.find_or_create_by({:code_tuss => 20102089, :description_tuss => "Sistema Holter - 12 Horas - 1 Canal", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
+HealthTerminology.find_or_create_by({:code_tuss => 20102089, :description_tuss => "Sistema Holter - 12 Horas - 1 Canal", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 3})
 HealthTerminology.find_or_create_by({:code_tuss => 20103018, :description_tuss => "Adaptação E Treinamento De Recursos Ópticos Para Visão Subnormal (Por Sessão) -", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 20103026, :description_tuss => "Amputação Bilateral (Preparação Do Coto)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 20103034, :description_tuss => "Amputação Bilateral (Treinamento Protético)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 20103042, :description_tuss => "Amputação Unilateral (Preparação Do Coto)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
-HealthTerminology.find_or_create_by({:code_tuss => 20103050, :description_tuss => "Amputação Unilateral (Treinamento Protético)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
+HealthTerminology.find_or_create_by({:code_tuss => 20103050, :description_tuss => "Amputação Unilateral (Treinamento Protético)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 4})
 HealthTerminology.find_or_create_by({:code_tuss => 20103069, :description_tuss => "Assistência Fisiátrica Respiratória Em Pré E Pós-Operatório De Condições Cirúrgicas", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 20103077, :description_tuss => "Ataxias", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 20103093, :description_tuss => "Atendimento Fisiátrico No Pré E Pós-Operatório De Pacientes Para Prevenção De", :category_tuss => "Procedimentos Clínicos", :size => 0, :version => 1})
