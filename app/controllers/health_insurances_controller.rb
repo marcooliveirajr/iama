@@ -76,7 +76,7 @@ class HealthInsurancesController < ApplicationController
   end
 
   def by_version
-    @health_insurance ||= HealthInsurance.where(health_terminology: @health_terminology).all
+    @health_insurance ||= HealthInsurance.where(health_terminology: set_health_terminology).all
     respond_to do |format|
       format.json { render json: @health_insurance, render: :by_version  }
     end
@@ -90,6 +90,7 @@ class HealthInsurancesController < ApplicationController
 
     def set_health_terminology
       @health_terminology = HealthTerminology.find(params[:id])
+      @health_terminology.version
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
