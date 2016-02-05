@@ -14,4 +14,9 @@ class Map < ActiveRecord::Base
     return Bedroom.where(hospital: hospital).all unless hospital.nil?
     []
   end
+
+  def terminology_version
+    return HealthTerminology.where(version_id: health_insurance.id).all unless health_insurance.nil?
+    []
+  end
 end

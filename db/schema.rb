@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151221121038) do
+ActiveRecord::Schema.define(version: 20160205012510) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name"
@@ -44,22 +44,24 @@ ActiveRecord::Schema.define(version: 20151221121038) do
     t.string   "name"
     t.string   "kind"
     t.boolean  "status"
-    t.integer  "health_terminology_id"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.integer  "version_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "health_insurances", ["health_terminology_id"], name: "index_health_insurances_on_health_terminology_id"
+  add_index "health_insurances", ["version_id"], name: "index_health_insurances_on_version_id"
 
   create_table "health_terminologies", force: :cascade do |t|
     t.integer  "code_tuss",        limit: 8
     t.string   "description_tuss"
     t.string   "category_tuss"
     t.integer  "size"
-    t.integer  "version"
+    t.integer  "version_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
   end
+
+  add_index "health_terminologies", ["version_id"], name: "index_health_terminologies_on_version_id"
 
   create_table "hospitals", force: :cascade do |t|
     t.string   "name"
@@ -175,5 +177,11 @@ ActiveRecord::Schema.define(version: 20151221121038) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   add_index "users", ["role_id"], name: "index_users_on_role_id"
+
+  create_table "versions", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

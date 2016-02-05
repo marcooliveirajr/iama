@@ -75,27 +75,15 @@ class HealthInsurancesController < ApplicationController
     end
   end
 
-  def by_version
-    @health_insurance ||= HealthInsurance.where(health_terminology: set_health_terminology).all
-    respond_to do |format|
-      format.json { render json: @health_insurance, render: :by_version  }
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_health_insurance
       @health_insurance = HealthInsurance.find(params[:id])
     end
 
-    def set_health_terminology
-      @health_terminology = HealthTerminology.find(params[:id])
-      @health_terminology.version
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def health_insurance_params
-      params.require(:health_insurance).permit(:name, :kind, :status, :health_terminology_id)
+      params.require(:health_insurance).permit(:name, :kind, :status, :version_id)
     end
 
     def search_params

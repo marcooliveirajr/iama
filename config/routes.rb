@@ -23,10 +23,10 @@ Rails.application.routes.draw do
   end
   resources :health_insurances, shallow: true do
     get 'search', to: 'health_insurances#search', as: 'search', on: :collection
-    get "/health_terminologies/version/:version", to: "health_insurance#version", on: :collection
   end
   resources :health_terminologies, shallow: true do
     get 'search', to: 'health_terminologies#search', as: 'search', on: :collection
+    get 'version', to: 'health_terminologies#index_version', on: :collection
   end
   resources :maps, shallow: true do
     get 'search', to: 'maps#search', as: 'search', on: :collection
