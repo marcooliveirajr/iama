@@ -1,9 +1,19 @@
-<p id="notice"><%= notice %></p>
+<h1 class="ls-title-intro ls-ico-text">Versão</h1>
+<%= flash_messages %>
+<div class="ls-box">
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> <td> Código: <label class="ls-title-6"><%= @version.id %></label> </td> </tr>
+          </tbody>
+          <tbody>
+            <tr> <td> Nome: <label class="ls-title-6"><%= @version.name %></label> </td> </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @version.name %>
-</p>
-
-<%= link_to 'Edit', edit_version_path(@version) %> |
-<%= link_to 'Back', versions_path %>
+<%= link_to 'Editar', edit_version_path(@version) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', versions_path, class: "ls-btn-darker" %>

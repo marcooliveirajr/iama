@@ -1,21 +1,23 @@
-<%= form_for(@version) do |f| %>
-  <% if @version.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@version.errors.count, "error") %> prohibited this version from being saved:</h2>
+<%= form_for(@version, html: { class: "ls-form row" }) do |f| %>
+  <fieldset>
 
-      <ul>
-      <% @version.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8 <%= class_error @version, :name %>">
+        <span class="ls-label-text"><%= f.label :name, "Versão" %></span>
+        <%= f.text_field :name %>
+        <%= show_message_error @version, :name %>
+      </label>
+     </div>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+ </fieldset>
+
+  <div class="ls-actions-btn">
+      <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
+      <%= link_to 'Voltar', versions_path, class: "ls-btn-darker" %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
 <% end %>
+
+

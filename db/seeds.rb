@@ -10,8 +10,12 @@ puts 'Creating Role...'
   Role.find_or_create_by({name: role})
 end
 
-puts 'Creating User Admin...'
-User.create! :name => "admin", :email => "admin@admin.com", :password => "inicial1234", :role_id => 3
+begin
+  User.find(1)
+rescue => RecordNotFound
+  puts 'Creating User Admin...'
+  User.create! :name => "admin", :email => "admin@admin.com", :password => "inicial1234", :role_id => 3
+end
 
 puts 'Tests'
 puts 'Creating Surgeon for test...'

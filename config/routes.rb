@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :payment_maps
+  resources :versions
   devise_for :users
 
   get '/address/search' => 'address#search_postal_code'

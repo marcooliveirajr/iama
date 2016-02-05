@@ -1,27 +1,30 @@
-<p id="notice"><%= notice %></p>
+<h1 class="ls-title-intro ls-ico-text">Versões</h1>
+<%= flash_messages %>
+<a><%= link_to 'Cadastrar Versão', new_version_path(@version) , class: "ls-btn-primary" %></a>
+<br></br>
 
-<h1>Listing Versions</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<tbody>
+  <% @versions.each do |version| %>
 
-  <tbody>
-    <% @versions.each do |version| %>
-      <tr>
-        <td><%= version.name %></td>
-        <td><%= link_to 'Show', version %></td>
-        <td><%= link_to 'Edit', edit_version_path(version) %></td>
-        <td><%= link_to 'Destroy', version, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to version.name, version %></strong>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_version_path(version) %></li>
+            <li><%= link_to 'Visualizar', version %></li>
+            <li><%= link_to 'Excluir', version_path(version), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+  </div>
 
-<br>
+  <% end %>
+</tbody>
 
-<%= link_to 'New Version', new_version_path %>
