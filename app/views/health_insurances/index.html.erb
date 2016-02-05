@@ -54,8 +54,12 @@
         <strong><%= health_insurance.kind %></strong>
       </div>
       <div class="col-xs-12 col-md-6">
-        <span class="ls-list-label">Ativo</span>
-        <strong><%= health_insurance.status %></strong>
+        <span class="ls-list-label">Status</span>
+        <% if health_insurance.status == true %>
+          <strong>ativo</strong>
+        <% else %>
+          <strong>desativado</strong>
+        <% end %>
       </div>
     </div>
   </div>

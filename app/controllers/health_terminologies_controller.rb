@@ -1,5 +1,6 @@
 class HealthTerminologiesController < ApplicationController
   before_action :set_health_terminology, only: [:show, :edit, :update, :destroy]
+  before_action :set_health_insurance, only: [:index_version]
 
   # GET /health_terminologies
   # GET /health_terminologies.json
@@ -7,6 +8,13 @@ class HealthTerminologiesController < ApplicationController
     #@health_terminologies = HealthTerminology.all
     @health_terminologies ||= HealthTerminology.all
     @health_terminologies = make_paginate(@health_terminologies)
+  end
+
+  def index_version
+    @health_terminologies = HealthTerminology.where(version_id: @healthinsurance.id)
+    respond_to do |format|
+      format.json { render json: @health_terminologies, render: :index_version }
+    end
   end
 
   # GET /health_terminologies/1
@@ -81,9 +89,13 @@ class HealthTerminologiesController < ApplicationController
       @health_terminology = HealthTerminology.find(params[:id])
     end
 
+    def set_health_insurance
+      @healthinsurance = HealthInsurance.find(params[:version_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def health_terminology_params
-      params.require(:health_terminology).permit(:code_tuss, :description_tuss, :category_tuss, :size, :version)
+      params.require(:health_terminology).permit(:code_tuss, :description_tuss, :category_tuss, :size, :version_id)
     end
 
     def search_params

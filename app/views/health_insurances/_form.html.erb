@@ -24,17 +24,8 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :status, "Status" %></span>
-        <%= f.text_field :status %>
-        </label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-8">
-        <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :status, "Status" %></span>
-        <%= f.text_field :status %>
+        <span class="ls-label-text"><%= f.label :status, "Ativo?" %></span>
+        <%= f.check_box :status , {}, "true", "false" %>
         </label>
       </div>
     </div>
@@ -44,7 +35,7 @@
         <label class="ls-label col-md-8 <%= class_error @health_insurance, :hospital_id %>">
         <span class="ls-label-text"><%= f.label :health_terminology_id, "Versão TUSS" %></span>
           <div class="ls-custom-select">
-            <%= f.collection_select(:health_terminology_id, HealthTerminology.all, :id, :version, class: "ls-state ls-select", prompt: true) %>
+            <%= f.collection_select(:health_terminology_id, HealthTerminology.all.to_a.uniq(&:version), :id, :version, class: "ls-state ls-select", prompt: true) %>
           </div>
           <%= show_message_error @health_insurance, :health_terminology_id %>
         </label>

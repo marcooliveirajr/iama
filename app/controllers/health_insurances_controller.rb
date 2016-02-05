@@ -83,7 +83,7 @@ class HealthInsurancesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def health_insurance_params
-      params.require(:health_insurance).permit(:name, :kind, :status)
+      params.require(:health_insurance).permit(:name, :kind, :status, :version_id)
     end
 
     def search_params

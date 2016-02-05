@@ -5,7 +5,7 @@ class CreateHealthTerminologies < ActiveRecord::Migration
       t.string :description_tuss
       t.string :category_tuss
       t.integer :size
-      t.integer :version
+      t.belongs_to :version, index: true, foreign_key: true
 
       t.timestamps null: false
     end
