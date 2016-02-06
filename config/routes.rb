@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :on_duties
   resources :payment_maps
   resources :versions
   devise_for :users

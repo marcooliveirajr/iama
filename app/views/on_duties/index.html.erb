@@ -1,0 +1,39 @@
+<h1 class="ls-title-intro ls-ico-text">Plantonistas</h1>
+<%= flash_messages %>
+<a><%= link_to 'Informar Plantonista', new_on_duty_path(@on_duty) , class: "ls-btn-primary" %></a>
+<br></br>
+
+<tbody>
+  <% @on_duties.each do |on_duty| %>
+
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to on_duty.anesthetist.try(:name), on_duty %></strong>
+        <small><%= on_duty.on_duty_date.strftime("%d/%m/%Y") %></small>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_on_duty_path(on_duty) %></li>
+            <li><%= link_to 'Excluir', on_duty_path(on_duty), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ls-list-content ">
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Telefone</span>
+        <strong><%= on_duty.anesthetist.try(:phone) %></strong>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <span class="ls-list-label">Email</span>
+        <strong><%= on_duty.anesthetist.try(:email) %></strong>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+</tbody>
+

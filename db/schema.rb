@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205012510) do
+ActiveRecord::Schema.define(version: 20160206001405) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name"
@@ -92,6 +92,15 @@ ActiveRecord::Schema.define(version: 20160205012510) do
   add_index "maps", ["hospital_id"], name: "index_maps_on_hospital_id"
   add_index "maps", ["patient_id"], name: "index_maps_on_patient_id"
   add_index "maps", ["surgeon_id"], name: "index_maps_on_surgeon_id"
+
+  create_table "on_duties", force: :cascade do |t|
+    t.datetime "on_duty_date"
+    t.integer  "anesthetist_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "on_duties", ["anesthetist_id"], name: "index_on_duties_on_anesthetist_id"
 
   create_table "patients", force: :cascade do |t|
     t.string   "name"
