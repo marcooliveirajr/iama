@@ -29,9 +29,9 @@ Anesthetist.find_or_create_by({:name => "José", :cpf => "67770445230", :phone =
 Anesthetist.find_or_create_by({:name => "Vicentino", :cpf => "40062472143", :phone => "15434678", :email => "qqqqq@teste.com", :address => "Avenida General", :address_number => "3", :address_complement => "1", :district => "Flora", :city => "Itapopoca", :postal_code => "18440000", :state => "SP"})
 
 puts 'Creating Patients for test...'
-Patient.find_or_create_by({:name => "Paciente 1", :cpf => "71155072871", :phone => "15998987", :email => "teste@teste.com", :address => "Rua 7 de setembro", :address_number => "1", :address_complement => "1", :district => "Simus", :city => "Sorocaba", :postal_code => "18440000", :state => "SP"})
-Patient.find_or_create_by({:name => "Paciente 2", :cpf => "67770445230", :phone => "1598854", :email => "www@teste.com", :address => "Alamenda das Angelicas", :address_number => "2", :address_complement => "1", :district => "Tiete", :city => "Ita", :postal_code => "18440000", :state => "SP"})
-Patient.find_or_create_by({:name => "Paciente 3", :cpf => "40062472143", :phone => "15432678", :email => "qqqqq@teste.com", :address => "Avenida Padrão", :address_number => "3", :address_complement => "1", :district => "Flora", :city => "Itapopoca", :postal_code => "18440000", :state => "SP"})
+Patient.find_or_create_by({:name => "Americo", :cpf => "71155072871", :phone => "15998987", :email => "teste@teste.com", :address => "Rua 7 de setembro", :address_number => "1", :address_complement => "1", :district => "Simus", :city => "Sorocaba", :postal_code => "18440000", :state => "SP"})
+Patient.find_or_create_by({:name => "Jonatam", :cpf => "67770445230", :phone => "1598854", :email => "www@teste.com", :address => "Alamenda das Angelicas", :address_number => "2", :address_complement => "1", :district => "Tiete", :city => "Ita", :postal_code => "18440000", :state => "SP"})
+Patient.find_or_create_by({:name => "Astrolabio", :cpf => "40062472143", :phone => "15432678", :email => "qqqqq@teste.com", :address => "Avenida Padrão", :address_number => "3", :address_complement => "1", :district => "Flora", :city => "Itapopoca", :postal_code => "18440000", :state => "SP"})
 
 puts 'Creating Hospitals for test...'
 Hospital.find_or_create_by({:name => "Hospital Santa Casa", :kind => "tipo 1", :status => true})
@@ -42,12 +42,12 @@ puts 'Creating Bedroons for test...'
 Bedroom.find_or_create_by({:name => "Quarto 1", :hospital_id => 1})
 Bedroom.find_or_create_by({:name => "Quarto 2", :hospital_id => 1})
 Bedroom.find_or_create_by({:name => "Quarto 3", :hospital_id => 1})
-Bedroom.find_or_create_by({:name => "Quarto 1", :hospital_id => 2})
-Bedroom.find_or_create_by({:name => "Quarto 2", :hospital_id => 2})
-Bedroom.find_or_create_by({:name => "Quarto 3", :hospital_id => 2})
-Bedroom.find_or_create_by({:name => "Quarto 1", :hospital_id => 3})
-Bedroom.find_or_create_by({:name => "Quarto 2", :hospital_id => 3})
-Bedroom.find_or_create_by({:name => "Quarto 3", :hospital_id => 3})
+Bedroom.find_or_create_by({:name => "Quarto Unimed 1", :hospital_id => 2})
+Bedroom.find_or_create_by({:name => "Quarto Unimed 2", :hospital_id => 2})
+Bedroom.find_or_create_by({:name => "Quarto Unimed 3", :hospital_id => 2})
+Bedroom.find_or_create_by({:name => "Quarto Modelo 1", :hospital_id => 3})
+Bedroom.find_or_create_by({:name => "Quarto Modelo 2", :hospital_id => 3})
+Bedroom.find_or_create_by({:name => "Quarto Modelo 3", :hospital_id => 3})
 
 puts 'Creating Size Surgery for test...'
 SizeSurgery.find_or_create_by({:health_insurance_id => 1, :size => 1, :value => 10})
@@ -61,13 +61,13 @@ SizeSurgery.find_or_create_by({:health_insurance_id => 3, :size => 2, :value => 
 SizeSurgery.find_or_create_by({:health_insurance_id => 3, :size => 3, :value => 30})
 
 puts 'Creating Version for test...'
-Version.find_or_create_by({:name => "versão 1"})
-Version.find_or_create_by({:name => "versão 2"})
-Version.find_or_create_by({:name => "versão 3"})
+Version.find_or_create_by({:name => "Tabela Santa Casa"})
+Version.find_or_create_by({:name => "Tabela Unimed"})
+Version.find_or_create_by({:name => "Tabela Modelo"})
 
 puts 'Creating Health insureces for test...'
 HealthInsurance.find_or_create_by({:name => "Unimed", :kind => "tipo 1", :status => true, :version_id => 1})
-HealthInsurance.find_or_create_by({:name => "Teste", :kind => "tipo 1", :status => false, :version_id => 2})
+HealthInsurance.find_or_create_by({:name => "Plus", :kind => "tipo 1", :status => false, :version_id => 2})
 HealthInsurance.find_or_create_by({:name => "Maritima", :kind => "tipo 2", :status => true, :version_id => 3})
 
 puts 'Creating Health Terminologies for test...'
