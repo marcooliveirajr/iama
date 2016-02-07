@@ -1,7 +1,38 @@
 <h1 class="ls-title-intro ls-ico-text">Plantonistas</h1>
 <%= flash_messages %>
 <a><%= link_to 'Informar Plantonista', new_on_duty_path(@on_duty) , class: "ls-btn-primary" %></a>
-<br></br>
+
+<div class="ls-box-filter">
+  <%= form_for :search, url: search_on_duties_path, html: { :class => "ls-form ls-form-inline", method: :get } do |f| %>
+  <label class="ls-label col-md-4">
+    <b class="ls-label-text">Buscar por:</b>
+    <div class="ls-custom-select">
+
+      <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
+         <% [['Data do Plantão', 'on_duty_date'], ['Anestesista', 'anesthetist']].each do |c| %>
+         <%= content_tag(:option, c.first, value: c.last) %>
+       <% end %>
+      <% end %>
+
+    </div>
+  </label>
+
+  <label class="ls-label col-md-4" role="search" id="text_order_search">
+    <%= f.text_field :text, class: 'ls-field' %>
+  </label>
+
+  <label class="ls-label col-md-4 ls-display-none" role="search" id="data_order_search">
+    <%= f.text_field :date, class: 'datepicker', placeholder: "dd/mm/aaaa", id: 'datepicker'%>
+    <a class="ls-label-text-prefix ls-ico-calendar" href="#" data-trigger-calendar="#datepicker"></a>
+  </label>
+
+
+  <label class="ls-label ">
+    <%= submit_tag('Buscar', class: "ls-btn") %>
+  </label>
+  <%= hidden_field_tag :per_page, params[:per_page] %>
+  <%end%>
+</div>
 
 <tbody>
   <% @on_duties.each do |on_duty| %>
@@ -9,7 +40,7 @@
   <div class="ls-list">
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
-        <strong><%= link_to on_duty.anesthetist.try(:name), on_duty %></strong>
+        <strong><%= on_duty.anesthetist.try(:name)%></strong>
         <small><%= on_duty.on_duty_date.strftime("%d/%m/%Y") %></small>
       </div>
       <div class="col-md-3 ls-txt-right">
@@ -37,3 +68,23 @@
   <% end %>
 </tbody>
 
+<% if @on_duties %>
+<div class="ls-pagination-filter">
+  <%= paginate @on_duties if @on_duties %>
+
+  <% if not @on_duties.blank? %>
+  <div class="ls-filter-view">
+    <%= t 'will_paginate.show' %>
+    <div class="ls-custom-select">
+      <%= select_tag(:per_page_options, options_for_select(options_for_per_page, params[:per_page]))%>
+    </div>
+    <%= t 'will_paginate.per_page' %>
+  </div>
+  <% end %>
+</div>
+<% end %>
+
+
+  <%= content_for :javascript do %>
+    $(document).ready(clinica.date_on_duty.init);
+  <% end %>

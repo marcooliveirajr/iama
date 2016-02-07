@@ -4,7 +4,8 @@ class OnDutiesController < ApplicationController
   # GET /on_duties
   # GET /on_duties.json
   def index
-    @on_duties = OnDuty.all
+    @on_duties ||= OnDuty.all
+    @on_duties = make_paginate(@on_duties)
   end
 
   # GET /on_duties/1
@@ -34,6 +35,18 @@ class OnDutiesController < ApplicationController
         format.html { render :new }
         format.json { render json: @on_duty.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def search
+    @on_duties = ::OnDuty::FinderService.find(search_params)
+    @on_duties = make_paginate(@on_duties)
+    if @on_duties.present?
+      flash[:error] = nil
+      render action: 'index'
+    else
+      flash[:error] = 'Não encontrou nenhum registro.'
+      render action: 'index'
     end
   end
 
@@ -70,5 +83,9 @@ class OnDutiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def on_duty_params
       params.require(:on_duty).permit(:on_duty_date, :anesthetist_id)
+    end
+
+    def search_params
+      params.require(:search).permit(:type, :text, :date)
     end
 end

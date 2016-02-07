@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :on_duties
   resources :payment_maps
   resources :versions
   devise_for :users
@@ -32,6 +31,9 @@ Rails.application.routes.draw do
   end
   resources :maps, shallow: true do
     get 'search', to: 'maps#search', as: 'search', on: :collection
+  end
+  resources :on_duties, shallow: true do
+    get 'search', to: 'on_duties#search', as: 'search', on: :collection
   end
   resources :size_surgeries, shallow: true do
     get 'search', to: 'size_surgeries#search', as: 'search', on: :collection
