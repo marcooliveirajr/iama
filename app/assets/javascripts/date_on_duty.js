@@ -1,6 +1,6 @@
-var clinic = clinic || {}
+var clinica = clinica || {}
 
-clinic.date_on_duty = (function() {
+clinica.date_on_duty = (function() {
     'use script';
 
     function init() {

@@ -79,7 +79,7 @@ HealthTerminology.find_or_create_by({:code_tuss => 20103018, :description_tuss =
 HealthTerminology.find_or_create_by({:code_tuss => 20103026, :description_tuss => "Amputação Bilateral (Preparação Do Coto)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version_id => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 20103034, :description_tuss => "Amputação Bilateral (Treinamento Protético)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version_id => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 20103042, :description_tuss => "Amputação Unilateral (Preparação Do Coto)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version_id => 1})
-HealthTerminology.find_or_create_by({:code_tuss => 20103050, :description_tuss => "Amputação Unilateral (Treinamento Protético)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version_id => 4})
+HealthTerminology.find_or_create_by({:code_tuss => 20103050, :description_tuss => "Amputação Unilateral (Treinamento Protético)", :category_tuss => "Procedimentos Clínicos", :size => 0, :version_id => 3})
 HealthTerminology.find_or_create_by({:code_tuss => 20103069, :description_tuss => "Assistência Fisiátrica Respiratória Em Pré E Pós-Operatório De Condições Cirúrgicas", :category_tuss => "Procedimentos Clínicos", :size => 0, :version_id => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 20103077, :description_tuss => "Ataxias", :category_tuss => "Procedimentos Clínicos", :size => 0, :version_id => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 20103093, :description_tuss => "Atendimento Fisiátrico No Pré E Pós-Operatório De Pacientes Para Prevenção De", :category_tuss => "Procedimentos Clínicos", :size => 0, :version_id => 1})

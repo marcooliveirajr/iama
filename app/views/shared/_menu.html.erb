@@ -12,7 +12,10 @@
       <li class="ls-submenu">
         <%= link_to 'Plantonistas', on_duties_path, class: "ls-ico-hours" %>
       </li>
-
+      <ul>
+        <%= link_to 'Paciente', patients_path, class: "ls-ico-user-add" %>
+      </ul>
+      
       <li class="ls-submenu">
         <a class="ls-ico-pencil" href="">  Cadastros </a>
         <ul>
@@ -23,9 +26,6 @@
         </ul>
         <ul>
           <%= link_to 'TUSS', health_terminologies_path, class: "ls-ico-text" %>
-        </ul>
-        <ul>
-          <%= link_to 'Paciente', patients_path, class: "ls-ico-user-add" %>
         </ul>
         <ul>
           <%= link_to 'Cirurgião', surgeons_path, class: "ls-ico-user-add" %>
