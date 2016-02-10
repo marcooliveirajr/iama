@@ -4,9 +4,9 @@
 
   <div class="row">
     <div class="col-md-8">
-      <label class="ls-label col-md-8 <%= class_error @map, :time_surgery_date %>">
+      <label class="ls-label col-md-3 <%= class_error @map, :time_surgery_date %>">
       <span class="ls-label-text"><%= label(:time_surgery_date, Map.human_attribute_name(:time_surgery_date)) %></span>
-      <%= f.datetime_select :time_surgery %>
+      <%= f.text_field :time_surgery, value: @map.time_surgery.try(:to_s, :date), class: 'datepicker ls-mask-date' %>
       <%= show_message_error @map, :time_surgery %>
     </label>
    </div>
@@ -27,15 +27,9 @@
     <div class="col-md-10">
       <label class="ls-label col-md-10">
         <span class="ls-label-text"><%= label(:health_terminology, Map.human_attribute_name(:health_terminology)) %></span>
-        <div class="ls-custom-select select2">
-          <%= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select select2') %>
+        <div class="ls-custom-select">
+          <%= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
         </div>
-        <%= select(:map, :health_terminology_id,
-              options_from_collection_for_select(@map.terminology_version, :id, :description_tuss),
-              {},
-              multiple: true, class: 'select2 col-md-12'
-        ) %>
-
       </label>
     </div>
   </div>

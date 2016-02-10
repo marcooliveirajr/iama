@@ -40,7 +40,7 @@
   <div class="ls-list">
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
-        <strong><%= on_duty.anesthetist.try(:name)%></strong>
+        <strong><%= link_to on_duty.anesthetist.try(:name), edit_on_duty_path(on_duty) %></strong>
         <small><%= on_duty.on_duty_date.strftime("%d/%m/%Y") %></small>
       </div>
       <div class="col-md-3 ls-txt-right">

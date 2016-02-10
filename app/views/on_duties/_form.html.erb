@@ -3,9 +3,9 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-8 <%= class_error @on_duty, :on_duty_date %>">
+        <label class="ls-label col-md-3 <%= class_error @on_duty, :on_duty_date %>">
         <span class="ls-label-text"><%= f.label :on_duty_date, "Data do Plantão" %></span>
-        <%= f.datetime_select :on_duty_date %>
+        <%= f.text_field :on_duty_date, value: @on_duty.on_duty_date.try(:to_s, :date), class: 'datepicker ls-mask-date' %>
         <%= show_message_error @on_duty, :on_duty_date %>
       </label>
      </div>
