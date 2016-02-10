@@ -6,7 +6,7 @@
     <div class="col-md-8">
       <label class="ls-label col-md-3 <%= class_error @map, :time_surgery_date %>">
       <span class="ls-label-text"><%= label(:time_surgery_date, Map.human_attribute_name(:time_surgery_date)) %></span>
-      <%= f.text_field :time_surgery, value: @map.time_surgery.try(:to_s, :date), class: 'datepicker ls-mask-date' %>
+      <%= f.text_field :time_surgery, value: @map.time_surgery.try(:to_s, :date), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/yyyy' %>
       <%= show_message_error @map, :time_surgery %>
     </label>
    </div>
