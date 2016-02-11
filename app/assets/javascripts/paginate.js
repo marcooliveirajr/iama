@@ -1,6 +1,6 @@
-var clinica = clinica || {}
+var clinic = clinic || {}
 
-clinica.paginate = (function() {
+clinic.paginate = (function() {
   'use script';
 
   function init() {
@@ -23,4 +23,4 @@ clinica.paginate = (function() {
   }
 }());
 
-$(document).ready(clinica.paginate.init)
+$(document).ready(clinic.paginate.init)

@@ -1,6 +1,6 @@
-var clinica = clinica || {}
+var clinic = clinic || {}
 
-clinica.selects = (function() {
+clinic.selects = (function() {
   'use script';
 
   function init() {
@@ -20,4 +20,4 @@ clinica.selects = (function() {
   }
 }());
 
-$(document).ready(clinica.selects.init);
+$(document).ready(clinic.selects.init);
