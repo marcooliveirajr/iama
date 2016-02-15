@@ -1,7 +1,7 @@
   $(function () {
     $('#datetimepicker').datetimepicker({
       //defaultDate: "<%= @map.time_surgery %>",
-      format: "YYYY-MM-DD hh:mm a Z",
+      format: "DD-MM-YYYY hh:mm",
       //language: 'pt-br',
       useCurrent: false
     });
