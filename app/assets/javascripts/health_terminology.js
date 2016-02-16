@@ -9,22 +9,22 @@ $( document ).ready(function() {
         terminologies.append($("<option />")
           .val(element.id)
           .data('tuss', element.code_tuss)
-          .data('size', element.size)
+          .data('measure', element.measure)
           .text(element.description_tuss));
       });
       removeElement();
-      setTussSize();
+      setTussMeasure();
     });
   });
 
   $('#map_health_terminology_id').change(function(){
     removeElement();
-    setTussSize();
+    setTussMeasure();
   });
 
-  function setTussSize() {
+  function setTussMeasure() {
     $('.tuss').html($('#map_health_terminology_id').find('option:selected').data('tuss'))
-    $('.size').html($('#map_health_terminology_id').find('option:selected').data('size'))
+    $('.measure').html($('#map_health_terminology_id').find('option:selected').data('size'))
   }
 
   function removeElement() {

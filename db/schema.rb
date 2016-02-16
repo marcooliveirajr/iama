@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20160206001405) do
     t.integer  "code_tuss",        limit: 8
     t.string   "description_tuss"
     t.string   "category_tuss"
-    t.integer  "size"
+    t.integer  "measure"
     t.integer  "version_id"
     t.datetime "created_at",                 null: false
     t.datetime "updated_at",                 null: false
@@ -140,8 +140,8 @@ ActiveRecord::Schema.define(version: 20160206001405) do
 
   create_table "size_surgeries", force: :cascade do |t|
     t.integer  "health_insurance_id"
-    t.integer  "size"
-    t.float    "value"
+    t.integer  "measure"
+    t.float    "value_measure"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end

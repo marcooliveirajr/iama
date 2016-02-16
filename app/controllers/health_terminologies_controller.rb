@@ -95,7 +95,7 @@ class HealthTerminologiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def health_terminology_params
-      params.require(:health_terminology).permit(:code_tuss, :description_tuss, :category_tuss, :size, :version_id)
+      params.require(:health_terminology).permit(:code_tuss, :description_tuss, :category_tuss, :measure, :version_id)
     end
 
     def search_params

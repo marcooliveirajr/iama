@@ -83,7 +83,7 @@ class SizeSurgeriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def size_surgery_params
-      params.require(:size_surgery).permit(:health_insurance_id, :size, :value)
+      params.require(:size_surgery).permit(:health_insurance_id, :measure, :value_measure)
     end
 
     def search_params

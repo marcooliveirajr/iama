@@ -4,7 +4,7 @@ class CreateHealthTerminologies < ActiveRecord::Migration
       t.integer :code_tuss, :limit => 8
       t.string :description_tuss
       t.string :category_tuss
-      t.integer :size
+      t.integer :measure
       t.belongs_to :version, index: true, foreign_key: true
 
       t.timestamps null: false

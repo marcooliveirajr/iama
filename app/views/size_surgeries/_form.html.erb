@@ -15,10 +15,10 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-8 <%= class_error @size_surgery, :size %>">
-        <span class="ls-label-text"><%= f.label :size, "Porte" %></span>
-        <%= f.text_field :size %>
-        <%= show_message_error @size_surgery, :size %>
+        <label class="ls-label col-md-8 <%= class_error @size_surgery, :measure %>">
+        <span class="ls-label-text"><%= f.label :measure, "Porte" %></span>
+        <%= f.text_field :measure %>
+        <%= show_message_error @size_surgery, :measure %>
       </label>
      </div>
     </div>
@@ -26,8 +26,8 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8">
-        <span class="ls-label-text"><%= f.label :value, "Valor" %></span>
-        <%= f.text_field :value %>
+        <span class="ls-label-text"><%= f.label :value_measure, "Valor" %></span>
+        <%= f.text_field :value_measure %>
       </label>
      </div>
     </div>
