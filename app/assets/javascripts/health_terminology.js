@@ -6,8 +6,29 @@ $( document ).ready(function() {
       var terminologies = $('#map_health_terminology_id');
       terminologies.find("option").remove();
       $.each(result, function(item, element) {
-        terminologies.append($("<option />").val(element.id).text(element.description_tuss));
+        terminologies.append($("<option />")
+          .val(element.id)
+          .data('tuss', element.code_tuss)
+          .data('size', element.size)
+          .text(element.description_tuss));
       });
+      removeElement();
+      setTussSize();
     });
   });
+
+  $('#map_health_terminology_id').change(function(){
+    removeElement();
+    setTussSize();
+  });
+
+  function setTussSize() {
+    $('.tuss').html($('#map_health_terminology_id').find('option:selected').data('tuss'))
+    $('.size').html($('#map_health_terminology_id').find('option:selected').data('size'))
+  }
+
+  function removeElement() {
+      $( '.ls-display-none' ).toggleClass( "ls-display-none", false);
+}
+
 });
