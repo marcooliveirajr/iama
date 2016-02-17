@@ -24,7 +24,7 @@ $( document ).ready(function() {
 
   function setTussMeasure() {
     $('.tuss').html($('#map_health_terminology_id').find('option:selected').data('tuss'))
-    $('.measure').html($('#map_health_terminology_id').find('option:selected').data('size'))
+    $('.measure').html($('#map_health_terminology_id').find('option:selected').data('measure'))
   }
 
   function removeElement() {
