@@ -40,8 +40,8 @@
   <div class="ls-list">
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
-        <strong><%= link_to map.health_terminology.try(:description_tuss), map %></strong>
-        <small><%= map.time_surgery.strftime("%d/%m/%Y %H:%m") %></small>
+        <span class="ls-list-label">Data / Procedimento</span>
+        <strong><%= map.time_surgery.strftime("%d/%m/%Y %H:%m") %> / <%= link_to map.health_terminology.try(:description_tuss), map %></strong>
       </div>
       <div class="col-md-3 ls-txt-right">
         <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">

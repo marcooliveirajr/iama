@@ -28,14 +28,6 @@
   <%end%>
 </div>
 
-<% if @anesthetists %>
-  <% if @search.blank? %>
-    <p><strong><%= t('anesthetists.search.last_anesthetists_html', count: @anesthetists.size) %></strong></p>
-  <% else %>
-    <p><%= t('anesthetists.search.result_message_html', type: t("anesthetists.search.options.#{@search.type}"), count: @anesthetists.total_entries) %></p>
-  <% end %>
-<% end %>
-
 <tbody>
   <% @anesthetists.each do |anesthetist| %>
 
