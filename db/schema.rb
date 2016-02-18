@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20160206001405) do
   create_table "health_terminologies", force: :cascade do |t|
     t.integer  "code_tuss",        limit: 8
     t.string   "description_tuss"
-    t.string   "category_tuss"
     t.integer  "measure"
     t.integer  "version_id"
     t.datetime "created_at",                 null: false
