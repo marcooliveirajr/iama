@@ -15,7 +15,7 @@
       <li class="ls-submenu">
         <%= link_to 'Paciente', patients_path, class: "ls-ico-user-add" %>
       </li>
-      
+
       <li class="ls-submenu">
         <a class="ls-ico-pencil" href="">  Cadastros </a>
         <ul>
@@ -41,15 +41,17 @@
         </ul>
       </li>
 
-      <li class="ls-submenu">
-        <a class="ls-ico-cog" href="">  Configurações </a>
-        <ul>
-          <%= link_to 'Cadastro de Usuário', users_path, class: "ls-ico-user-add" %>
-        </ul>
-        <ul>
-          <%= link_to 'Cadastro de Versão', versions_path, class: "ls-ico-text" %>
-        </ul>
-      </li>
+      <% if can? :read, User, Version %>
+        <li class="ls-submenu">
+          <a class="ls-ico-cog" href="">  Configurações </a>
+          <ul>
+            <%= link_to 'Cadastro de Usuário', users_path, class: "ls-ico-user-add" %>
+          </ul>
+          <ul>
+            <%= link_to 'Cadastro de Versão', versions_path, class: "ls-ico-text" %>
+          </ul>
+        </li>
+      <% end %>
     </ul>
     </nav>
 
