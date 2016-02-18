@@ -20,6 +20,9 @@ end
 puts 'Creating version for test...'
 Version.find_or_create_by({:name => "Tabela TUSS CABESP"})
 
+puts 'Creating Health insureces for test...'
+HealthInsurance.find_or_create_by({:name => "Particular", :kind => "", :status => true, :version_id => 1})
+
 puts 'Creating Health Terminologies for test...'
 HealthTerminology.find_or_create_by({:code_tuss => 30101018, :description_tuss => "Abrasão Cirúrgica (Por Sessão)", :measure => 2, :version_id => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 30101050, :description_tuss => "Apêndice Pré-Auricular - Ressecção", :measure => 4, :version_id => 1})

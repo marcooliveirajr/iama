@@ -35,7 +35,7 @@
 </div>
 
 <tbody>
-  <% @on_duties.each do |on_duty| %>
+  <% @on_duties.order("on_duty_date asc").each do |on_duty| %>
 
   <div class="ls-list">
     <header class="ls-list-header">
