@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160206001405) do
     t.string   "address_complement"
     t.string   "district"
     t.string   "city"
-    t.integer  "postal_code"
+    t.string   "postal_code"
     t.string   "state"
     t.text     "note"
     t.datetime "created_at",         null: false
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20160206001405) do
     t.string   "address_complement"
     t.string   "district"
     t.string   "city"
-    t.integer  "postal_code"
+    t.string   "postal_code"
     t.string   "state"
     t.text     "note"
     t.datetime "created_at",         null: false
@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 20160206001405) do
     t.string   "address_complement"
     t.string   "district"
     t.string   "city"
-    t.integer  "postal_code"
+    t.string   "postal_code"
     t.string   "state"
     t.text     "note"
     t.datetime "created_at",         null: false

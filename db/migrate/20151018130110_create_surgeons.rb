@@ -11,7 +11,7 @@ class CreateSurgeons < ActiveRecord::Migration
       t.string :address_complement
       t.string :district
       t.string :city
-      t.integer :postal_code
+      t.string :postal_code
       t.string :state
       t.text :note
 
