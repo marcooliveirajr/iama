@@ -15,20 +15,34 @@ begin
 rescue => RecordNotFound
   puts 'Creating User Admin...'
   User.create! :name => "admin", :email => "admin@admin.com", :password => "inicial1234", :role_id => 3
+  User.create! :name => "Hiromi Tengan", :email => "hiromitengan@uol.com.br", :password => "mudar1234", :role_id => 3
+  User.create! :name => "Raul Habi", :email => "raulhabi@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Adriana Devicchi", :email => "adrianadevicchi@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Carlos Katayama", :email => "carloskatayama@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Luciana Sobral", :email => "lucianasobral@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Sonia Dolcinotti", :email => "soniadolcinotti@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Marli da Silva", :email => "marlisilva@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
 end
 
-puts 'Creating Bedroons for test...'
+puts 'Creating Anesthetists...'
+Anesthetist.find_or_create_by({:name => "Hiromi Tengan", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
+Anesthetist.find_or_create_by({:name => "Raul Habi", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
+Anesthetist.find_or_create_by({:name => "Adriana Devicchi", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
+Anesthetist.find_or_create_by({:name => "Carlos Katayama", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
+Anesthetist.find_or_create_by({:name => "Luciana Sobral", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
+
+puts 'Creating Bedroons...'
 Bedroom.find_or_create_by({:name => "UTI"})
 Bedroom.find_or_create_by({:name => "Enfermaria"})
 Bedroom.find_or_create_by({:name => "Particular"})
 
-puts 'Creating version for test...'
+puts 'Creating version...'
 Version.find_or_create_by({:name => "Tabela TUSS CABESP"})
 
-puts 'Creating Health insureces for test...'
+puts 'Creating Health insureces...'
 HealthInsurance.find_or_create_by({:name => "Particular", :kind => "", :status => true, :version_id => 1})
 
-puts 'Creating Health Terminologies for test...'
+puts 'Creating Health Terminologies...'
 HealthTerminology.find_or_create_by({:code_tuss => 30101018, :description_tuss => "Abrasão Cirúrgica (Por Sessão)", :measure => 2, :version_id => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 30101050, :description_tuss => "Apêndice Pré-Auricular - Ressecção", :measure => 4, :version_id => 1})
 HealthTerminology.find_or_create_by({:code_tuss => 30101069, :description_tuss => "Autonomização De Retalho - Por Estágio", :measure => 2, :version_id => 1})

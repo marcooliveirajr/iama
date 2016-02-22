@@ -4,7 +4,7 @@ class CreateSurgeons < ActiveRecord::Migration
       t.string :name
       t.string :rg
       t.string :cpf
-      t.integer :phone
+      t.string :phone
       t.string :email
       t.string :address
       t.integer :address_number
