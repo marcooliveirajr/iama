@@ -37,6 +37,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  rescue_from ActiveRecord::RecordNotFound do
+    render 'errors/404', layout: 'errors', status: 404
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:warning] = exception.message
+    redirect_to root_path
+  end
+
   protected
 
   def layout_by_resource

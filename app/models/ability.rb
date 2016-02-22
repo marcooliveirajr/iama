@@ -22,14 +22,13 @@ class Ability
   end
 
   def allow_registered_profile
-    can [:read], [Anesthetist, Bedroom, HealthInsurance, HealthTerminology]
-    can [:update], [Anesthetist, Bedroom]
+    can [:read, :create, :update, :delete], [Anesthetist, Bedroom, HealthInsurance, HealthTerminology, Hospital, Map, OnDuty,
+                                              Patient, PaymentMap, SizeSurgery, Surgeon]
   end
 
   def allow_moderator_profile
     allow_registered_profile
-    can [:read], [Anesthetist, HealthTerminology]
-    can [:read, :create, :update], [Anesthetist, HealthInsurance, HealthTerminology]
+    can [:read, :create, :update, :delete], [Version, Role, User]
   end
 
   def allow_admin_profile
