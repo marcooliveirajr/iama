@@ -72,22 +72,22 @@
       <label class="ls-label col-md-10">
         <span class="ls-label-text"><%= label(:bedroom, Map.human_attribute_name(:bedroom)) %></span>
         <div class="ls-custom-select">
-          <%= f.collection_select(:bedroom_id, @map.bedroom_hospital, :id, :name, class: 'ls-select', prompt: true) %>
-       </div>
-     </label>
-   </div>
- </div>
-
- <div class="row">
-  <div class="col-md-10">
-    <label class="ls-label col-md-10">
-      <span class="ls-label-text"><%= label(:patient, Map.human_attribute_name(:patient)) %></span>
-      <div class="ls-custom-select">
-        <%= f.collection_select(:patient_id, Patient.all, :id, :name, class: 'ls-select', prompt: true) %>
-      </div>
-    </label>
+          <%= f.collection_select(:bedroom_id, Bedroom.all, :id, :name, class: 'ls-select', prompt: true) %>
+        </div>
+      </label>
+    </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10">
+        <span class="ls-label-text"><%= label(:patient, Map.human_attribute_name(:patient)) %></span>
+        <div class="ls-custom-select">
+          <%= f.collection_select(:patient_id, Patient.all, :id, :name, class: 'ls-select', prompt: true) %>
+        </div>
+      </label>
+    </div>
+  </div>
 
 <div class="row">
   <div class="col-md-10">

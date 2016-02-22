@@ -10,11 +10,6 @@ class Map < ActiveRecord::Base
 
   validates :surgeon_id, presence: { message: 'Necessário informar um Cirurgião' }
 
-  def bedroom_hospital
-    return Bedroom.where(hospital: hospital).all unless hospital.nil?
-    []
-  end
-
   def terminology_version
     return HealthTerminology.where(version_id: health_insurance.id).all unless health_insurance.nil?
     []

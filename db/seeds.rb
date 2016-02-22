@@ -17,6 +17,11 @@ rescue => RecordNotFound
   User.create! :name => "admin", :email => "admin@admin.com", :password => "inicial1234", :role_id => 3
 end
 
+puts 'Creating Bedroons for test...'
+Bedroom.find_or_create_by({:name => "UTI"})
+Bedroom.find_or_create_by({:name => "Enfermaria"})
+Bedroom.find_or_create_by({:name => "Particular"})
+
 puts 'Creating version for test...'
 Version.find_or_create_by({:name => "Tabela TUSS CABESP"})
 
