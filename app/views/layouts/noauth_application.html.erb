@@ -32,7 +32,23 @@
 
   </main>
 
-  <%= render 'shared/menu' %>
+
+  <aside class="ls-sidebar">
+
+
+    <div class="ls-sidebar-inner">
+      <a ><span><%= link_to 'Mapa',root_path, class: "ls-go-prev ls-text" %></span></a>
+    <nav class="ls-menu">
+    <ul>
+
+      <li class="ls-submenu">
+        <%= link_to 'Login', root_path, class: "ls-ico-calendar-more" %>
+      </li>
+    </ul>
+    </nav>
+    </div>
+  </aside>
+
 
   <%= javascript_include_tag "application", SECRETS["locastyle"]["js"] %>
   <script type='text/javascript'>
