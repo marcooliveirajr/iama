@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  devise_for :users
 
   resources :payment_maps
   resources :versions
-  devise_for :users
 
   get '/address/search' => 'address#search_postal_code'
   root :to => 'maps#index'
+
+  get 'plantonistas', to: 'noauth#list_duties'
 
   resources :users, path: 'customusers', shallow: true do
     get 'search', to: 'users#search', as: 'search', on: :collection
@@ -40,6 +42,5 @@ Rails.application.routes.draw do
   end
   resources :bedrooms, shallow: true do
     get 'search', to: 'bedrooms#search', as: 'search', on: :collection
-    get 'hospital', to: 'bedrooms#index_hospital', on: :collection
   end
 end

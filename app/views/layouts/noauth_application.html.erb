@@ -19,18 +19,6 @@
       <a href="#" class="ls-ico-question" data-ls-module="topbarCurtain" data-target="#ls-feedback-curtain"><span>Sugestões</span></a>
     </div>
 
-      <div data-ls-module="dropdown" class="ls-dropdown ls-user-account">
-        <a href="#" class="ls-ico-user">
-          <img src="http://www.gravatar.com/avatar/<%= Digest::MD5.hexdigest(current_user.email.try(:downcase)) if current_user %>?d=mm&s=32">
-          <span class="ls-name"><%= current_user.name if current_user %></span>
-        </a>
-        <nav class="ls-dropdown-nav ls-user-menu" aria-hidden="false">
-          <ul>
-            <li><%=link_to "Alterar Senha", edit_user_registration_path %></li>
-            <li><%=link_to "Sair", destroy_user_session_path, :method => :delete %></li>
-          </ul>
-        </nav>
-      </div>
     </div>
 
     <span class="ls-show-sidebar ls-ico-menu"></span>

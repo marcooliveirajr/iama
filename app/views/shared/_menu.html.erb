@@ -1,5 +1,17 @@
 <aside class="ls-sidebar">
 
+  <div data-ls-module="dropdown" class="ls-dropdown ls-user-account ls-active">
+    <a href="#" class="ls-ico-user">
+      <span class="ls-name"><%= current_user.email %></span>
+    </a>
+    <nav class="ls-dropdown-nav ls-user-menu">
+      <ul>
+        <li><%= link_to "Alterar senha", edit_user_registration_path %></li>
+      </ul>
+      <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "ls-btn-logout" %>
+    </nav>
+  </div>
+
   <div class="ls-sidebar-inner">
     <a ><span><%= link_to '',root_path, class: "ls-go-prev ls-text" %></span></a>
     <nav class="ls-menu">
