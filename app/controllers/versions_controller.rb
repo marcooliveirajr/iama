@@ -30,7 +30,7 @@ class VersionsController < ApplicationController
 
     respond_to do |format|
       if @version.save
-        format.html { redirect_to @version, notice: 'Version was successfully created.' }
+        format.html { redirect_to @version, notice: 'Versão criada com sucesso.' }
         format.json { render :show, status: :created, location: @version }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class VersionsController < ApplicationController
   def update
     respond_to do |format|
       if @version.update(version_params)
-        format.html { redirect_to @version, notice: 'Version was successfully updated.' }
+        format.html { redirect_to @version, notice: 'Versão alterada com sucesso.' }
         format.json { render :show, status: :ok, location: @version }
       else
         format.html { render :edit }
@@ -56,10 +56,14 @@ class VersionsController < ApplicationController
   # DELETE /versions/1
   # DELETE /versions/1.json
   def destroy
-    @version.destroy
-    respond_to do |format|
-      format.html { redirect_to versions_url, notice: 'Version was successfully destroyed.' }
-      format.json { head :no_content }
+    if @version.id != 1
+      @version.destroy
+      respond_to do |format|
+        format.html { redirect_to versions_url, notice: 'Versão excluída com sucesso.' }
+        format.json { head :no_content }
+      end
+    else
+      redirect_to versions_url, alert: 'Versão cadastrada pelo sistema não pode ser excluída!'
     end
   end
 
