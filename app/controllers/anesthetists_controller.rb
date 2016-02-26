@@ -72,8 +72,13 @@ class AnesthetistsController < ApplicationController
   def destroy
     @anesthetist.destroy
     respond_to do |format|
-      format.html { redirect_to anesthetists_url, notice: 'Anestesista excluído com sucesso.' }
-      format.json { head :no_content }
+      if @anesthetist.errors.empty?
+        format.html { redirect_to anesthetists_url, notice: 'Anestesista excluído com sucesso.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to anesthetists_url, alert: 'Não é possível excluir o Anestesista pois o mesmo já foi vinculado a um Mapa.' }
+        format.json { head :no_content }
+      end
     end
   end
 

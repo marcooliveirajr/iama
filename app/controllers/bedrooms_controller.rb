@@ -57,8 +57,13 @@ class BedroomsController < ApplicationController
   def destroy
     @bedroom.destroy
     respond_to do |format|
-      format.html { redirect_to bedrooms_url, notice: 'Quarto excluído com sucesso.' }
-      format.json { head :no_content }
+      if @bedroom.errors.empty?
+        format.html { redirect_to bedrooms_url, notice: 'Quarto excluído com sucesso.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to bedrooms_url, alert: 'Não é possível excluir o Quarto pois o mesmo já foi vinculado a um Mapa.' }
+        format.json { head :no_content }
+      end
     end
   end
 

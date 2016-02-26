@@ -70,8 +70,13 @@ class HealthInsurancesController < ApplicationController
   def destroy
     @health_insurance.destroy
     respond_to do |format|
-      format.html { redirect_to health_insurances_url, notice: 'Convênio excluído com sucesso.' }
-      format.json { head :no_content }
+      if @health_insurance.errors.empty?
+        format.html { redirect_to health_insurances_url, notice: 'Convênio excluído com sucesso.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to health_insurances_url, alert: 'Não é possível excluir o Convênio pois existem Porte de Cirurgia cadastrado para o mesmo.' }
+        format.json { head :no_content }
+      end
     end
   end
 

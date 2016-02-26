@@ -78,8 +78,13 @@ class HealthTerminologiesController < ApplicationController
   def destroy
     @health_terminology.destroy
     respond_to do |format|
-      format.html { redirect_to health_terminologies_url, notice: 'Procedimento TUSS excluído com sucesso.' }
-      format.json { head :no_content }
+      if @health_terminology.errors.empty?
+        format.html { redirect_to health_terminologies_url, notice: 'Procedimento TUSS excluído com sucesso.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to health_terminologies_url, alert: 'Não é possível excluir o Procedimento pois o mesmo já foi vinculado a um Mapa.' }
+        format.json { head :no_content }
+      end
     end
   end
 

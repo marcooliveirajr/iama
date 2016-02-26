@@ -70,8 +70,13 @@ class PatientsController < ApplicationController
   def destroy
     @patient.destroy
     respond_to do |format|
-      format.html { redirect_to patients_url, notice: 'Paciente excluído com sucesso.' }
-      format.json { head :no_content }
+      if @patient.errors.empty?
+        format.html { redirect_to patients_url, notice: 'Paciente excluído com sucesso.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to patients_url, alert: 'Não é possível excluir o Paciente pois o mesmo já foi vinculado a um Mapa.' }
+        format.json { head :no_content }
+      end
     end
   end
 
