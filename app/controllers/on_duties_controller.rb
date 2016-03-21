@@ -82,7 +82,7 @@ class OnDutiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def on_duty_params
-      params.require(:on_duty).permit(:on_duty_date, :anesthetist_id)
+      params.require(:on_duty).permit(:on_duty_date, :anesthetist_id, :note)
     end
 
     def search_params

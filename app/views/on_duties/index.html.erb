@@ -53,17 +53,25 @@
         </div>
       </div>
     </header>
-    <div class="ls-list-content ">
-      <div class="col-xs-12 col-md-6">
-        <span class="ls-list-label">Telefone</span>
-        <strong><%= on_duty.anesthetist.try(:phone) %></strong>
+      <div class="ls-list-content ">
+        <div class="col-sm-4">
+          <span class="ls-list-label">Telefone</span>
+          <strong><%= on_duty.anesthetist.try(:phone) %></strong>
+        </div>
+        <div class="col-sm-4">
+          <span class="ls-list-label">Email</span>
+          <strong><%= on_duty.anesthetist.try(:email) %></strong>
+        </div>
       </div>
-      <div class="col-xs-12 col-md-6">
-        <span class="ls-list-label">Email</span>
-        <strong><%= on_duty.anesthetist.try(:email) %></strong>
+
+      <div class="ls-list-content ">
+        <div class="col-sm-4">
+            <span class="ls-list-label">Observação</span>
+            <strong><%= on_duty.note %></strong>
+        </div>
       </div>
+
     </div>
-  </div>
 
   <% end %>
 </tbody>

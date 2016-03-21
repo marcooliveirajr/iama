@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20160206001405) do
   create_table "on_duties", force: :cascade do |t|
     t.datetime "on_duty_date"
     t.integer  "anesthetist_id"
+    t.text     "note"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
