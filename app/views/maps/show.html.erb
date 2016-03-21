@@ -1,4 +1,4 @@
-<h1 class="ls-title-intro ls-ico-text">Mapa</h1>
+<h1 class="ls-title-intro ls-ico-text">Cirurgia</h1>
 <%= flash_messages %>
 <legend class="ls-title-4">Procedimento</legend>
 <div class="ls-box">
@@ -6,7 +6,7 @@
     <div class="col-md-12">
       <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
         <tbody>
-          <tr> <td> Data/Hora: <label class="ls-title-6"><%= @map.time_surgery.strftime("%d/%m/%Y %H:%m") %></label> </td> </tr>   
+          <tr> <td> Data/Hora: <label class="ls-title-6"><%= @map.time_surgery.strftime("%d/%m/%Y %H:%m") %></label> </td> </tr>
           <tr> <td> Convênio Médico: <label class="ls-title-6"><%= @map.health_insurance.try(:name) %></label> </td> </tr>
           <tr> <td> Procedimento: <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %></label> </td> </tr>
           <tr> <td> Hospital: <label class="ls-title-6"><%= @map.hospital.try(:name) %></label> </td> </tr>
