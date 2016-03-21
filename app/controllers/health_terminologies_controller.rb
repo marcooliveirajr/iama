@@ -11,7 +11,7 @@ class HealthTerminologiesController < ApplicationController
   end
 
   def index_version
-    @health_terminologies = HealthTerminology.where(version_id: @healthinsurance.id)
+    @health_terminologies = HealthTerminology.where(version_id: @healthinsurance.version_id)
     respond_to do |format|
       format.json { render json: @health_terminologies, render: :index_version }
     end
