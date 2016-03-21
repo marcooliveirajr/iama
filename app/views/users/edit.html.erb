@@ -1,7 +1,3 @@
 <h1 class="ls-title-intro ls-ico-user">Editar Usuário "<%= @user.name %>" </h1>
 <%= flash_messages %>
 <%= render 'form' %>
-
-<h3>Cancelar a minha conta</h3>
-
-<p><%= button_to "Cancelar a minha conta", users_path(@user), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-btn-primary" %></p>
