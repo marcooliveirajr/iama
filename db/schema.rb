@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160406120436) do
+ActiveRecord::Schema.define(version: 20160406144327) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name"
@@ -179,6 +179,9 @@ ActiveRecord::Schema.define(version: 20160406120436) do
     t.datetime "updated_at",                          null: false
     t.string   "name"
     t.integer  "role_id"
+    t.integer  "failed_attempts",        default: 0
+    t.string   "unlock_token"
+    t.datetime "locked_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
