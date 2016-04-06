@@ -6,6 +6,7 @@ class Map < ActiveRecord::Base
   belongs_to :surgeon
   belongs_to :anesthetist
   belongs_to :health_insurance
+  belongs_to :receipt, class_name: "Anesthetist"
   has_many :payment_maps
 
   validates :surgeon_id, presence: { message: 'Necessário informar um Cirurgião' }

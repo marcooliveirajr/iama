@@ -134,6 +134,17 @@
 
 <div class="row">
   <div class="col-md-10">
+    <label class="ls-label col-md-10">
+      <span class="ls-label-text"><%= f.label :receipt_id, "Recibo" %></span>
+      <div class="ls-custom-select">
+        <%= f.collection_select(:receipt_id, Anesthetist.all, :id, :name, class: 'ls-select', prompt: true) %>
+      </div>
+    </label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-10">
     <label class="ls-label col-md-12">
       <%= label_tag t('helpers.label.payment_map.payment') %>
       <div class="row">
