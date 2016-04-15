@@ -26,9 +26,9 @@ end
 
 puts 'Creating Anesthetists...'
 Anesthetist.find_or_create_by({:name => "Hiromi Tengan", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
-Anesthetist.find_or_create_by({:name => "Raul Habi", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
+Anesthetist.find_or_create_by({:name => "Raul Sizuo Habu", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
 Anesthetist.find_or_create_by({:name => "Adriana Devicchi", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
-Anesthetist.find_or_create_by({:name => "Carlos Katayama", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
+Anesthetist.find_or_create_by({:name => "Cibelle Nunes de Arruda", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
 Anesthetist.find_or_create_by({:name => "Luciana Sobral", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
 
 puts 'Creating Bedroons...'
@@ -37,8 +37,6 @@ Bedroom.find_or_create_by({:name => "Apartamento"})
 
 puts 'Creating version...'
 Version.find_or_create_by({:name => "Tabela TUSS CABESP"})
-Version.find_or_create_by({:name => "Tabela TUSS SulAmérica"})
 
 puts 'Creating Health insurances...'
 HealthInsurance.find_or_create_by({:name => "Particular", :kind => "", :status => true, :version_id => 1})
-HealthInsurance.find_or_create_by({:name => "SulAmérica", :kind => "", :status => true, :version_id => 2})
