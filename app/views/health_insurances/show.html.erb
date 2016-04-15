@@ -6,14 +6,7 @@
         <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
           <tbody>
             <tr> <td> Nome: <label class="ls-title-6"><%= @health_insurance.name %></label> </td> </tr>
-            <tr> <td> Tipo: <label class="ls-title-6"><%= @health_insurance.kind %></label> </td> </tr>
-            <tr> <td> Status: <% if @health_insurance.status == true %>
-                  <label class="ls-title-6">ativo</label>
-                <% else %>
-                  <label class="ls-title-6">desativado</label>
-                <% end %>
-              </td> </tr>
-            <tr> <td> Versão da Tabela: <label class="ls-title-6"><%= @health_insurance.version.name %></label> </td> </tr>
+             <tr> <td> Versão da Tabela: <label class="ls-title-6"><%= @health_insurance.version.name %></label> </td> </tr>
           </tbody>
         </table>
     </div>

@@ -14,24 +14,6 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :kind, "Tipo" %></span>
-        <%= f.text_field :kind %>
-        </label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-8">
-        <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :status, "Ativo?" %></span>
-        <%= f.check_box :status , {}, "true", "false" %>
-        </label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @health_insurance, :version_id %>">
         <span class="ls-label-text"><%= f.label :version_id, "Versão da Tabela" %></span>
           <div class="ls-custom-select">
