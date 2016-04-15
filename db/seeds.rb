@@ -32,9 +32,8 @@ Anesthetist.find_or_create_by({:name => "Carlos Katayama", :cpf => "", :phone =>
 Anesthetist.find_or_create_by({:name => "Luciana Sobral", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
 
 puts 'Creating Bedroons...'
-Bedroom.find_or_create_by({:name => "UTI"})
 Bedroom.find_or_create_by({:name => "Enfermaria"})
-Bedroom.find_or_create_by({:name => "Particular"})
+Bedroom.find_or_create_by({:name => "Apartamento"})
 
 puts 'Creating version...'
 Version.find_or_create_by({:name => "Tabela TUSS CABESP"})
