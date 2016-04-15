@@ -6,13 +6,6 @@
         <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
           <tbody>
             <tr> <td> Nome: <label class="ls-title-6"><%= @hospital.name %></label> </td> </tr>
-            <tr> <td> Tipo: <label class="ls-title-6"><%= @hospital.kind %></label> </td> </tr>
-            <tr> <td> Status: <% if  @hospital.status == true %>
-                <label class="ls-title-6">ativo</label>
-              <% else %>
-                <label class="ls-title-6">desativado</label>
-              <% end %>
-                </td> </tr>
           </tbody>
         </table>
     </div>
