@@ -15,13 +15,13 @@ begin
 rescue => RecordNotFound
   puts 'Creating User Admin...'
   User.create! :name => "admin", :email => "admin@admin.com", :password => "inicial1234", :role_id => 3
-  User.create! :name => "Hiromi Tengan", :email => "hiromitengan@uol.com.br", :password => "mudar1234", :role_id => 3
-  User.create! :name => "Raul Habi", :email => "raulhabi@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
-  User.create! :name => "Adriana Devicchi", :email => "adrianadevicchi@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
-  User.create! :name => "Carlos Katayama", :email => "carloskatayama@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
-  User.create! :name => "Luciana Sobral", :email => "lucianasobral@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
-  User.create! :name => "Sonia Dolcinotti", :email => "soniadolcinotti@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
-  User.create! :name => "Marli da Silva", :email => "marlisilva@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Hiromi Tengan", :email => "hiromi@uol.com.br", :password => "mudar1234", :role_id => 3
+  User.create! :name => "Raul Sizuo Habu", :email => "raul@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Adriana Devicchi", :email => "adriana@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Cibelle Nunes de Arruda", :email => "cibelle@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Luciana Sobral", :email => "luciana@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Sonia Dolcinotti", :email => "sonia@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
+  User.create! :name => "Marli da Silva", :email => "marli@clinicaiama.com.br", :password => "mudar1234", :role_id => 1
 end
 
 puts 'Creating Anesthetists...'
