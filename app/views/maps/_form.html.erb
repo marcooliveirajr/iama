@@ -160,7 +160,7 @@
         <thead>
           <th>Parcela</th>
           <th>Vencimento</th>
-          <th>Valor</th>
+          <th>Valor Cobrado</th>
           <th>Valor Pago</th>
           <th>Remover</th>
         </thead>
@@ -168,7 +168,7 @@
           <% @map.payment_maps.each do |payment_map| %>
             <tr>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_id]]]", payment_map.payment_id, class: 'col-md-12' %></td>
-              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_date]]]", payment_map.payment_date, class: 'col-md-12' %></td>
+              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_date]]]", payment_map.payment_date.try(:strftime, "%d/%m/%Y"), class: 'col-md-12' %></td> 
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_value]]]", payment_map.payment_value, class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[paid_value]]]", payment_map.paid_value, class: 'col-md-12' %></td>
               <td><button type='button' class='ls-btn remove-Payment'><span class='ls-ico-remove'></span></button></td>
