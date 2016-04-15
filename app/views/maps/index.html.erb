@@ -41,7 +41,7 @@
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
         <span class="ls-list-label">Data / Procedimento</span>
-        <strong><%= map.time_surgery.strftime("%d/%m/%Y %H:%m") %> / <%= link_to map.health_terminology.try(:description_tuss), map %></strong>
+        <strong><%= map.time_surgery.strftime("%d/%m/%Y %H:%M") %> / <%= link_to map.health_terminology.try(:description_tuss), map %></strong>
       </div>
       <div class="col-md-3 ls-txt-right">
         <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
@@ -54,21 +54,6 @@
         </div>
       </div>
     </header>
-    <div class="ls-list-content ">
-      <div class="col-sm-4">
-        <span class="ls-list-label">Convênio</span>
-        <strong><%= map.health_insurance.try(:name) %></strong>
-      </div>
-      <div class="col-sm-4">
-        <span class="ls-list-label">Hospital</span>
-        <strong><%= map.hospital.try(:name) %></strong>
-      </div>
-      <div class="col-sm-4">
-        <span class="ls-list-label">Quarto</span>
-        <strong><%= map.bedroom.try(:name) %></strong>
-      </div>
-    </div>
-
     <div class="ls-list-content ">
       <div class="col-sm-4">
         <span class="ls-list-label">Paciente</span>
