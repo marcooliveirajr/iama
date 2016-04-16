@@ -1,0 +1,16 @@
+<h1 class="ls-title-intro ls-ico-text">Beneficiário de Pagamento</h1>
+<%= flash_messages %>
+<div class="ls-box">
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> <td> Nome: <label class="ls-title-6"><%= @payment_recipient.name %></label> </td> </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_payment_recipient_path(@payment_recipient) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', payment_recipients_path, class: "ls-btn-darker" %>

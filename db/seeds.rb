@@ -50,5 +50,11 @@ PaymentMethod.find_or_create_by({:name => "Dinheiro"})
 PaymentMethod.find_or_create_by({:name => "Cheque"})
 PaymentMethod.find_or_create_by({:name => "Depósito"})
 
+puts 'Creating PaymentRecipient...'
+PaymentRecipient.find_or_create_by({:name => "Hiromi Tengan"})
+PaymentRecipient.find_or_create_by({:name => "Raul Sizuo Habu"})
+PaymentRecipient.find_or_create_by({:name => "Adriana Devicchi"})
+PaymentRecipient.find_or_create_by({:name => "Cibelle Nunes de Arruda"})
+
 puts 'Creating Health insurances...'
 HealthInsurance.find_or_create_by({:name => "Particular", :kind => "", :status => true, :version_id => 1})

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416005008) do
+ActiveRecord::Schema.define(version: 20160416011438) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20160416005008) do
     t.integer  "health_insurance_id"
     t.integer  "receipt_id"
     t.integer  "payment_method_id"
+    t.integer  "payment_recipient_id"
     t.text     "note"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
@@ -90,6 +91,7 @@ ActiveRecord::Schema.define(version: 20160416005008) do
   add_index "maps", ["hospital_id"], name: "index_maps_on_hospital_id"
   add_index "maps", ["patient_id"], name: "index_maps_on_patient_id"
   add_index "maps", ["payment_method_id"], name: "index_maps_on_payment_method_id"
+  add_index "maps", ["payment_recipient_id"], name: "index_maps_on_payment_recipient_id"
   add_index "maps", ["receipt_id"], name: "index_maps_on_receipt_id"
   add_index "maps", ["surgeon_id"], name: "index_maps_on_surgeon_id"
 
@@ -134,6 +136,12 @@ ActiveRecord::Schema.define(version: 20160416005008) do
   add_index "payment_maps", ["map_id"], name: "index_payment_maps_on_map_id"
 
   create_table "payment_methods", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "payment_recipients", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

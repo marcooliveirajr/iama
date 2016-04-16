@@ -54,6 +54,9 @@
         <ul>
           <%= link_to 'Recibos', receipts_path, class: "ls-ico-text" %>
         </ul>
+        <ul>
+          <%= link_to 'Beneficiários', payment_recipients_path, class: "ls-ico-text" %>
+        </ul>
       </li>
 
       <% if can? :read, User, Version %>

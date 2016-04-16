@@ -156,8 +156,19 @@
 
 <div class="row">
   <div class="col-md-10">
+    <label class="ls-label col-md-10">
+      <span class="ls-label-text"><%= f.label :payment_recipient_id, "Beneficiário do Pagamento" %></span>
+      <div class="ls-custom-select">
+        <%= f.collection_select(:payment_recipient_id, PaymentRecipient.all, :id, :name, class: 'ls-select', prompt: true) %>
+      </div>
+    </label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-10">
     <label class="ls-label col-md-12">
-      <%= label_tag t('helpers.label.payment_map.payment') %>
+      <%= f.label :payment, "Valor do Pagamento" %>
       <div class="row">
         <div class="ls-prefix-group col-md-10">
           <input type='text' id='value' />
