@@ -31,11 +31,18 @@ Anesthetist.find_or_create_by({:name => "Adriana Devicchi", :cpf => "", :phone =
 Anesthetist.find_or_create_by({:name => "Cibelle Nunes de Arruda", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
 Anesthetist.find_or_create_by({:name => "Luciana Sobral", :cpf => "", :phone => "", :email => "", :address => "", :address_number => "", :address_complement => "", :district => "", :city => "", :postal_code => "", :state => ""})
 
+puts 'Creating Receipt...'
+Receipt.find_or_create_by({:name => "Clínica IAMA"})
+Receipt.find_or_create_by({:name => "Hiromi Tengan"})
+Receipt.find_or_create_by({:name => "Raul Sizuo Habu"})
+Receipt.find_or_create_by({:name => "Adriana Devicchi"})
+Receipt.find_or_create_by({:name => "Cibelle Nunes de Arruda"})
+
 puts 'Creating Bedroons...'
 Bedroom.find_or_create_by({:name => "Enfermaria"})
 Bedroom.find_or_create_by({:name => "Apartamento"})
 
-puts 'Creating version...'
+puts 'Creating Version...'
 Version.find_or_create_by({:name => "Tabela TUSS CABESP"})
 
 puts 'Creating Health insurances...'

@@ -1,0 +1,30 @@
+<h1 class="ls-title-intro ls-ico-text">Recibos</h1>
+<%= flash_messages %>
+<a><%= link_to 'Cadastrar Recibo', new_receipt_path(@receipt) , class: "ls-btn-primary" %></a>
+<br></br>
+
+
+<tbody>
+  <% @receipts.each do |receipt| %>
+
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to receipt.name, receipt %></strong>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_receipt_path(receipt) %></li>
+            <li><%= link_to 'Visualizar', receipt %></li>
+            <li><%= link_to 'Excluir', receipt_path(receipt), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <% end %>
+</tbody>
+
