@@ -1,54 +1,84 @@
 <h1 class="ls-title-intro ls-ico-text">Cirurgia</h1>
 <%= flash_messages %>
-<legend class="ls-title-4">Procedimento</legend>
-<div class="ls-box">
-  <div class="row">
-    <div class="col-md-12">
-      <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
-        <tbody>
-          <tr> <td> Data/Hora: <label class="ls-title-6"><%= @map.time_surgery.strftime("%d/%m/%Y %H:%M") %></label> </td> </tr>
-          <tr> <td> Convênio Médico: <label class="ls-title-6"><%= @map.health_insurance.try(:name) %></label> </td> </tr>
-          <tr> <td> Procedimento: <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %></label> </td> </tr>
-          <tr> <td> Hospital: <label class="ls-title-6"><%= @map.hospital.try(:name) %></label> </td> </tr>
-          <tr> <td> Quarto: <label class="ls-title-6"><%= @map.bedroom.try(:name) %></label> </td> </tr>
-          <tr> <td> Paciente: <label class="ls-title-6"><%= @map.patient.try(:name) %></label> </td> </tr>
-          <tr> <td> Cirurgião: <label class="ls-title-6"><%= @map.surgeon.try(:name) %></label> </td> </tr>
-          <tr> <td> Anestesista: <label class="ls-title-6"><%= @map.anesthetist.try(:name) %></label> </td> </tr>
-          <tr> <td> Observação: <label class="ls-title-6"><%= @map.note %></label> </td> </tr>
-          <tr> <td> Recibo: <label class="ls-title-6"><%= @map.receipt.try(:name) %></label> </td> </tr>
-          <tr> <td> Método de Pagamento: <label class="ls-title-6"><%= @map.payment_method.try(:name) %></label> </td> </tr>
-        </tbody>
-      </table>
+<div data-ls-module="collapse" data-target="#acordeon0" class="ls-collapse ">
+  <a href="#" class="ls-collapse-header">
+    <h3 class="ls-collapse-title">Dados da Cirurgia</h3>
+  </a>
+  <div class="ls-collapse-body" id="acordeon0">
+
+    <div class="ls-box">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+
+            <tbody>
+              <tr> <td> Data/Hora: <label class="ls-title-6"><%= @map.time_surgery.strftime("%d/%m/%Y %H:%M") %></label> </td> </tr>
+              <tr> <td> Convênio Médico: <label class="ls-title-6"><%= @map.health_insurance.try(:name) %></label> </td> </tr>
+              <tr> <td> Procedimento: <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %></label> </td> </tr>
+              <tr> <td> Hospital: <label class="ls-title-6"><%= @map.hospital.try(:name) %></label> </td> </tr>
+              <tr> <td> Quarto: <label class="ls-title-6"><%= @map.bedroom.try(:name) %></label> </td> </tr>
+              <tr> <td> Paciente: <label class="ls-title-6"><%= @map.patient.try(:name) %></label> </td> </tr>
+              <tr> <td> Cirurgião: <label class="ls-title-6"><%= @map.surgeon.try(:name) %></label> </td> </tr>
+              <tr> <td> Anestesista: <label class="ls-title-6"><%= @map.anesthetist.try(:name) %></label> </td> </tr>
+              <tr> <td> Observação: <label class="ls-title-6"><%= @map.note %></label> </td> </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <% if exists_payment_maps? %>
-<legend class="ls-title-4">Pagamento</legend>
-  <div class="ls-box">
-    <div class="row">
-      <div class="col-md-12">
-        <table class='ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top'>
-          <thead>
-            <th>Parcela</th>
-            <th>Vencimento</th>
-            <th>Valor Cobrado</th>
-            <th>Valor Pago</th>
-          </thead>
-          <tbody>
-            <% @map.payment_maps.each do |payment_map| %>
-              <tr>
-                <td> <label class="ls-title-6"><%= payment_map.payment_id %></label> </td>
-                <td> <label class="ls-title-6"><%= payment_map.payment_date.strftime("%d/%m/%Y") %></label> </td>
-                <td> <label class="ls-title-6"><%= payment_map.payment_value %></label> </td>
-                <td> <label class="ls-title-6"><%= payment_map.paid_value %></label> </td>
-              </tr>
-            <% end %>
-          </tbody>
-        </table>
+<div data-ls-module="collapse" data-target="#acordeon1" class="ls-collapse ">
+  <a href="#" class="ls-collapse-header">
+    <h3 class="ls-collapse-title">Dados do Pagamento</h3>
+  </a>
+  <div class="ls-collapse-body" id="acordeon1">
+
+
+    <div class="ls-box">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+
+            <tbody>
+              <tr> <td> Recibo: <label class="ls-title-6"><%= @map.receipt.try(:name) %></label> </td> </tr>
+              <tr> <td> Método de Pagamento: <label class="ls-title-6"><%= @map.payment_method.try(:name) %></label> </td> </tr>
+              <tr> <td> Beneficiário do Pagamento: <label class="ls-title-6"><%= @map.payment_recipient.try(:name) %></label> </td> </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="ls-box">
+          <div class="row">
+            <div class="col-md-12">
+              <table class='ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top'>
+                <thead>
+                  <th>Parcela</th>
+                  <th>Vencimento</th>
+                  <th>Valor Cobrado</th>
+                  <th>Valor Pago</th>
+                </thead>
+                <tbody>
+                  <% @map.payment_maps.each do |payment_map| %>
+                  <tr>
+                    <td> <label class="ls-title-6"><%= payment_map.payment_id %></label> </td>
+                    <td> <label class="ls-title-6"><%= payment_map.payment_date.strftime("%d/%m/%Y") %></label> </td>
+                    <td> <label class="ls-title-6"><%= payment_map.payment_value %></label> </td>
+                    <td> <label class="ls-title-6"><%= payment_map.paid_value %></label> </td>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</div>
 <% end %>
 
 <%= link_to 'Editar', edit_map_path(@map) , class: "ls-btn-darker" %>
