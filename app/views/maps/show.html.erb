@@ -16,6 +16,7 @@
           <tr> <td> Anestesista: <label class="ls-title-6"><%= @map.anesthetist.try(:name) %></label> </td> </tr>
           <tr> <td> Observação: <label class="ls-title-6"><%= @map.note %></label> </td> </tr>
           <tr> <td> Recibo: <label class="ls-title-6"><%= @map.receipt.try(:name) %></label> </td> </tr>
+          <tr> <td> Método de Pagamento: <label class="ls-title-6"><%= @map.payment_method.try(:name) %></label> </td> </tr>
         </tbody>
       </table>
     </div>

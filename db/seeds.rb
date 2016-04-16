@@ -45,5 +45,10 @@ Bedroom.find_or_create_by({:name => "Apartamento"})
 puts 'Creating Version...'
 Version.find_or_create_by({:name => "Tabela TUSS CABESP"})
 
+puts 'Creating PaymentMethod...'
+PaymentMethod.find_or_create_by({:name => "Dinheiro"})
+PaymentMethod.find_or_create_by({:name => "Cheque"})
+PaymentMethod.find_or_create_by({:name => "Depósito"})
+
 puts 'Creating Health insurances...'
 HealthInsurance.find_or_create_by({:name => "Particular", :kind => "", :status => true, :version_id => 1})

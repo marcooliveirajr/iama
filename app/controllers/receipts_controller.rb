@@ -56,7 +56,7 @@ class ReceiptsController < ApplicationController
   def destroy
     @receipt.destroy
     respond_to do |format|
-      format.html { redirect_to receipts_url, notice: 'Recibo removido com sucesso.' }
+      format.html { redirect_to receipts_url, notice: 'Recibo excluído com sucesso.' }
       format.json { head :no_content }
     end
   end

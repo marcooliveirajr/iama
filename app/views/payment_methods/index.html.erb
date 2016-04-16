@@ -1,0 +1,30 @@
+<h1 class="ls-title-intro ls-ico-text">Métodos de Pagamentos</h1>
+<%= flash_messages %>
+<a><%= link_to 'Cadastrar Método de Pagamento', new_payment_method_path(@payment_method) , class: "ls-btn-primary" %></a>
+<br></br>
+
+
+<tbody>
+  <% @payment_methods.each do |payment_method| %>
+
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to payment_method.name, payment_method %></strong>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_payment_method_path(payment_method) %></li>
+            <li><%= link_to 'Visualizar', payment_method %></li>
+            <li><%= link_to 'Excluir', payment_method_path(payment_method), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <% end %>
+</tbody>
+

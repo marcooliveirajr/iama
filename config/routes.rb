@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :payment_methods
   resources :receipts
   devise_for :users
 

@@ -89,7 +89,7 @@ class MapsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def map_params
-      params.require(:map).permit(:time_surgery, :hospital_id, :bedroom_id, :patient_id, :health_terminology_id, :surgeon_id, :anesthetist_id, :health_insurance_id, :note, :receipt_id)
+      params.require(:map).permit(:time_surgery, :hospital_id, :bedroom_id, :patient_id, :health_terminology_id, :surgeon_id, :anesthetist_id, :health_insurance_id, :note, :receipt_id, :payment_method_id)
     end
 
     def search_params

@@ -1,0 +1,23 @@
+<%= form_for(@payment_method, html: { class: "ls-form row" }) do |f| %>
+  <fieldset>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8 <%= class_error @payment_method, :name %>">
+        <span class="ls-label-text"><%= f.label :name, "Método de Pagamento" %></span>
+        <%= f.text_field :name %>
+        <%= show_message_error @payment_method, :name %>
+      </label>
+     </div>
+    </div>
+
+ </fieldset>
+
+  <div class="ls-actions-btn">
+      <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
+      <%= link_to 'Voltar', payment_methods_path, class: "ls-btn-darker" %>
+  </div>
+
+<% end %>
+
+

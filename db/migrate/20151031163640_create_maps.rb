@@ -10,6 +10,7 @@ class CreateMaps < ActiveRecord::Migration
       t.belongs_to :anesthetist, index: true, foreign_key: true
       t.belongs_to :health_insurance, index: true, foreign_key: true
       t.belongs_to :receipt, index: true, foreign_key: true
+      t.belongs_to :payment_method, index: true, foreign_key: true
       t.text :note
 
       t.timestamps null: false
