@@ -31,12 +31,17 @@
                 </td> 
               </tr>
               <tr> 
-                <td> Procedimento: 
-                  <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %>
+                <td> Código TUSS: 
+                  <label class="ls-title-6"><%= @map.health_terminology.try(:code_tuss) %>
                   </label> 
                 </td> 
               </tr>
-
+              <tr> 
+                <td> Porte: 
+                  <label class="ls-title-6"><%= @map.health_terminology.try(:measure) %>
+                  </label> 
+                </td> 
+              </tr>
               <tr> 
                 <td> Hospital: 
                   <label class="ls-title-6"><%= @map.hospital.try(:name) %>
@@ -73,6 +78,17 @@
                   </label> 
                 </td> 
               </tr>
+
+              <tr> 
+                <td> Via única: 
+                  <% if @map.via_unique2 == true %>
+                    <label class="ls-title-6">Sim</label>
+                  <% else %>
+                    <label class="ls-title-6">Não</label>
+                  <% end %>
+                </td> 
+              </tr>
+              
             </tbody>
           </table>
         </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160416011438) do
+ActiveRecord::Schema.define(version: 20160419003149) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name"
@@ -82,6 +82,14 @@ ActiveRecord::Schema.define(version: 20160416011438) do
     t.text     "note"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.integer  "tuss2_id"
+    t.integer  "tuss3_id"
+    t.integer  "tuss4_id"
+    t.integer  "tuss5_id"
+    t.boolean  "via_unique2"
+    t.boolean  "via_unique3"
+    t.boolean  "via_unique4"
+    t.boolean  "via_unique5"
   end
 
   add_index "maps", ["anesthetist_id"], name: "index_maps_on_anesthetist_id"

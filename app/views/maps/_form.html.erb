@@ -3,53 +3,58 @@
 <fieldset>
 
   <% if @map.errors.any? %>
-    <div id="error_explanation">
-      <ul>
+  <div id="error_explanation">
+    <ul>
       <% @map.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+      <%=binding.pry %>
+      <li><%= message %></li>
+
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
 
   <ul class="ls-tabs-nav">
-  <li class="ls-active"><a data-ls-module="tabs" href="#track">Dados da Cirurgia</a></li>
-  <li><a data-ls-module="tabs" href="#contact">Dados do Pagamento</a></li>
+    <li class="ls-active"><a data-ls-module="tabs" href="#track">Dados da Cirurgia</a></li>
+    <li><a data-ls-module="tabs" href="#proc">Outros Procedimentos</a></li>
   </li>
-  </ul>
+  <li><a data-ls-module="tabs" href="#contact">Dados do Pagamento</a></li>
+</li>
+
+</ul>
 
 <div class="ls-tabs-container">
   <div id="track" class="ls-tab-content ls-active">
 
-  <div class="row">
-    <div class="col-md-8">
-      <label class="ls-label col-md-4 <%= class_error @map, :time_surgery_date %>">
-      <span class="ls-label-text"><%= label(:time_surgery_date, Map.human_attribute_name(:time_surgery_date)) %></span>
-      <%#= f.text_field :time_surgery, value: @map.try(:time_surgery).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4 <%= class_error @map, :time_surgery_date %>">
+          <span class="ls-label-text"><%= label(:time_surgery_date, Map.human_attribute_name(:time_surgery_date)) %></span>
+          <%#= f.text_field :time_surgery, value: @map.try(:time_surgery).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
 
-      <div class='input-group date' id='datetimepicker'>
-        <%= f.text_field :time_surgery, :class => "form-control"%>
-          <span class="input-group-addon">
+          <div class='input-group date' id='datetimepicker'>
+            <%= f.text_field :time_surgery, :class => "form-control"%>
+            <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
-          </span>
+            </span>
+          </div>
+
+          <%= show_message_error @map, :time_surgery %>
+        </label>
+
       </div>
-
-      <%= show_message_error @map, :time_surgery %>
-    </label>
-
-   </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= label(:health_insurance, Map.human_attribute_name(:health_insurance)) %></span>
-        <div class="ls-custom-select">
-           <%= f.collection_select(:health_insurance_id, HealthInsurance.all, :id, :name, class: 'ls-select', prompt: true) %>
-        </div>
-      </label>
     </div>
-  </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= label(:health_insurance, Map.human_attribute_name(:health_insurance)) %></span>
+          <div class="ls-custom-select">
+           <%= f.collection_select(:health_insurance_id, HealthInsurance.all, :id, :name, class: 'ls-select', prompt: true) %>
+         </div>
+       </label>
+     </div>
+   </div>
 
 <!--   <div class="row">
     <div class="col-md-10">
@@ -67,7 +72,8 @@
       <label class="ls-label col-md-10">
         <span class="ls-label-text"><%= label(:health_terminology, Map.human_attribute_name(:health_terminology)) %></span>
         <div class="ls-custom-select">
-          <%= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
+          <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
+          <%= f.collection_select(:health_terminology_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select') %>
         </div>
       </label>
     </div>
@@ -119,97 +125,185 @@
     </div>
   </div>
 
-<div class="row">
-  <div class="col-md-10">
-    <label class="ls-label col-md-10 <%= class_error @map, :surgeon_id  %>">
-      <span class="ls-label-text"><%= label(:surgeon, Map.human_attribute_name(:surgeon)) %></span>
-      <div class="ls-custom-select">
-        <%= f.collection_select(:surgeon_id, Surgeon.all, :id, :name, class: 'ls-select', prompt: true) %>
-      </div>
-      <%= show_message_error @map, :surgeon_id %>
-    </label>
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10 <%= class_error @map, :surgeon_id  %>">
+        <span class="ls-label-text"><%= label(:surgeon, Map.human_attribute_name(:surgeon)) %></span>
+        <div class="ls-custom-select">
+          <%= f.collection_select(:surgeon_id, Surgeon.all, :id, :name, class: 'ls-select', prompt: true) %>
+        </div>
+        <%= show_message_error @map, :surgeon_id %>
+      </label>
+    </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10">
+        <span class="ls-label-text"><%= label(:anesthetist, Map.human_attribute_name(:anesthetist)) %></span>
+        <div class="ls-custom-select">
+          <%= f.collection_select(:anesthetist_id, Anesthetist.all, :id, :name, class: 'ls-select', prompt: true) %>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10">
+        <span class="ls-label-text"><%= label(:note, Map.human_attribute_name(:note)) %></span>
+        <%= f.text_area :note %>
+      </label>
+    </div>
+  </div>
+
 </div>
 
-<div class="row">
-  <div class="col-md-10">
-    <label class="ls-label col-md-10">
-      <span class="ls-label-text"><%= label(:anesthetist, Map.human_attribute_name(:anesthetist)) %></span>
-      <div class="ls-custom-select">
-        <%= f.collection_select(:anesthetist_id, Anesthetist.all, :id, :name, class: 'ls-select', prompt: true) %>
-      </div>
-    </label>
-  </div>
-</div>
+<div id="proc" class="ls-tab-content">
 
-<div class="row">
-  <div class="col-md-10">
-    <label class="ls-label col-md-10">
-      <span class="ls-label-text"><%= label(:note, Map.human_attribute_name(:note)) %></span>
-      <%= f.text_area :note %>
-    </label>
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10">
+        <span class="ls-label-text"><%= f.label :health_terminology_id, "Procedimento 2" %></span>
+        <div class="ls-custom-select">
+          <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
+          <%= f.collection_select(:tuss2_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+        </div>
+      </label>
+    </div>
   </div>
-</div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <label class="ls-label col-md-4">
+      <span class="ls-label-text"><%= f.label :via_unique2, "Via única?" %></span>
+      <%= f.check_box :via_unique2 , {}, "true", "false" %>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10">
+        <span class="ls-label-text"><%= f.label :health_terminology_id, "Procedimento 3" %></span>
+        <div class="ls-custom-select">
+          <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
+          <%= f.collection_select(:tuss3_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <label class="ls-label col-md-4">
+      <span class="ls-label-text"><%= f.label :via_unique2, "Via única?" %></span>
+      <%= f.check_box :via_unique3 , {}, "true", "false" %>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10">
+        <span class="ls-label-text"><%= f.label :health_terminology_id, "Procedimento 4"%></span>
+        <div class="ls-custom-select">
+          <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
+          <%= f.collection_select(:tuss4_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <label class="ls-label col-md-4">
+      <span class="ls-label-text"><%= f.label :via_unique2, "Via única?" %></span>
+      <%= f.check_box :via_unique4 , {}, "true", "false" %>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10">
+        <span class="ls-label-text"><%= f.label :health_terminology_id, "Procedimento 5" %></span>
+        <div class="ls-custom-select">
+          <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
+          <%= f.collection_select(:tuss5_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-8">
+      <label class="ls-label col-md-4">
+      <span class="ls-label-text"><%= f.label :via_unique2, "Via única?" %></span>
+      <%= f.check_box :via_unique5 , {}, "true", "false" %>
+      </label>
+    </div>
+  </div>
 
 </div>
 <div id="contact" class="ls-tab-content">
 
-<div class="row">
-  <div class="col-md-10">
-    <label class="ls-label col-md-10">
-      <span class="ls-label-text"><%= f.label :receipt_id, "Recibo" %></span>
-      <div class="ls-custom-select">
-        <%= f.collection_select(:receipt_id, Receipt.all, :id, :name, class: 'ls-select', prompt: true) %>
-      </div>
-    </label>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-10">
-    <label class="ls-label col-md-10">
-      <span class="ls-label-text"><%= f.label :payment_method_id, "Método de Pagamento" %></span>
-      <div class="ls-custom-select">
-        <%= f.collection_select(:payment_method_id, PaymentMethod.all, :id, :name, class: 'ls-select', prompt: true) %>
-      </div>
-    </label>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-10">
-    <label class="ls-label col-md-10">
-      <span class="ls-label-text"><%= f.label :payment_recipient_id, "Beneficiário do Pagamento" %></span>
-      <div class="ls-custom-select">
-        <%= f.collection_select(:payment_recipient_id, PaymentRecipient.all, :id, :name, class: 'ls-select', prompt: true) %>
-      </div>
-    </label>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-md-10">
-    <label class="ls-label col-md-12">
-      <%= f.label :payment, "Valor do Pagamento" %>
-      <div class="row">
-        <div class="ls-prefix-group col-md-10">
-          <input type='text' id='value' />
-          <a href="#" id='add-Payment' class="ls-label-text-prefix ls-bg-white">+</a>
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10">
+        <span class="ls-label-text"><%= f.label :receipt_id, "Recibo" %></span>
+        <div class="ls-custom-select">
+          <%= f.collection_select(:receipt_id, Receipt.all, :id, :name, class: 'ls-select', prompt: true) %>
         </div>
-      </div>
-    </label>
+      </label>
+    </div>
+  </div>
 
-    <div class='col-md-10'>
-      <table id='payments', class='ls-table'>
-        <thead>
-          <th>Parcela</th>
-          <th>Vencimento</th>
-          <th>Valor Cobrado</th>
-          <th>Valor Pago</th>
-          <th>Remover</th>
-        </thead>
-        <tbody>
-          <% @map.payment_maps.each do |payment_map| %>
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10">
+        <span class="ls-label-text"><%= f.label :payment_method_id, "Método de Pagamento" %></span>
+        <div class="ls-custom-select">
+          <%= f.collection_select(:payment_method_id, PaymentMethod.all, :id, :name, class: 'ls-select', prompt: true) %>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-10">
+        <span class="ls-label-text"><%= f.label :payment_recipient_id, "Beneficiário do Pagamento" %></span>
+        <div class="ls-custom-select">
+          <%= f.collection_select(:payment_recipient_id, PaymentRecipient.all, :id, :name, class: 'ls-select', prompt: true) %>
+        </div>
+      </label>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-10">
+      <label class="ls-label col-md-12">
+        <%= f.label :payment, "Valor do Pagamento" %>
+        <div class="row">
+          <div class="ls-prefix-group col-md-10">
+            <input type='text' id='value' />
+            <a href="#" id='add-Payment' class="ls-label-text-prefix ls-bg-white">+</a>
+          </div>
+        </div>
+      </label>
+
+      <div class='col-md-10'>
+        <table id='payments', class='ls-table'>
+          <thead>
+            <th>Parcela</th>
+            <th>Vencimento</th>
+            <th>Valor Cobrado</th>
+            <th>Valor Pago</th>
+            <th>Remover</th>
+          </thead>
+          <tbody>
+            <% @map.payment_maps.each do |payment_map| %>
             <tr>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_id]]]", payment_map.payment_id, class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_date]]]", payment_map.payment_date.try(:strftime, "%d/%m/%Y"), class: 'col-md-12' %></td> 
@@ -217,12 +311,12 @@
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[paid_value]]]", payment_map.paid_value, class: 'col-md-12' %></td>
               <td><button type='button' class='ls-btn remove-Payment'><span class='ls-ico-remove'></span></button></td>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
 </div>
 </fieldset>
 
