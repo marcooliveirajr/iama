@@ -55,6 +55,6 @@ test:
 
 production:
   <<: *default
-  host: mysql61517-env-7689195.jelasticlw.com.br
-  password: RPQbnq15664
+  host: mysql88570-clinicaiama.jelasticlw.com.br
+  password: YDItyd07983
   database: iama-production
