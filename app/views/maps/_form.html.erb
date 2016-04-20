@@ -155,7 +155,7 @@
       <label class="ls-label col-md-10">
         <span class="ls-label-text"><%= f.label :tuss2_id, "Procedimento 2" %></span>
         <div class="ls-custom-select">
-          <%= f.collection_select(:tuss2_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+          <%= f.collection_select(:tuss2, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
         </div>
       </label>
     </div>
@@ -175,7 +175,7 @@
       <label class="ls-label col-md-10">
         <span class="ls-label-text"><%= f.label :tuss3_id, "Procedimento 3" %></span>
         <div class="ls-custom-select">
-          <%= f.collection_select(:tuss3_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+          <%= f.collection_select(:tuss3, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
         </div>
       </label>
     </div>
@@ -195,7 +195,7 @@
       <label class="ls-label col-md-10">
         <span class="ls-label-text"><%= f.label :tuss4_id, "Procedimento 4"%></span>
         <div class="ls-custom-select">
-          <%= f.collection_select(:tuss4_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+          <%= f.collection_select(:tuss4, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
         </div>
       </label>
     </div>
@@ -215,7 +215,7 @@
       <label class="ls-label col-md-10">
         <span class="ls-label-text"><%= f.label :tuss5_id, "Procedimento 5" %></span>
         <div class="ls-custom-select">
-          <%= f.collection_select(:tuss5_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+          <%= f.collection_select(:tuss5, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
         </div>
       </label>
     </div>

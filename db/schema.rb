@@ -82,10 +82,10 @@ ActiveRecord::Schema.define(version: 20160419003149) do
     t.text     "note",                  limit: 65535
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.integer  "tuss2_id",              limit: 4
-    t.integer  "tuss3_id",              limit: 4
-    t.integer  "tuss4_id",              limit: 4
-    t.integer  "tuss5_id",              limit: 4
+    t.integer  "tuss2",                 limit: 4
+    t.integer  "tuss3",                 limit: 4
+    t.integer  "tuss4",                 limit: 4
+    t.integer  "tuss5",                 limit: 4
     t.boolean  "via_unique2"
     t.boolean  "via_unique3"
     t.boolean  "via_unique4"
