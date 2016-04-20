@@ -56,24 +56,13 @@
      </div>
    </div>
 
-<!--   <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%#= label(:health_terminology, Map.human_attribute_name(:health_terminology)) %></span>
-        <div class="ls-custom-select">
-          <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
-        </div>
-      </label>
-    </div>
-  </div> -->
-
   <div class="row">
     <div class="col-md-10">
       <label class="ls-label col-md-10">
         <span class="ls-label-text"><%= label(:health_terminology, Map.human_attribute_name(:health_terminology)) %></span>
         <div class="ls-custom-select">
           <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
-          <%= f.collection_select(:health_terminology_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select') %>
+          <%= f.collection_select(:health_terminology_id, HealthTerminology.all.collect, :id, :description_tuss, class: 'ls-select', prompt: true) %>
         </div>
       </label>
     </div>
@@ -164,9 +153,8 @@
   <div class="row">
     <div class="col-md-10">
       <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= f.label :health_terminology_id, "Procedimento 2" %></span>
+        <span class="ls-label-text"><%= f.label :tuss2_id, "Procedimento 2" %></span>
         <div class="ls-custom-select">
-          <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
           <%= f.collection_select(:tuss2_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
         </div>
       </label>
@@ -185,9 +173,8 @@
   <div class="row">
     <div class="col-md-10">
       <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= f.label :health_terminology_id, "Procedimento 3" %></span>
+        <span class="ls-label-text"><%= f.label :tuss3_id, "Procedimento 3" %></span>
         <div class="ls-custom-select">
-          <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
           <%= f.collection_select(:tuss3_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
         </div>
       </label>
@@ -197,7 +184,7 @@
   <div class="row">
     <div class="col-md-8">
       <label class="ls-label col-md-4">
-      <span class="ls-label-text"><%= f.label :via_unique2, "Via única?" %></span>
+      <span class="ls-label-text"><%= f.label :via_unique3, "Via única?" %></span>
       <%= f.check_box :via_unique3 , {}, "true", "false" %>
       </label>
     </div>
@@ -206,9 +193,8 @@
   <div class="row">
     <div class="col-md-10">
       <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= f.label :health_terminology_id, "Procedimento 4"%></span>
+        <span class="ls-label-text"><%= f.label :tuss4_id, "Procedimento 4"%></span>
         <div class="ls-custom-select">
-          <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
           <%= f.collection_select(:tuss4_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
         </div>
       </label>
@@ -218,7 +204,7 @@
   <div class="row">
     <div class="col-md-8">
       <label class="ls-label col-md-4">
-      <span class="ls-label-text"><%= f.label :via_unique2, "Via única?" %></span>
+      <span class="ls-label-text"><%= f.label :via_unique4, "Via única?" %></span>
       <%= f.check_box :via_unique4 , {}, "true", "false" %>
       </label>
     </div>
@@ -227,9 +213,8 @@
   <div class="row">
     <div class="col-md-10">
       <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= f.label :health_terminology_id, "Procedimento 5" %></span>
+        <span class="ls-label-text"><%= f.label :tuss5_id, "Procedimento 5" %></span>
         <div class="ls-custom-select">
-          <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
           <%= f.collection_select(:tuss5_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
         </div>
       </label>
@@ -239,7 +224,7 @@
   <div class="row">
     <div class="col-md-8">
       <label class="ls-label col-md-4">
-      <span class="ls-label-text"><%= f.label :via_unique2, "Via única?" %></span>
+      <span class="ls-label-text"><%= f.label :via_unique5, "Via única?" %></span>
       <%= f.check_box :via_unique5 , {}, "true", "false" %>
       </label>
     </div>
@@ -306,7 +291,7 @@
             <% @map.payment_maps.each do |payment_map| %>
             <tr>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_id]]]", payment_map.payment_id, class: 'col-md-12' %></td>
-              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_date]]]", payment_map.payment_date.try(:strftime, "%d/%m/%Y"), class: 'col-md-12' %></td> 
+              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_date]]]", payment_map.payment_date.try(:strftime, "%d/%m/%Y"), class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_value]]]", payment_map.payment_value, class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[paid_value]]]", payment_map.paid_value, class: 'col-md-12' %></td>
               <td><button type='button' class='ls-btn remove-Payment'><span class='ls-ico-remove'></span></button></td>
