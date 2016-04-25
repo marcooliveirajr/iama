@@ -6,9 +6,7 @@
   <div id="error_explanation">
     <ul>
       <% @map.errors.full_messages.each do |message| %>
-      <%=binding.pry %>
       <li><%= message %></li>
-
       <% end %>
     </ul>
   </div>
