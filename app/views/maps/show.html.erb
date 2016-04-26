@@ -112,19 +112,103 @@
             <tbody>
               <tr> 
                 <td> Procedimento 2: 
-                  <label class="ls-title-6"><%= @map.tuss2.try(:description_tuss) %>
+                  <label class="ls-title-6"><%= find_desc_tuss(@map.tuss2) %>
                   </label> 
                 </td> 
               </tr>
               <tr> 
                 <td> Código TUSS: 
-                  <label class="ls-title-6"><%= @map.tuss2.try(:code_tuss) %>
+                  <label class="ls-title-6"><%= find_code_tuss(@map.tuss2) %>
                   </label> 
                 </td> 
               </tr>
               <tr> 
                 <td> Porte: 
-                  <label class="ls-title-6"><%= @map.tuss2.try(:measure) %>
+                  <label class="ls-title-6"><%= find_measure_tuss(@map.tuss2) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Via única: 
+                  <% if @map.via_unique2 == true %>
+                    <label class="ls-title-6">Sim</label>
+                  <% else %>
+                    <label class="ls-title-6">Não</label>
+                  <% end %>
+                </td> 
+              </tr>
+
+              <tr> 
+                <td> Procedimento 3: 
+                  <label class="ls-title-6"><%= find_desc_tuss(@map.tuss3) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Código TUSS: 
+                  <label class="ls-title-6"><%= find_code_tuss(@map.tuss3) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Porte: 
+                  <label class="ls-title-6"><%= find_measure_tuss(@map.tuss3) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Via única: 
+                  <% if @map.via_unique2 == true %>
+                    <label class="ls-title-6">Sim</label>
+                  <% else %>
+                    <label class="ls-title-6">Não</label>
+                  <% end %>
+                </td> 
+              </tr>
+
+              <tr> 
+                <td> Procedimento 4: 
+                  <label class="ls-title-6"><%= find_desc_tuss(@map.tuss4) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Código TUSS: 
+                  <label class="ls-title-6"><%= find_code_tuss(@map.tuss4) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Porte: 
+                  <label class="ls-title-6"><%= find_measure_tuss(@map.tuss4) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Via única: 
+                  <% if @map.via_unique2 == true %>
+                    <label class="ls-title-6">Sim</label>
+                  <% else %>
+                    <label class="ls-title-6">Não</label>
+                  <% end %>
+                </td> 
+              </tr>
+
+              <tr> 
+                <td> Procedimento 5: 
+                  <label class="ls-title-6"><%= find_desc_tuss(@map.tuss5) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Código TUSS: 
+                  <label class="ls-title-6"><%= find_code_tuss(@map.tuss5) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Porte: 
+                  <label class="ls-title-6"><%= find_measure_tuss(@map.tuss5) %>
                   </label> 
                 </td> 
               </tr>

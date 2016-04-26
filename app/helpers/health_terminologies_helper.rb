@@ -28,4 +28,23 @@ module HealthTerminologiesHelper
     end  
     return ex
   end
+
+  def find_desc_tuss(id) 
+    if id != nil
+      HealthTerminology.find(id).description_tuss
+    end
+  end
+
+  def find_code_tuss(id)
+    if id != nil  
+      HealthTerminology.find(id).code_tuss
+    end
+  end
+
+  def find_measure_tuss(id)
+    if id != nil 
+      HealthTerminology.find(id).measure
+    end
+  end
+
 end
