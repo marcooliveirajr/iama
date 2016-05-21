@@ -1,4 +1,10 @@
-  $(document).ready(function() { $("#map_health_terminology_id").select2(); });
+  $(document).ready(function() { 
+  	$("#map_health_terminology_id").select2();
+  	$("#map_tuss2").select2(); 
+  	$("#map_tuss3").select2();
+  	$("#map_tuss4").select2();
+  	$("#map_tuss5").select2();
+  });
 
 
 // clinic.selects = (function() {
