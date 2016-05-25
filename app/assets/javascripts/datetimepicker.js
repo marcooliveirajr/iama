@@ -1,5 +1,7 @@
   $(function () {
     $('#datetimepicker').datetimepicker({
-      format: "DD-MM-YYYY hh:mm"
+      locale: 'pt-br',
+      format: 'L LT',
+      sideBySide: true
     });
   });

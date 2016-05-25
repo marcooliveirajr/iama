@@ -21,7 +21,7 @@
           <%#= f.text_field :time_surgery, value: @map.try(:time_surgery).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
 
           <div class='input-group date' id='datetimepicker'>
-            <%= f.text_field :time_surgery, :class => "form-control"%>
+            <%= f.text_field :time_surgery, value: @map.try(:time_surgery).try(:strftime, "%d/%m/%Y %H:%M") , class: 'form-control'%>
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>
