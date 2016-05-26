@@ -55,17 +55,21 @@
       </div>
     </header>
     <div class="ls-list-content ">
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <span class="ls-list-label">Paciente</span>
         <strong><%= map.patient.try(:name) %></strong>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <span class="ls-list-label">Cirurgião</span>
         <strong><%= map.surgeon.try(:name) %></strong>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-3">
         <span class="ls-list-label">Anestesista</span>
         <strong><%= map.anesthetist.try(:name) %></strong>
+      </div>
+      <div class="col-sm-3">
+        <span class="ls-list-label">Hospital</span>
+        <strong><%= map.hospital.try(:name) %></strong>
       </div>
     </div>
   </div>
