@@ -42,7 +42,7 @@ class PatientsController < ApplicationController
   def search
     @patients = ::Patient::FinderService.find(search_params)
     @patients = make_paginate(@patients)
-    if @patients.spresent?
+    if @patients.present?
       flash[:error] = nil
       render action: 'index'
     else
