@@ -1,33 +1,9 @@
-$( document ).ready(function() {
-  $('#map_health_terminology_id').change(function(){
-    //var insurance_id = $('#map_health_insurance_id option:selected').val();
-    $.getJSON("/health_terminologies/version.json?version_id=1", function(result){
-      var terminologies = $('#map_health_terminology_id');
-      terminologies.find("option").remove();
-      $.each(result, function(item, element) {
-        terminologies.append($("<option />")
-          .val(element.id)
-          .data('tuss', element.code_tuss)
-          .data('measure', element.measure)
-          .text(element.description_tuss));
+  $(document).on("ready load change", function(){
+        var terminologies = $('#map_health_terminology_id');      
+        if($('#map_health_terminology_id').length && $(".tuss").length && terminologies.val() != ""){
+          $.getJSON("/health_terminologies/terminologies.json?id="+terminologies.val(), function(result){
+          $(".tuss").text(result[0].code_tuss);
+          $(".measure").text(result[0].measure);
+        });
+        }
       });
-      removeElement();
-      setTussMeasure();
-    });
-  });
-
-  $('#map_health_terminology_id').change(function(){
-    removeElement();
-    setTussMeasure();
-  });
-
-  function setTussMeasure() {
-    $('.tuss').html($('#map_health_terminology_id').find('option:selected').data('tuss'))
-    $('.measure').html($('#map_health_terminology_id').find('option:selected').data('measure'))
-  }
-
-  function removeElement() {
-      $( '.ls-display-none' ).toggleClass( "ls-display-none", false);
-}
-
-});

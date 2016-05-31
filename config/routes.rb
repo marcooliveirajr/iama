@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   resources :health_terminologies, shallow: true do
     get 'search', to: 'health_terminologies#search', as: 'search', on: :collection
     get 'version', to: 'health_terminologies#index_version', on: :collection
+    get 'terminologies', to: 'health_terminologies#index_health_terminologies', on: :collection
   end
   resources :maps, shallow: true do
     get 'search', to: 'maps#search', as: 'search', on: :collection

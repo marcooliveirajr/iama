@@ -1,5 +1,5 @@
 class HealthTerminologiesController < ApplicationController
-  before_action :set_health_terminology, only: [:show, :edit, :update, :destroy]
+  before_action :set_health_terminology, only: [:show, :edit, :update, :destroy, :index_health_terminologies]
   before_action :set_health_insurance, only: [:index_version]
 
   # GET /health_terminologies
@@ -17,6 +17,12 @@ class HealthTerminologiesController < ApplicationController
     end
   end
 
+  def index_health_terminologies
+    @health_terminologies = HealthTerminology.where(id: @health_terminology.id)
+    respond_to do |format|
+      format.json { render json: @health_terminologies, render: :index_health_terminologies }
+    end
+  end
   # GET /health_terminologies/1
   # GET /health_terminologies/1.json
   def show
