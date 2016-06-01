@@ -93,6 +93,7 @@ class MapsController < ApplicationController
                                   :hospital_id,
                                   :bedroom_id,
                                   :patient_id,
+                                  :registration,
                                   :health_terminology_id,
                                   :surgeon_id,
                                   :anesthetist_id,

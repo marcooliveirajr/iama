@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160601214804) do
+ActiveRecord::Schema.define(version: 20160601225100) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20160601214804) do
     t.boolean  "via_unique3"
     t.boolean  "via_unique4"
     t.boolean  "via_unique5"
+    t.string   "registration",          limit: 255
   end
 
   add_index "maps", ["anesthetist_id"], name: "index_maps_on_anesthetist_id", using: :btree
