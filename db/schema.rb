@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160419003149) do
+ActiveRecord::Schema.define(version: 20160601214804) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20160419003149) do
     t.text     "note",               limit: 65535
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.string   "registration",       limit: 255
+    t.string   "cellphone",          limit: 255
   end
 
   create_table "bedrooms", force: :cascade do |t|
@@ -129,6 +131,8 @@ ActiveRecord::Schema.define(version: 20160419003149) do
     t.text     "note",               limit: 65535
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.string   "registration",       limit: 255
+    t.string   "cellphone",          limit: 255
   end
 
   create_table "payment_maps", force: :cascade do |t|
@@ -193,6 +197,8 @@ ActiveRecord::Schema.define(version: 20160419003149) do
     t.text     "note",               limit: 65535
     t.datetime "created_at",                       null: false
     t.datetime "updated_at",                       null: false
+    t.string   "registration",       limit: 255
+    t.string   "cellphone",          limit: 255
   end
 
   create_table "users", force: :cascade do |t|

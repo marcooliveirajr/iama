@@ -90,7 +90,21 @@ class SurgeonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def surgeon_params
-      params[:surgeon].permit(:name, :rg, :cpf, :phone, :email, :address, :address_number, :address_complement, :district, :city, :postal_code, :state, :note)
+      params[:surgeon].permit(:name, 
+                              :rg, 
+                              :cpf, 
+                              :phone, 
+                              :email, 
+                              :address,
+                              :address_number, 
+                              :address_complement, 
+                              :district, 
+                              :city, 
+                              :postal_code, 
+                              :state, 
+                              :registration,
+                              :cellphone,
+                              :note)
     end
 
     def search_params
