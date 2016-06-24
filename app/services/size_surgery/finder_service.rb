@@ -3,7 +3,17 @@ class SizeSurgery
     class << self
       def find(params)
         params = params.with_indifferent_access.symbolize_keys
-        SizeSurgery.where("#{params[:type]} like ?", "%#{params[:text]}%").all
+        if params[:text].present?
+					$param_type = params[:type]
+					case $param_type
+					when 'health_insurance'
+            SizeSurgery.joins(:health_insurance).where("name like ?", "%#{params[:text]}%")
+          when 'measure'
+            SizeSurgery.where("#{params[:type]} = ?", params[:text]).all
+  				end
+        else
+          SizeSurgery.all
+        end
       end
     end
   end
