@@ -50,13 +50,13 @@
               </tr>
               <tr> 
                 <td> Hora inicial: 
-                  <label class="ls-title-6"><%= @map.start_time.strftime("%d/%m/%Y %H:%M") %>
+                  <label class="ls-title-6"><%= @map.try(:start_time).try(:strftime, "%d/%m/%Y %H:%M") %>
                   </label> 
                 </td> 
               </tr>
               <tr> 
                 <td> Hora final: 
-                  <label class="ls-title-6"><%= @map.end_time.strftime("%d/%m/%Y %H:%M") %>
+                  <label class="ls-title-6"><%= @map.try(:end_time).try(:strftime, "%d/%m/%Y %H:%M") %>
                   </label> 
                 </td> 
               </tr>

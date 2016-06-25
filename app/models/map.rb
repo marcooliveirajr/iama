@@ -14,7 +14,6 @@ class Map < ActiveRecord::Base
   belongs_to :payment_method
   belongs_to :payment_recipient
   has_many :payment_maps
-
   validates :time_surgery, presence: { message: 'Necessário informar uma Data de Cirurgia' }
   validates :surgeon_id, presence: { message: 'Necessário informar um Cirurgião' }
 

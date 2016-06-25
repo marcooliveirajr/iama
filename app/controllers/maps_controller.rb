@@ -73,6 +73,10 @@ class MapsController < ApplicationController
   # DELETE /maps/1
   # DELETE /maps/1.json
   def destroy
+    @payment_maps = PaymentMap.where(map_id: @map.id)
+    @payment_maps.each do |pay|
+      pay.destroy
+    end
     @map.destroy
     respond_to do |format|
      format.html { redirect_to maps_url, notice: 'Mapa excluído com sucesso.' }
