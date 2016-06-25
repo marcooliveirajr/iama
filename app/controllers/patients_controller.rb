@@ -91,6 +91,7 @@ class PatientsController < ApplicationController
       params.require(:patient).permit(:name, 
                                       :rg, 
                                       :cpf, 
+                                      :age,
                                       :phone, 
                                       :email, 
                                       :address,
