@@ -27,7 +27,6 @@ class MapsController < ApplicationController
   # POST /maps.json
   def create
     @map = Map.new(map_params)
-
     respond_to do |format|
       Map.transaction do
         if @map.save
@@ -76,8 +75,8 @@ class MapsController < ApplicationController
   def destroy
     @map.destroy
     respond_to do |format|
-      format.html { redirect_to maps_url, notice: 'Mapa excluído com sucesso.' }
-      format.json { head :no_content }
+     format.html { redirect_to maps_url, notice: 'Mapa excluído com sucesso.' }
+     format.json { head :no_content }
     end
   end
 
@@ -109,7 +108,9 @@ class MapsController < ApplicationController
                                   :via_unique2,
                                   :via_unique3,
                                   :via_unique4,
-                                  :via_unique5)
+                                  :via_unique5,
+                                  :start_time,
+                                  :end_time)
     end
 
     def search_params

@@ -49,7 +49,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4 <%= class_error @map, :time_surgery %>">
-          <span class="ls-label-text"><%= label(:time_surgery, Map.human_attribute_name(:time_surgery_date)) %></span>
+          <span class="ls-label-text"><%= f.label :start_time, "Data da Cirurgia" %></span>
           <%#= f.text_field :time_surgery, value: @map.try(:time_surgery).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
 
           <div class='input-group date' id='datetimepicker'>
@@ -70,6 +70,40 @@
           <div class="ls-custom-select">
             <%= f.collection_select(:hospital_id, Hospital.all, :id, :name, class: 'ls-select', prompt: true) %>
           </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4 <%= class_error @map, :start_time %>">
+          <span class="ls-label-text"><%= f.label :start_time, "Hora inicial" %></span>
+          <%#= f.text_field :start_time, value: @map.try(:start_time).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
+
+          <div class='input-group date' id='datetimepicker2'>
+            <%= f.text_field :start_time, value: @map.try(:start_time).try(:strftime, "%d/%m/%Y %H:%M") , class: 'form-control'%>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+          <%= show_message_error @map, :start_time %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4 <%= class_error @map, :end_time %>">
+          <span class="ls-label-text"><%= f.label :end_time, "Hora final" %></span>
+          <%#= f.text_field :end_time, value: @map.try(:end_time).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
+
+          <div class='input-group date' id='datetimepicker3'>
+            <%= f.text_field :end_time, value: @map.try(:end_time).try(:strftime, "%d/%m/%Y %H:%M") , class: 'form-control'%>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+          <%= show_message_error @map, :end_time %>
         </label>
       </div>
     </div>

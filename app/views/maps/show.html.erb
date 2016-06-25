@@ -49,6 +49,18 @@
                 </td> 
               </tr>
               <tr> 
+                <td> Hora inicial: 
+                  <label class="ls-title-6"><%= @map.start_time.strftime("%d/%m/%Y %H:%M") %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Hora final: 
+                  <label class="ls-title-6"><%= @map.end_time.strftime("%d/%m/%Y %H:%M") %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
                 <td> Quarto: 
                   <label class="ls-title-6"><%= @map.bedroom.try(:name) %>
                   </label> 
