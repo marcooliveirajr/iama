@@ -16,7 +16,9 @@ class Map
   			    Map.joins(:hospital).where("name like ?", "%#{params[:text]}%")
           when 'time_surgery'
             Map.where("time_surgery like ?", "#{Date.parse(params[:date])}%").all
-  				end
+  				when 'health_insurance'
+            Map.joins(:health_insurance).where("name like ?", "%#{params[:text]}%")
+          end
         else
           Map.all
         end
