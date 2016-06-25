@@ -4,9 +4,7 @@
 
   <ul class="ls-tabs-nav">
     <li class="ls-active"><a data-ls-module="tabs" href="#track">Dados da Cirurgia</a></li>
-    <li><a data-ls-module="tabs" href="#proc">Outros Procedimentos</a></li>
-  </li>
-  <li><a data-ls-module="tabs" href="#contact">Dados do Pagamento</a></li>
+    <li><a data-ls-module="tabs" href="#contact">Dados do Pagamento</a></li>
 </li>
 
 </ul>
@@ -132,150 +130,146 @@
       </div>
     </div>
 
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= label(:note, Map.human_attribute_name(:note)) %></span>
-        <%= f.text_area :note %>
-      </label>
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :tuss2_id, "Procedimento 2" %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:tuss2, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+          </div>
+        </label>
+      </div>
     </div>
-  </div>
 
-</div>
-
-<div id="proc" class="ls-tab-content">
-
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= f.label :tuss2_id, "Procedimento 2" %></span>
-        <div class="ls-custom-select">
-          <%= f.collection_select(:tuss2, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
-        </div>
-      </label>
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text">Código TUSS: </span>
+          <small class="tuss2 ls-label-text"></small>
+        </label>
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text">Porte: </span>
+          <small class="measure2 ls-label-text"></small>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text">Código TUSS: </span>
-        <small class="tuss2 ls-label-text"></small>
-      </label>
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text">Porte: </span>
-        <small class="measure2 ls-label-text"></small>
-      </label>
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :via_unique2, "Via única?" %></span>
+        <%= f.check_box :via_unique2 , {}, "true", "false" %>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <label class="ls-label col-md-4">
-      <span class="ls-label-text"><%= f.label :via_unique2, "Via única?" %></span>
-      <%= f.check_box :via_unique2 , {}, "true", "false" %>
-      </label>
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :tuss3_id, "Procedimento 3" %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:tuss3, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+          </div>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= f.label :tuss3_id, "Procedimento 3" %></span>
-        <div class="ls-custom-select">
-          <%= f.collection_select(:tuss3, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
-        </div>
-      </label>
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text">Código TUSS: </span>
+          <small class="tuss3 ls-label-text"></small>
+        </label>
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text">Porte: </span>
+          <small class="measure3 ls-label-text"></small>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text">Código TUSS: </span>
-        <small class="tuss3 ls-label-text"></small>
-      </label>
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text">Porte: </span>
-        <small class="measure3 ls-label-text"></small>
-      </label>
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :via_unique3, "Via única?" %></span>
+        <%= f.check_box :via_unique3 , {}, "true", "false" %>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <label class="ls-label col-md-4">
-      <span class="ls-label-text"><%= f.label :via_unique3, "Via única?" %></span>
-      <%= f.check_box :via_unique3 , {}, "true", "false" %>
-      </label>
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :tuss4_id, "Procedimento 4"%></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:tuss4, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+          </div>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= f.label :tuss4_id, "Procedimento 4"%></span>
-        <div class="ls-custom-select">
-          <%= f.collection_select(:tuss4, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
-        </div>
-      </label>
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text">Código TUSS: </span>
+          <small class="tuss4 ls-label-text"></small>
+        </label>
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text">Porte: </span>
+          <small class="measure4 ls-label-text"></small>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text">Código TUSS: </span>
-        <small class="tuss4 ls-label-text"></small>
-      </label>
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text">Porte: </span>
-        <small class="measure4 ls-label-text"></small>
-      </label>
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :via_unique4, "Via única?" %></span>
+        <%= f.check_box :via_unique4 , {}, "true", "false" %>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <label class="ls-label col-md-4">
-      <span class="ls-label-text"><%= f.label :via_unique4, "Via única?" %></span>
-      <%= f.check_box :via_unique4 , {}, "true", "false" %>
-      </label>
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :tuss5_id, "Procedimento 5" %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:tuss5, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
+          </div>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= f.label :tuss5_id, "Procedimento 5" %></span>
-        <div class="ls-custom-select">
-          <%= f.collection_select(:tuss5, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
-        </div>
-      </label>
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text">Código TUSS: </span>
+          <small class="tuss5 ls-label-text"></small>
+        </label>
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text">Porte: </span>
+          <small class="measure5 ls-label-text"></small>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text">Código TUSS: </span>
-        <small class="tuss5 ls-label-text"></small>
-      </label>
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text">Porte: </span>
-        <small class="measure5 ls-label-text"></small>
-      </label>
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4">
+        <span class="ls-label-text"><%= f.label :via_unique5, "Via única?" %></span>
+        <%= f.check_box :via_unique5 , {}, "true", "false" %>
+        </label>
+      </div>
     </div>
-  </div>
 
-  <div class="row">
-    <div class="col-md-8">
-      <label class="ls-label col-md-4">
-      <span class="ls-label-text"><%= f.label :via_unique5, "Via única?" %></span>
-      <%= f.check_box :via_unique5 , {}, "true", "false" %>
-      </label>
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= label(:note, Map.human_attribute_name(:note)) %></span>
+          <%= f.text_area :note %>
+        </label>
+      </div>
     </div>
-  </div>
 
 </div>
 <div id="contact" class="ls-tab-content">
@@ -353,7 +347,8 @@
 </fieldset>
 
 <div class="ls-actions-btn">
-  <%= submit_tag t('actions.create'), class: 'ls-btn-primary' %>
+  <%#= submit_tag t('actions.create'), class: 'ls-btn-primary' %>
+  <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
   <%= link_to 'Voltar', maps_path, class: "ls-btn-darker" %>
 </div>
 
