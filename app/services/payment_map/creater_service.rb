@@ -7,6 +7,7 @@ class PaymentMap
           map_id: map_id,
           payment_id: value[:payment_id],
           payment_date: value[:payment_date],
+          pay_day: value[:pay_day],
           payment_value: value[:payment_value],
           paid_value: value[:paid_value]
           )

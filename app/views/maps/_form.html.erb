@@ -353,13 +353,14 @@
         </div>
       </label>
 
-      <div class='col-md-10'>
+      <div class='col-md-12'>
         <table id='payments', class='ls-table'>
           <thead>
             <th>Parcela</th>
-            <th>Vencimento</th>
-            <th>Valor Cobrado</th>
-            <th>Valor Pago</th>
+            <th>Data cobrança</th>
+            <th>Data pagamento</th>
+            <th>Valor cobrado</th>
+            <th>Valor pago</th>
             <th>Remover</th>
           </thead>
           <tbody>
@@ -367,6 +368,7 @@
             <tr>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_id]]]", payment_map.payment_id, class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_date]]]", payment_map.payment_date.try(:strftime, "%d/%m/%Y"), class: 'col-md-12' %></td>
+              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[pay_day]]]", payment_map.pay_day.try(:strftime, "%d/%m/%Y"), class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_value]]]", payment_map.payment_value, class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[paid_value]]]", payment_map.paid_value, class: 'col-md-12' %></td>
               <td><button type='button' class='ls-btn remove-Payment'><span class='ls-ico-remove'></span></button></td>

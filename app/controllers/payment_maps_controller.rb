@@ -69,6 +69,11 @@ class PaymentMapsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_map_params
-      params.require(:payment_map).permit(:map_id, :payment_id, :payment_date, :payment_value, :paid_value)
+      params.require(:payment_map).permit(:map_id, 
+                                          :payment_id, 
+                                          :payment_date,
+                                          :pay_day, 
+                                          :payment_value, 
+                                          :paid_value)
     end
 end

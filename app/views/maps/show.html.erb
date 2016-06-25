@@ -84,44 +84,7 @@
                   </label> 
                 </td> 
               </tr>
-              <tr> 
-                <td> Observação: 
-                  <label class="ls-title-6"><%= @map.note %>
-                  </label> 
-                </td> 
-              </tr>
 
-              <tr> 
-                <td> Via única: 
-                  <% if @map.via_unique2 == true %>
-                    <label class="ls-title-6">Sim</label>
-                  <% else %>
-                    <label class="ls-title-6">Não</label>
-                  <% end %>
-                </td> 
-              </tr>
-              
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<% if exists_health_terminologies? %>
-<div data-ls-module="collapse" data-target="#acordeon1" class="ls-collapse ">
-  <a href="#" class="ls-collapse-header">
-    <h3 class="ls-collapse-title">Outros Procedimentos</h3>
-  </a>
-  <div class="ls-collapse-body" id="acordeon1">
-
-    <div class="ls-box">
-      <div class="row">
-        <div class="col-md-12">
-          <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
-
-            <tbody>
               <tr> 
                 <td> Procedimento 2: 
                   <label class="ls-title-6"><%= find_desc_tuss(@map.tuss2) %>
@@ -233,7 +196,13 @@
                   <% end %>
                 </td> 
               </tr>
-              
+
+              <tr> 
+                <td> Observação: 
+                  <label class="ls-title-6"><%= @map.note %>
+                  </label> 
+                </td> 
+              </tr>
             </tbody>
           </table>
         </div>
@@ -241,7 +210,6 @@
     </div>
   </div>
 </div>
-<% end %>
 
 <% if exists_payment_maps? %>
 <div data-ls-module="collapse" data-target="#acordeon2" class="ls-collapse ">
@@ -271,7 +239,8 @@
               <table class='ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top'>
                 <thead>
                   <th>Parcela</th>
-                  <th>Vencimento</th>
+                  <th>Data cobrança</th>
+                  <th>Data pagamento</th>
                   <th>Valor Cobrado</th>
                   <th>Valor Pago</th>
                 </thead>
@@ -279,7 +248,8 @@
                   <% @map.payment_maps.each do |payment_map| %>
                   <tr>
                     <td> <label class="ls-title-6"><%= payment_map.payment_id %></label> </td>
-                    <td> <label class="ls-title-6"><%= payment_map.payment_date.strftime("%d/%m/%Y") %></label> </td>
+                    <td> <label class="ls-title-6"><%= payment_map.try(:payment_date).try(:strftime, "%d/%m/%Y") %></label> </td>
+                    <td> <label class="ls-title-6"><%= payment_map.try(:pay_day).try(:strftime, "%d/%m/%Y") %></label> </td> 
                     <td> <label class="ls-title-6"><%= payment_map.payment_value %></label> </td>
                     <td> <label class="ls-title-6"><%= payment_map.paid_value %></label> </td>
                   </tr>
