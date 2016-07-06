@@ -114,7 +114,10 @@ class MapsController < ApplicationController
                                   :via_unique4,
                                   :via_unique5,
                                   :start_time,
-                                  :end_time)
+                                  :end_time,
+                                  :password,
+                                  :plan,
+                                  :hospitalization)
     end
 
     def search_params

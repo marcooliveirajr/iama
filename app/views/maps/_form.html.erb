@@ -47,6 +47,15 @@
     </div>
 
     <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :plan, "Plano do Convênio" %></span>
+          <%= f.text_field :plan %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4 <%= class_error @map, :time_surgery %>">
           <span class="ls-label-text"><%= f.label :start_time, "Data da Cirurgia" %></span>
@@ -77,7 +86,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4 <%= class_error @map, :start_time %>">
-          <span class="ls-label-text"><%= f.label :start_time, "Hora inicial" %></span>
+          <span class="ls-label-text"><%= f.label :start_time, "Hora Inicial" %></span>
           <%#= f.text_field :start_time, value: @map.try(:start_time).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
 
           <div class='input-group date' id='datetimepicker2'>
@@ -94,7 +103,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4 <%= class_error @map, :end_time %>">
-          <span class="ls-label-text"><%= f.label :end_time, "Hora final" %></span>
+          <span class="ls-label-text"><%= f.label :end_time, "Hora Final" %></span>
           <%#= f.text_field :end_time, value: @map.try(:end_time).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
 
           <div class='input-group date' id='datetimepicker3'>
@@ -122,8 +131,37 @@
     <div class="row">
       <div class="col-md-10">
         <label class="ls-label col-md-10">
-          <span class="ls-label-text"><%= f.label :registration, "Paciente" %></span>
+          <span class="ls-label-text"><%= f.label :registration, "Matrícula" %></span>
           <%= f.text_field :registration %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :password, "Senha de Internação" %></span>
+          <%= f.text_field :password %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :hospitalization, "Código de Internação" %></span>
+          <%= f.text_field :hospitalization %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= label(:bedroom, Map.human_attribute_name(:bedroom)) %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:bedroom_id, Bedroom.all, :id, :name, class: 'ls-select', prompt: true) %>
+          </div>
         </label>
       </div>
     </div>
@@ -156,17 +194,6 @@
     <div class="row">
       <div class="col-md-10">
         <label class="ls-label col-md-10">
-          <span class="ls-label-text"><%= label(:bedroom, Map.human_attribute_name(:bedroom)) %></span>
-          <div class="ls-custom-select">
-            <%= f.collection_select(:bedroom_id, Bedroom.all, :id, :name, class: 'ls-select', prompt: true) %>
-          </div>
-        </label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-10">
-        <label class="ls-label col-md-10">
           <span class="ls-label-text"><%= f.label :tuss2_id, "Procedimento 2" %></span>
           <div class="ls-custom-select">
             <%= f.collection_select(:tuss2, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
@@ -191,7 +218,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :via_unique2, "Via única sim" %></span>
+        <span class="ls-label-text"><%= f.label :via_unique2, "Via Única Sim" %></span>
         <%= f.check_box :via_unique2 , {}, "true", "false" %>
         </label>
       </div>
@@ -224,7 +251,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :via_unique3, "Via única sim" %></span>
+        <span class="ls-label-text"><%= f.label :via_unique3, "Via Única Sim" %></span>
         <%= f.check_box :via_unique3 , {}, "true", "false" %>
         </label>
       </div>
@@ -257,7 +284,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :via_unique4, "Via única sim" %></span>
+        <span class="ls-label-text"><%= f.label :via_unique4, "Via Única Sim" %></span>
         <%= f.check_box :via_unique4 , {}, "true", "false" %>
         </label>
       </div>
@@ -290,7 +317,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :via_unique5, "Via única sim" %></span>
+        <span class="ls-label-text"><%= f.label :via_unique5, "Via Única Sim" %></span>
         <%= f.check_box :via_unique5 , {}, "true", "false" %>
         </label>
       </div>

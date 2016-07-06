@@ -13,8 +13,14 @@
 
             <tbody>
               <tr> 
-                <td> Data/Hora: 
-                  <label class="ls-title-6"><%= @map.time_surgery.strftime("%d/%m/%Y %H:%M") %>
+                <td> Anestesista: 
+                  <label class="ls-title-6"><%= @map.anesthetist.try(:name) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Cirurgião: 
+                  <label class="ls-title-6"><%= @map.surgeon.try(:name) %>
                   </label> 
                 </td> 
               </tr>
@@ -25,20 +31,14 @@
                 </td> 
               </tr>
               <tr> 
-                <td> Procedimento: 
-                  <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %>
+                <td> Plano do Convênio: 
+                  <label class="ls-title-6"><%= @map.try(:plan) %>
                   </label> 
                 </td> 
               </tr>
               <tr> 
-                <td> Código TUSS: 
-                  <label class="ls-title-6"><%= @map.health_terminology.try(:code_tuss) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Porte: 
-                  <label class="ls-title-6"><%= @map.health_terminology.try(:measure) %>
+                <td> Data/Hora: 
+                  <label class="ls-title-6"><%= @map.time_surgery.strftime("%d/%m/%Y %H:%M") %>
                   </label> 
                 </td> 
               </tr>
@@ -61,30 +61,53 @@
                 </td> 
               </tr>
               <tr> 
-                <td> Quarto: 
-                  <label class="ls-title-6"><%= @map.bedroom.try(:name) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
                 <td> Paciente: 
                   <label class="ls-title-6"><%= @map.patient.try(:name) %>
                   </label> 
                 </td> 
               </tr>
               <tr> 
-                <td> Cirurgião: 
-                  <label class="ls-title-6"><%= @map.surgeon.try(:name) %>
+                <td> Matrícula: 
+                  <label class="ls-title-6"><%= @map.try(:registration) %>
                   </label> 
                 </td> 
               </tr>
               <tr> 
-                <td> Anestesista: 
-                  <label class="ls-title-6"><%= @map.anesthetist.try(:name) %>
+                <td> Senha de Internação: 
+                  <label class="ls-title-6"><%= @map.try(:password) %>
                   </label> 
                 </td> 
               </tr>
-
+              <tr> 
+                <td> Código de Internação: 
+                  <label class="ls-title-6"><%= @map.try(:hospitalization) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Quarto: 
+                  <label class="ls-title-6"><%= @map.bedroom.try(:name) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Procedimento: 
+                  <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Código TUSS: 
+                  <label class="ls-title-6"><%= @map.health_terminology.try(:code_tuss) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Porte: 
+                  <label class="ls-title-6"><%= @map.health_terminology.try(:measure) %>
+                  </label> 
+                </td> 
+              </tr>
               <tr> 
                 <td> Procedimento 2: 
                   <label class="ls-title-6"><%= find_desc_tuss(@map.tuss2) %>
