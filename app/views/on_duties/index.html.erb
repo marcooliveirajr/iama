@@ -41,7 +41,7 @@
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
         <span class="ls-list-label">Anestesista - Data do Plantão</span>
-        <strong><%= link_to on_duty.anesthetist.try(:name), edit_on_duty_path(on_duty) %> - <%= on_duty.on_duty_date.strftime("%d/%m/%Y %H:%M") %> até <%= on_duty.end_time.strftime("%d/%m/%Y %H:%M") %></strong>
+        <strong><%= link_to on_duty.anesthetist.try(:name), edit_on_duty_path(on_duty) %> - <%= on_duty.try(:on_duty_date).strftime("%d/%m/%Y %H:%M") %> até <%= on_duty.try(:end_time).strftime("%d/%m/%Y %H:%M") %></strong>
       </div>
       <div class="col-md-3 ls-txt-right">
         <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">

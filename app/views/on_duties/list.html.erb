@@ -9,7 +9,7 @@
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
         <span class="ls-list-label">Anestesista - Data do Plantão</span>
-        <strong><%= on_duty.anesthetist.try(:name) %> - <%= on_duty.on_duty_date.strftime("%d/%m/%Y %H:%M") %> até <%= on_duty.end_time.strftime("%d/%m/%Y %H:%M") %></strong>
+        <strong><%= on_duty.anesthetist.try(:name) %> - <%= on_duty.try(:on_duty_date).strftime("%d/%m/%Y %H:%M") %> até <%= on_duty.try(:end_time).strftime("%d/%m/%Y %H:%M") %></strong>
       </div>
       </header>
       <div class="ls-list-content ">
