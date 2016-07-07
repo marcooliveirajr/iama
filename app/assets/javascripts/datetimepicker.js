@@ -14,4 +14,14 @@
       format: 'L LT',
       sideBySide: true
     });
+    $('#start_on_duty').datetimepicker({
+      locale: 'pt-br',
+      format: 'L LT',
+      sideBySide: true
+    });
+    $('#end_on_duty').datetimepicker({
+      locale: 'pt-br',
+      format: 'L LT',
+      sideBySide: true
+    });
   });

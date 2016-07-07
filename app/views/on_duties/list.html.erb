@@ -1,15 +1,16 @@
 <h1 class="ls-title-intro ls-ico-text">Plantonistas</h1>
 <%= flash_messages %>
-<h3 class="ls-title-3">Plantão <%= Time.zone.now.midnight.strftime("%d/%m/%Y")%> </h3>
+<h3 class="ls-title-3">Plantão <%= DateTime.now.strftime("%d/%m/%Y")%> </h3>
 <hr>
 <tbody>
-  <% @on_duties.where(on_duty_date: Time.zone.now.midnight).order("on_duty_date asc").each do |on_duty| %>
+  <%# @on_duties.where(on_duty_date: DateTime.now).order("on_duty_date asc").each do |on_duty| %>
+  <% @on_duties.where(":agora BETWEEN on_duty_date AND end_time", {:agora => DateTime.now.utc}).order("on_duty_date asc").each do |on_duty| %>
 
   <div class="ls-list">
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
-        <span class="ls-list-label">Anesteista</span>
-        <strong><%= on_duty.anesthetist.try(:name) %></strong>
+        <span class="ls-list-label">Anestesista</span>
+        <strong><%= on_duty.anesthetist.try(:name) %> - <%= on_duty.on_duty_date.strftime("%d/%m/%Y %H:%M") %> até <%= on_duty.end_time.strftime("%d/%m/%Y %H:%M") %></strong>
       </div>
       </header>
       <div class="ls-list-content ">

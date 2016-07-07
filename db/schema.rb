@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706225816) do
+ActiveRecord::Schema.define(version: 20160706235609) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -117,6 +117,7 @@ ActiveRecord::Schema.define(version: 20160706225816) do
     t.text     "note",           limit: 65535
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.datetime "end_time"
   end
 
   add_index "on_duties", ["anesthetist_id"], name: "index_on_duties_on_anesthetist_id", using: :btree

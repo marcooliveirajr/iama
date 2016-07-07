@@ -3,12 +3,33 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-3 <%= class_error @on_duty, :on_duty_date %>">
-        <span class="ls-label-text"><%= f.label :on_duty_date, "Data do Plantão" %></span>
-        <%= f.text_field :on_duty_date, value: @on_duty.try(:on_duty_date).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
+        <label class="ls-label col-md-4 <%= class_error @on_duty, :on_duty_date %>">
+        <span class="ls-label-text"><%= f.label :on_duty_date, "Data Início do Plantão" %></span>
+        <div class='input-group date' id='start_on_duty'>
+            <%= f.text_field :on_duty_date, value: @on_duty.try(:on_duty_date).try(:strftime, "%d/%m/%Y %H:%M") , class: 'form-control'%>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        <%#= f.text_field :on_duty_date, value: @on_duty.try(:on_duty_date).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
         <%= show_message_error @on_duty, :on_duty_date %>
       </label>
      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4 <%= class_error @on_duty, :end_time %>">
+          <span class="ls-label-text"><%= f.label :end_time, "Data Final do Plantão" %></span>
+          <div class='input-group date' id='end_on_duty'>
+            <%= f.text_field :end_time, value: @on_duty.try(:end_time).try(:strftime, "%d/%m/%Y %H:%M") , class: 'form-control'%>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+          <%= show_message_error @on_duty, :end_time %>
+        </label>
+      </div>
     </div>
 
     <div class="row">
