@@ -41,6 +41,7 @@
           <ul class="ls-dropdown-nav">
             <li><%= link_to 'Editar', edit_user_path(user) %></li>
             <li><%= link_to 'Visualizar', user %></li>
+            <%= link_to 'Excluir', user_path(user), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %>
           </ul>
         </div>
       </div>
