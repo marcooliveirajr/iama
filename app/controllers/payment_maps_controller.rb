@@ -74,6 +74,7 @@ class PaymentMapsController < ApplicationController
                                           :payment_date,
                                           :pay_day, 
                                           :payment_value, 
-                                          :paid_value)
+                                          :paid_value,
+                                          :recipient)
     end
 end

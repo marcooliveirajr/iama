@@ -262,10 +262,11 @@
               <table class='ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top'>
                 <thead>
                   <th>Parcela</th>
-                  <th>Data cobrança</th>
-                  <th>Data pagamento</th>
+                  <th>Data Cobrança</th>
+                  <th>Data Pagto</th>
                   <th>Valor Cobrado</th>
                   <th>Valor Pago</th>
+                  <th>Beneficiário</th>
                 </thead>
                 <tbody>
                   <% @map.payment_maps.each do |payment_map| %>
@@ -275,6 +276,7 @@
                     <td> <label class="ls-title-6"><%= payment_map.try(:pay_day).try(:strftime, "%d/%m/%Y") %></label> </td> 
                     <td> <label class="ls-title-6"><%= payment_map.payment_value %></label> </td>
                     <td> <label class="ls-title-6"><%= payment_map.paid_value %></label> </td>
+                    <td> <label class="ls-title-6"><%= payment_map.recipient %></label> </td>
                   </tr>
                   <% end %>
                 </tbody>

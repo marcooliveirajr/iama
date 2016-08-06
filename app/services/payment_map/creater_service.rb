@@ -9,7 +9,8 @@ class PaymentMap
           payment_date: value[:payment_date],
           pay_day: value[:pay_day],
           payment_value: value[:payment_value],
-          paid_value: value[:paid_value]
+          paid_value: value[:paid_value],
+          recipient: value[:recipient]
           )
       end
     end

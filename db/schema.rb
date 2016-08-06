@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706235609) do
+ActiveRecord::Schema.define(version: 20160806185645) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -149,9 +149,10 @@ ActiveRecord::Schema.define(version: 20160706235609) do
     t.datetime "payment_date"
     t.float    "payment_value", limit: 24
     t.float    "paid_value",    limit: 24
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.datetime "pay_day"
+    t.string   "recipient",     limit: 255
   end
 
   add_index "payment_maps", ["map_id"], name: "index_payment_maps_on_map_id", using: :btree

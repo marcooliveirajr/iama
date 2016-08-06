@@ -358,18 +358,7 @@
   </div>
 
   <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= f.label :payment_recipient_id, "Beneficiário do Pagamento" %></span>
-        <div class="ls-custom-select">
-          <%= f.collection_select(:payment_recipient_id, PaymentRecipient.all, :id, :name, class: 'ls-select', prompt: true) %>
-        </div>
-      </label>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-12">
       <label class="ls-label col-md-12">
         <%= f.label :payment, "Valor do Pagamento" %>
         <div class="row">
@@ -384,11 +373,12 @@
         <table id='payments', class='ls-table'>
           <thead>
             <th>Parcela</th>
-            <th>Data cobrança</th>
-            <th>Data pagamento</th>
-            <th>Valor cobrado</th>
-            <th>Valor pago</th>
-            <th>Remover</th>
+            <th>Data Cobrança</th>
+            <th>Data Pagto</th>
+            <th>Valor Cobrado</th>
+            <th>Valor Pago</th>
+            <th>Beneficiário</th>
+            <th></th>
           </thead>
           <tbody>
             <% @map.payment_maps.each do |payment_map| %>
@@ -398,6 +388,7 @@
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[pay_day]]]", payment_map.pay_day.try(:strftime, "%d/%m/%Y"), class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_value]]]", payment_map.payment_value, class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[paid_value]]]", payment_map.paid_value, class: 'col-md-12' %></td>
+              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[recipient]]]", payment_map.recipient, class: 'col-md-12' %></td>
               <td><button type='button' class='ls-btn remove-Payment'><span class='ls-ico-remove'></span></button></td>
             </tr>
             <% end %>

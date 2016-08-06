@@ -45,6 +45,12 @@
     return $input;
   }
 
+  function getValueRec(value) {
+    var $input = $('<input />').attr('class', 'col-md-12').attr('type', 'text').attr('name', 'map[payment_maps['+ value +'[recipient]]]');
+
+    return $input;
+  }
+
   function getValueInputHidden(value) {
     var $input = $('<input />').attr('type', 'text').attr('class', 'col-md-12').attr('value', value).attr('name', 'map[payment_maps['+ value +'[payment_value]]]');
 
@@ -59,6 +65,7 @@
     var $datePayDayColumn = $('<td />');
     var $valueColumn = $('<td />');
     var $valuePayColumn = $('<td />');
+    var $recipientColumn = $('<td />');
     var $removeColumn = $('<td />');
 
     $numberColumn.html(getLineNumber(value));
@@ -67,6 +74,7 @@
     $datePayDayColumn.append(getDayPayment(value));
     $valueColumn.append(getValueInputHidden(value));
     $valuePayColumn.append(getValuePay(value));
+    $recipientColumn.append(getValueRec(value));
     $removeColumn.append(getRemoveButton());
 
     $line.append($numberColumn);
@@ -74,6 +82,7 @@
     $line.append($datePayDayColumn);
     $line.append($valueColumn);
     $line.append($valuePayColumn);
+    $line.append($recipientColumn);
     $line.append($removeColumn);
 
     return $line;
