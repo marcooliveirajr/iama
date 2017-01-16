@@ -4,10 +4,10 @@
 
   <ul class="ls-tabs-nav">
     <li class="ls-active"><a data-ls-module="tabs" href="#track">Dados da Cirurgia</a></li>
+    <li><a data-ls-module="tabs" href="#receipt">Dados do Recibo</a></li>
     <li><a data-ls-module="tabs" href="#contact">Dados do Pagamento</a></li>
-</li>
-
-</ul>
+    </li>
+  </ul>
 
 <div class="ls-tabs-container">
   <div id="track" class="ls-tab-content ls-active">
@@ -333,7 +333,8 @@
     </div>
 
 </div>
-<div id="contact" class="ls-tab-content">
+
+<div id="receipt" class="ls-tab-content ls-active">
 
   <div class="row">
     <div class="col-md-10">
@@ -345,6 +346,10 @@
       </label>
     </div>
   </div>
+
+</div>
+
+<div id="contact" class="ls-tab-content">
 
   <div class="row">
     <div class="col-md-10">
@@ -375,7 +380,6 @@
             <th>Parcela</th>
             <th>Data Cobrança</th>
             <th>Data Pagto</th>
-            <th>Valor Cobrado</th>
             <th>Valor Pago</th>
             <th>Beneficiário</th>
             <th></th>
@@ -386,7 +390,6 @@
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_id]]]", payment_map.payment_id, class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_date]]]", payment_map.payment_date.try(:strftime, "%d/%m/%Y"), class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[pay_day]]]", payment_map.pay_day.try(:strftime, "%d/%m/%Y"), class: 'col-md-12' %></td>
-              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_value]]]", payment_map.payment_value, class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[paid_value]]]", payment_map.paid_value, class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[recipient]]]", payment_map.recipient, class: 'col-md-12' %></td>
               <td><button type='button' class='ls-btn remove-Payment'><span class='ls-ico-remove'></span></button></td>
