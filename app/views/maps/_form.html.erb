@@ -391,10 +391,10 @@
   
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
+        <label class="ls-label col-md-6">
           <span class="ls-label-text"><%= f.label :receipt_day, "Data de emissão do recibo" %></span>
           <div class='input-group date' id='receipt_day'>
-            <%= f.text_field :receipt_day, value: @map.try(:receipt_day).try(:strftime, "%d/%m/%Y %H:%M") , class: 'form-control'%>
+            <%= f.text_field :receipt_day, value: @map.try(:receipt_day).try(:strftime, "%d/%m/%Y") , class: 'form-control'%>
             <span class="input-group-addon">
               <span class="glyphicon glyphicon-calendar"></span>
             </span>

@@ -26,8 +26,10 @@
     });
     $('#receipt_day').datetimepicker({
       locale: 'pt-br',
-      format: 'L LT',
-      sideBySide: true
+      widgetPositioning: {
+            horizontal: 'auto',
+            vertical: 'bottom'
+         }
     });
 
   });
