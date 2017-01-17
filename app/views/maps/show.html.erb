@@ -18,36 +18,48 @@
                   </label> 
                 </td> 
               </tr>
+
+              
+            <% if @map.anesthetist1? %>
               <tr> 
                 <td> Anestesista 2: 
                   <label class="ls-title-6"><%= find_desc_anesthetists(@map.anesthetist1) %>
                   </label> 
                 </td> 
               </tr>
+            <% end %> 
+            <% if @map.anesthetist2? %>
               <tr> 
                 <td> Anestesista 3: 
                   <label class="ls-title-6"><%= find_desc_anesthetists(@map.anesthetist2) %>
                   </label> 
                 </td> 
-              </tr>              
+              </tr>  
+            <% end %>   
+
               <tr> 
                 <td> Cirurgião: 
                   <label class="ls-title-6"><%= @map.surgeon.try(:name) %>
                   </label> 
                 </td> 
               </tr>
+
+            <% if @map.surgeon1? %>  
               <tr> 
                 <td> Cirurgião 2: 
                   <label class="ls-title-6"><%= find_desc_surgeon(@map.surgeon1) %>
                   </label> 
                 </td> 
               </tr>  
+            <% end %>  
+            <% if @map.surgeon2? %>
               <tr> 
                 <td> Cirurgião 3: 
                   <label class="ls-title-6"><%= find_desc_surgeon(@map.surgeon2) %>
                   </label> 
                 </td> 
-              </tr>                
+              </tr>  
+            <% end %>                
               <tr> 
                 <td> Convênio Médico: 
                   <label class="ls-title-6"><%= @map.health_insurance.try(:name) %>
@@ -108,12 +120,14 @@
                   </label> 
                 </td> 
               </tr>
+            <% if @map.bedroom_id? %>
               <tr> 
                 <td> Quarto: 
                   <label class="ls-title-6"><%= @map.bedroom.try(:name) %>
                   </label> 
                 </td> 
               </tr>
+            <% end %>  
               <tr> 
                 <td> Procedimento: 
                   <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %>
@@ -132,6 +146,8 @@
                   </label> 
                 </td> 
               </tr>
+
+            <% if exists_tuss2? %>
               <tr> 
                 <td> Procedimento 2: 
                   <label class="ls-title-6"><%= find_desc_tuss(@map.tuss2) %>
@@ -159,7 +175,9 @@
                   <% end %>
                 </td> 
               </tr>
+            <% end %> 
 
+            <% if exists_tuss3? %>
               <tr> 
                 <td> Procedimento 3: 
                   <label class="ls-title-6"><%= find_desc_tuss(@map.tuss3) %>
@@ -180,14 +198,16 @@
               </tr>
               <tr> 
                 <td> Via única: 
-                  <% if @map.via_unique2 == true %>
+                  <% if @map.via_unique3 == true %>
                     <label class="ls-title-6">Sim</label>
                   <% else %>
                     <label class="ls-title-6">Não</label>
                   <% end %>
                 </td> 
               </tr>
+            <% end %>
 
+            <% if exists_tuss4? %>
               <tr> 
                 <td> Procedimento 4: 
                   <label class="ls-title-6"><%= find_desc_tuss(@map.tuss4) %>
@@ -208,14 +228,15 @@
               </tr>
               <tr> 
                 <td> Via única: 
-                  <% if @map.via_unique2 == true %>
+                  <% if @map.via_unique4 == true %>
                     <label class="ls-title-6">Sim</label>
                   <% else %>
                     <label class="ls-title-6">Não</label>
                   <% end %>
                 </td> 
               </tr>
-
+            <% end %>  
+            <% if exists_tuss5? %>
               <tr> 
                 <td> Procedimento 5: 
                   <label class="ls-title-6"><%= find_desc_tuss(@map.tuss5) %>
@@ -236,14 +257,15 @@
               </tr>
               <tr> 
                 <td> Via única: 
-                  <% if @map.via_unique2 == true %>
+                  <% if @map.via_unique5 == true %>
                     <label class="ls-title-6">Sim</label>
                   <% else %>
                     <label class="ls-title-6">Não</label>
                   <% end %>
                 </td> 
               </tr>
-
+            <% end %>
+            
               <tr> 
                 <td> Observação: 
                   <label class="ls-title-6"><%= @map.note %>

@@ -262,8 +262,10 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :via_unique2, "Via Única Sim" %></span>
-        <%= f.check_box :via_unique2 , {}, "true", "false" %>
+        <b class="ls-label-text"><%= f.label :via_unique2, "Via Única" %></b>
+        <div class="ls-custom-select">
+            <%= f.select :via_unique2, [['Nenhum', ''], ['Sim', true], ['Não', false]] %>
+        </div>
         </label>
       </div>
     </div>
@@ -295,8 +297,10 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :via_unique3, "Via Única Sim" %></span>
-        <%= f.check_box :via_unique3 , {}, "true", "false" %>
+        <b class="ls-label-text"><%= f.label :via_unique3, "Via Única" %></b>
+        <div class="ls-custom-select">
+            <%= f.select :via_unique3, [['Nenhum', ''], ['Sim', true], ['Não', false]] %>
+        </div>
         </label>
       </div>
     </div>
@@ -328,8 +332,10 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :via_unique4, "Via Única Sim" %></span>
-        <%= f.check_box :via_unique4 , {}, "true", "false" %>
+        <b class="ls-label-text"><%= f.label :via_unique4, "Via Única" %></b>
+        <div class="ls-custom-select">
+            <%= f.select :via_unique4, [['Nenhum', ''], ['Sim', true], ['Não', false]] %>
+        </div>
         </label>
       </div>
     </div>
@@ -361,11 +367,14 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :via_unique5, "Via Única Sim" %></span>
-        <%= f.check_box :via_unique5 , {}, "true", "false" %>
+        <b class="ls-label-text"><%= f.label :via_unique5, "Via Única" %></b>
+        <div class="ls-custom-select">
+            <%= f.select :via_unique5, [['Nenhum', ''], ['Sim', true], ['Não', false]] %>
+        </div>
         </label>
       </div>
     </div>
+
 
     <div class="row">
       <div class="col-md-10">
