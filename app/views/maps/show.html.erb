@@ -19,11 +19,35 @@
                 </td> 
               </tr>
               <tr> 
+                <td> Anestesista 2: 
+                  <label class="ls-title-6"><%= find_desc_anesthetists(@map.anesthetist1) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Anestesista 3: 
+                  <label class="ls-title-6"><%= find_desc_anesthetists(@map.anesthetist2) %>
+                  </label> 
+                </td> 
+              </tr>              
+              <tr> 
                 <td> Cirurgião: 
                   <label class="ls-title-6"><%= @map.surgeon.try(:name) %>
                   </label> 
                 </td> 
               </tr>
+              <tr> 
+                <td> Cirurgião 2: 
+                  <label class="ls-title-6"><%= find_desc_surgeon(@map.surgeon1) %>
+                  </label> 
+                </td> 
+              </tr>  
+              <tr> 
+                <td> Cirurgião 3: 
+                  <label class="ls-title-6"><%= find_desc_surgeon(@map.surgeon2) %>
+                  </label> 
+                </td> 
+              </tr>                
               <tr> 
                 <td> Convênio Médico: 
                   <label class="ls-title-6"><%= @map.health_insurance.try(:name) %>
@@ -234,6 +258,53 @@
   </div>
 </div>
 
+<% if exists_receipt? %>
+<div data-ls-module="collapse" data-target="#acordeon3" class="ls-collapse ">
+  <a href="#" class="ls-collapse-header">
+    <h3 class="ls-collapse-title">Dados do Recibo</h3>
+  </a>
+  <div class="ls-collapse-body" id="acordeon3">
+
+    <div class="ls-box">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+
+            <tbody>
+              <tr> 
+                <td> Recibo: 
+                  <label class="ls-title-6"><%= @map.receipt.try(:name) %>
+                  </label> 
+                </td> 
+              </tr>              
+              <tr> 
+                <td> Data de emissão do recibo: 
+                  <label class="ls-title-6"><%= @map.try(:receipt_day).try(:strftime, "%d/%m/%Y") %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Valor do recibo: 
+                  <label class="ls-title-6"><%= @map.try(:receipt_value) %>
+                  </label> 
+                </td> 
+              </tr>
+              <tr> 
+                <td> Observação do recibo: 
+                  <label class="ls-title-6"><%= @map.receipt_note %>
+                  </label> 
+                </td> 
+              </tr>                
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+
 <% if exists_payment_maps? %>
 <div data-ls-module="collapse" data-target="#acordeon2" class="ls-collapse ">
   <a href="#" class="ls-collapse-header">
@@ -248,7 +319,6 @@
           <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
 
             <tbody>
-              <tr> <td> Recibo: <label class="ls-title-6"><%= @map.receipt.try(:name) %></label> </td> </tr>
               <tr> <td> Método de Pagamento: <label class="ls-title-6"><%= @map.payment_method.try(:name) %></label> </td> </tr>
             </tbody>
           </table>

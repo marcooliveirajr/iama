@@ -99,7 +99,11 @@ class MapsController < ApplicationController
                                   :registration,
                                   :health_terminology_id,
                                   :surgeon_id,
+                                  :surgeon1,
+                                  :surgeon2,
                                   :anesthetist_id,
+                                  :anesthetist1,
+                                  :anesthetist2,
                                   :health_insurance_id,
                                   :note,
                                   :receipt_id,
@@ -116,7 +120,10 @@ class MapsController < ApplicationController
                                   :end_time,
                                   :password,
                                   :plan,
-                                  :hospitalization)
+                                  :hospitalization,
+                                  :receipt_day,
+                                  :receipt_value,
+                                  :receipt_note)
     end
 
     def search_params

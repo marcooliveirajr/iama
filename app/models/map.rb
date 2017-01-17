@@ -8,9 +8,13 @@ class Map < ActiveRecord::Base
   belongs_to :tuss4_id, class_name: "HealthTerminology"
   belongs_to :tuss5_id, class_name: "HealthTerminology"
   belongs_to :surgeon
+  belongs_to :surgeon1_id, class_name: "Surgeon"
+  belongs_to :surgeon2_id, class_name: "Surgeon"
   belongs_to :anesthetist
+  belongs_to :anesthetist1_id, class_name: "Anesthetist"
+  belongs_to :anesthetist2_id, class_name: "Anesthetist"
   belongs_to :health_insurance
-  belongs_to :receipt#, class_name: "Anesthetist"
+  belongs_to :receipt
   belongs_to :payment_method
   belongs_to :payment_recipient
   has_many :payment_maps

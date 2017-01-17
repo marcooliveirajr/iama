@@ -22,6 +22,28 @@
         </label>
       </div>
     </div>
+    
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :anesthetist1_id, "Anestesista 2" %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:anesthetist1, Anesthetist.all, :id, :name, class: 'ls-select', prompt: true) %>
+          </div>
+        </label>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :anesthetist2_id, "Anestesista 3" %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:anesthetist2, Anesthetist.all, :id, :name, class: 'ls-select', prompt: true) %>
+          </div>
+        </label>
+      </div>
+    </div>    
 
     <div class="row">
       <div class="col-md-10">
@@ -34,6 +56,28 @@
         </label>
       </div>
     </div>
+    
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :surgeon1_id, "Cirusgião 2" %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:surgeon1, Surgeon.all, :id, :name, class: 'ls-select', prompt: true) %>
+          </div>
+        </label>
+      </div>
+    </div>    
+    
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :surgeon2_id, "Cirusgião 3" %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:surgeon2, Surgeon.all, :id, :name, class: 'ls-select', prompt: true) %>
+          </div>
+        </label>
+      </div>
+    </div>        
 
     <div class="row">
       <div class="col-md-10">
@@ -329,21 +373,21 @@
         </label>
       </div>
     </div>
-
-</div>
-
-<div id="receipt" class="ls-tab-content ls-active">
-
-  <div class="row">
-    <div class="col-md-10">
-      <label class="ls-label col-md-10">
-        <span class="ls-label-text"><%= f.label :receipt_id, "Recibo" %></span>
-        <div class="ls-custom-select">
-          <%= f.collection_select(:receipt_id, Receipt.all, :id, :name, class: 'ls-select', prompt: true) %>
-        </div>
-      </label>
-    </div>
+  
   </div>
+    
+  <div id="receipt" class="ls-tab-content">
+
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :receipt_id, "Recibo" %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:receipt_id, Receipt.all, :id, :name, class: 'ls-select', prompt: true) %>
+          </div>
+        </label>
+      </div>
+    </div>
   
     <div class="row">
       <div class="col-md-8">

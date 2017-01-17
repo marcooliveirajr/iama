@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170116195647) do
+ActiveRecord::Schema.define(version: 20170117102918) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -101,6 +101,10 @@ ActiveRecord::Schema.define(version: 20170116195647) do
     t.datetime "receipt_day"
     t.float    "receipt_value",         limit: 24
     t.text     "receipt_note",          limit: 65535
+    t.integer  "anesthetist1",          limit: 4
+    t.integer  "anesthetist2",          limit: 4
+    t.integer  "surgeon1",              limit: 4
+    t.integer  "surgeon2",              limit: 4
   end
 
   add_index "maps", ["anesthetist_id"], name: "index_maps_on_anesthetist_id", using: :btree
