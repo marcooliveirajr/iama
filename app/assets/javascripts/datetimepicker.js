@@ -24,4 +24,10 @@
       format: 'L LT',
       sideBySide: true
     });
+    $('#receipt_day').datetimepicker({
+      locale: 'pt-br',
+      format: 'L LT',
+      sideBySide: true
+    });
+
   });
