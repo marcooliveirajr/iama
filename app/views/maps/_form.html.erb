@@ -94,8 +94,10 @@
       <div class="col-md-10">
         <label class="ls-label col-md-10">
           <span class="ls-label-text"><%= f.label :plan, "Plano do Convênio" %></span>
-          <%= f.text_field :plan %>
-        </label>
+          <div class="ls-custom-select">
+           <%= f.collection_select(:health_plan_id, HealthPlan.all, :id, :name, class: 'ls-select', prompt: true) %>
+          </div>
+         </label>
       </div>
     </div>
 

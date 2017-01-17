@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117102918) do
+ActiveRecord::Schema.define(version: 20170117215507) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -49,6 +49,14 @@ ActiveRecord::Schema.define(version: 20170117102918) do
   end
 
   add_index "health_insurances", ["version_id"], name: "index_health_insurances_on_version_id", using: :btree
+
+  create_table "health_plans", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.string   "kind",       limit: 255
+    t.boolean  "status"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "health_terminologies", force: :cascade do |t|
     t.integer  "code_tuss",        limit: 8
@@ -105,11 +113,13 @@ ActiveRecord::Schema.define(version: 20170117102918) do
     t.integer  "anesthetist2",          limit: 4
     t.integer  "surgeon1",              limit: 4
     t.integer  "surgeon2",              limit: 4
+    t.integer  "health_plan_id",        limit: 4
   end
 
   add_index "maps", ["anesthetist_id"], name: "index_maps_on_anesthetist_id", using: :btree
   add_index "maps", ["bedroom_id"], name: "index_maps_on_bedroom_id", using: :btree
   add_index "maps", ["health_insurance_id"], name: "index_maps_on_health_insurance_id", using: :btree
+  add_index "maps", ["health_plan_id"], name: "index_maps_on_health_plan_id", using: :btree
   add_index "maps", ["health_terminology_id"], name: "index_maps_on_health_terminology_id", using: :btree
   add_index "maps", ["hospital_id"], name: "index_maps_on_hospital_id", using: :btree
   add_index "maps", ["patient_id"], name: "index_maps_on_patient_id", using: :btree
@@ -253,6 +263,7 @@ ActiveRecord::Schema.define(version: 20170117102918) do
   add_foreign_key "maps", "anesthetists"
   add_foreign_key "maps", "bedrooms"
   add_foreign_key "maps", "health_insurances"
+  add_foreign_key "maps", "health_plans"
   add_foreign_key "maps", "health_terminologies"
   add_foreign_key "maps", "hospitals"
   add_foreign_key "maps", "patients"

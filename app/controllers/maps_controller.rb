@@ -105,6 +105,7 @@ class MapsController < ApplicationController
                                   :anesthetist1,
                                   :anesthetist2,
                                   :health_insurance_id,
+                                  :health_plan_id,
                                   :note,
                                   :receipt_id,
                                   :payment_method_id,

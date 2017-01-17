@@ -13,6 +13,7 @@
   	$("#map_health_insurance_id").select2();
   	$("#map_hospital_id").select2();
   	$("#map_patient_id").select2();
+    $("#map_health_plan_id").select2();
   });
 
 

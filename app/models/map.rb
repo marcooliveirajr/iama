@@ -14,6 +14,7 @@ class Map < ActiveRecord::Base
   belongs_to :anesthetist1_id, class_name: "Anesthetist"
   belongs_to :anesthetist2_id, class_name: "Anesthetist"
   belongs_to :health_insurance
+  belongs_to :health_plan
   belongs_to :receipt
   belongs_to :payment_method
   belongs_to :payment_recipient
