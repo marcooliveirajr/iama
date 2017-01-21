@@ -1,0 +1,28 @@
+<h1 class="ls-title-intro ls-ico-text">Categoria</h1>
+<%= flash_messages %>
+<div class="ls-box">
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> 
+            	<td> Nome: 
+            		<label class="ls-title-6"><%= @category.name %>
+            		</label> 
+            	</td> 
+            </tr>
+            <tr> 
+              <td> Entrada / Saída: 
+                <label class="ls-title-6"><%= @category.input_type %>
+                </label> 
+              </td> 
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_category_path(@category) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', categories_path, class: "ls-btn-darker" %>
+<a><%= link_to 'Cadastrar Categoria', new_category_path(@category) , class: "ls-btn-primary" %></a>

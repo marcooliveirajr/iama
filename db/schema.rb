@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170117215507) do
+ActiveRecord::Schema.define(version: 20170121093724) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -37,6 +37,27 @@ ActiveRecord::Schema.define(version: 20170117215507) do
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "cash_movements", force: :cascade do |t|
+    t.string   "document",       limit: 255
+    t.datetime "time_movement"
+    t.text     "movement_note",  limit: 65535
+    t.float    "movement_value", limit: 24
+    t.integer  "input_id",       limit: 4
+    t.integer  "output_id",      limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "cash_movements", ["input_id"], name: "index_cash_movements_on_input_id", using: :btree
+  add_index "cash_movements", ["output_id"], name: "index_cash_movements_on_output_id", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "input_type", limit: 255
   end
 
   create_table "health_insurances", force: :cascade do |t|
@@ -76,6 +97,15 @@ ActiveRecord::Schema.define(version: 20170117215507) do
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  create_table "inputs", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "inputs", ["category_id"], name: "index_inputs_on_category_id", using: :btree
 
   create_table "maps", force: :cascade do |t|
     t.datetime "time_surgery"
@@ -138,6 +168,15 @@ ActiveRecord::Schema.define(version: 20170117215507) do
   end
 
   add_index "on_duties", ["anesthetist_id"], name: "index_on_duties_on_anesthetist_id", using: :btree
+
+  create_table "outputs", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.integer  "category_id", limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "outputs", ["category_id"], name: "index_outputs_on_category_id", using: :btree
 
   create_table "patients", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -258,8 +297,11 @@ ActiveRecord::Schema.define(version: 20170117215507) do
     t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "cash_movements", "inputs"
+  add_foreign_key "cash_movements", "outputs"
   add_foreign_key "health_insurances", "versions"
   add_foreign_key "health_terminologies", "versions"
+  add_foreign_key "inputs", "categories"
   add_foreign_key "maps", "anesthetists"
   add_foreign_key "maps", "bedrooms"
   add_foreign_key "maps", "health_insurances"
@@ -272,6 +314,7 @@ ActiveRecord::Schema.define(version: 20170117215507) do
   add_foreign_key "maps", "receipts"
   add_foreign_key "maps", "surgeons"
   add_foreign_key "on_duties", "anesthetists"
+  add_foreign_key "outputs", "categories"
   add_foreign_key "payment_maps", "maps"
   add_foreign_key "size_surgeries", "health_insurances"
   add_foreign_key "users", "roles"

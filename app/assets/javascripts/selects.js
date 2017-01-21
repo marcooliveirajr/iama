@@ -14,6 +14,10 @@
   	$("#map_hospital_id").select2();
   	$("#map_patient_id").select2();
     $("#map_health_plan_id").select2();
+    $("#input_category_id").select2();
+    $("#output_category_id").select2();
+    $("#cash_movement_input_id").select2();
+    $("#cash_movement_output_id").select2();
   });
 
 

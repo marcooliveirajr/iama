@@ -1,0 +1,35 @@
+<%= form_for(@input, html: { class: "ls-form row" }) do |f| %>
+  <fieldset>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8 <%= class_error @input, :category_id %>">
+        <span class="ls-label-text"><%= f.label :category_id, "Categoria" %></span>
+          <div class="ls-custom-select">
+            <%= f.collection_select(:category_id, inputs_filter, :id, :name, class: "ls-state ls-select", prompt: true) %>
+          </div>
+          <%= show_message_error @input, :category_id %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8 <%= class_error @input, :name %>">
+        <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
+        <%= f.text_field :name %>
+        <%= show_message_error @input, :name %>
+      </label>
+     </div>
+    </div>
+
+ </fieldset>
+
+  <div class="ls-actions-btn">
+      <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
+      <%= link_to 'Voltar', inputs_path, class: "ls-btn-darker" %>
+  </div>
+
+<% end %>
+
+
