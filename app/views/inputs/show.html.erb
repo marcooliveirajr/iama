@@ -1,0 +1,28 @@
+<h1 class="ls-title-intro ls-ico-text">Entrada</h1>
+<%= flash_messages %>
+<div class="ls-box">
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> 
+              <td> Categoria: 
+                <label class="ls-title-6"><%= @input.category.name %>
+                </label> 
+              </td> 
+            </tr>
+            <tr> 
+              <td> Nome: 
+                <label class="ls-title-6"><%= @input.name %>
+                </label> 
+              </td> 
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_input_path(@input) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', inputs_path, class: "ls-btn-darker" %>
+<a><%= link_to 'Cadastrar Entrada', new_input_path(@input) , class: "ls-btn-primary" %></a>

@@ -31,5 +31,9 @@
             vertical: 'bottom'
          }
     });
-
+    $('#time_movement').datetimepicker({
+      locale: 'pt-br',
+      format: 'L LT',
+      sideBySide: true
+    });
   });

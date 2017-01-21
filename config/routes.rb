@@ -50,4 +50,16 @@ Rails.application.routes.draw do
   resources :bedrooms, shallow: true do
     get 'search', to: 'bedrooms#search', as: 'search', on: :collection
   end
+  resources :categories, shallow: true do
+    get 'search', to: 'categories#search', as: 'search', on: :collection
+  end
+  resources :cash_movements, shallow: true do
+    get 'search', to: 'cash_movements#search', as: 'search', on: :collection
+  end
+  resources :outputs, shallow: true do
+    get 'search', to: 'outputs#search', as: 'search', on: :collection
+  end
+  resources :inputs, shallow: true do
+    get 'search', to: 'inputs#search', as: 'search', on: :collection
+  end
 end
