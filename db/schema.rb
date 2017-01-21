@@ -144,6 +144,8 @@ ActiveRecord::Schema.define(version: 20170121093724) do
     t.integer  "surgeon1",              limit: 4
     t.integer  "surgeon2",              limit: 4
     t.integer  "health_plan_id",        limit: 4
+    t.text     "free_text",             limit: 65535
+    t.text     "payment_note",          limit: 65535
   end
 
   add_index "maps", ["anesthetist_id"], name: "index_maps_on_anesthetist_id", using: :btree

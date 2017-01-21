@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @patient, :name %>">
-        <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
+        <span class="ls-label-text"><%= f.label :name, "Nome:" %></span>
         <%= f.text_field :name %>
         <%= show_message_error @patient, :name %>
       </label>
@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-3">
-        <span class="ls-label-text"><%= f.label :rg, "RG" %></span>
+        <span class="ls-label-text"><%= f.label :rg, "RG:" %></span>
         <%= f.text_field :rg, class: 'ls-mask-rg', placeholder: '00.000.000-0', maxlength: '9', autocomplete: 'off' %>
       </label>
      </div>
@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-3">
-        <span class="ls-label-text"><%= f.label :cpf, "CPF" %></span>
+        <span class="ls-label-text"><%= f.label :cpf, "CPF:" %></span>
         <%= f.text_field :cpf, class: 'ls-mask-cpf', placeholder: '000.000.000-00', maxlength: '14', autocomplete: 'off' %>
       </label>
      </div>
@@ -32,7 +32,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-3">
-        <span class="ls-label-text"><%= f.label :age, "Idade" %></span>
+        <span class="ls-label-text"><%= f.label :age, "Idade:" %></span>
         <%= f.text_field :age, autocomplete: 'off' %>
       </label>
      </div>
@@ -41,7 +41,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-3">
-        <span class="ls-label-text"><%= f.label :phone, "Telefone" %></span>
+        <span class="ls-label-text"><%= f.label :phone, "Telefone:" %></span>
         <%= f.text_field :phone, class: 'ls-mask-phone', placeholder: '(99) 9999-9999' %>
       </label>
       </div>
@@ -50,7 +50,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-3">
-        <span class="ls-label-text"><%= f.label :phone, "Celular" %></span>
+        <span class="ls-label-text"><%= f.label :phone, "Celular:" %></span>
         <%= f.text_field :cellphone, class: 'ls-mask-phone', placeholder: '(99) 99999-9999' %>
       </label>
       </div>
@@ -59,7 +59,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @patient, :email %>">
-        <span class="ls-label-text"><%= f.label :email, "Email" %></span>
+        <span class="ls-label-text"><%= f.label :email, "Email:" %></span>
         <%= f.text_field :email %>
         <%= show_message_error @patient, :email %>
         </label>
@@ -69,7 +69,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-3 ls-v-align-middle <%= class_error @patient, "CEP" %>">
-          <span class="ls-label-text"><%= f.label :postal_code, "CEP" %></span>
+          <span class="ls-label-text"><%= f.label :postal_code, "CEP:" %></span>
           <%= f.text_field :postal_code, class: 'ls-mask-cep', placeholder: '00000-000', id: 'address_postal_code' %>
           <%= show_message_error @patient, "CEP" %>
           <span class="ls-label col-md-3 ls-float-none"></span>
@@ -81,7 +81,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8">
-        <span class="ls-label-text"><%= f.label :address, "Endereço" %></span>
+        <span class="ls-label-text"><%= f.label :address, "Endereço:" %></span>
         <%= f.text_field :address, id: 'id_address' %>
       </label>
       </div>
@@ -90,7 +90,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-2">
-        <span class="ls-label-text"><%= f.label :address_number, "Número" %></span>
+        <span class="ls-label-text"><%= f.label :address_number, "Número:" %></span>
         <%= f.text_field :address_number %>
       </label>
       </div>
@@ -99,7 +99,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-3">
-        <span class="ls-label-text"><%= f.label :address_complement, "Complemento" %></span>
+        <span class="ls-label-text"><%= f.label :address_complement, "Complemento:" %></span>
         <%= f.text_field :address_complement %>
       </label>
       </div>
@@ -108,7 +108,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :district, "Bairro" %></span>
+        <span class="ls-label-text"><%= f.label :district, "Bairro:" %></span>
         <%= f.text_field :district, id: 'id_district' %>
       </label>
       </div>
@@ -117,7 +117,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :city, "Cidade" %></span>
+        <span class="ls-label-text"><%= f.label :city, "Cidade:" %></span>
         <%= f.text_field :city, id: 'id_city' %>
       </label>
       </div>
@@ -126,7 +126,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <span class="ls-label-text"><%= f.label :state, "Estado" %></span>
+        <span class="ls-label-text"><%= f.label :state, "Estado:" %></span>
           <div class="ls-custom-select">
             <%= f.select(:state, Carmen::state_codes('BR'), {prompt: true}, class: "ls-state ls-select", id: "id_state" ) %>
           </div>
@@ -137,7 +137,7 @@
     <div class="row">
       <div class="col-md-10">
         <label class="ls-label col-md-10">
-          <span class="ls-label-text"><%= label(:note, Map.human_attribute_name(:note)) %></span>
+          <span class="ls-label-text"><%= f.label :note, "Observação:" %></span>
           <%= f.text_area :note %>
         </label>
       </div>

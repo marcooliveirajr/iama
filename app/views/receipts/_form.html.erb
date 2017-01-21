@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @receipt, :name %>">
-        <span class="ls-label-text"><%= f.label :name, "Recibo" %></span>
+        <span class="ls-label-text"><%= f.label :name, "Recibo:" %></span>
         <%= f.text_field :name %>
         <%= show_message_error @receipt, :name %>
       </label>

@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @category, :name %>">
-        <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
+        <span class="ls-label-text"><%= f.label :name, "Nome:" %></span>
         <%= f.text_field :name %>
         <%= show_message_error @category, :name %>
       </label>
@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-4">
-        <b class="ls-label-text"><%= f.label :input_type, "Entrada / Saída" %></b>
+        <b class="ls-label-text"><%= f.label :input_type, "Entrada/Saída:" %></b>
         <div class="ls-custom-select">
             <%= f.select :input_type, [['Nenhum', ''], ['Entrada', 'Entrada'], ['Saída', 'Saída']] %>
         </div>

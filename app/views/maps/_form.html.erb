@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= label(:anesthetist, Map.human_attribute_name(:anesthetist)) %></span>
+            <span class="ls-label-text"><%= label :anesthetist, "Anestesista:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:anesthetist_id, Anesthetist.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -26,7 +26,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :anesthetist1_id, "Anestesista 2" %></span>
+            <span class="ls-label-text"><%= f.label :anesthetist1_id, "Anestesista 2:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:anesthetist1, Anesthetist.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -37,7 +37,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :anesthetist2_id, "Anestesista 3" %></span>
+            <span class="ls-label-text"><%= f.label :anesthetist2_id, "Anestesista 3:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:anesthetist2, Anesthetist.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -48,7 +48,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10 <%= class_error @map, :surgeon_id  %>">
-            <span class="ls-label-text"><%= label(:surgeon, Map.human_attribute_name(:surgeon)) %></span>
+            <span class="ls-label-text"><%= f.label :surgeon, "Cirurgião:"  %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:surgeon_id, Surgeon.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -60,7 +60,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :surgeon1_id, "Cirusgião 2" %></span>
+            <span class="ls-label-text"><%= f.label :surgeon1_id, "Cirurgião 2:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:surgeon1, Surgeon.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -71,7 +71,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :surgeon2_id, "Cirusgião 3" %></span>
+            <span class="ls-label-text"><%= f.label :surgeon2_id, "Cirurgião 3:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:surgeon2, Surgeon.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -82,7 +82,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= label(:health_insurance, Map.human_attribute_name(:health_insurance)) %></span>
+            <span class="ls-label-text"><%= f.label :health_insurance, "Convênio Médico:" %></span>
             <div class="ls-custom-select">
              <%= f.collection_select(:health_insurance_id, HealthInsurance.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -93,7 +93,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :plan, "Plano do Convênio" %></span>
+            <span class="ls-label-text"><%= f.label :plan, "Plano do Convênio:" %></span>
             <div class="ls-custom-select">
              <%= f.collection_select(:health_plan_id, HealthPlan.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -104,9 +104,7 @@
       <div class="row">
         <div class="col-md-8">
           <label class="ls-label col-md-4 <%= class_error @map, :time_surgery %>">
-            <span class="ls-label-text"><%= f.label :start_time, "Data da Cirurgia" %></span>
-            <%#= f.text_field :time_surgery, value: @map.try(:time_surgery).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
-  
+            <span class="ls-label-text"><%= f.label :start_time, "Data da Cirurgia:" %></span>
             <div class='input-group date' id='datetimepicker'>
               <%= f.text_field :time_surgery, value: @map.try(:time_surgery).try(:strftime, "%d/%m/%Y %H:%M") , class: 'form-control'%>
               <span class="input-group-addon">
@@ -121,7 +119,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= label(:hospital, Map.human_attribute_name(:hospital)) %></span>
+            <span class="ls-label-text"><%= f.label :hospital, "Hospital:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:hospital_id, Hospital.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -132,8 +130,7 @@
       <div class="row">
         <div class="col-md-8">
           <label class="ls-label col-md-4 <%= class_error @map, :start_time %>">
-            <span class="ls-label-text"><%= f.label :start_time, "Hora Inicial" %></span>
-            <%#= f.text_field :start_time, value: @map.try(:start_time).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
+            <span class="ls-label-text"><%= f.label :start_time, "Hora Inicial:" %></span>
             <div class='input-group date' id='datetimepicker2'>
               <%= f.text_field :start_time, value: @map.try(:start_time).try(:strftime, "%d/%m/%Y %H:%M") , class: 'form-control'%>
               <span class="input-group-addon">
@@ -148,8 +145,7 @@
       <div class="row">
         <div class="col-md-8">
           <label class="ls-label col-md-4 <%= class_error @map, :end_time %>">
-            <span class="ls-label-text"><%= f.label :end_time, "Hora Final" %></span>
-            <%#= f.text_field :end_time, value: @map.try(:end_time).try(:strftime, "%d/%m/%Y"), class: 'datepicker ls-mask-date', :placeholder => 'dd/mm/aaaa' %>
+            <span class="ls-label-text"><%= f.label :end_time, "Hora Final:" %></span>
             <div class='input-group date' id='datetimepicker3'>
               <%= f.text_field :end_time, value: @map.try(:end_time).try(:strftime, "%d/%m/%Y %H:%M") , class: 'form-control'%>
               <span class="input-group-addon">
@@ -164,7 +160,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= label(:patient, Map.human_attribute_name(:patient)) %></span>
+            <span class="ls-label-text"><%= f.label :patient, "Paciente:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:patient_id, Patient.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -175,7 +171,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :registration, "Matrícula" %></span>
+            <span class="ls-label-text"><%= f.label :registration, "Matrícula:" %></span>
             <%= f.text_field :registration %>
           </label>
         </div>
@@ -184,7 +180,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :password, "Senha da Internação" %></span>
+            <span class="ls-label-text"><%= f.label :password, "Senha da Internação:" %></span>
             <%= f.text_field :password %>
           </label>
         </div>
@@ -193,7 +189,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :hospitalization, "Código da Internação" %></span>
+            <span class="ls-label-text"><%= f.label :hospitalization, "Código da Internação:" %></span>
             <%= f.text_field :hospitalization %>
           </label>
         </div>
@@ -202,7 +198,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= label(:bedroom, Map.human_attribute_name(:bedroom)) %></span>
+            <span class="ls-label-text"><%= f.label :bedroom, "Quarto:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:bedroom_id, Bedroom.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -213,9 +209,8 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= label(:health_terminology, Map.human_attribute_name(:health_terminology)) %></span>
+            <span class="ls-label-text"><%= f.label :health_terminology, "Procedimento:" %></span>
             <div class="ls-custom-select">
-              <%#= f.collection_select(:health_terminology_id, @map.terminology_version, :id, :description_tuss, class: 'ls-select') %>
               <%= f.collection_select(:health_terminology_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
             </div>
           </label>
@@ -238,7 +233,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :tuss2_id, "Procedimento 2" %></span>
+            <span class="ls-label-text"><%= f.label :tuss2_id, "Procedimento 2:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:tuss2, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
             </div>
@@ -262,7 +257,7 @@
       <div class="row">
         <div class="col-md-8">
           <label class="ls-label col-md-4">
-          <b class="ls-label-text"><%= f.label :via_unique2, "Via Única" %></b>
+          <b class="ls-label-text"><%= f.label :via_unique2, "Via Única:" %></b>
           <div class="ls-custom-select">
               <%= f.select :via_unique2, [['Nenhum', nil], ['Sim', true], ['Não', false]] %>
           </div>
@@ -273,7 +268,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :tuss3_id, "Procedimento 3" %></span>
+            <span class="ls-label-text"><%= f.label :tuss3_id, "Procedimento 3:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:tuss3, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
             </div>
@@ -297,7 +292,7 @@
       <div class="row">
         <div class="col-md-8">
           <label class="ls-label col-md-4">
-          <b class="ls-label-text"><%= f.label :via_unique3, "Via Única" %></b>
+          <b class="ls-label-text"><%= f.label :via_unique3, "Via Única:" %></b>
           <div class="ls-custom-select">
               <%= f.select :via_unique3, [['Nenhum', nil], ['Sim', true], ['Não', false]] %>
           </div>
@@ -308,7 +303,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :tuss4_id, "Procedimento 4"%></span>
+            <span class="ls-label-text"><%= f.label :tuss4_id, "Procedimento 4:"%></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:tuss4, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
             </div>
@@ -332,7 +327,7 @@
       <div class="row">
         <div class="col-md-8">
           <label class="ls-label col-md-4">
-          <b class="ls-label-text"><%= f.label :via_unique4, "Via Única" %></b>
+          <b class="ls-label-text"><%= f.label :via_unique4, "Via Única:" %></b>
           <div class="ls-custom-select">
               <%= f.select :via_unique4, [['Nenhum', nil], ['Sim', true], ['Não', false]] %>
           </div>
@@ -343,7 +338,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :tuss5_id, "Procedimento 5" %></span>
+            <span class="ls-label-text"><%= f.label :tuss5_id, "Procedimento 5:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:tuss5, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
             </div>
@@ -367,7 +362,7 @@
       <div class="row">
         <div class="col-md-8">
           <label class="ls-label col-md-4">
-          <b class="ls-label-text"><%= f.label :via_unique5, "Via Única" %></b>
+          <b class="ls-label-text"><%= f.label :via_unique5, "Via Única:" %></b>
           <div class="ls-custom-select">
               <%= f.select :via_unique5, [['Nenhum', nil], ['Sim', true], ['Não', false]] %>
           </div>
@@ -379,7 +374,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= label(:note, Map.human_attribute_name(:note)) %></span>
+            <span class="ls-label-text"><%= f.label :note, "Observação:" %></span>
             <%= f.text_area :note %>
           </label>
         </div>
@@ -392,7 +387,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :receipt_id, "Recibo" %></span>
+            <span class="ls-label-text"><%= f.label :receipt_id, "Recibo:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:receipt_id, Receipt.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -403,7 +398,7 @@
       <div class="row">
         <div class="col-md-8">
           <label class="ls-label col-md-6">
-            <span class="ls-label-text"><%= f.label :receipt_day, "Data de emissão do recibo" %></span>
+            <span class="ls-label-text"><%= f.label :receipt_day, "Data de emissão do recibo:" %></span>
             <div class='input-group date' id='receipt_day'>
               <%= f.text_field :receipt_day, value: @map.try(:receipt_day).try(:strftime, "%d/%m/%Y") , class: 'form-control'%>
               <span class="input-group-addon">
@@ -417,7 +412,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :receipt_value, "Valor do recibo" %></span>
+            <span class="ls-label-text"><%= f.label :receipt_value, "Valor do recibo:" %></span>
             <%= f.text_field :receipt_value %>
           </label>
         </div>
@@ -439,7 +434,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :payment_method_id, "Método de Pagamento" %></span>
+            <span class="ls-label-text"><%= f.label :payment_method_id, "Método de Pagamento:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:payment_method_id, PaymentMethod.all, :id, :name, class: 'ls-select', prompt: true) %>
             </div>
@@ -450,7 +445,7 @@
       <div class="row">
         <div class="col-md-8">
           <label class="ls-label col-md-8">
-            <span class="ls-label-text"><%= f.label :payment, "Valor do Pagamento" %></span>
+            <span class="ls-label-text"><%= f.label :payment, "Valor do Pagamento:" %></span>
             <div class="row">
               <div class="ls-prefix-group col-md-8">
                 <input type='text' id='value' />

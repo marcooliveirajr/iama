@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @health_plan, :name %>">
-        <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
+        <span class="ls-label-text"><%= f.label :name, "Nome:" %></span>
         <%= f.text_field :name %>
         <%= show_message_error @health_plan, :name %>
       </label>

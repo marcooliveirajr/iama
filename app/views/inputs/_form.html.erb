@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @input, :category_id %>">
-        <span class="ls-label-text"><%= f.label :category_id, "Categoria" %></span>
+        <span class="ls-label-text"><%= f.label :category_id, "Categoria:" %></span>
           <div class="ls-custom-select">
             <%= f.collection_select(:category_id, inputs_filter, :id, :name, class: "ls-state ls-select", prompt: true) %>
           </div>
@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @input, :name %>">
-        <span class="ls-label-text"><%= f.label :name, "Nome" %></span>
+        <span class="ls-label-text"><%= f.label :name, "Nome:" %></span>
         <%= f.text_field :name %>
         <%= show_message_error @input, :name %>
       </label>
