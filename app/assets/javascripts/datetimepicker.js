@@ -32,8 +32,6 @@
          }
     });
     $('#time_movement').datetimepicker({
-      locale: 'pt-br',
-      format: 'L LT',
-      sideBySide: true
+      locale: 'pt-br'
     });
   });

@@ -22,6 +22,12 @@
             </tr>
             <% end %> 
             <tr> 
+              <td> Data do Movimento: 
+                <label class="ls-title-6"><%= @cash_movement.time_movement %>
+                </label> 
+              </td> 
+            </tr>
+            <tr> 
               <td> Documento: 
                 <label class="ls-title-6"><%= @cash_movement.document %>
                 </label> 
@@ -30,12 +36,6 @@
             <tr> 
               <td> Valor do Movimento: 
                 <label class="ls-title-6"><%= @cash_movement.movement_value %>
-                </label> 
-              </td> 
-            </tr>
-            <tr> 
-              <td> Data do Movimento: 
-                <label class="ls-title-6"><%= @cash_movement.time_movement %>
                 </label> 
               </td> 
             </tr>

@@ -27,6 +27,20 @@
 
     <div class="row">
       <div class="col-md-8">
+        <label class="ls-label col-md-4">
+          <span class="ls-label-text"><%= f.label :time_movement, "Data do Movimento:" %></span>
+          <div class='input-group date' id='time_movement'>
+            <%= f.text_field :time_movement, value: @map.try(:time_movement).try(:strftime, "%d/%m/%Y") , class: 'form-control'%>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @cash_movement, :document %>">
         <span class="ls-label-text"><%= f.label :document, "Documento:" %></span>
         <%= f.text_field :document %>
@@ -37,25 +51,11 @@
 
     <div class="row">
       <div class="col-md-8">
-        <label class="ls-label col-md-4">
-          <span class="ls-label-text"><%= f.label :start_time, "Data do Movimento:" %></span>
-          <div class='input-group date' id='time_movement'>
-            <%= f.text_field :time_movement, value: @map.try(:time_movement).try(:strftime, "%d/%m/%Y %H:%M") , class: 'form-control'%>
-            <span class="input-group-addon">
-              <span class="glyphicon glyphicon-calendar"></span>
-            </span>
-          </div>
-        </label>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-10">
-        <label class="ls-label col-md-10">
-          <span class="ls-label-text"><%= f.label :movement_value, "Valor do Movimento:" %></span>
-          <%= f.text_field :movement_value %>
-        </label>
-      </div>
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%= f.label :movement_value, "Valor do Movimento:" %></span>
+        <%= f.text_field :movement_value %>
+      </label>
+     </div>
     </div>
 
     <div class="row">
