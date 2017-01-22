@@ -1,15 +1,15 @@
   $(function () {
-    $('#datetimepicker').datetimepicker({
+    $('#time_surgery').datetimepicker({
       locale: 'pt-br',
       format: 'L LT',
       sideBySide: true
     });
-    $('#datetimepicker2').datetimepicker({
+    $('#start_time').datetimepicker({
       locale: 'pt-br',
       format: 'L LT',
       sideBySide: true
     });
-    $('#datetimepicker3').datetimepicker({
+    $('#end_time').datetimepicker({
       locale: 'pt-br',
       format: 'L LT',
       sideBySide: true
