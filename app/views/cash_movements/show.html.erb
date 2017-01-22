@@ -23,7 +23,7 @@
             <% end %> 
             <tr> 
               <td> Data do Movimento: 
-                <label class="ls-title-6"><%= @cash_movement.time_movement %>
+                <label class="ls-title-6"><%= @cash_movement.try(:time_movement).try(:strftime, "%d/%m/%Y") %>
                 </label> 
               </td> 
             </tr>
