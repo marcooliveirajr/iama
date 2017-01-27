@@ -9,7 +9,7 @@
     <div class="ls-custom-select">
 
       <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
-      <% [['Categoria', 'category.name'], ['Nome', 'name']].each do |c| %>
+      <% [['Nome', 'name'], ['Categoria', 'category']].each do |c| %>
       <%= content_tag(:option, c.first, value: c.last) %>
       <% end %>
       <% end %>
@@ -29,7 +29,7 @@
 </div>
 
 <tbody>
-  <% @outputs.joins(:category).where("input_type = ?", "Saída").each do |output| %>
+  <% @outputs.each do |output| %>
 
   <div class="ls-list">
     <header class="ls-list-header">
