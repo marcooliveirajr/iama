@@ -1,4 +1,4 @@
-<h1 class="ls-title-intro ls-ico-text">Categorias</h1>
+<h1 class="ls-title-intro ls-ico-text">Movimento de Caixa</h1>
 <%= flash_messages %>
 <a><%= link_to 'Cadastrar Movimento de Caixa', new_cash_movement_path(@cash_movement) , class: "ls-btn-primary" %></a>
 
@@ -20,6 +20,11 @@
     <%= f.text_field :text, class: 'ls-field' %>
   </label>
 
+  <label class="ls-label col-md-4 ls-display-none" role="search" id="data_order_search">
+    <%= f.text_field :date, class: 'datepicker', placeholder: "dd/mm/aaaa", id: 'datepicker'%>
+    <a class="ls-label-text-prefix ls-ico-calendar" href="#" data-trigger-calendar="#datepicker"></a>
+  </label>
+
   <label class="ls-label ">
     <%= submit_tag('Buscar', class: "ls-btn") %>
   </label>
@@ -34,7 +39,7 @@
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
         <strong><%= link_to cash_movement.document, cash_movement %></strong>
-         <small><%= cash_movement.time_movement %></small>
+         <small><%= cash_movement.time_movement.strftime("%d/%m/%Y") %></small>
       </div>
       <div class="col-md-3 ls-txt-right">
         <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
@@ -68,3 +73,8 @@
   <% end %>
 </div>
 <% end %>
+
+
+  <%= content_for :javascript do %>
+    $(document).ready(movement.date_time_movement.init);
+  <% end %>
