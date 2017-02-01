@@ -1,7 +1,7 @@
 (function() {
   function clearSelect() {
-      $("#cash_movement_input_id").select2("val", "");
-    }
+    alert('tete');
+      $("#cash_movement_input_id").val('213213213').change();
   }
 
   $('#clear_input').on('click', clearSelect);
