@@ -7,7 +7,7 @@ class CashMovement
   				$param_type = params[:type]
   				case $param_type
   				when 'document'
-            CashMovement.joins(:document).where("name like ?", "%#{params[:text]}%")
+            CashMovement.where("document like ?", "%#{params[:text]}%")
   				when 'input'
   			    CashMovement.joins(:input).where("name like ?", "%#{params[:text]}%")
   				when 'output'
