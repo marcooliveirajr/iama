@@ -6,7 +6,7 @@
         <label class="ls-label col-md-8 <%= class_error @output, :category_id %>">
         <span class="ls-label-text"><%= f.label :category_id, "Categoria:" %></span>
           <div class="ls-custom-select">
-            <%= f.collection_select(:category_id, outputs_filter, :id, :name, class: "ls-state ls-select", prompt: true) %>
+            <%= f.collection_select(:category_id, category_output, :id, :name, class: "ls-state ls-select", prompt: true) %>
           </div>
           <%= show_message_error @output, :category_id %>
         </label>

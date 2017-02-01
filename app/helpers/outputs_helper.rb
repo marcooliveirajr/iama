@@ -1,7 +1,7 @@
 module OutputsHelper
-    
-  def outputs_filter 
-	Output.joins(:category).where("input_type = ?", "Saída")
-  end
 
+  def outputs_filter 
+	Output.joins(:category).where("input_type = 'Saída'").all
+  end
+  
 end

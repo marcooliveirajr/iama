@@ -38,8 +38,13 @@
   <div class="ls-list">
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
-        <strong><%= link_to cash_movement.document, cash_movement %></strong>
-         <small><%= cash_movement.time_movement.strftime("%d/%m/%Y") %></small>
+      <% if cash_movement.input_id? %>
+        <strong><%= link_to cash_movement.input.try(:name), cash_movement %></strong>
+        <small><%= input_category(cash_movement) %></small>
+      <% else %>
+        <strong><%= link_to cash_movement.output.try(:name), cash_movement %></strong>
+        <small><%= output_category(cash_movement) %></small>
+      <% end %> 
       </div>
       <div class="col-md-3 ls-txt-right">
         <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
@@ -52,8 +57,21 @@
         </div>
       </div>
     </header>
+    <div class="ls-list-content ">
+      <div class="col-sm-2">
+        <span class="ls-list-label">Data</span>
+        <strong><%= cash_movement.time_movement.strftime("%d/%m/%Y") %></strong>
+      </div>
+      <div class="col-sm-6">
+        <span class="ls-list-label">Documento</span>
+        <strong><%= cash_movement.document %></strong>
+      </div>
+      <div class="col-sm-2">
+        <span class="ls-list-label">Valor</span>
+        <strong><%= cash_movement.movement_value %></strong>
+      </div>
+    </div>
   </div>
-
   <% end %>
 </tbody>
 </table>
