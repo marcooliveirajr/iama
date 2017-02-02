@@ -28,7 +28,7 @@
 </div>
 
 <tbody>
-  <% @categories.each do |category| %>
+  <% @categories.order("input_type").each do |category| %>
 
   <div class="ls-list">
     <header class="ls-list-header">
