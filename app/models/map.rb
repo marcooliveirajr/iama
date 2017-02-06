@@ -1,4 +1,5 @@
 class Map < ActiveRecord::Base
+  usar_como_dinheiro :receipt_value
   belongs_to :hospital
   belongs_to :bedroom
   belongs_to :patient
