@@ -1,0 +1,28 @@
+<h1 class="ls-title-intro ls-ico-text">Saída</h1>
+<%= flash_messages %>
+<div class="ls-box">
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> 
+              <td> Categoria: 
+                <label class="ls-title-6"><%= @output.category.name %>
+                </label> 
+              </td> 
+            </tr>
+            <tr> 
+              <td> Nome: 
+                <label class="ls-title-6"><%= @output.name %>
+                </label> 
+              </td> 
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_output_path(@output) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', outputs_path, class: "ls-btn-darker" %>
+<a><%= link_to 'Cadastrar Saída', new_output_path(@output) , class: "ls-btn-primary" %></a>

@@ -5,9 +5,6 @@ module PaymentMapsHelper
     if @map.payment_maps.any?
     	ex = true
     end
-    if @map.receipt_id?
-    	ex = true
-    end
     if @map.payment_method_id?
     	ex = true
     end
@@ -16,4 +13,12 @@ module PaymentMapsHelper
     end   
     return ex
   end
+  
+  def exists_receipt?
+    ex = false
+    if @map.receipt_id?
+    	ex = true
+    end
+    return ex
+  end  
 end

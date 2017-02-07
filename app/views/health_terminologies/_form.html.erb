@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @health_terminology, :code_tuss %>">
-        <span class="ls-label-text"><%= f.label :code_tuss, "Código TUSS" %></span>
+        <span class="ls-label-text"><%= f.label :code_tuss, "Código TUSS:" %></span>
         <%= f.number_field :code_tuss %>
         <%= show_message_error @health_terminology, :code_tuss %>
       </label>
@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8">
-        <span class="ls-label-text"><%= f.label :description_tuss, "Procedimento" %></span>
+        <span class="ls-label-text"><%= f.label :description_tuss, "Procedimento:" %></span>
         <%= f.text_field :description_tuss %>
       </label>
      </div>
@@ -24,7 +24,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8">
-        <span class="ls-label-text"><%= f.label :measure, "Porte" %></span>
+        <span class="ls-label-text"><%= f.label :measure, "Porte:" %></span>
         <%= f.number_field :measure %>
       </label>
      </div>
@@ -33,7 +33,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @health_terminology, :version_id %>">
-        <span class="ls-label-text"><%= f.label :version_id, "Versão da Tabela" %></span>
+        <span class="ls-label-text"><%= f.label :version_id, "Versão da Tabela:" %></span>
           <div class="ls-custom-select">
             <%= f.collection_select(:version_id, Version.all, :id, :name, class: "ls-state ls-select", prompt: true) %>
           </div>

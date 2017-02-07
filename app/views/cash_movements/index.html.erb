@@ -1,0 +1,101 @@
+<h1 class="ls-title-intro ls-ico-text">Lançamento de Movimento de Caixa</h1>
+<%= flash_messages %>
+<a><%= link_to 'Cadastrar Movimento de Caixa', new_cash_movement_path(@cash_movement) , class: "ls-btn-primary" %></a>
+
+<div class="ls-box-filter">
+  <%= form_for :search, url: search_cash_movements_path, html: { :class => "ls-form ls-form-inline", method: :get } do |f| %>
+  <label class="ls-label col-md-4">
+    <b class="ls-label-text">Buscar por:</b>
+    <div class="ls-custom-select">
+
+      <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
+      <% [['Data do Movimento', 'time_movement'], ['Documento', 'document'], ['Entrada', 'input'], ['Saída', 'output']].each do |c| %>
+      <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+      <% end %>
+    </div>
+  </label>
+
+  <label class="ls-label col-md-4" role="search" id="text_order_search">
+    <%= f.text_field :text, class: 'ls-field' %>
+  </label>
+
+  <label class="ls-label col-md-4 ls-display-none" role="search" id="data_order_search">
+    <%= f.text_field :date, class: 'datepicker', placeholder: "dd/mm/aaaa", id: 'datepicker'%>
+    <a class="ls-label-text-prefix ls-ico-calendar" href="#" data-trigger-calendar="#datepicker"></a>
+  </label>
+
+  <label class="ls-label ">
+    <%= submit_tag('Buscar', class: "ls-btn") %>
+  </label>
+  <%= hidden_field_tag :per_page, params[:per_page] %>
+  <%end%>
+</div>
+
+<tbody>
+  <% @cash_movements.each do |cash_movement| %>
+
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+      <% if cash_movement.input_id? %>
+        <strong><%= link_to cash_movement.input.try(:name), cash_movement %></strong>
+      <% else %>
+        <strong><%= link_to cash_movement.output.try(:name), cash_movement %></strong>
+      <% end %> 
+        <small><%= cash_movement.time_movement.strftime("%d/%m/%Y") %></small>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_cash_movement_path(cash_movement) %></li>
+            <li><%= link_to 'Visualizar', cash_movement %></li>
+            <li><%= link_to 'Excluir', cash_movement_path(cash_movement), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+    <div class="ls-list-content ">
+      <div class="col-sm-5">
+        <span class="ls-list-label">Categoria</span>
+        <% if cash_movement.input_id? %>
+          <strong><%= input_category(cash_movement) %></strong>
+        <% else %>
+          <strong><%= output_category(cash_movement) %></strong>
+        <% end %>         
+      </div>
+      <div class="col-sm-5">
+        <span class="ls-list-label">Documento</span>
+        <strong><%= cash_movement.document %></strong>
+      </div>
+      <div class="col-sm-2">
+        <span class="ls-list-label">Valor</span>
+        <strong><%= cash_movement.movement_value %></strong>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</tbody>
+</table>
+
+<% if @cash_movements %>
+<div class="ls-pagination-filter">
+  <%= paginate @cash_movements if @cash_movements %>
+
+  <% if not @cash_movements.blank? %>
+  <div class="ls-filter-view">
+    <%= t 'will_paginate.show' %>
+    <div class="ls-custom-select">
+      <%= select_tag(:per_page_options, options_for_select(options_for_per_page, params[:per_page]))%>
+    </div>
+    <%= t 'will_paginate.per_page' %>
+  </div>
+  <% end %>
+</div>
+<% end %>
+
+
+  <%= content_for :javascript do %>
+    $(document).ready(movement.date_time_movement.init);
+  <% end %>

@@ -1,0 +1,90 @@
+<%= form_for(@cash_movement, html: { class: "ls-form row" }) do |f| %>
+  <fieldset>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8 <%= class_error @cash_movement, :input_id %>">
+        <span class="ls-label-text"><%= f.label :input_id, "Entrada:" %></span>
+          <div class="row">
+            <div class="ls-prefix-group col-md-12">
+              <div class="ls-custom-select">
+                <%= f.collection_select(:input_id, inputs_filter, :id, :name, class: "form-control ls-select", prompt: true) %>
+              </div>
+              <a href="#" id='clear_input' class="ls-label-text-prefix ls-bg-white">Limpar</a>
+            </div>
+          </div>
+          <%= show_message_error @cash_movement, :input_id %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8 <%= class_error @cash_movement, :output_id %>">
+        <span class="ls-label-text"><%= f.label :output_id, "Entrada:" %></span>
+          <div class="row">
+            <div class="ls-prefix-group col-md-12">
+              <div class="ls-custom-select">
+                <%= f.collection_select(:output_id, outputs_filter, :id, :name, class: "form-control ls-select", prompt: true) %>
+              </div>
+              <a href="#" id='clear_output' class="ls-label-text-prefix ls-bg-white">Limpar</a>
+            </div>
+          </div>
+          <%= show_message_error @cash_movement, :output_id %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-4 <%= class_error @cash_movement, :time_movement %>">
+          <span class="ls-label-text"><%= f.label :start_time, "Data do Movimento:" %></span>
+          <div class='input-group date' id='time_movement'>
+            <%= f.text_field :time_movement, value: @cash_movement.try(:time_movement).try(:strftime, "%d/%m/%Y") , class: 'form-control'%>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+          <%= show_message_error @cash_movement, :time_movement %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8">
+        <span class="ls-label-text"><%= f.label :document, "Documento:" %></span>
+        <%= f.text_field :document %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-8">
+        <label class="ls-label col-md-8 <%= class_error @cash_movement, :movement_value %>">
+        <span class="ls-label-text"><%= f.label :movement_value, "Valor do Movimento:" %></span>
+        <%= f.text_field :movement_value %>
+        <%= show_message_error @cash_movement, :movement_value %>
+      </label>
+     </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-10">
+        <label class="ls-label col-md-10">
+          <span class="ls-label-text"><%= f.label :movement_note, "Observação:"%></span>
+          <%= f.text_area :movement_note %>
+        </label>
+      </div>
+    </div> 
+
+ </fieldset>
+
+  <div class="ls-actions-btn">
+      <%= f.button  "Salvar", :type => "submit" , class: "ls-btn-primary"%>
+      <%= link_to 'Voltar', cash_movements_path, class: "ls-btn-darker" %>
+  </div>
+
+<% end %>
+
+

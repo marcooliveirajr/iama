@@ -1,0 +1,21 @@
+<h1 class="ls-title-intro ls-ico-text">Planos</h1>
+<%= flash_messages %>
+<div class="ls-box">
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <tr> 
+              <td> Nome: 
+              <label class="ls-title-6"><%= @health_plan.name %>
+              </label> 
+            </td> 
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_health_plan_path(@health_plan) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', health_plans_path, class: "ls-btn-darker" %>
+<a><%= link_to 'Cadastrar Plano', new_health_plan_path(@health_plan) , class: "ls-btn-primary" %></a>

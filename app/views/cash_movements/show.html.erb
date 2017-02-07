@@ -1,0 +1,56 @@
+<h1 class="ls-title-intro ls-ico-text">Movimento de Caixa</h1>
+<%= flash_messages %>
+<div class="ls-box">
+  <div class="row">
+    <div class="col-md-12">
+        <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
+          <tbody>
+            <% if @cash_movement.input_id? %>
+            <tr> 
+              <td> Entrada: 
+                <label class="ls-title-6"><%= @cash_movement.input.try(:name) %>
+                </label> 
+              </td> 
+            </tr>
+            <% end %> 
+            <% if @cash_movement.output_id? %>
+            <tr> 
+              <td> Saída: 
+                <label class="ls-title-6"><%= @cash_movement.output.try(:name)   %>
+                </label> 
+              </td> 
+            </tr>
+            <% end %> 
+            <tr> 
+              <td> Data do Movimento: 
+                <label class="ls-title-6"><%= @cash_movement.try(:time_movement).try(:strftime, "%d/%m/%Y") %>
+                </label> 
+              </td> 
+            </tr>
+            <tr> 
+              <td> Documento: 
+                <label class="ls-title-6"><%= @cash_movement.document %>
+                </label> 
+              </td> 
+            </tr>
+            <tr> 
+              <td> Valor do Movimento: 
+                <label class="ls-title-6"><%= @cash_movement.movement_value.real %>
+                </label> 
+              </td> 
+            </tr>
+            <tr> 
+              <td> Observação: 
+                <label class="ls-title-6"><%= @cash_movement.movement_note %>
+                </label> 
+              </td> 
+            </tr>
+          </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Editar', edit_cash_movement_path(@cash_movement) , class: "ls-btn-darker" %>
+<%= link_to 'Voltar', cash_movements_path, class: "ls-btn-darker" %>
+<a><%= link_to 'Cadastrar Categoria', new_cash_movement_path(@cash_movement) , class: "ls-btn-primary" %></a>

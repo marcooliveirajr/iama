@@ -19,7 +19,7 @@
             </tr>
             <tr> 
               <td> Valor: 
-                <label class="ls-title-6"><%= @size_surgery.value_measure %>
+                <label class="ls-title-6"><%= @size_surgery.value_measure.real %>
                 </label> 
               </td> 
             </tr>
@@ -31,3 +31,4 @@
 
 <%= link_to 'Editar', edit_size_surgery_path(@size_surgery) , class: "ls-btn-darker" %>
 <%= link_to 'Voltar', size_surgeries_path, class: "ls-btn-darker" %>
+<a><%= link_to 'Cadastrar Porte', new_size_surgery_path(@bedroom) , class: "ls-btn-primary" %></a>

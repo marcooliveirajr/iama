@@ -1,0 +1,70 @@
+<h1 class="ls-title-intro ls-ico-text">Categorias</h1>
+<%= flash_messages %>
+<a><%= link_to 'Cadastrar Categoria', new_category_path(@category) , class: "ls-btn-primary" %></a>
+
+<div class="ls-box-filter">
+  <%= form_for :search, url: search_categories_path, html: { :class => "ls-form ls-form-inline", method: :get } do |f| %>
+  <label class="ls-label col-md-4">
+    <b class="ls-label-text">Buscar por:</b>
+    <div class="ls-custom-select">
+
+      <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
+      <% [['Nome', 'name']].each do |c| %>
+      <%= content_tag(:option, c.first, value: c.last) %>
+      <% end %>
+      <% end %>
+    </div>
+  </label>
+
+  <label class="ls-label col-md-4" role="search" id="text_order_search">
+    <%= f.text_field :text, class: 'ls-field' %>
+  </label>
+
+  <label class="ls-label ">
+    <%= submit_tag('Buscar', class: "ls-btn") %>
+  </label>
+  <%= hidden_field_tag :per_page, params[:per_page] %>
+  <%end%>
+</div>
+
+<tbody>
+  <% @categories.order("input_type").each do |category| %>
+
+  <div class="ls-list">
+    <header class="ls-list-header">
+      <div class="ls-list-title col-md-9">
+        <strong><%= link_to category.name, category %></strong>
+         <small><%= category.input_type %></small>
+      </div>
+      <div class="col-md-3 ls-txt-right">
+        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
+          <a href="#" class="ls-btn-primary">Administrar</a>
+          <ul class="ls-dropdown-nav">
+            <li><%= link_to 'Editar', edit_category_path(category) %></li>
+            <li><%= link_to 'Visualizar', category %></li>
+            <li><%= link_to 'Excluir', category_path(category), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
+  </div>
+
+  <% end %>
+</tbody>
+</table>
+
+<% if @categories %>
+<div class="ls-pagination-filter">
+  <%= paginate @categories if @categories %>
+
+  <% if not @categories.blank? %>
+  <div class="ls-filter-view">
+    <%= t 'will_paginate.show' %>
+    <div class="ls-custom-select">
+      <%= select_tag(:per_page_options, options_for_select(options_for_per_page, params[:per_page]))%>
+    </div>
+    <%= t 'will_paginate.per_page' %>
+  </div>
+  <% end %>
+</div>
+<% end %>

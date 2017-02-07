@@ -34,6 +34,9 @@
           <%= link_to 'Convênio Médico', health_insurances_path, class: "ls-ico-text" %>
         </ul>
         <ul>
+          <%= link_to 'Planos', health_plans_path, class: "ls-ico-text" %>
+        </ul>
+        <ul>
           <%= link_to 'Tabela', health_terminologies_path, class: "ls-ico-text" %>
         </ul>
         <ul>
@@ -59,6 +62,22 @@
         <!-- </ul> -->
       </li>
 
+<!--       <li class="ls-submenu">
+        <a class="ls-ico-calendar-check" href="">  Movimento de Caixa </a>
+        <ul>
+          <%= link_to 'Lançamento', cash_movements_path, class: "ls-ico-edit-admin" %>
+        </ul>
+        <ul>
+          <%= link_to 'Entradas', inputs_path, class: "ls-ico-plus" %>
+        </ul>
+        <ul>
+          <%= link_to 'Saídas', outputs_path, class: "ls-ico-minus" %>
+        </ul>
+        <ul>
+          <%= link_to 'Categorias', categories_path, class: "ls-ico-flag" %>
+        </ul>
+      </li>
+ -->
       <% if can? :read, User, Version %>
         <li class="ls-submenu">
           <a class="ls-ico-cog" href="">  Configurações </a>

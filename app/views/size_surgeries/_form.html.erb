@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @size_surgery, :health_insurance_id %>">
-        <span class="ls-label-text"><%= f.label :health_insurance_id, "Convênio Médico" %></span>
+        <span class="ls-label-text"><%= f.label :health_insurance_id, "Convênio Médico:" %></span>
           <div class="ls-custom-select">
             <%= f.collection_select(:health_insurance_id, HealthInsurance.all, :id, :name, class: "ls-state ls-select", prompt: true) %>
           </div>
@@ -16,7 +16,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @size_surgery, :measure %>">
-        <span class="ls-label-text"><%= f.label :measure, "Porte" %></span>
+        <span class="ls-label-text"><%= f.label :measure, "Porte:" %></span>
         <%= f.text_field :measure %>
         <%= show_message_error @size_surgery, :measure %>
       </label>
@@ -26,7 +26,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8">
-        <span class="ls-label-text"><%= f.label :value_measure, "Valor" %></span>
+        <span class="ls-label-text"><%= f.label :value_measure, "Valor:" %></span>
         <%= f.text_field :value_measure %>
       </label>
      </div>
