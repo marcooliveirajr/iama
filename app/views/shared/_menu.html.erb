@@ -16,18 +16,15 @@
     <a ><span><%= link_to '',root_path, class: "ls-go-prev ls-text" %></span></a>
     <nav class="ls-menu">
     <ul>
-
       <li class="ls-submenu">
         <%= link_to 'Mapa', maps_path, class: "ls-ico-calendar-more" %>
       </li>
-
       <li class="ls-submenu">
         <%= link_to 'Plantonistas', on_duties_path, class: "ls-ico-hours" %>
       </li>
       <li class="ls-submenu">
         <%= link_to 'Paciente', patients_path, class: "ls-ico-user-add" %>
       </li>
-
       <li class="ls-submenu">
         <a class="ls-ico-pencil" href="">  Cadastros </a>
         <ul>
@@ -57,12 +54,8 @@
         <ul>
           <%= link_to 'Recibos', receipts_path, class: "ls-ico-text" %>
         </ul>
-        <!-- <ul> -->
-          <%#= link_to 'Beneficiários', payment_recipients_path, class: "ls-ico-text" %>
-        <!-- </ul> -->
       </li>
-
-<!--       <li class="ls-submenu">
+       <li class="ls-submenu">
         <a class="ls-ico-calendar-check" href="">  Movimento de Caixa </a>
         <ul>
           <%= link_to 'Lançamento', cash_movements_path, class: "ls-ico-edit-admin" %>
@@ -77,7 +70,7 @@
           <%= link_to 'Categorias', categories_path, class: "ls-ico-flag" %>
         </ul>
       </li>
- -->
+
       <% if can? :read, User, Version %>
         <li class="ls-submenu">
           <a class="ls-ico-cog" href="">  Configurações </a>
@@ -89,6 +82,9 @@
           </ul>
           <ul>
             <%= link_to 'Método de Pagamento', payment_methods_path, class: "ls-ico-text" %>
+          </ul>
+          <ul>
+            <%= link_to 'Beneficiários', payment_recipients_path, class: "ls-ico-text" %>
           </ul>
         </li>
       <% end %>
