@@ -109,6 +109,7 @@ class MapsController < ApplicationController
                                   :note,
                                   :receipt_id,
                                   :payment_method_id,
+                                  :free_text,
                                   :tuss2,
                                   :tuss3,
                                   :tuss4,

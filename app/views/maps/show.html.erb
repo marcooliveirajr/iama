@@ -128,6 +128,15 @@
                 </td> 
               </tr>
             <% end %>  
+            <% if @map.free_text? %>
+              <tr> 
+                <td> Texto Livre: 
+                  <label class="ls-title-6"><%= @map.free_text %>
+                  </label> 
+                </td> 
+              </tr>
+            <% end %> 
+            <% if @map.health_terminology_id? %>
               <tr> 
                 <td> Procedimento: 
                   <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %>
@@ -146,7 +155,7 @@
                   </label> 
                 </td> 
               </tr>
-
+            <% end %> 
             <% if exists_tuss2? %>
               <tr> 
                 <td> Procedimento 2: 

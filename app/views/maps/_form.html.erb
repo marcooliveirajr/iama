@@ -209,6 +209,15 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
+            <span class="ls-label-text"><%= f.label :free_text, "Texto Livre:" %></span>
+            <%= f.text_area :free_text %>
+          </label>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-md-10">
+          <label class="ls-label col-md-10">
             <span class="ls-label-text"><%= f.label :health_terminology, "Procedimento:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:health_terminology_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
