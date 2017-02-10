@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121093724) do
+ActiveRecord::Schema.define(version: 20170210222202) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -109,43 +109,51 @@ ActiveRecord::Schema.define(version: 20170121093724) do
 
   create_table "maps", force: :cascade do |t|
     t.datetime "time_surgery"
-    t.integer  "hospital_id",           limit: 4
-    t.integer  "bedroom_id",            limit: 4
-    t.integer  "patient_id",            limit: 4
-    t.integer  "health_terminology_id", limit: 4
-    t.integer  "surgeon_id",            limit: 4
-    t.integer  "anesthetist_id",        limit: 4
-    t.integer  "health_insurance_id",   limit: 4
-    t.integer  "receipt_id",            limit: 4
-    t.integer  "payment_method_id",     limit: 4
-    t.integer  "payment_recipient_id",  limit: 4
-    t.text     "note",                  limit: 65535
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.integer  "tuss2",                 limit: 4
-    t.integer  "tuss3",                 limit: 4
-    t.integer  "tuss4",                 limit: 4
-    t.integer  "tuss5",                 limit: 4
+    t.integer  "hospital_id",                     limit: 4
+    t.integer  "bedroom_id",                      limit: 4
+    t.integer  "patient_id",                      limit: 4
+    t.integer  "health_terminology_id",           limit: 4
+    t.integer  "surgeon_id",                      limit: 4
+    t.integer  "anesthetist_id",                  limit: 4
+    t.integer  "health_insurance_id",             limit: 4
+    t.integer  "receipt_id",                      limit: 4
+    t.integer  "payment_method_id",               limit: 4
+    t.integer  "payment_recipient_id",            limit: 4
+    t.text     "note",                            limit: 65535
+    t.datetime "created_at",                                    null: false
+    t.datetime "updated_at",                                    null: false
+    t.integer  "tuss2",                           limit: 4
+    t.integer  "tuss3",                           limit: 4
+    t.integer  "tuss4",                           limit: 4
+    t.integer  "tuss5",                           limit: 4
     t.boolean  "via_unique2"
     t.boolean  "via_unique3"
     t.boolean  "via_unique4"
     t.boolean  "via_unique5"
-    t.string   "registration",          limit: 255
+    t.string   "registration",                    limit: 255
     t.datetime "start_time"
     t.datetime "end_time"
-    t.string   "password",              limit: 255
-    t.string   "plan",                  limit: 255
-    t.string   "hospitalization",       limit: 255
+    t.string   "password",                        limit: 255
+    t.string   "plan",                            limit: 255
+    t.string   "hospitalization",                 limit: 255
     t.datetime "receipt_day"
-    t.float    "receipt_value",         limit: 24
-    t.text     "receipt_note",          limit: 65535
-    t.integer  "anesthetist1",          limit: 4
-    t.integer  "anesthetist2",          limit: 4
-    t.integer  "surgeon1",              limit: 4
-    t.integer  "surgeon2",              limit: 4
-    t.integer  "health_plan_id",        limit: 4
-    t.text     "free_text",             limit: 65535
-    t.text     "payment_note",          limit: 65535
+    t.float    "receipt_value",                   limit: 24
+    t.text     "receipt_note",                    limit: 65535
+    t.integer  "anesthetist1",                    limit: 4
+    t.integer  "anesthetist2",                    limit: 4
+    t.integer  "surgeon1",                        limit: 4
+    t.integer  "surgeon2",                        limit: 4
+    t.integer  "health_plan_id",                  limit: 4
+    t.text     "free_text",                       limit: 65535
+    t.text     "payment_note",                    limit: 65535
+    t.string   "attachment_map_file_name",        limit: 255
+    t.string   "attachment_map_content_type",     limit: 255
+    t.integer  "attachment_map_file_size",        limit: 4
+    t.datetime "attachment_map_updated_at"
+    t.string   "attachment_receipt_file_name",    limit: 255
+    t.string   "attachment_receipt_content_type", limit: 255
+    t.integer  "attachment_receipt_file_size",    limit: 4
+    t.datetime "attachment_receipt_updated_at"
   end
 
   add_index "maps", ["anesthetist_id"], name: "index_maps_on_anesthetist_id", using: :btree

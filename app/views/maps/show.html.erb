@@ -12,6 +12,7 @@
           <table class="ls-table ls-table-striped ls-no-hover ls-sm-space ls-no-margin-top">
 
             <tbody>
+
               <tr> 
                 <td> Anestesista: 
                   <label class="ls-title-6"><%= @map.anesthetist.try(:name) %>
@@ -19,23 +20,22 @@
                 </td> 
               </tr>
 
-              
-            <% if @map.anesthetist1? %>
-              <tr> 
-                <td> Anestesista 2: 
-                  <label class="ls-title-6"><%= find_desc_anesthetists(@map.anesthetist1) %>
-                  </label> 
-                </td> 
-              </tr>
-            <% end %> 
-            <% if @map.anesthetist2? %>
-              <tr> 
-                <td> Anestesista 3: 
-                  <label class="ls-title-6"><%= find_desc_anesthetists(@map.anesthetist2) %>
-                  </label> 
-                </td> 
-              </tr>  
-            <% end %>   
+              <% if @map.anesthetist1? %>
+                <tr> 
+                  <td> Anestesista 2: 
+                    <label class="ls-title-6"><%= find_desc_anesthetists(@map.anesthetist1) %>
+                    </label> 
+                  </td> 
+                </tr>
+              <% end %> 
+              <% if @map.anesthetist2? %>
+                <tr> 
+                  <td> Anestesista 3: 
+                    <label class="ls-title-6"><%= find_desc_anesthetists(@map.anesthetist2) %>
+                    </label> 
+                  </td> 
+                </tr>  
+              <% end %>   
 
               <tr> 
                 <td> Cirurgião: 
@@ -44,22 +44,22 @@
                 </td> 
               </tr>
 
-            <% if @map.surgeon1? %>  
-              <tr> 
-                <td> Cirurgião 2: 
-                  <label class="ls-title-6"><%= find_desc_surgeon(@map.surgeon1) %>
-                  </label> 
-                </td> 
-              </tr>  
-            <% end %>  
-            <% if @map.surgeon2? %>
-              <tr> 
-                <td> Cirurgião 3: 
-                  <label class="ls-title-6"><%= find_desc_surgeon(@map.surgeon2) %>
-                  </label> 
-                </td> 
-              </tr>  
-            <% end %>                
+              <% if @map.surgeon1? %>  
+                <tr> 
+                  <td> Cirurgião 2: 
+                    <label class="ls-title-6"><%= find_desc_surgeon(@map.surgeon1) %>
+                    </label> 
+                  </td> 
+                </tr>  
+              <% end %>  
+              <% if @map.surgeon2? %>
+                <tr> 
+                  <td> Cirurgião 3: 
+                    <label class="ls-title-6"><%= find_desc_surgeon(@map.surgeon2) %>
+                    </label> 
+                  </td> 
+                </tr>  
+              <% end %>                
               <tr> 
                 <td> Convênio Médico: 
                   <label class="ls-title-6"><%= @map.health_insurance.try(:name) %>
@@ -120,160 +120,160 @@
                   </label> 
                 </td> 
               </tr>
-            <% if @map.bedroom_id? %>
-              <tr> 
-                <td> Quarto: 
-                  <label class="ls-title-6"><%= @map.bedroom.try(:name) %>
-                  </label> 
-                </td> 
-              </tr>
-            <% end %>  
-            <% if @map.free_text? %>
-              <tr> 
-                <td> Texto Livre: 
-                  <label class="ls-title-6"><%= @map.free_text %>
-                  </label> 
-                </td> 
-              </tr>
-            <% end %> 
-            <% if @map.health_terminology_id? %>
-              <tr> 
-                <td> Procedimento: 
-                  <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Código TUSS: 
-                  <label class="ls-title-6"><%= @map.health_terminology.try(:code_tuss) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Porte: 
-                  <label class="ls-title-6"><%= @map.health_terminology.try(:measure) %>
-                  </label> 
-                </td> 
-              </tr>
-            <% end %> 
-            <% if exists_tuss2? %>
-              <tr> 
-                <td> Procedimento 2: 
-                  <label class="ls-title-6"><%= find_desc_tuss(@map.tuss2) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Código TUSS: 
-                  <label class="ls-title-6"><%= find_code_tuss(@map.tuss2) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Porte: 
-                  <label class="ls-title-6"><%= find_measure_tuss(@map.tuss2) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Via única: 
-                  <% if @map.via_unique2 == true %>
-                    <label class="ls-title-6">Sim</label>
-                  <% else %>
-                    <label class="ls-title-6">Não</label>
-                  <% end %>
-                </td> 
-              </tr>
-            <% end %> 
+              <% if @map.bedroom_id? %>
+                <tr> 
+                  <td> Quarto: 
+                    <label class="ls-title-6"><%= @map.bedroom.try(:name) %>
+                    </label> 
+                  </td> 
+                </tr>
+              <% end %>  
+              <% if @map.free_text? %>
+                <tr> 
+                  <td> Texto Livre: 
+                    <label class="ls-title-6"><%= @map.free_text %>
+                    </label> 
+                  </td> 
+                </tr>
+              <% end %> 
+              <% if @map.health_terminology_id? %>
+                <tr> 
+                  <td> Procedimento: 
+                    <label class="ls-title-6"><%= @map.health_terminology.try(:description_tuss) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Código TUSS: 
+                    <label class="ls-title-6"><%= @map.health_terminology.try(:code_tuss) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Porte: 
+                    <label class="ls-title-6"><%= @map.health_terminology.try(:measure) %>
+                    </label> 
+                  </td> 
+                </tr>
+              <% end %> 
+              <% if exists_tuss2? %>
+                <tr> 
+                  <td> Procedimento 2: 
+                    <label class="ls-title-6"><%= find_desc_tuss(@map.tuss2) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Código TUSS: 
+                    <label class="ls-title-6"><%= find_code_tuss(@map.tuss2) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Porte: 
+                    <label class="ls-title-6"><%= find_measure_tuss(@map.tuss2) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Via única: 
+                    <% if @map.via_unique2 == true %>
+                      <label class="ls-title-6">Sim</label>
+                    <% else %>
+                      <label class="ls-title-6">Não</label>
+                    <% end %>
+                  </td> 
+                </tr>
+              <% end %> 
 
-            <% if exists_tuss3? %>
-              <tr> 
-                <td> Procedimento 3: 
-                  <label class="ls-title-6"><%= find_desc_tuss(@map.tuss3) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Código TUSS: 
-                  <label class="ls-title-6"><%= find_code_tuss(@map.tuss3) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Porte: 
-                  <label class="ls-title-6"><%= find_measure_tuss(@map.tuss3) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Via única: 
-                  <% if @map.via_unique3 == true %>
-                    <label class="ls-title-6">Sim</label>
-                  <% else %>
-                    <label class="ls-title-6">Não</label>
-                  <% end %>
-                </td> 
-              </tr>
-            <% end %>
+              <% if exists_tuss3? %>
+                <tr> 
+                  <td> Procedimento 3: 
+                    <label class="ls-title-6"><%= find_desc_tuss(@map.tuss3) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Código TUSS: 
+                    <label class="ls-title-6"><%= find_code_tuss(@map.tuss3) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Porte: 
+                    <label class="ls-title-6"><%= find_measure_tuss(@map.tuss3) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Via única: 
+                    <% if @map.via_unique3 == true %>
+                      <label class="ls-title-6">Sim</label>
+                    <% else %>
+                      <label class="ls-title-6">Não</label>
+                    <% end %>
+                  </td> 
+                </tr>
+              <% end %>
 
-            <% if exists_tuss4? %>
-              <tr> 
-                <td> Procedimento 4: 
-                  <label class="ls-title-6"><%= find_desc_tuss(@map.tuss4) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Código TUSS: 
-                  <label class="ls-title-6"><%= find_code_tuss(@map.tuss4) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Porte: 
-                  <label class="ls-title-6"><%= find_measure_tuss(@map.tuss4) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Via única: 
-                  <% if @map.via_unique4 == true %>
-                    <label class="ls-title-6">Sim</label>
-                  <% else %>
-                    <label class="ls-title-6">Não</label>
-                  <% end %>
-                </td> 
-              </tr>
-            <% end %>  
-            <% if exists_tuss5? %>
-              <tr> 
-                <td> Procedimento 5: 
-                  <label class="ls-title-6"><%= find_desc_tuss(@map.tuss5) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Código TUSS: 
-                  <label class="ls-title-6"><%= find_code_tuss(@map.tuss5) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Porte: 
-                  <label class="ls-title-6"><%= find_measure_tuss(@map.tuss5) %>
-                  </label> 
-                </td> 
-              </tr>
-              <tr> 
-                <td> Via única: 
-                  <% if @map.via_unique5 == true %>
-                    <label class="ls-title-6">Sim</label>
-                  <% else %>
-                    <label class="ls-title-6">Não</label>
-                  <% end %>
-                </td> 
-              </tr>
-            <% end %>
+              <% if exists_tuss4? %>
+                <tr> 
+                  <td> Procedimento 4: 
+                    <label class="ls-title-6"><%= find_desc_tuss(@map.tuss4) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Código TUSS: 
+                    <label class="ls-title-6"><%= find_code_tuss(@map.tuss4) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Porte: 
+                    <label class="ls-title-6"><%= find_measure_tuss(@map.tuss4) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Via única: 
+                    <% if @map.via_unique4 == true %>
+                      <label class="ls-title-6">Sim</label>
+                    <% else %>
+                      <label class="ls-title-6">Não</label>
+                    <% end %>
+                  </td> 
+                </tr>
+              <% end %>  
+              <% if exists_tuss5? %>
+                <tr> 
+                  <td> Procedimento 5: 
+                    <label class="ls-title-6"><%= find_desc_tuss(@map.tuss5) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Código TUSS: 
+                    <label class="ls-title-6"><%= find_code_tuss(@map.tuss5) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Porte: 
+                    <label class="ls-title-6"><%= find_measure_tuss(@map.tuss5) %>
+                    </label> 
+                  </td> 
+                </tr>
+                <tr> 
+                  <td> Via única: 
+                    <% if @map.via_unique5 == true %>
+                      <label class="ls-title-6">Sim</label>
+                    <% else %>
+                      <label class="ls-title-6">Não</label>
+                    <% end %>
+                  </td> 
+                </tr>
+              <% end %>
             
               <tr> 
                 <td> Observação: 
@@ -281,6 +281,15 @@
                   </label> 
                 </td> 
               </tr>
+
+              <tr> 
+                <td> Anexo: 
+                  <label class="ls-title-6"><%= image_tag @map.attachment_map.url(:thumb) %>
+                  </label> 
+                  <%= link_to "Download", @map.attachment_map.url(:original, false) %>
+                </td> 
+              </tr>
+
             </tbody>
           </table>
         </div>
@@ -325,7 +334,16 @@
                   <label class="ls-title-6"><%= @map.receipt_note %>
                   </label> 
                 </td> 
-              </tr>                
+              </tr>    
+              <tr> 
+                <td> Anexo Recibo: 
+                  <label class="ls-title-6"><%= image_tag @map.attachment_receipt.url(:thumb) %>
+                  <%= link_to "Download", @map.attachment_receipt.url(:original, false) %>
+                  
+                  </label> 
+                </td> 
+              </tr>
+
             </tbody>
           </table>
         </div>
