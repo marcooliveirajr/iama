@@ -274,13 +274,15 @@
                   </td> 
                 </tr>
               <% end %>
-            
-              <tr> 
-                <td> Observação: 
-                  <label class="ls-title-6"><%= @map.note %>
-                  </label> 
-                </td> 
-              </tr>
+              
+              <% if @map.note? %>
+                <tr> 
+                  <td> Observação: 
+                    <label class="ls-title-6"><%= @map.note %>
+                    </label> 
+                  </td> 
+                </tr>
+              <% end %>
 
               <% if @map.attachment_map? %>
                 <tr> 
@@ -330,12 +332,14 @@
                   </label> 
                 </td> 
               </tr>
+              <% if @map.receipt_note? %>
               <tr> 
                 <td> Observação do recibo: 
                   <label class="ls-title-6"><%= @map.receipt_note %>
                   </label> 
                 </td> 
-              </tr>    
+              </tr>   
+              <% end %> 
               <% if @map.attachment_receipt? %>
                 <tr> 
                   <td> Anexo Recibo: 
