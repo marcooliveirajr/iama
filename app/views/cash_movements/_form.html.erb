@@ -8,7 +8,7 @@
           <div class="row">
             <div class="ls-prefix-group col-md-12">
               <div class="ls-custom-select">
-                <%= f.collection_select(:input_id, inputs_filter, :id, :name, class: "form-control ls-select", prompt: true) %>
+                <%= f.collection_select(:input_id, inputs_filter, :id, :cat, class: "form-control ls-select", prompt: true) %>
               </div>
               <a href="#" id='clear_input' class="ls-label-text-prefix ls-bg-white">Limpar</a>
             </div>
@@ -25,7 +25,7 @@
           <div class="row">
             <div class="ls-prefix-group col-md-12">
               <div class="ls-custom-select">
-                <%= f.collection_select(:output_id, outputs_filter, :id, :name, class: "form-control ls-select", prompt: true) %>
+                <%= f.collection_select(:output_id, outputs_filter, :id, :cat, class: "form-control ls-select", prompt: true) %>
               </div>
               <a href="#" id='clear_output' class="ls-label-text-prefix ls-bg-white">Limpar</a>
             </div>
