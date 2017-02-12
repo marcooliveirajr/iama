@@ -289,7 +289,7 @@
                   <td> Anexo: 
                     <label class="ls-title-6"><%= image_tag @map.attachment_map.url(:thumb) %>
                     </label> 
-                    <%= link_to "Download", @map.attachment_map.url(:original, false) %>
+                    <%= link_to "Download", @map.attachment_map.url(:original, false), :target => "_blank" %>
                   </td> 
                 </tr>
               <% end %>
@@ -344,7 +344,7 @@
                 <tr> 
                   <td> Anexo Recibo: 
                     <label class="ls-title-6"><%= image_tag @map.attachment_receipt.url(:thumb) %>
-                    <%= link_to "Download", @map.attachment_receipt.url(:original, false) %>
+                    <%= link_to "Download", @map.attachment_receipt.url(:original, false), :target => "_blank" %>
                     </label> 
                   </td> 
                 </tr>
