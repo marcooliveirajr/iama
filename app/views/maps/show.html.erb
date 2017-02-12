@@ -282,14 +282,15 @@
                 </td> 
               </tr>
 
-              <tr> 
-                <td> Anexo: 
-                  <label class="ls-title-6"><%= image_tag @map.attachment_map.url(:thumb) %>
-                  </label> 
-                  <%= link_to "Download", @map.attachment_map.url(:original, false) %>
-                </td> 
-              </tr>
-
+              <% if @map.attachment_map? %>
+                <tr> 
+                  <td> Anexo: 
+                    <label class="ls-title-6"><%= image_tag @map.attachment_map.url(:thumb) %>
+                    </label> 
+                    <%= link_to "Download", @map.attachment_map.url(:original, false) %>
+                  </td> 
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
@@ -335,15 +336,15 @@
                   </label> 
                 </td> 
               </tr>    
-              <tr> 
-                <td> Anexo Recibo: 
-                  <label class="ls-title-6"><%= image_tag @map.attachment_receipt.url(:thumb) %>
-                  <%= link_to "Download", @map.attachment_receipt.url(:original, false) %>
-                  
-                  </label> 
-                </td> 
-              </tr>
-
+              <% if @map.attachment_receipt? %>
+                <tr> 
+                  <td> Anexo Recibo: 
+                    <label class="ls-title-6"><%= image_tag @map.attachment_receipt.url(:thumb) %>
+                    <%= link_to "Download", @map.attachment_receipt.url(:original, false) %>
+                    </label> 
+                  </td> 
+                </tr>
+              <% end %>
             </tbody>
           </table>
         </div>
