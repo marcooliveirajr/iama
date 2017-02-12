@@ -125,7 +125,9 @@ class MapsController < ApplicationController
                                   :hospitalization,
                                   :receipt_day,
                                   :receipt_value,
-                                  :receipt_note)
+                                  :receipt_note,
+                                  :attachment_map,
+                                  :attachment_receipt)
     end
 
     def search_params

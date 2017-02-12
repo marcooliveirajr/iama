@@ -9,7 +9,7 @@
     <div class="ls-custom-select">
 
       <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
-      <% [['Data do Movimento', 'time_movement'], ['Documento', 'document'], ['Entrada', 'input'], ['Saída', 'output']].each do |c| %>
+      <% [['Data do Movimento', 'time_movement'], ['Entrada', 'input'], ['Saída', 'output']].each do |c| %>
       <%= content_tag(:option, c.first, value: c.last) %>
       <% end %>
       <% end %>
@@ -57,17 +57,13 @@
       </div>
     </header>
     <div class="ls-list-content ">
-      <div class="col-sm-5">
+      <div class="col-sm-6">
         <span class="ls-list-label">Categoria</span>
         <% if cash_movement.input_id? %>
           <strong><%= input_category(cash_movement) %></strong>
         <% else %>
           <strong><%= output_category(cash_movement) %></strong>
         <% end %>         
-      </div>
-      <div class="col-sm-5">
-        <span class="ls-list-label">Documento</span>
-        <strong><%= cash_movement.document %></strong>
       </div>
       <div class="col-sm-2">
         <span class="ls-list-label">Valor</span>

@@ -31,4 +31,5 @@ module MapsHelper
     end
     return ex
   end  
+
 end

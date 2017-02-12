@@ -63,7 +63,7 @@
     var $numberColumn = $('<td />');
     var $datePaymentColumn = $('<td />');
     var $datePayDayColumn = $('<td />');
-    //var $valueColumn = $('<td />'); //valor cobrado retirado
+    var $valueColumn = $('<td />');
     var $valuePayColumn = $('<td />');
     var $recipientColumn = $('<td />');
     var $removeColumn = $('<td />');
@@ -72,7 +72,7 @@
     //$numberColumn.html(getNumber());
     $datePaymentColumn.append(getDatePayment(value));
     $datePayDayColumn.append(getDayPayment(value));
-    //$valueColumn.append(getValueInputHidden(value)); //valor cobrado retirado
+    $valueColumn.append(getValueInputHidden(value));
     $valuePayColumn.append(getValuePay(value));
     $recipientColumn.append(getValueRec(value));
     $removeColumn.append(getRemoveButton());
@@ -80,7 +80,7 @@
     $line.append($numberColumn);
     $line.append($datePaymentColumn);
     $line.append($datePayDayColumn);
-    //$line.append($valueColumn); //valor cobrado retirado
+    $line.append($valueColumn);
     $line.append($valuePayColumn);
     $line.append($recipientColumn);
     $line.append($removeColumn);
