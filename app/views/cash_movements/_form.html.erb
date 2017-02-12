@@ -21,7 +21,7 @@
     <div class="row">
       <div class="col-md-8">
         <label class="ls-label col-md-8 <%= class_error @cash_movement, :output_id %>">
-        <span class="ls-label-text"><%= f.label :output_id, "Entrada:" %></span>
+        <span class="ls-label-text"><%= f.label :output_id, "Saída:" %></span>
           <div class="row">
             <div class="ls-prefix-group col-md-12">
               <div class="ls-custom-select">
@@ -48,15 +48,6 @@
           <%= show_message_error @cash_movement, :time_movement %>
         </label>
       </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-8">
-        <label class="ls-label col-md-8">
-        <span class="ls-label-text"><%= f.label :document, "Documento:" %></span>
-        <%= f.text_field :document %>
-      </label>
-     </div>
     </div>
 
     <div class="row">

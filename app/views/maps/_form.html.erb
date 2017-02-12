@@ -15,15 +15,6 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= label :attachment_map, "Anexo:" %></span>
-              <%= f.file_field :attachment_map %>            
-          </label>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-10">
-          <label class="ls-label col-md-10">
             <span class="ls-label-text"><%= label :anesthetist, "Anestesista:" %></span>
             <div class="ls-custom-select"> 
               <%= f.collection_select(:anesthetist_id, Anesthetist.all, :id, :name, class: 'ls-select', prompt: true) %>
@@ -218,7 +209,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :free_text, "Texto Livre:" %></span>
+            <span class="ls-label-text"><%= f.label :free_text, "Procedimento - Texto Livre:" %></span>
             <%= f.text_area :free_text %>
           </label>
         </div>
@@ -227,7 +218,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :health_terminology, "Procedimento:" %></span>
+            <span class="ls-label-text"><%= f.label :health_terminology, "Procedimento - TUSS:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:health_terminology_id, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
             </div>
@@ -251,7 +242,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :tuss2_id, "Procedimento 2:" %></span>
+            <span class="ls-label-text"><%= f.label :tuss2_id, "Procedimento 2 - TUSS:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:tuss2, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
             </div>
@@ -286,7 +277,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :tuss3_id, "Procedimento 3:" %></span>
+            <span class="ls-label-text"><%= f.label :tuss3_id, "Procedimento 3 - TUSS:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:tuss3, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
             </div>
@@ -321,7 +312,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :tuss4_id, "Procedimento 4:"%></span>
+            <span class="ls-label-text"><%= f.label :tuss4_id, "Procedimento 4 - TUSS:"%></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:tuss4, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
             </div>
@@ -356,7 +347,7 @@
       <div class="row">
         <div class="col-md-10">
           <label class="ls-label col-md-10">
-            <span class="ls-label-text"><%= f.label :tuss5_id, "Procedimento 5:" %></span>
+            <span class="ls-label-text"><%= f.label :tuss5_id, "Procedimento 5 - TUSS:" %></span>
             <div class="ls-custom-select">
               <%= f.collection_select(:tuss5, HealthTerminology.all, :id, :description_tuss, class: 'ls-select', prompt: true) %>
             </div>
@@ -394,6 +385,15 @@
           <label class="ls-label col-md-10">
             <span class="ls-label-text"><%= f.label :note, "Observação:" %></span>
             <%= f.text_area :note %>
+          </label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <label class="ls-label col-md-10">
+            <span class="ls-label-text"><%= label :attachment_map, "Anexo:" %></span>
+              <%= f.file_field :attachment_map %>            
           </label>
         </div>
       </div>
@@ -489,6 +489,7 @@
             <th>Parcela</th>
             <th>Data Cobrança</th>
             <th>Data Pagto</th>
+            <th>Valor Cobrado</th>
             <th>Valor Pago</th>
             <th>Beneficiário</th>
           </thead>
@@ -498,6 +499,7 @@
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_id]]]", payment_map.payment_id, class: 'col-md-10' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_date]]]", payment_map.payment_date.try(:strftime, "%d/%m/%Y"), class: 'col-md-10' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[pay_day]]]", payment_map.pay_day.try(:strftime, "%d/%m/%Y"), class: 'col-md-10' %></td>
+              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_value]]]", payment_map.payment_value, class: 'col-md-12' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[paid_value]]]", payment_map.paid_value, class: 'col-md-10' %></td>
               <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[recipient]]]", payment_map.recipient, class: 'col-md-10' %></td>
               <td>
