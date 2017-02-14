@@ -41,7 +41,11 @@
     <header class="ls-list-header">
       <div class="ls-list-title col-md-9">
         <span class="ls-list-label">Data / Procedimento</span>
-        <strong><%= map.time_surgery.strftime("%d/%m/%Y %H:%M") %> / <%= link_to map.health_terminology.try(:description_tuss), map %></strong>
+        <% if map.free_text? %>
+          <strong><%= map.time_surgery.strftime("%d/%m/%Y %H:%M") %> / <%= link_to map.free_text, map %></strong>
+        <% else %>
+          <strong><%= map.time_surgery.strftime("%d/%m/%Y %H:%M") %> / <%= link_to map.health_terminology.try(:description_tuss), map %></strong>
+        <%end%>
       </div>
       <div class="col-md-3 ls-txt-right">
         <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
