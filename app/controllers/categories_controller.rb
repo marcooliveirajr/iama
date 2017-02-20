@@ -69,18 +69,17 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1.json
   def destroy
     @category.destroy
-    if @category.errors.empty?
-      format.html { redirect_to categories_url, notice: 'Categoria excluído com sucesso.' }
-      format.json { head :no_content }
-    else
-      format.html { redirect_to anesthetists_url, alert: 'Não é possível excluir a categoria pois a mesma já foi vinculada a um Movimento de Caixa.' }
-      format.json { head :no_content }
-    end
     respond_to do |format|
-
+      if @category.errors.empty?
+        format.html { redirect_to categories_url, notice: 'Categoria excluído com sucesso.' }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to anesthetists_url, alert: 'Não é possível excluir a categoria pois a mesma já foi vinculada a um Movimento de Caixa.' }
+        format.json { head :no_content }
+      end
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_category
