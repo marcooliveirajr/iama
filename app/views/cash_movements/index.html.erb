@@ -33,7 +33,7 @@
 </div>
 
 <tbody>
-  <% @cash_movements.each do |cash_movement| %>
+  <% @cash_movements.order("time_movement desc").each do |cash_movement| %>
 
   <div class="ls-list">
     <header class="ls-list-header">
