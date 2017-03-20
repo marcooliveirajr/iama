@@ -40,8 +40,18 @@
       <div class="ls-list-title col-md-9">
       <% if cash_movement.input_id? %>
         <strong><%= link_to cash_movement.input.try(:name), cash_movement %></strong>
+        <% if cash_movement.input_id? %>
+          <span class="ls-tag-success"><%= input_movement(cash_movement) %></span>
+        <% else %>
+          <span class="ls-tag-danger"><%= output_movement(cash_movement) %></span>
+        <% end %> 
       <% else %>
         <strong><%= link_to cash_movement.output.try(:name), cash_movement %></strong>
+        <% if cash_movement.input_id? %>
+          <span class="ls-tag-success"><%= input_movement(cash_movement) %></span>
+        <% else %>
+          <span class="ls-tag-danger"><%= output_movement(cash_movement) %></span>
+        <% end %> 
       <% end %> 
         <small><%= cash_movement.time_movement.strftime("%d/%m/%Y") %></small>
       </div>
