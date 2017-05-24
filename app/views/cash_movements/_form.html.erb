@@ -7,10 +7,10 @@
         <span class="ls-label-text"><%= f.label :input_id, "Entrada:" %></span>
           <div class="row">
             <div class="ls-prefix-group col-md-12">
+              <a href="#" id='clear_input' class='ls-label-text-prefix ls-bg-white ls-ico-remove'></a>
               <div class="ls-custom-select">
-                <%= f.collection_select(:input_id, inputs_filter, :id, :cat, class: "form-control ls-select", prompt: true) %>
+                <%= f.collection_select(:input_id, inputs_filter, :id, :cat, class: "form-control ls-select", prompt: true, include_blank: 'Selecione') %>
               </div>
-              <a href="#" id='clear_input' class="ls-label-text-prefix ls-bg-white">Limpar</a>
             </div>
           </div>
           <%= show_message_error @cash_movement, :input_id %>
@@ -24,10 +24,10 @@
         <span class="ls-label-text"><%= f.label :output_id, "Saída:" %></span>
           <div class="row">
             <div class="ls-prefix-group col-md-12">
+              <a href="#" id='clear_output' class='ls-label-text-prefix ls-bg-white ls-ico-remove'></a>
               <div class="ls-custom-select">
-                <%= f.collection_select(:output_id, outputs_filter, :id, :cat, class: "form-control ls-select", prompt: true) %>
+                <%= f.collection_select(:output_id, outputs_filter, :id, :cat, class: "form-control ls-select", prompt: true, include_blank: 'Selecione') %>
               </div>
-              <a href="#" id='clear_output' class="ls-label-text-prefix ls-bg-white">Limpar</a>
             </div>
           </div>
           <%= show_message_error @cash_movement, :output_id %>
