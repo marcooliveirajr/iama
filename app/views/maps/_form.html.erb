@@ -504,7 +504,7 @@
           </label>
         </div>
       </div>
-    
+
       <div class="row">
         <div class="col-md-8">
           <label class="ls-label col-md-8">
@@ -518,7 +518,7 @@
           </label>
         </div>
       </div>
-    
+      
       <div class='col-md-10'>
         <table id='payments', class='ls-table'>
           <thead>
@@ -547,6 +547,16 @@
           </tbody>
         </table>
       </div>
+      
+      <div class="row">
+        <div class="col-md-10">
+          <label class="ls-label col-md-10">
+            <span class="ls-label-text"><%= label :attachment_pay, "Cheque:" %></span>
+              <%= f.file_field :attachment_pay %>            
+          </label>
+        </div>
+      </div>      
+      
       
       <div class="row">
         <div class="col-md-10">

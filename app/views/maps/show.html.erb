@@ -374,6 +374,15 @@
 
             <tbody>
               <tr> <td> Método de Pagamento: <label class="ls-title-6"><%= @map.payment_method.try(:name) %></label> </td> </tr>
+              <% if @map.attachment_pay? %>
+                <tr> 
+                  <td> Anexo Cheque: 
+                    <label class="ls-title-6"><%= image_tag @map.attachment_pay.url(:thumb) %>
+                    <%= link_to "Download", @map.attachment_pay.url(:original, false), :target => "_blank" %>
+                    </label> 
+                  </td> 
+                </tr>
+              <% end %>              
             </tbody>
           </table>
         </div>

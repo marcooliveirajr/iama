@@ -127,7 +127,8 @@ class MapsController < ApplicationController
                                   :receipt_value,
                                   :receipt_note,
                                   :attachment_map,
-                                  :attachment_receipt)
+                                  :attachment_receipt,
+                                  :attachment_pay)
     end
 
     def search_params

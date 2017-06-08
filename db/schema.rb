@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170210222202) do
+ActiveRecord::Schema.define(version: 20170608111615) do
 
   create_table "anesthetists", force: :cascade do |t|
     t.string   "name",               limit: 255
@@ -154,6 +154,10 @@ ActiveRecord::Schema.define(version: 20170210222202) do
     t.string   "attachment_receipt_content_type", limit: 255
     t.integer  "attachment_receipt_file_size",    limit: 4
     t.datetime "attachment_receipt_updated_at"
+    t.string   "attachment_pay_file_name",        limit: 255
+    t.string   "attachment_pay_content_type",     limit: 255
+    t.integer  "attachment_pay_file_size",        limit: 4
+    t.datetime "attachment_pay_updated_at"
   end
 
   add_index "maps", ["anesthetist_id"], name: "index_maps_on_anesthetist_id", using: :btree

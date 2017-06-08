@@ -5,6 +5,9 @@ class Map < ActiveRecord::Base
   has_attached_file :attachment_receipt, :styles => { 
     :medium => "300x300>", 
     :thumb => "100x100>" }
+  has_attached_file :attachment_pay, :styles => { 
+    :medium => "300x300>", 
+    :thumb => "100x100>" }    
   usar_como_dinheiro :receipt_value
   belongs_to :hospital
   belongs_to :bedroom
@@ -30,6 +33,7 @@ class Map < ActiveRecord::Base
   validates :surgeon_id, presence: { message: 'Necessário informar um Cirurgião' }
   validates_attachment_content_type :attachment_map, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   validates_attachment_content_type :attachment_receipt, :content_type => ["image/jpg", "image/jpeg", "image/png"]
+  validates_attachment_content_type :attachment_pay, :content_type => ["image/jpg", "image/jpeg", "image/png"]
   
   def terminology_version
     return HealthTerminology.where(version_id: health_insurance.id).all unless health_insurance.nil?
