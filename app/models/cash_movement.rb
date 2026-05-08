@@ -1,5 +1,5 @@
-class CashMovement < ActiveRecord::Base
-  usar_como_dinheiro :movement_value
+class CashMovement < ApplicationRecord
+  # usar_como_dinheiro :movement_value
   belongs_to :input
   belongs_to :output
   validates :movement_value, presence: { message: 'Necessário informar um Valor do Movimento' }
@@ -18,3 +18,5 @@ class CashMovement < ActiveRecord::Base
 	  end
 	end
 end
+
+

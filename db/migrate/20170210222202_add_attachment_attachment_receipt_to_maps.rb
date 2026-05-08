@@ -1,7 +1,11 @@
-class AddAttachmentAttachmentReceiptToMaps < ActiveRecord::Migration
-  def self.up
+class AddAttachmentAttachmentReceiptToMaps < ActiveRecord::Migration[4.2]
+def self.up
     change_table :maps do |t|
-      t.attachment :attachment_receipt
+            t.string :attachment_receipt_file_name
+      t.string :attachment_receipt_content_type
+      t.integer :attachment_receipt_file_size
+      t.datetime :attachment_receipt_updated_at
+
     end
   end
 
@@ -9,3 +13,4 @@ class AddAttachmentAttachmentReceiptToMaps < ActiveRecord::Migration
     remove_attachment :maps, :attachment_receipt
   end
 end
+

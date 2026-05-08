@@ -1,4 +1,4 @@
-class CreateHealthTerminologies < ActiveRecord::Migration
+class CreateHealthTerminologies < ActiveRecord::Migration[4.2]
   def change
     create_table :health_terminologies do |t|
       t.integer :code_tuss, :limit => 8
@@ -10,3 +10,4 @@ class CreateHealthTerminologies < ActiveRecord::Migration
     end
   end
 end
+

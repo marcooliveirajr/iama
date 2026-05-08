@@ -1,4 +1,4 @@
-class AddTussToMaps < ActiveRecord::Migration
+class AddTussToMaps < ActiveRecord::Migration[4.2]
   def change
   	add_column :maps, :tuss2, :integer
   	add_column :maps, :tuss3, :integer
@@ -10,3 +10,4 @@ class AddTussToMaps < ActiveRecord::Migration
   	add_column :maps, :via_unique5, :boolean
   end
 end
+

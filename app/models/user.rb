@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ApplicationRecord
   belongs_to :role
   validates :name, presence: { message: :required_name }
   # Include default devise modules. Others available are:
@@ -23,3 +23,4 @@ class User < ActiveRecord::Base
     self.role ||= Role.find_by_name('registered')
   end
 end
+

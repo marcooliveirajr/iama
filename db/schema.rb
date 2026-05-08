@@ -1,316 +1,334 @@
-# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your
-# database schema. If you need to create the application database on another
-# system, you should be using db:schema:load, not running all the migrations
-# from scratch. The latter is a flawed and unsustainable approach (the more migrations
-# you'll amass, the slower it'll run and the greater likelihood for issues).
+# This file is the source Rails uses to define your schema when running `bin/rails
+# db:schema:load`. When creating a new database, `bin/rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608111615) do
+ActiveRecord::Schema[7.2].define(version: 2026_05_07_015451) do
+  create_table "active_storage_attachments", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
+    t.datetime "created_at", null: false
+    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
+    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+  end
+
+  create_table "active_storage_blobs", force: :cascade do |t|
+    t.string "key", null: false
+    t.string "filename", null: false
+    t.string "content_type"
+    t.text "metadata"
+    t.string "service_name", null: false
+    t.bigint "byte_size", null: false
+    t.string "checksum"
+    t.datetime "created_at", null: false
+    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "active_storage_variant_records", force: :cascade do |t|
+    t.bigint "blob_id", null: false
+    t.string "variation_digest", null: false
+    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
 
   create_table "anesthetists", force: :cascade do |t|
-    t.string   "name",               limit: 255
-    t.string   "rg",                 limit: 255
-    t.string   "cpf",                limit: 255
-    t.string   "phone",              limit: 255
-    t.string   "email",              limit: 255
-    t.string   "address",            limit: 255
-    t.integer  "address_number",     limit: 4
-    t.string   "address_complement", limit: 255
-    t.string   "district",           limit: 255
-    t.string   "city",               limit: 255
-    t.string   "postal_code",        limit: 255
-    t.string   "state",              limit: 255
-    t.text     "note",               limit: 65535
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "registration",       limit: 255
-    t.string   "cellphone",          limit: 255
+    t.string "name"
+    t.string "rg"
+    t.string "cpf"
+    t.string "phone"
+    t.string "email"
+    t.string "address"
+    t.integer "address_number"
+    t.string "address_complement"
+    t.string "district"
+    t.string "city"
+    t.string "postal_code"
+    t.string "state"
+    t.text "note"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.string "registration"
+    t.string "cellphone"
   end
 
   create_table "bedrooms", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "name"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "cash_movements", force: :cascade do |t|
-    t.string   "document",       limit: 255
-    t.datetime "time_movement"
-    t.text     "movement_note",  limit: 65535
-    t.float    "movement_value", limit: 24
-    t.integer  "input_id",       limit: 4
-    t.integer  "output_id",      limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.string "document"
+    t.datetime "time_movement", precision: nil
+    t.text "movement_note"
+    t.float "movement_value"
+    t.integer "input_id"
+    t.integer "output_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["input_id"], name: "index_cash_movements_on_input_id"
+    t.index ["output_id"], name: "index_cash_movements_on_output_id"
   end
 
-  add_index "cash_movements", ["input_id"], name: "index_cash_movements_on_input_id", using: :btree
-  add_index "cash_movements", ["output_id"], name: "index_cash_movements_on_output_id", using: :btree
-
   create_table "categories", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "input_type", limit: 255
+    t.string "name"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.string "input_type"
   end
 
   create_table "health_insurances", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "kind",       limit: 255
-    t.boolean  "status"
-    t.integer  "version_id", limit: 4
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "name"
+    t.string "kind"
+    t.boolean "status"
+    t.integer "version_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["version_id"], name: "index_health_insurances_on_version_id"
   end
 
-  add_index "health_insurances", ["version_id"], name: "index_health_insurances_on_version_id", using: :btree
-
   create_table "health_plans", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "kind",       limit: 255
-    t.boolean  "status"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "name"
+    t.string "kind"
+    t.boolean "status"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "health_terminologies", force: :cascade do |t|
-    t.integer  "code_tuss",        limit: 8
-    t.string   "description_tuss", limit: 255
-    t.integer  "measure",          limit: 4
-    t.integer  "version_id",       limit: 4
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.integer "code_tuss", limit: 8
+    t.string "description_tuss"
+    t.integer "measure"
+    t.integer "version_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["version_id"], name: "index_health_terminologies_on_version_id"
   end
 
-  add_index "health_terminologies", ["version_id"], name: "index_health_terminologies_on_version_id", using: :btree
-
   create_table "hospitals", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "kind",       limit: 255
-    t.boolean  "status"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "name"
+    t.string "kind"
+    t.boolean "status"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "inputs", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.integer  "category_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string "name"
+    t.integer "category_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["category_id"], name: "index_inputs_on_category_id"
   end
-
-  add_index "inputs", ["category_id"], name: "index_inputs_on_category_id", using: :btree
 
   create_table "maps", force: :cascade do |t|
-    t.datetime "time_surgery"
-    t.integer  "hospital_id",                     limit: 4
-    t.integer  "bedroom_id",                      limit: 4
-    t.integer  "patient_id",                      limit: 4
-    t.integer  "health_terminology_id",           limit: 4
-    t.integer  "surgeon_id",                      limit: 4
-    t.integer  "anesthetist_id",                  limit: 4
-    t.integer  "health_insurance_id",             limit: 4
-    t.integer  "receipt_id",                      limit: 4
-    t.integer  "payment_method_id",               limit: 4
-    t.integer  "payment_recipient_id",            limit: 4
-    t.text     "note",                            limit: 65535
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-    t.integer  "tuss2",                           limit: 4
-    t.integer  "tuss3",                           limit: 4
-    t.integer  "tuss4",                           limit: 4
-    t.integer  "tuss5",                           limit: 4
-    t.boolean  "via_unique2"
-    t.boolean  "via_unique3"
-    t.boolean  "via_unique4"
-    t.boolean  "via_unique5"
-    t.string   "registration",                    limit: 255
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.string   "password",                        limit: 255
-    t.string   "plan",                            limit: 255
-    t.string   "hospitalization",                 limit: 255
-    t.datetime "receipt_day"
-    t.float    "receipt_value",                   limit: 24
-    t.text     "receipt_note",                    limit: 65535
-    t.integer  "anesthetist1",                    limit: 4
-    t.integer  "anesthetist2",                    limit: 4
-    t.integer  "surgeon1",                        limit: 4
-    t.integer  "surgeon2",                        limit: 4
-    t.integer  "health_plan_id",                  limit: 4
-    t.text     "free_text",                       limit: 65535
-    t.text     "payment_note",                    limit: 65535
-    t.string   "attachment_map_file_name",        limit: 255
-    t.string   "attachment_map_content_type",     limit: 255
-    t.integer  "attachment_map_file_size",        limit: 4
-    t.datetime "attachment_map_updated_at"
-    t.string   "attachment_receipt_file_name",    limit: 255
-    t.string   "attachment_receipt_content_type", limit: 255
-    t.integer  "attachment_receipt_file_size",    limit: 4
-    t.datetime "attachment_receipt_updated_at"
-    t.string   "attachment_pay_file_name",        limit: 255
-    t.string   "attachment_pay_content_type",     limit: 255
-    t.integer  "attachment_pay_file_size",        limit: 4
-    t.datetime "attachment_pay_updated_at"
+    t.datetime "time_surgery", precision: nil
+    t.integer "hospital_id"
+    t.integer "bedroom_id"
+    t.integer "patient_id"
+    t.integer "health_terminology_id"
+    t.integer "surgeon_id"
+    t.integer "anesthetist_id"
+    t.integer "health_insurance_id"
+    t.integer "receipt_id"
+    t.integer "payment_method_id"
+    t.integer "payment_recipient_id"
+    t.text "note"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.integer "tuss2"
+    t.integer "tuss3"
+    t.integer "tuss4"
+    t.integer "tuss5"
+    t.boolean "via_unique2"
+    t.boolean "via_unique3"
+    t.boolean "via_unique4"
+    t.boolean "via_unique5"
+    t.string "registration"
+    t.datetime "start_time", precision: nil
+    t.datetime "end_time", precision: nil
+    t.string "password"
+    t.string "plan"
+    t.string "hospitalization"
+    t.datetime "receipt_day", precision: nil
+    t.float "receipt_value"
+    t.text "receipt_note"
+    t.integer "anesthetist1"
+    t.integer "anesthetist2"
+    t.integer "surgeon1"
+    t.integer "surgeon2"
+    t.integer "health_plan_id"
+    t.text "free_text"
+    t.text "payment_note"
+    t.string "attachment_map_file_name"
+    t.string "attachment_map_content_type"
+    t.integer "attachment_map_file_size"
+    t.datetime "attachment_map_updated_at", precision: nil
+    t.string "attachment_receipt_file_name"
+    t.string "attachment_receipt_content_type"
+    t.integer "attachment_receipt_file_size"
+    t.datetime "attachment_receipt_updated_at", precision: nil
+    t.string "attachment_pay_file_name"
+    t.string "attachment_pay_content_type"
+    t.integer "attachment_pay_file_size"
+    t.datetime "attachment_pay_updated_at", precision: nil
+    t.index ["anesthetist_id"], name: "index_maps_on_anesthetist_id"
+    t.index ["bedroom_id"], name: "index_maps_on_bedroom_id"
+    t.index ["health_insurance_id"], name: "index_maps_on_health_insurance_id"
+    t.index ["health_plan_id"], name: "index_maps_on_health_plan_id"
+    t.index ["health_terminology_id"], name: "index_maps_on_health_terminology_id"
+    t.index ["hospital_id"], name: "index_maps_on_hospital_id"
+    t.index ["patient_id"], name: "index_maps_on_patient_id"
+    t.index ["payment_method_id"], name: "index_maps_on_payment_method_id"
+    t.index ["payment_recipient_id"], name: "index_maps_on_payment_recipient_id"
+    t.index ["receipt_id"], name: "index_maps_on_receipt_id"
+    t.index ["surgeon_id"], name: "index_maps_on_surgeon_id"
   end
-
-  add_index "maps", ["anesthetist_id"], name: "index_maps_on_anesthetist_id", using: :btree
-  add_index "maps", ["bedroom_id"], name: "index_maps_on_bedroom_id", using: :btree
-  add_index "maps", ["health_insurance_id"], name: "index_maps_on_health_insurance_id", using: :btree
-  add_index "maps", ["health_plan_id"], name: "index_maps_on_health_plan_id", using: :btree
-  add_index "maps", ["health_terminology_id"], name: "index_maps_on_health_terminology_id", using: :btree
-  add_index "maps", ["hospital_id"], name: "index_maps_on_hospital_id", using: :btree
-  add_index "maps", ["patient_id"], name: "index_maps_on_patient_id", using: :btree
-  add_index "maps", ["payment_method_id"], name: "index_maps_on_payment_method_id", using: :btree
-  add_index "maps", ["payment_recipient_id"], name: "index_maps_on_payment_recipient_id", using: :btree
-  add_index "maps", ["receipt_id"], name: "index_maps_on_receipt_id", using: :btree
-  add_index "maps", ["surgeon_id"], name: "index_maps_on_surgeon_id", using: :btree
 
   create_table "on_duties", force: :cascade do |t|
-    t.datetime "on_duty_date"
-    t.integer  "anesthetist_id", limit: 4
-    t.text     "note",           limit: 65535
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.datetime "end_time"
+    t.datetime "on_duty_date", precision: nil
+    t.integer "anesthetist_id"
+    t.text "note"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "end_time", precision: nil
+    t.index ["anesthetist_id"], name: "index_on_duties_on_anesthetist_id"
   end
-
-  add_index "on_duties", ["anesthetist_id"], name: "index_on_duties_on_anesthetist_id", using: :btree
 
   create_table "outputs", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.integer  "category_id", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.string "name"
+    t.integer "category_id"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["category_id"], name: "index_outputs_on_category_id"
   end
 
-  add_index "outputs", ["category_id"], name: "index_outputs_on_category_id", using: :btree
-
   create_table "patients", force: :cascade do |t|
-    t.string   "name",               limit: 255
-    t.string   "rg",                 limit: 255
-    t.string   "cpf",                limit: 255
-    t.string   "phone",              limit: 255
-    t.string   "email",              limit: 255
-    t.string   "address",            limit: 255
-    t.integer  "address_number",     limit: 4
-    t.string   "address_complement", limit: 255
-    t.string   "district",           limit: 255
-    t.string   "city",               limit: 255
-    t.string   "postal_code",        limit: 255
-    t.string   "state",              limit: 255
-    t.text     "note",               limit: 65535
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "registration",       limit: 255
-    t.string   "cellphone",          limit: 255
-    t.integer  "age",                limit: 4
+    t.string "name"
+    t.string "rg"
+    t.string "cpf"
+    t.string "phone"
+    t.string "email"
+    t.string "address"
+    t.integer "address_number"
+    t.string "address_complement"
+    t.string "district"
+    t.string "city"
+    t.string "postal_code"
+    t.string "state"
+    t.text "note"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.string "registration"
+    t.string "cellphone"
+    t.integer "age"
   end
 
   create_table "payment_maps", force: :cascade do |t|
-    t.integer  "map_id",        limit: 4
-    t.integer  "payment_id",    limit: 4
-    t.datetime "payment_date"
-    t.float    "payment_value", limit: 24
-    t.float    "paid_value",    limit: 24
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.datetime "pay_day"
-    t.string   "recipient",     limit: 255
+    t.integer "map_id"
+    t.integer "payment_id"
+    t.datetime "payment_date", precision: nil
+    t.float "payment_value"
+    t.float "paid_value"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.datetime "pay_day", precision: nil
+    t.string "recipient"
+    t.index ["map_id"], name: "index_payment_maps_on_map_id"
   end
 
-  add_index "payment_maps", ["map_id"], name: "index_payment_maps_on_map_id", using: :btree
-
   create_table "payment_methods", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "name"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "payment_recipients", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "name"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "receipts", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "name"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "name"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
   create_table "size_surgeries", force: :cascade do |t|
-    t.integer  "health_insurance_id", limit: 4
-    t.integer  "measure",             limit: 4
-    t.float    "value_measure",       limit: 24
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.integer "health_insurance_id"
+    t.integer "measure"
+    t.float "value_measure"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.index ["health_insurance_id"], name: "index_size_surgeries_on_health_insurance_id"
   end
 
-  add_index "size_surgeries", ["health_insurance_id"], name: "index_size_surgeries_on_health_insurance_id", using: :btree
-
   create_table "surgeons", force: :cascade do |t|
-    t.string   "name",               limit: 255
-    t.string   "rg",                 limit: 255
-    t.string   "cpf",                limit: 255
-    t.string   "phone",              limit: 255
-    t.string   "email",              limit: 255
-    t.string   "address",            limit: 255
-    t.integer  "address_number",     limit: 4
-    t.string   "address_complement", limit: 255
-    t.string   "district",           limit: 255
-    t.string   "city",               limit: 255
-    t.string   "postal_code",        limit: 255
-    t.string   "state",              limit: 255
-    t.text     "note",               limit: 65535
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "registration",       limit: 255
-    t.string   "cellphone",          limit: 255
+    t.string "name"
+    t.string "rg"
+    t.string "cpf"
+    t.string "phone"
+    t.string "email"
+    t.string "address"
+    t.integer "address_number"
+    t.string "address_complement"
+    t.string "district"
+    t.string "city"
+    t.string "postal_code"
+    t.string "state"
+    t.text "note"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.string "registration"
+    t.string "cellphone"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
-    t.datetime "created_at",                                      null: false
-    t.datetime "updated_at",                                      null: false
-    t.string   "name",                   limit: 255
-    t.integer  "role_id",                limit: 4
-    t.integer  "failed_attempts",        limit: 4,   default: 0
-    t.string   "unlock_token",           limit: 255
-    t.datetime "locked_at"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at", precision: nil
+    t.datetime "remember_created_at", precision: nil
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at", precision: nil
+    t.datetime "last_sign_in_at", precision: nil
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
+    t.string "name"
+    t.integer "role_id"
+    t.integer "failed_attempts", default: 0
+    t.string "unlock_token"
+    t.datetime "locked_at", precision: nil
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-  add_index "users", ["role_id"], name: "index_users_on_role_id", using: :btree
 
   create_table "versions", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string "name"
+    t.datetime "created_at", precision: nil, null: false
+    t.datetime "updated_at", precision: nil, null: false
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "cash_movements", "inputs"
   add_foreign_key "cash_movements", "outputs"
   add_foreign_key "health_insurances", "versions"

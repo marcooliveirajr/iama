@@ -1,4 +1,4 @@
-class CreatePaymentRecipients < ActiveRecord::Migration
+class CreatePaymentRecipients < ActiveRecord::Migration[4.2]
   def change
     create_table :payment_recipients do |t|
       t.string :name
@@ -7,3 +7,4 @@ class CreatePaymentRecipients < ActiveRecord::Migration
     end
   end
 end
+

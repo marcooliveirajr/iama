@@ -1,4 +1,4 @@
-class CreateInputs < ActiveRecord::Migration
+class CreateInputs < ActiveRecord::Migration[4.2]
   def change
     create_table :inputs do |t|
       t.string :name
@@ -8,3 +8,4 @@ class CreateInputs < ActiveRecord::Migration
     end
   end
 end
+

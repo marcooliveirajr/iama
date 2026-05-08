@@ -1,4 +1,4 @@
-class CreateBedrooms < ActiveRecord::Migration
+class CreateBedrooms < ActiveRecord::Migration[4.2]
   def change
     create_table :bedrooms do |t|
       t.string :name
@@ -7,3 +7,4 @@ class CreateBedrooms < ActiveRecord::Migration
     end
   end
 end
+

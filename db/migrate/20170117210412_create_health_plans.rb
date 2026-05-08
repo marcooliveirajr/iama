@@ -1,4 +1,4 @@
-class CreateHealthPlans < ActiveRecord::Migration
+class CreateHealthPlans < ActiveRecord::Migration[4.2]
   def change
     create_table :health_plans do |t|
       t.string :name
@@ -9,3 +9,4 @@ class CreateHealthPlans < ActiveRecord::Migration
     end
   end
 end
+

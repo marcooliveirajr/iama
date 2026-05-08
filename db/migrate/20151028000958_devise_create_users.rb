@@ -1,4 +1,4 @@
-class DeviseCreateUsers < ActiveRecord::Migration
+class DeviseCreateUsers < ActiveRecord::Migration[4.2]
   def change
     create_table(:users) do |t|
       ## Database authenticatable
@@ -40,3 +40,4 @@ class DeviseCreateUsers < ActiveRecord::Migration
     # add_index :users, :unlock_token,         unique: true
   end
 end
+

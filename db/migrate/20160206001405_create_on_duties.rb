@@ -1,4 +1,4 @@
-class CreateOnDuties < ActiveRecord::Migration
+class CreateOnDuties < ActiveRecord::Migration[4.2]
   def change
     create_table :on_duties do |t|
       t.datetime :on_duty_date
@@ -9,3 +9,4 @@ class CreateOnDuties < ActiveRecord::Migration
     end
   end
 end
+

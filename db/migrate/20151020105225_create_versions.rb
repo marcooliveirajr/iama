@@ -1,4 +1,4 @@
-class CreateVersions < ActiveRecord::Migration
+class CreateVersions < ActiveRecord::Migration[4.2]
   def change
     create_table :versions do |t|
       t.string :name
@@ -7,3 +7,4 @@ class CreateVersions < ActiveRecord::Migration
     end
   end
 end
+

@@ -1,15 +1,6 @@
-require File.expand_path('../boot', __FILE__)
+require_relative "boot"
 
-require "rails"
-# Pick the frameworks you want:
-require "active_model/railtie"
-require "active_job/railtie"
-require "active_record/railtie"
-require "action_controller/railtie"
-require "action_mailer/railtie"
-require "action_view/railtie"
-require "sprockets/railtie"
-# require "rails/test_unit/railtie"
+require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -17,22 +8,29 @@ Bundler.require(*Rails.groups)
 
 module Clinicaiama
   class Application < Rails::Application
-
-    config.eager_load_paths += %W(#{config.root}/lib)
-    config.i18n.enforce_available_locales = true
-    config.i18n.default_locale = :"pt-BR"
-    config.encoding = 'utf-8'
-
-    config.generators do |generate|
-      #generate.test_framework :rspec
-      generate.stylesheets false
-      generate.javascript_engine false
-      generate.view_specs false
-      generate.helper false
+    # Initialize configuration defaults for originally generated Rails version.
+    config.load_defaults 7.2
+    
+    # Suporte para o objeto SECRETS usado nas views legadas
+    config.before_initialize do
+      config_file = Rails.root.join("config", "secrets.yml")
+      if File.exist?(config_file)
+        secrets = YAML.safe_load(ERB.new(File.read(config_file)).result, aliases: true)
+        ::SECRETS = secrets[Rails.env] || secrets["default"]
+      end
     end
 
-    config.active_record.raise_in_transactional_callbacks = true
+    # Please, add to the `ignore` list any other `lib` subdirectories that do
+    # not contain `.rb` files, or that should not be reloaded or eager loaded.
+    # Common ones are `templates`, `generators`, or `middleware`, for example.
+    config.autoload_lib(ignore: %w[assets tasks])
+
+    # Configuration for the application, engines, and railties goes here.
+    #
+    # These settings can be overridden in specific environments using the files
+    # in config/environments, which are processed later.
+    #
+    # config.time_zone = "Central Time (US & Canada)"
+    # config.eager_load_paths << Rails.root.join("extras")
   end
 end
-
-SECRETS = Rails.application.secrets

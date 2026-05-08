@@ -1,4 +1,4 @@
-class CreateSizeSurgeries < ActiveRecord::Migration
+class CreateSizeSurgeries < ActiveRecord::Migration[4.2]
   def change
     create_table :size_surgeries do |t|
       t.references :health_insurance, index: true, foreign_key: true
@@ -9,3 +9,4 @@ class CreateSizeSurgeries < ActiveRecord::Migration
     end
   end
 end
+

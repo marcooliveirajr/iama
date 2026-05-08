@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <%= stylesheet_link_tag "application", SECRETS["locastyle"]["css"], :media => "screen" %>
   <%= csrf_meta_tags %>
+    <%= javascript_importmap_tags %>
 </head>
 <body>
   <div class="ls-topbar">
@@ -44,7 +45,7 @@
       
       <footer class="ls-footer" role="contentinfo">
         <div class="ls-footer-info">
-          <p class="ls-copy-right">Copyright © 2016-2017 M2A - Website desenvolvido por <a href="mailto:drelucas@gmail.com">André Lucas Miranda</a></p>
+          <p class="ls-copy-right">Copyright © 2026 - Website desenvolvido por Mconsulting</p>
         </div>
       </footer>
     </div>
@@ -53,7 +54,7 @@
 
   <%= render 'shared/menu' %>
 
-  <%= javascript_include_tag "application", SECRETS["locastyle"]["js"] %>
+  <script src="<%= SECRETS["locastyle"]["js"] %>" type="text/javascript"></script>
   <script type='text/javascript'>
     <%= yield :javascript %>
   </script>

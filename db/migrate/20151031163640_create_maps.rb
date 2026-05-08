@@ -1,4 +1,4 @@
-class CreateMaps < ActiveRecord::Migration
+class CreateMaps < ActiveRecord::Migration[4.2]
   def change
     create_table :maps do |t|
       t.datetime :time_surgery
@@ -18,3 +18,4 @@ class CreateMaps < ActiveRecord::Migration
     end
   end
 end
+

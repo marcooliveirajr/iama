@@ -1,4 +1,4 @@
-class CreateOutputs < ActiveRecord::Migration
+class CreateOutputs < ActiveRecord::Migration[4.2]
   def change
     create_table :outputs do |t|
       t.string :name
@@ -8,3 +8,4 @@ class CreateOutputs < ActiveRecord::Migration
     end
   end
 end
+

@@ -1,4 +1,4 @@
-class CreatePaymentMaps < ActiveRecord::Migration
+class CreatePaymentMaps < ActiveRecord::Migration[4.2]
   def change
     create_table :payment_maps do |t|
       t.references :map, index: true, foreign_key: true
@@ -11,3 +11,4 @@ class CreatePaymentMaps < ActiveRecord::Migration
     end
   end
 end
+

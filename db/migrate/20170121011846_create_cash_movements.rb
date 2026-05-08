@@ -1,4 +1,4 @@
-class CreateCashMovements < ActiveRecord::Migration
+class CreateCashMovements < ActiveRecord::Migration[4.2]
   def change
     create_table :cash_movements do |t|
       t.string :document
@@ -12,3 +12,4 @@ class CreateCashMovements < ActiveRecord::Migration
     end
   end
 end
+
