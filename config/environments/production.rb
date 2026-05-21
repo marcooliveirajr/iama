@@ -1,6 +1,9 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  # Chave secreta para cookies e sessões (obrigatório no Rails 7 em produção)
+  config.secret_key_base = '56a2eab0fff6670ec9c51c4f2eab490ac1dded55d5e6ff5a68feb8a14eeae45200a89a420a07b6758db1291948f4a9a3165aca33fd23a3f735613999bd955f16'
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
