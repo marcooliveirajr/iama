@@ -11,21 +11,22 @@ window.moment = moment
 
 console.log("IAMA Application loaded with Importmaps!")
 
-// Controle do Sidebar (Menu Lateral) compatível com Turbo
+// Controle do Sidebar (Menu Lateral) compatível com Turbo e Locastyle 3
 $(document).on('click', '.ls-show-sidebar', function (e) {
   e.preventDefault();
   e.stopPropagation();
-  $('body').toggleClass('ls-sidebar-open');
+  $('html').toggleClass('ls-sidebar-visible');
 });
 
 $(document).on('click', 'main.ls-main, .ls-topbar', function () {
-  if ($('body').hasClass('ls-sidebar-open')) {
-    $('body').removeClass('ls-sidebar-open');
+  if ($('html').hasClass('ls-sidebar-visible')) {
+    $('html').removeClass('ls-sidebar-visible');
   }
 });
 
 $(document).on('click', '.ls-go-prev', function (e) {
   e.preventDefault();
-  $('body').removeClass('ls-sidebar-open');
+  $('html').removeClass('ls-sidebar-visible');
 });
+
 
