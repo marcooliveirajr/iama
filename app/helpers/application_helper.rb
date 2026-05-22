@@ -24,14 +24,14 @@ module ApplicationHelper
   end
 
   def show_message_error(model, key)
-    build_tag_message_error model, key if model.errors.key? key.to_sym
+    build_tag_message_error model, key if model.errors.include? key.to_sym
   end
 
   private
 
   def class_error(model, attribute)
     return unless model && model.errors
-    'ls-alert-danger' if model.errors.key? attribute.to_sym
+    'ls-alert-danger' if model.errors.include? attribute.to_sym
   end
 
   def build_tag_message_alert(msg, type)
