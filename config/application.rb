@@ -11,6 +11,9 @@ module Clinicaiama
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.2
     
+    # Compatibilidade com Rails 4: Associações belongs_to são opcionais por padrão
+    config.active_record.belongs_to_required_by_default = false
+    
     # Suporte para o objeto SECRETS usado nas views legadas
     config.before_initialize do
       config_file = Rails.root.join("config", "secrets.yml")
