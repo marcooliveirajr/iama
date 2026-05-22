@@ -12,12 +12,6 @@ test:
   database: db/test.sqlite3
 
 production:
-  adapter: mysql2
-  encoding: utf8
-  pool: 5
-  timeout: 5000
-  username: root
-  host: mysql88570-clinicaiama.jelasticlw.com.br
-  password: YDItyd07983
-  database: iama-production
+  <<: *default
+  database: db/production.sqlite3
 
