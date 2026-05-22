@@ -12,10 +12,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
-  # adapter: mysql2
-  # encoding: utf8
-  # database: iama-production
-  # username: root
-  # password: <%= ENV['IAMA_DATABASE_PASSWORD'] %>
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  username: root
+  host: mysql88570-clinicaiama.jelasticlw.com.br
+  password: YDItyd07983
+  database: iama-production
+
