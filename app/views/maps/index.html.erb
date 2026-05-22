@@ -3,36 +3,54 @@
 <a><%= link_to 'Cadastrar Cirurgia', new_map_path(@map) , class: "ls-btn-primary" %></a>
 
 <div class="ls-box-filter">
-  <%= form_for :search, url: search_maps_path, html: { :class => "ls-form ls-form-inline", method: :get } do |f| %>
+  <%= form_for :search, url: search_maps_path, html: { class: "ls-form ls-form-inline", method: :get } do |f| %>
   <label class="ls-label col-md-4">
     <b class="ls-label-text">Buscar por:</b>
     <div class="ls-custom-select">
-
-      <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
-         <% [['Data de Procedimento', 'time_surgery'], ['Anestesista', 'anesthetist'], ['Paciente', 'patient'], ['Cirurgião', 'surgeon'], ['Hospital', 'hospital'], ['Convênio Médico', 'health_insurance']].each do |c| %>
-         <%= content_tag(:option, c.first, value: c.last) %>
-       <% end %>
-      <% end %>
-
+      <select name="search[type]" id="search_type" class="ls-select" onchange="toggleSearchField(this.value)">
+        <option value="time_surgery">Data de Procedimento</option>
+        <option value="anesthetist">Anestesista</option>
+        <option value="patient">Paciente</option>
+        <option value="surgeon">Cirurgião</option>
+        <option value="hospital">Hospital</option>
+        <option value="health_insurance">Convênio Médico</option>
+      </select>
     </div>
   </label>
 
-  <label class="ls-label col-md-4" role="search" id="text_order_search">
-    <%= f.text_field :text, class: 'ls-field' %>
+  <label class="ls-label col-md-4" id="text_order_search" style="display:none;">
+    <%= f.text_field :text, class: 'ls-field', placeholder: 'Digite para buscar' %>
   </label>
 
-  <label class="ls-label col-md-4 ls-display-none" role="search" id="data_order_search">
-    <%= f.text_field :date, class: 'datepicker', placeholder: "dd/mm/aaaa", id: 'datepicker'%>
-    <a class="ls-label-text-prefix ls-ico-calendar" href="#" data-trigger-calendar="#datepicker"></a>
+  <label class="ls-label col-md-4" id="data_order_search">
+    <%= f.date_field :date, class: 'ls-field', value: params.dig(:search, :date) %>
   </label>
 
-
-  <label class="ls-label ">
+  <label class="ls-label">
     <%= submit_tag('Buscar', class: "ls-btn") %>
   </label>
   <%= hidden_field_tag :per_page, params[:per_page] %>
-  <%end%>
+  <% end %>
 </div>
+
+<script>
+function toggleSearchField(type) {
+  var textField = document.getElementById('text_order_search');
+  var dateField = document.getElementById('data_order_search');
+  if (type === 'time_surgery') {
+    textField.style.display = 'none';
+    dateField.style.display = '';
+  } else {
+    textField.style.display = '';
+    dateField.style.display = 'none';
+  }
+}
+// Inicializa estado correto ao carregar a página
+document.addEventListener('DOMContentLoaded', function() {
+  var sel = document.getElementById('search_type');
+  if (sel) toggleSearchField(sel.value);
+});
+</script>
 
 <tbody>
   <% @maps.order("time_surgery desc").each do |map| %>
@@ -48,12 +66,12 @@
         <%end%>
       </div>
       <div class="col-md-3 ls-txt-right">
-        <div data-ls-module="dropdown" class="ls-dropdown ls-pos-right">
-          <a href="#" class="ls-btn-primary">Administrar</a>
-          <ul class="ls-dropdown-nav">
+        <div class="ls-dropdown ls-pos-right" style="position:relative;display:inline-block;">
+          <a href="#" class="ls-btn-primary" onclick="var m=this.nextElementSibling;m.style.display=m.style.display=='block'?'none':'block';return false;">Administrar ▾</a>
+          <ul class="ls-dropdown-nav" style="display:none;position:absolute;right:0;background:#fff;border:1px solid #ccc;z-index:9999;min-width:140px;list-style:none;padding:5px 0;margin:0;">
             <li><%= link_to 'Editar', edit_map_path(map) %></li>
             <li><%= link_to 'Visualizar', map %></li>
-            <li><%= link_to 'Excluir', map_path(map), data: { confirm: "Você tem certeza?" }, method: :delete, class: "ls-color-danger ls-divider" %></li>
+            <li><%= link_to 'Excluir', map_path(map), data: { "turbo-method": "delete", "turbo-confirm": "Você tem certeza?" }, class: "ls-color-danger ls-divider" %></li>
           </ul>
         </div>
       </div>

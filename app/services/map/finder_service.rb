@@ -2,7 +2,7 @@ class Map
   class FinderService
     class << self
       def find(params)
-        params = params.with_indifferent_access.symbolize_keys
+        params = params.to_unsafe_h.symbolize_keys
         if params[:text].present? || params[:date].present?
   				$param_type = params[:type]
   				case $param_type
@@ -15,8 +15,9 @@ class Map
   				when 'hospital'
   			    Map.joins(:hospital).where("name like ?", "%#{params[:text]}%")
           when 'time_surgery'
-            Map.where("time_surgery like ?", "#{Date.parse(params[:date])}%").all
-  				when 'health_insurance'
+            val = params[:date].present? ? params[:date] : params[:text]
+            Map.where("time_surgery like ?", "%#{val}%")
+          when 'health_insurance'
             Map.joins(:health_insurance).where("name like ?", "%#{params[:text]}%")
           end
         else

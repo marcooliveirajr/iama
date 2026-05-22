@@ -129,7 +129,7 @@
         <label class="ls-label col-md-4">
         <span class="ls-label-text"><%= f.label :state, "Estado:" %></span>
           <div class="ls-custom-select">
-            <%= f.select(:state, Carmen::state_codes('BR'), {prompt: true}, class: "ls-state ls-select", id: "id_state" ) %>
+            <%= f.select(:state, Carmen::Country.coded('BR').subregions.map { |s| [s.name, s.code] }, {prompt: true}, class: "ls-state ls-select", id: "id_state" ) %>
           </div>
         </label>
       </div>

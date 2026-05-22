@@ -13,7 +13,7 @@ module PaymentMapsHelper
   def exists_receipt?
     ex = false
     if @map.receipt_id? ||
-       @map.attachment_receipt? ||
+       @map.attachment_receipt.attached? ||
        @map.receipt_value?
     	ex = true
     end
