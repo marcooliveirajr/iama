@@ -1,0 +1,38 @@
+class FixMissingColumnsInMaps < ActiveRecord::Migration[7.2]
+  def change
+    # Colunas que podem estar faltando no banco SQLite legado
+    add_column :maps, :receipt_id,           :integer  unless column_exists?(:maps, :receipt_id)
+    add_column :maps, :payment_method_id,    :integer  unless column_exists?(:maps, :payment_method_id)
+    add_column :maps, :payment_recipient_id, :integer  unless column_exists?(:maps, :payment_recipient_id)
+    add_column :maps, :payment_note,         :text     unless column_exists?(:maps, :payment_note)
+    add_column :maps, :tuss2,               :integer  unless column_exists?(:maps, :tuss2)
+    add_column :maps, :tuss3,               :integer  unless column_exists?(:maps, :tuss3)
+    add_column :maps, :tuss4,               :integer  unless column_exists?(:maps, :tuss4)
+    add_column :maps, :tuss5,               :integer  unless column_exists?(:maps, :tuss5)
+    add_column :maps, :via_unique2,         :boolean  unless column_exists?(:maps, :via_unique2)
+    add_column :maps, :via_unique3,         :boolean  unless column_exists?(:maps, :via_unique3)
+    add_column :maps, :via_unique4,         :boolean  unless column_exists?(:maps, :via_unique4)
+    add_column :maps, :via_unique5,         :boolean  unless column_exists?(:maps, :via_unique5)
+    add_column :maps, :start_time,          :datetime unless column_exists?(:maps, :start_time)
+    add_column :maps, :end_time,            :datetime unless column_exists?(:maps, :end_time)
+    add_column :maps, :password,            :string   unless column_exists?(:maps, :password)
+    add_column :maps, :plan,                :string   unless column_exists?(:maps, :plan)
+    add_column :maps, :hospitalization,     :string   unless column_exists?(:maps, :hospitalization)
+    add_column :maps, :receipt_day,         :datetime unless column_exists?(:maps, :receipt_day)
+    add_column :maps, :receipt_value,       :float    unless column_exists?(:maps, :receipt_value)
+    add_column :maps, :receipt_note,        :text     unless column_exists?(:maps, :receipt_note)
+    add_column :maps, :anesthetist1,        :integer  unless column_exists?(:maps, :anesthetist1)
+    add_column :maps, :anesthetist2,        :integer  unless column_exists?(:maps, :anesthetist2)
+    add_column :maps, :surgeon1,            :integer  unless column_exists?(:maps, :surgeon1)
+    add_column :maps, :surgeon2,            :integer  unless column_exists?(:maps, :surgeon2)
+    add_column :maps, :health_plan_id,      :integer  unless column_exists?(:maps, :health_plan_id)
+    add_column :maps, :free_text,           :text     unless column_exists?(:maps, :free_text)
+    add_column :maps, :registration,        :string   unless column_exists?(:maps, :registration)
+    add_column :maps, :note,                :text     unless column_exists?(:maps, :note)
+
+    # Active Storage (substituindo Paperclip)
+    add_column :maps, :attachment_map_file_name,      :string   unless column_exists?(:maps, :attachment_map_file_name)
+    add_column :maps, :attachment_receipt_file_name,  :string   unless column_exists?(:maps, :attachment_receipt_file_name)
+    add_column :maps, :attachment_pay_file_name,      :string   unless column_exists?(:maps, :attachment_pay_file_name)
+  end
+end
