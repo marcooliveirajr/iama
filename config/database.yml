@@ -16,7 +16,7 @@ production:
   encoding: utf8
   pool: 5
   timeout: 5000
-  username: root
+  username: iama_app
   password: "Frajola.69"
   host: node267478-env-1396074.sp1.br.saveincloud.net.br
   database: iama-production
