@@ -7,21 +7,18 @@
   <label class="ls-label col-md-4">
     <b class="ls-label-text">Buscar por:</b>
     <div class="ls-custom-select">
-
-      <%= f.select(:type, {prompt: false}, class: "ls-select") do %>
-         <% [['Data do Plantão', 'on_duty_date'], ['Anestesista', 'anesthetist']].each do |c| %>
-         <%= content_tag(:option, c.first, value: c.last) %>
-       <% end %>
-      <% end %>
-
+      <select name="search[type]" id="search_type" class="ls-select" onchange="toggleSearchField(this.value)">
+        <option value="on_duty_date" <%= 'selected' if params.dig(:search, :type) == 'on_duty_date' %>>Data do Plantão</option>
+        <option value="anesthetist" <%= 'selected' if params.dig(:search, :type) == 'anesthetist' %>>Anestesista</option>
+      </select>
     </div>
   </label>
 
-  <label class="ls-label col-md-4" role="search" id="text_order_search">
-    <%= f.text_field :text, class: 'ls-field' %>
+  <label class="ls-label col-md-4" role="search" id="text_order_search" style="display:none;">
+    <%= f.text_field :text, class: 'ls-field', value: params.dig(:search, :text) %>
   </label>
 
-  <label class="ls-label col-md-4 ls-display-none" role="search" id="data_order_search">
+  <label class="ls-label col-md-4" role="search" id="data_order_search">
     <div style="display: flex; gap: 5px;">
       <div style="flex: 1;">
         <%= f.date_field :start_date, class: 'ls-field', value: params.dig(:search, :start_date) %>
@@ -39,6 +36,25 @@
   <%= hidden_field_tag :per_page, params[:per_page] %>
   <%end%>
 </div>
+
+<script>
+function toggleSearchField(type) {
+  var textField = document.getElementById('text_order_search');
+  var dateField = document.getElementById('data_order_search');
+  if (type === 'on_duty_date') {
+    textField.style.display = 'none';
+    dateField.style.display = '';
+  } else {
+    textField.style.display = '';
+    dateField.style.display = 'none';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  var sel = document.getElementById('search_type');
+  if (sel) toggleSearchField(sel.value);
+});
+</script>
 
 <tbody>
   <% @on_duties.order("on_duty_date desc").each do |on_duty| %>
@@ -97,8 +113,3 @@
   <% end %>
 </div>
 <% end %>
-
-
-  <%= content_for :javascript do %>
-    $(document).ready(clinic.date_on_duty.init);
-  <% end %>
