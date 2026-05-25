@@ -12,6 +12,12 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  timeout: 5000
+  username: root
+  password: "Frajola.69"
+  host: node267478-env-1396074.sp1.br.saveincloud.net.br
+  database: iama-production
 
