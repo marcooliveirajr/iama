@@ -2,7 +2,7 @@ class SizeSurgery
   class FinderService
     class << self
       def find(params)
-        params = params.with_indifferent_access.symbolize_keys
+        params = params.to_unsafe_h.symbolize_keys
         if params[:text].present?
 					$param_type = params[:type]
 					case $param_type
