@@ -23,13 +23,11 @@
 
   <label class="ls-label col-md-4 ls-display-none" role="search" id="data_order_search">
     <div style="display: flex; gap: 5px;">
-      <div style="flex: 1; position: relative;">
-        <%= f.text_field :start_date, class: 'datepicker', placeholder: "De", id: 'start_date_picker'%>
-        <a class="ls-label-text-prefix ls-ico-calendar" href="#" data-trigger-calendar="#start_date_picker"></a>
+      <div style="flex: 1;">
+        <%= f.date_field :start_date, class: 'ls-field', value: params.dig(:search, :start_date) %>
       </div>
-      <div style="flex: 1; position: relative;">
-        <%= f.text_field :end_date, class: 'datepicker', placeholder: "Até", id: 'end_date_picker'%>
-        <a class="ls-label-text-prefix ls-ico-calendar" href="#" data-trigger-calendar="#end_date_picker"></a>
+      <div style="flex: 1;">
+        <%= f.date_field :end_date, class: 'ls-field', value: params.dig(:search, :end_date) %>
       </div>
     </div>
   </label>

@@ -89,6 +89,6 @@ class OnDutiesController < ApplicationController
     end
 
     def search_params
-      params.require(:search).permit(:type, :text, :date)
+      params.require(:search).permit(:type, :text, :date, :start_date, :end_date)
     end
 end
