@@ -5,9 +5,6 @@
       <span class="ls-name"><%= current_user.email %></span>
     </a>
     <nav class="ls-dropdown-nav ls-user-menu">
-      <ul>
-        <li><%= link_to "Alterar senha", edit_user_registration_path %></li>
-      </ul>
       <%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "ls-btn-logout" %>
     </nav>
   </div>
