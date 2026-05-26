@@ -3,9 +3,8 @@
 <a><%= link_to 'Informar Plantonista', new_on_duty_path(@on_duty) , class: "ls-btn-primary" %></a>
 
 <div class="ls-box-filter">
-  <%= form_for :search, url: search_on_duties_path, html: { :class => "ls-form ls-form-inline", method: :get } do |f| %>
-  <label class="ls-label col-md-4">
-    <span class="ls-label-text">&nbsp;</span>
+  <%= form_for :search, url: search_on_duties_path, html: { class: "ls-form ls-form-inline", method: :get } do |f| %>
+  <label class="ls-label col-md-3">
     <b class="ls-label-text">Buscar por:</b>
     <div class="ls-custom-select">
       <select name="search[type]" id="search_type" class="ls-select" onchange="toggleSearchField(this.value)">
@@ -15,44 +14,44 @@
     </div>
   </label>
 
-  <label class="ls-label col-md-4" role="search" id="text_order_search" style="display:none;">
-    <%= f.text_field :text, class: 'ls-field', value: params.dig(:search, :text) %>
+  <label class="ls-label col-md-3" id="text_order_search" style="display:none;">
+    <b class="ls-label-text">&nbsp;</b>
+    <%= f.text_field :text, class: 'ls-field', placeholder: 'Digite para buscar', value: params.dig(:search, :text) %>
   </label>
 
-  <label class="ls-label col-md-4" role="search" id="data_order_search">
-    <div style="display: flex; gap: 5px;">
-      <div style="flex: 1;">
-        <span class="ls-label-text">Data Inicial:</span>
-        <%= f.date_field :start_date, class: 'ls-field', value: params.dig(:search, :start_date) %>
-      </div>
-      <div style="flex: 1;">
-        <span class="ls-label-text">Data Final:</span>
-        <%= f.date_field :end_date, class: 'ls-field', value: params.dig(:search, :end_date) %>
-      </div>
-    </div>
+  <label class="ls-label col-md-2" id="data_order_search_start" style="display:block;">
+    <b class="ls-label-text">Data Inicial:</b>
+    <%= f.date_field :start_date, class: 'ls-field', value: params.dig(:search, :start_date) %>
   </label>
 
+  <label class="ls-label col-md-2" id="data_order_search_end" style="display:block;">
+    <b class="ls-label-text">Data Final:</b>
+    <%= f.date_field :end_date, class: 'ls-field', value: params.dig(:search, :end_date) %>
+  </label>
 
-  <label class="ls-label ">
+  <label class="ls-label col-md-2">
+    <b class="ls-label-text">&nbsp;</b>
     <%= submit_tag('Buscar', class: "ls-btn") %>
   </label>
   <%= hidden_field_tag :per_page, params[:per_page] %>
-  <%end%>
+  <% end %>
 </div>
 
 <script>
 function toggleSearchField(type) {
-  var textField = document.getElementById('text_order_search');
-  var dateField = document.getElementById('data_order_search');
+  var textField  = document.getElementById('text_order_search');
+  var dateStart  = document.getElementById('data_order_search_start');
+  var dateEnd    = document.getElementById('data_order_search_end');
   if (type === 'on_duty_date') {
-    textField.style.display = 'none';
-    dateField.style.display = '';
+    textField.style.display  = 'none';
+    dateStart.style.display  = 'block';
+    dateEnd.style.display    = 'block';
   } else {
-    textField.style.display = '';
-    dateField.style.display = 'none';
+    textField.style.display  = 'block';
+    dateStart.style.display  = 'none';
+    dateEnd.style.display    = 'none';
   }
 }
-
 document.addEventListener('DOMContentLoaded', function() {
   var sel = document.getElementById('search_type');
   if (sel) toggleSearchField(sel.value);
