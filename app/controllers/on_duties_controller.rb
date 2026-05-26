@@ -4,7 +4,7 @@ class OnDutiesController < ApplicationController
   # GET /on_duties
   # GET /on_duties.json
   def index
-    @on_duties ||= OnDuty.all
+    @on_duties = OnDuty.order(on_duty_date: :desc)
     @on_duties = make_paginate(@on_duties)
   end
 
@@ -40,6 +40,7 @@ class OnDutiesController < ApplicationController
 
   def search
     @on_duties = ::OnDuty::FinderService.find(search_params)
+    @on_duties = @on_duties.order(on_duty_date: :desc)
     @on_duties = make_paginate(@on_duties)
     if @on_duties.present?
       flash[:error] = nil
