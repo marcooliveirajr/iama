@@ -10,15 +10,15 @@ class OnDuty
             OnDuty.joins(:anesthetist).where("anesthetists.name LIKE ?", "%#{params[:text]}%")
           when 'on_duty_date'
             if params[:start_date].present? && params[:end_date].present?
-              start_date = Date.parse(params[:start_date])
-              end_date   = Date.parse(params[:end_date])
-              OnDuty.where("DATE(on_duty_date) >= ? AND DATE(on_duty_date) <= ?", start_date, end_date).all
+              start_dt = "#{params[:start_date]} 00:00:00"
+              end_dt   = "#{params[:end_date]} 23:59:59"
+              OnDuty.where("on_duty_date BETWEEN ? AND ?", start_dt, end_dt).all
             elsif params[:start_date].present?
-              start_date = Date.parse(params[:start_date])
-              OnDuty.where("DATE(on_duty_date) >= ?", start_date).all
+              start_dt = "#{params[:start_date]} 00:00:00"
+              OnDuty.where("on_duty_date >= ?", start_dt).all
             elsif params[:end_date].present?
-              end_date = Date.parse(params[:end_date])
-              OnDuty.where("DATE(on_duty_date) <= ?", end_date).all
+              end_dt = "#{params[:end_date]} 23:59:59"
+              OnDuty.where("on_duty_date <= ?", end_dt).all
             else
               OnDuty.all
             end
