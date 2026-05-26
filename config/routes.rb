@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :payment_recipients
   resources :payment_methods
   resources :receipts
-  devise_for :users
+  devise_for :users, skip: [:registrations, :confirmations]
 
   resources :payment_maps
   resources :versions
