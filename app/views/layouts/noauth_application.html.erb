@@ -48,6 +48,23 @@
   <%= javascript_include_tag "application", SECRETS["locastyle"]["js"] %>
   <script type='text/javascript'>
     <%= yield :javascript %>
+    
+    // Toggle robusto do menu lateral (sidebar) responsivo
+    document.addEventListener('click', function(e) {
+      var toggleBtn = e.target.closest('.ls-show-sidebar');
+      if (toggleBtn) {
+        e.preventDefault();
+        e.stopPropagation();
+        document.documentElement.classList.toggle('ls-sidebar-visible');
+        return;
+      }
+      
+      var sidebar = e.target.closest('.ls-sidebar');
+      var topbar = e.target.closest('.ls-topbar');
+      if (!sidebar && !topbar && document.documentElement.classList.contains('ls-sidebar-visible')) {
+        document.documentElement.classList.remove('ls-sidebar-visible');
+      }
+    });
   </script>
 
 </body>
