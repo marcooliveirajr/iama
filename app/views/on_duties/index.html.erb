@@ -20,13 +20,17 @@
   </label>
 
   <label class="ls-label col-md-2" id="data_order_search_start" style="display:block;">
-    <b class="ls-label-text">De:</b>
-    <%= f.date_field :start_date, class: 'ls-field', value: params.dig(:search, :start_date) %>
+    <b class="ls-label-text">&nbsp;</b>
+    <span style="white-space:nowrap;">
+      <span style="font-size:12px; margin-right:4px;">De:</span><%= f.date_field :start_date, class: 'ls-field', style: 'display:inline-block; width:auto;', value: params.dig(:search, :start_date) %>
+    </span>
   </label>
 
   <label class="ls-label col-md-2" id="data_order_search_end" style="display:block;">
-    <b class="ls-label-text">Até:</b>
-    <%= f.date_field :end_date, class: 'ls-field', value: params.dig(:search, :end_date) %>
+    <b class="ls-label-text">&nbsp;</b>
+    <span style="white-space:nowrap;">
+      <span style="font-size:12px; margin-right:4px;">Até:</span><%= f.date_field :end_date, class: 'ls-field', style: 'display:inline-block; width:auto;', value: params.dig(:search, :end_date) %>
+    </span>
   </label>
 
   <label class="ls-label">
