@@ -1,4 +1,10 @@
 $(document).on('turbo:load', function() { 
+  console.log("Selects.js: turbo:load disparado");
+  console.log("Selects.js: jQuery presente?", typeof $ !== 'undefined');
+  console.log("Selects.js: Select2 presente?", typeof $.fn.select2 !== 'undefined');
+  console.log("Selects.js: Elemento anesthetist encontrado?", $("#map_anesthetist_id").length);
+
+  try {
   	$("#map_health_terminology_id").select2({
       allowClear: true,
       placeholder: "Selecione um Procedimento"
@@ -75,8 +81,10 @@ $(document).on('turbo:load', function() {
       allowClear: true,
       placeholder: "Selecione uma Saída"
     });
-
-  });
+  } catch (e) {
+    console.error("Selects.js: erro ao inicializar Select2", e);
+  }
+});
 
 
 // clinic.selects = (function() {
