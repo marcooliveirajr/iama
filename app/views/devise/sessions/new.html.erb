@@ -14,11 +14,12 @@
 
       <%= f.submit "Entrar", :class => "ls-btn-primary ls-btn-block ls-btn-lg" %>
 
-      <div style="text-align:center; margin-top: 12px;">
-        <%= link_to "Esqueceu sua senha?", new_user_password_path, style: "color: #aaa; font-size: 13px;" %>
+      <%= link_to "Esqueceu sua senha?", new_user_password_path, class: "ls-btn ls-btn-block", style: "display:block; text-align:center; margin-top:8px; background:#f5f5f5; color:#666; border:1px solid #ddd; padding:8px;" %>
+
+      <div style="border-top: 1px solid #eee; margin-top: 16px; padding-top: 12px; text-align:center;">
+        <a href="/plantonistas" class="ls-ico-hours" style="font-size:12px; color:#999;">Ver Plantonistas</a>
       </div>
 
-      <a href="/plantonistas" class="ls-ico-hours">Plantonistas</a>
     </fieldset>
 
 <% end %>
