@@ -2,6 +2,20 @@ require_relative "boot"
 
 require "rails/all"
 
+# Carrega variáveis do /etc/environment se existir (comum em servidores Passenger/Nginx)
+if File.exist?('/etc/environment')
+  File.readlines('/etc/environment').each do |line|
+    line = line.strip
+    next if line.empty? || line.start_with?('#')
+    line = line.sub(/\Aexport\s+/, '')
+    key, val = line.split('=', 2)
+    if key && val
+      val = val.gsub(/\A['"]|['"]\z/, '')
+      ENV[key.strip] ||= val.strip
+    end
+  end
+end
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
