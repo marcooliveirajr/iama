@@ -39,8 +39,7 @@
         </a>
         <nav class="ls-dropdown-nav ls-user-menu" aria-hidden="false">
           <ul>
-            <li><%=link_to "Alterar Senha", edit_user_registration_path %></li>
-            <li><%=link_to "Sair", destroy_user_session_path, :method => :delete %></li>
+            <li><%= link_to "Sair", destroy_user_session_path, :method => :delete %></li>
           </ul>
         </nav>
       </div>
