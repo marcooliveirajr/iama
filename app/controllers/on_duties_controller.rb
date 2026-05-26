@@ -4,7 +4,7 @@ class OnDutiesController < ApplicationController
   # GET /on_duties
   # GET /on_duties.json
   def index
-    @on_duties = OnDuty.order(on_duty_date: :desc)
+    @on_duties = OnDuty.where("on_duty_date >= ?", Time.current.beginning_of_day).order(on_duty_date: :asc)
     @on_duties = make_paginate(@on_duties)
   end
 
