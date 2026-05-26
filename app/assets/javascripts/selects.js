@@ -1,4 +1,4 @@
-  $(document).ready(function() { 
+$(document).on('turbo:load', function() { 
   	$("#map_health_terminology_id").select2({
       allowClear: true,
       placeholder: "Selecione um Procedimento"

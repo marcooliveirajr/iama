@@ -23,4 +23,4 @@ clinic.paginate = (function() {
   }
 }());
 
-$(document).ready(clinic.paginate.init)
+$(document).on('turbo:load', clinic.paginate.init)

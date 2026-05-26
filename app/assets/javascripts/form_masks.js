@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).on('turbo:load', function(){
   $('.ls-mask-date').mask('00/00/0000');
   $('.ls-mask-time').mask('00:00:00');
   $('.ls-mask-date_time').mask('00/00/0000 00:00:00');
