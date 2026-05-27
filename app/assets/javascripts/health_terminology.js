@@ -1,4 +1,4 @@
-  $(document).on("ready load change", function(){
+  $(document).on("ready load change turbo:load", function(){
         var terminologies = $('#map_health_terminology_id');      
         if($('#map_health_terminology_id').length && $(".tuss").length && terminologies.val() != ""){
           $.getJSON("/health_terminologies/terminologies.json?id="+terminologies.val(), function(result){

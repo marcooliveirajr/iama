@@ -1,8 +1,8 @@
-(function() {
+$(document).on('turbo:load', function() {
   function getRemoveButton() {
     var $button = $('<button />').attr('class', 'ls-btn remove-Payment').html('<span class="ls-ico-remove"></span>');
 
-    return $button;value
+    return $button;
   }
 
   function getLineNumber(value) {
@@ -130,4 +130,4 @@
   $('#add-Payment').on('click', addPayment);
   $('body').on('click', '.remove-Payment', removePayment);
 
-}());
+});

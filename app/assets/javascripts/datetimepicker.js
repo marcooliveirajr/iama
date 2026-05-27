@@ -1,4 +1,4 @@
-  $(function () {
+$(document).on('turbo:load', function () {
     $('#time_surgery').datetimepicker({
       locale: 'pt-br',
       format: 'L LT',

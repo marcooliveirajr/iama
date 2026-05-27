@@ -1,4 +1,4 @@
-(function() {
+$(document).on('turbo:load', function() {
   function clearAnesthetist1() {
       $("#map_anesthetist1").val('').change();
   }
@@ -69,4 +69,4 @@
   }
   $('#clear_tuss5').on('click', clearTuss5);
   
-}());
+});
