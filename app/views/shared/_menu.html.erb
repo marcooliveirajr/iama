@@ -6,7 +6,7 @@
     </a>
     <nav class="ls-dropdown-nav ls-user-menu">
       <ul>
-        <li><%= link_to "Sair", destroy_user_session_path, :method => :delete, class: "ls-btn-logout" %></li>
+        <li><%= link_to "Sair", destroy_user_session_path, data: { "turbo-method": :delete }, class: "ls-btn-logout" %></li>
       </ul>
     </nav>
   </div>
