@@ -79,7 +79,7 @@
       function initTabs() {
         // Para cada conjunto de abas na página
         document.querySelectorAll('.ls-tabs-nav').forEach(function(nav) {
-          var links = nav.querySelectorAll('a[href^="#"]');
+          var links = nav.querySelectorAll("a[href^='#']");
           var container = nav.closest('fieldset') || nav.parentNode;
           
           links.forEach(function(link) {
