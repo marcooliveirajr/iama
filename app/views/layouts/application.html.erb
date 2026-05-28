@@ -132,6 +132,49 @@
         document.documentElement.classList.remove('ls-sidebar-visible');
       }
     });
+
+    // =====================================================================
+    // GERENCIADOR DE DROPDOWNS — substitui o ls-module="dropdown" do
+    // Locastyle de forma robusta e compatível com Turbo Drive (Rails 7).
+    // =====================================================================
+    (function() {
+      function initDropdowns() {
+        document.querySelectorAll('[data-ls-module="dropdown"]').forEach(function(dropdown) {
+          var trigger = dropdown.querySelector('a');
+          var nav = dropdown.querySelector('.ls-dropdown-nav');
+          if (!trigger || !nav) return;
+
+          // Garante que começa fechado
+          nav.setAttribute('aria-hidden', 'true');
+
+          // Remove e re-adiciona listener para evitar duplicatas
+          var newTrigger = trigger.cloneNode(true);
+          trigger.parentNode.replaceChild(newTrigger, trigger);
+
+          newTrigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            var hidden = nav.getAttribute('aria-hidden') === 'true';
+            // Fecha todos os outros dropdowns primeiro
+            document.querySelectorAll('.ls-dropdown-nav').forEach(function(n) {
+              n.setAttribute('aria-hidden', 'true');
+            });
+            // Abre/fecha o clicado
+            nav.setAttribute('aria-hidden', hidden ? 'false' : 'true');
+          });
+        });
+
+        // Clique fora fecha os dropdowns
+        document.addEventListener('click', function() {
+          document.querySelectorAll('.ls-dropdown-nav').forEach(function(nav) {
+            nav.setAttribute('aria-hidden', 'true');
+          });
+        });
+      }
+
+      document.addEventListener('turbo:load', initDropdowns);
+      document.addEventListener('DOMContentLoaded', initDropdowns);
+    })();
   </script>
 
 </body>
