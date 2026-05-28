@@ -144,8 +144,8 @@
           var nav = dropdown.querySelector('.ls-dropdown-nav');
           if (!trigger || !nav) return;
 
-          // Garante que começa fechado
-          nav.setAttribute('aria-hidden', 'true');
+          // Garante que começa fechado — via classe do Locastyle
+          dropdown.classList.remove('ls-open');
 
           // Clona para remover listeners antigos
           var newTrigger = trigger.cloneNode(true);
@@ -154,13 +154,12 @@
           newTrigger.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            var isHidden = nav.getAttribute('aria-hidden') === 'true';
-            // Fecha todos os dropdowns
-            document.querySelectorAll('.ls-dropdown-nav').forEach(function(n) {
-              n.setAttribute('aria-hidden', 'true');
+            // Fecha todos os outros dropdowns
+            document.querySelectorAll('[data-ls-module="dropdown"]').forEach(function(d) {
+              d.classList.remove('ls-open');
             });
-            // Abre só o clicado
-            if (isHidden) { nav.setAttribute('aria-hidden', 'false'); }
+            // Toggle do clicado
+            dropdown.classList.toggle('ls-open');
           });
         });
       }
@@ -168,8 +167,8 @@
       // Fecha ao clicar fora — registrado UMA SÓ VEZ no document
       document.addEventListener('click', function(e) {
         if (!e.target.closest('[data-ls-module="dropdown"]')) {
-          document.querySelectorAll('.ls-dropdown-nav').forEach(function(nav) {
-            nav.setAttribute('aria-hidden', 'true');
+          document.querySelectorAll('[data-ls-module="dropdown"]').forEach(function(d) {
+            d.classList.remove('ls-open');
           });
         }
       });
