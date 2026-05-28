@@ -134,8 +134,8 @@
     });
 
     // =====================================================================
-    // GERENCIADOR DE DROPDOWNS — substitui o ls-module="dropdown" do
-    // Locastyle de forma robusta e compatível com Turbo Drive (Rails 7).
+    // GERENCIADOR DE DROPDOWN DO TOPBAR — vanilla JS, compatível com Turbo.
+    // O listener de fechar ao clicar fora fica FORA do init para não acumular.
     // =====================================================================
     (function() {
       function initDropdowns() {
@@ -147,30 +147,32 @@
           // Garante que começa fechado
           nav.setAttribute('aria-hidden', 'true');
 
-          // Remove e re-adiciona listener para evitar duplicatas
+          // Clona para remover listeners antigos
           var newTrigger = trigger.cloneNode(true);
           trigger.parentNode.replaceChild(newTrigger, trigger);
 
           newTrigger.addEventListener('click', function(e) {
             e.preventDefault();
             e.stopPropagation();
-            var hidden = nav.getAttribute('aria-hidden') === 'true';
-            // Fecha todos os outros dropdowns primeiro
+            var isHidden = nav.getAttribute('aria-hidden') === 'true';
+            // Fecha todos os dropdowns
             document.querySelectorAll('.ls-dropdown-nav').forEach(function(n) {
               n.setAttribute('aria-hidden', 'true');
             });
-            // Abre/fecha o clicado
-            nav.setAttribute('aria-hidden', hidden ? 'false' : 'true');
-          });
-        });
-
-        // Clique fora fecha os dropdowns
-        document.addEventListener('click', function() {
-          document.querySelectorAll('.ls-dropdown-nav').forEach(function(nav) {
-            nav.setAttribute('aria-hidden', 'true');
+            // Abre só o clicado
+            if (isHidden) { nav.setAttribute('aria-hidden', 'false'); }
           });
         });
       }
+
+      // Fecha ao clicar fora — registrado UMA SÓ VEZ no document
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('[data-ls-module="dropdown"]')) {
+          document.querySelectorAll('.ls-dropdown-nav').forEach(function(nav) {
+            nav.setAttribute('aria-hidden', 'true');
+          });
+        }
+      });
 
       document.addEventListener('turbo:load', initDropdowns);
       document.addEventListener('DOMContentLoaded', initDropdowns);
