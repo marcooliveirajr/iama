@@ -31,7 +31,7 @@ class MapsController < ApplicationController
       Map.transaction do
         if @map.save
           ::PaymentMap::CreaterService.create(params[:map][:payment_maps], @map.id)
-          format.html { redirect_to @map, notice: 'Mapa criado com sucesso.' }
+          format.html { redirect_to edit_map_path(@map), notice: 'Mapa criado com sucesso.' }
           format.json { render :show, status: :created, location: @map }
         else
           format.html { render :new }
@@ -60,7 +60,7 @@ class MapsController < ApplicationController
       Map.transaction do
         if @map.update(map_params)
           ::PaymentMap::UpdaterService.update(params[:map][:payment_maps], @map.id)
-          format.html { redirect_to @map, notice: 'Mapa atualizado com sucesso.' }
+          format.html { redirect_to edit_map_path(@map), notice: 'Mapa atualizado com sucesso.' }
           format.json { render :show, status: :ok, location: @map }
         else
           format.html { render :edit }
