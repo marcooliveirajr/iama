@@ -65,49 +65,33 @@
     <%= yield :javascript %>
 
     // =====================================================================
-    // GERENCIADOR DE ABAS CUSTOMIZADO — substitui o ls-module="tabs" do
-    // Locastyle de forma robusta e compatível com Turbo Drive (Rails 7).
-    // Usa delegação de eventos para nunca acumular listeners duplicados.
+    // GERENCIADOR DE ABAS — delegação de eventos no document.
+    // Um único listener permanente, nunca perdido por re-renders do Turbo.
     // =====================================================================
-    (function() {
-      function initTabs() {
-        // Para cada conjunto de abas na página
-        document.querySelectorAll('.ls-tabs-nav').forEach(function(nav) {
-          var links = nav.querySelectorAll("a[href^='#']");
-          var container = nav.closest('fieldset') || nav.parentNode;
-          
-          links.forEach(function(link) {
-            // Remove listener antigo (clonando o nó) para evitar duplicatas
-            var newLink = link.cloneNode(true);
-            link.parentNode.replaceChild(newLink, link);
-            
-            newLink.addEventListener('click', function(e) {
-              e.preventDefault();
-              var targetId = this.getAttribute('href').replace('#', '');
-              
-              // Desativa todas as abas nav
-              nav.querySelectorAll('a').forEach(function(a) {
-                a.parentElement.classList.remove('ls-active');
-              });
-              // Ativa a aba clicada
-              this.parentElement.classList.add('ls-active');
-              
-              // Esconde todos os painéis de conteúdo
-              container.querySelectorAll('.ls-tab-content').forEach(function(panel) {
-                panel.classList.remove('ls-active');
-              });
-              // Exibe o painel correspondente
-              var target = document.getElementById(targetId);
-              if (target) { target.classList.add('ls-active'); }
-            });
-          });
-        });
-      }
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('.ls-tabs-nav a[href^="#"]');
+      if (!link) return;
 
-      // Inicializa na primeira carga e em cada navegação Turbo
-      document.addEventListener('turbo:load', initTabs);
-      document.addEventListener('DOMContentLoaded', initTabs);
-    })();
+      e.preventDefault();
+      var targetId = link.getAttribute('href').replace('#', '');
+      var nav = link.closest('.ls-tabs-nav');
+      var container = nav.closest('fieldset') || nav.parentNode;
+
+      // Desativa todas as abas nav
+      nav.querySelectorAll('a').forEach(function(a) {
+        a.parentElement.classList.remove('ls-active');
+      });
+      // Ativa a aba clicada
+      link.parentElement.classList.add('ls-active');
+
+      // Esconde todos os painéis de conteúdo
+      container.querySelectorAll('.ls-tab-content').forEach(function(panel) {
+        panel.classList.remove('ls-active');
+      });
+      // Exibe o painel correspondente
+      var target = document.getElementById(targetId);
+      if (target) { target.classList.add('ls-active'); }
+    });
 
     // =====================================================================
     // Toggle robusto do menu lateral (sidebar) responsivo
