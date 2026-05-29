@@ -2,7 +2,7 @@ class Map < ApplicationRecord
   has_one_attached :attachment_map
   has_one_attached :attachment_receipt
   has_one_attached :attachment_pay    
-  # usar_como_dinheiro :receipt_value
+  usar_como_dinheiro :receipt_value
   belongs_to :hospital
   belongs_to :bedroom
   belongs_to :patient
