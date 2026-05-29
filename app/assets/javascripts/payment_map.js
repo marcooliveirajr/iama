@@ -118,7 +118,7 @@ $(document).on('turbo:load', function() {
       }
 
       $('#payments tbody').append(getLine(value));
-      $('.ls-mask-money').mask('#.##0,00', {reverse: true});
+      $('.ls-mask-money').mask('000.000.000.000.000,00', {reverse: true});
     }
   }
 
