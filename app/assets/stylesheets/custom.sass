@@ -52,3 +52,16 @@
 
 .ls-show-sidebar
   cursor: pointer
+
+// Collapse: oculto por padrão, visível quando ls-collapse-opened está no container
+.ls-collapse
+  .ls-collapse-body
+    display: none
+
+  &.ls-collapse-opened
+    .ls-collapse-body
+      display: block
+
+  &.ls-collapse-opened-always
+    .ls-collapse-body
+      display: block

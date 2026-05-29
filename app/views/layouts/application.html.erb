@@ -114,7 +114,8 @@
     // =====================================================================
     // COLLAPSE / EXPAND — compatível com data-ls-module="collapse" do Locastyle.
     // O módulo nativo do Locastyle não reinicializa após navegação Turbo
-    // (depende de window.load que não dispara novamente). Este handler substitui.
+    // (window.load não dispara novamente). Este handler replica o comportamento:
+    // basta alternar a classe 'ls-collapse-opened' — o CSS cuida do show/hide.
     // =====================================================================
     document.addEventListener('click', function(e) {
       var header = e.target.closest('[data-ls-module="collapse"] .ls-collapse-header');
@@ -124,45 +125,10 @@
       e.stopPropagation();
 
       var container = header.closest('[data-ls-module="collapse"]');
-      var targetId  = container.getAttribute('data-target');
-      var body      = document.querySelector(targetId);
-      if (!body) return;
+      var isOpen    = container.classList.contains('ls-collapse-opened');
 
-      var isOpen = container.classList.contains('ls-collapse-opened');
-
-      if (isOpen) {
-        // Fechar com animação slideUp
-        body.style.overflow   = 'hidden';
-        body.style.maxHeight  = body.scrollHeight + 'px';
-        body.offsetHeight;    // força reflow
-        body.style.transition = 'max-height 0.25s ease-out';
-        body.style.maxHeight  = '0';
-        setTimeout(function() {
-          body.style.display   = 'none';
-          body.style.maxHeight = '';
-          body.style.transition = '';
-          body.style.overflow  = '';
-        }, 260);
-        container.classList.remove('ls-collapse-opened');
-        header.setAttribute('aria-expanded', 'false');
-        body.setAttribute('aria-hidden', 'true');
-      } else {
-        // Abrir com animação slideDown
-        body.style.display    = '';
-        body.style.overflow   = 'hidden';
-        body.style.maxHeight  = '0';
-        body.offsetHeight;    // força reflow
-        body.style.transition = 'max-height 0.25s ease-in';
-        body.style.maxHeight  = body.scrollHeight + 'px';
-        setTimeout(function() {
-          body.style.maxHeight  = '';
-          body.style.transition = '';
-          body.style.overflow   = '';
-        }, 260);
-        container.classList.add('ls-collapse-opened');
-        header.setAttribute('aria-expanded', 'true');
-        body.setAttribute('aria-hidden', 'false');
-      }
+      container.classList.toggle('ls-collapse-opened');
+      header.setAttribute('aria-expanded', String(!isOpen));
     });
 
     // Impede que clicks dentro do corpo do collapse fechem o painel acidentalmente
@@ -171,23 +137,6 @@
         e.stopPropagation();
       }
     });
-
-    // Inicializa o estado dos collapses: esconde todos os fechados ao carregar a página
-    function initCollapses() {
-      document.querySelectorAll('[data-ls-module="collapse"]').forEach(function(container) {
-        var targetId = container.getAttribute('data-target');
-        var body     = document.querySelector(targetId);
-        if (!body) return;
-        if (!container.classList.contains('ls-collapse-opened') &&
-            !container.classList.contains('ls-collapse-opened-always')) {
-          body.style.display = 'none';
-        }
-      });
-    }
-
-    // Roda no carregamento inicial e em cada navegação Turbo
-    document.addEventListener('DOMContentLoaded', initCollapses);
-    document.addEventListener('turbo:load', initCollapses);
 
   </script>
 
