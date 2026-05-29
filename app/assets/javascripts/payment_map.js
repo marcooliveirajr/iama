@@ -104,7 +104,9 @@ $(document).on('turbo:load', function() {
     return number;
   }
 
-  function addPayment() {
+  function addPayment(e) {
+    if(e) e.preventDefault();
+
     var value = $('#value').val().toLocaleUpperCase();
 
     if(value !== '') {
@@ -119,7 +121,9 @@ $(document).on('turbo:load', function() {
     }
   }
 
-  function removePayment() {
+  function removePayment(e) {
+    if(e) e.preventDefault();
+
     $(this).parents('tr').remove();
 
     if(getLinesLength() === 0) {
@@ -127,7 +131,7 @@ $(document).on('turbo:load', function() {
     }
   }
 
-  $('#add-Payment').on('click', addPayment);
-  $('body').on('click', '.remove-Payment', removePayment);
+  $('#add-Payment').off('click').on('click', addPayment);
+  $('body').off('click', '.remove-Payment').on('click', '.remove-Payment', removePayment);
 
 });
