@@ -61,4 +61,11 @@ module ApplicationHelper
     return '-' if valor.nil?
     number_with_precision(valor.to_f, precision: 2, separator: ',', delimiter: '.')
   end
+
+  # Formata valor numérico para preencher inputs de formulários (sem ponto de milhar)
+  # Exemplo: 3321.0 -> "3321,00", para a máscara ler e transformar em "3.321,00"
+  def fmt_moeda_form(valor)
+    return '' if valor.nil? || valor.to_s.strip.empty?
+    number_with_precision(valor.to_f, precision: 2, separator: ',', delimiter: '')
+  end
 end

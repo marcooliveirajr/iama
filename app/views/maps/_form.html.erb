@@ -466,7 +466,7 @@
         <div class="col-md-10">
           <label class="ls-label col-md-10">
             <span class="ls-label-text"><%= f.label :receipt_value, "Valor do recibo:" %></span>
-            <%= f.text_field :receipt_value, class: 'ls-mask-money' %>
+            <%= f.text_field :receipt_value, value: fmt_moeda_form(@map.receipt_value), class: 'ls-mask-money' %>
           </label>
         </div>
       </div>
@@ -534,8 +534,8 @@
               <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][payment_id]", payment_map.payment_id, class: 'col-md-10' %></td>
               <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][payment_date]", payment_map.payment_date.try(:strftime, "%d/%m/%Y"), class: 'col-md-10' %></td>
               <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][pay_day]", payment_map.pay_day.try(:strftime, "%d/%m/%Y"), class: 'col-md-10' %></td>
-              <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][payment_value]", payment_map.payment_value, class: 'col-md-12 ls-mask-money' %></td>
-              <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][paid_value]", payment_map.paid_value, class: 'col-md-10 ls-mask-money' %></td>
+              <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][payment_value]", fmt_moeda_form(payment_map.payment_value), class: 'col-md-12 ls-mask-money' %></td>
+              <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][paid_value]", fmt_moeda_form(payment_map.paid_value), class: 'col-md-10 ls-mask-money' %></td>
               <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][recipient]", payment_map.recipient, class: 'col-md-10' %></td>
               <td>
                 <button type='button' class='ls-btn remove-Payment'>

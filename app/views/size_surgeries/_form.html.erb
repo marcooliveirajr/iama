@@ -27,7 +27,7 @@
       <div class="col-md-8">
         <label class="ls-label col-md-8">
         <span class="ls-label-text"><%= f.label :value_measure, "Valor:" %></span>
-        <%= f.text_field :value_measure %>
+        <%= f.text_field :value_measure, value: fmt_moeda_form(@size_surgery.value_measure), class: 'ls-mask-money' %>
       </label>
      </div>
     </div>
