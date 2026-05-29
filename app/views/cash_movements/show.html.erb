@@ -29,7 +29,7 @@
             </tr>
             <tr> 
               <td> Valor do Movimento: 
-                <label class="ls-title-6"><%= @cash_movement.movement_value.real %>
+                <label class="ls-title-6"><%= fmt_moeda(@cash_movement.movement_value) %>
                 </label> 
               </td> 
             </tr>

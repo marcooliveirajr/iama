@@ -54,4 +54,11 @@ module ApplicationHelper
       end
     end
   end
+
+  # Formata valor numérico no padrão monetário brasileiro: 1.010,00
+  # Aceita nil, String ou Numeric — retorna '-' se vazio/nulo.
+  def fmt_moeda(valor)
+    return '-' if valor.nil?
+    number_with_precision(valor.to_f, precision: 2, separator: ',', delimiter: '.')
+  end
 end

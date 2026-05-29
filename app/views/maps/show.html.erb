@@ -328,7 +328,7 @@
               </tr>
               <tr> 
                 <td> Valor do recibo: 
-                  <label class="ls-title-6"><%= @map.try(:receipt_value).real %>
+                  <label class="ls-title-6"><%= fmt_moeda(@map.try(:receipt_value)) %>
                   </label> 
                 </td> 
               </tr>
@@ -406,8 +406,8 @@
                     <td> <label class="ls-title-6"><%= payment_map.payment_id %></label> </td>
                     <td> <label class="ls-title-6"><%= payment_map.try(:payment_date).try(:strftime, "%d/%m/%Y") %></label> </td>
                     <td> <label class="ls-title-6"><%= payment_map.try(:pay_day).try(:strftime, "%d/%m/%Y") %></label> </td> 
-                    <td> <label class="ls-title-6"><%= payment_map.payment_value.real %></label> </td>
-                    <td> <label class="ls-title-6"><%= payment_map.paid_value.real %></label> </td>
+                    <td> <label class="ls-title-6"><%= fmt_moeda(payment_map.payment_value) %></label> </td>
+                    <td> <label class="ls-title-6"><%= fmt_moeda(payment_map.paid_value) %></label> </td>
                     <td> <label class="ls-title-6"><%= payment_map.recipient %></label> </td>
                   </tr>
                   <% end %>
