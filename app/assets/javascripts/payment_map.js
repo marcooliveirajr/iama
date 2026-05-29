@@ -40,7 +40,7 @@ $(document).on('turbo:load', function() {
   }
 
   function getValuePay(value) {
-    var $input = $('<input />').attr('class', 'col-md-12').attr('type', 'text').attr('name', 'map[payment_maps]['+ value +'][paid_value]');
+    var $input = $('<input />').attr('class', 'col-md-12 ls-mask-money').attr('type', 'text').attr('name', 'map[payment_maps]['+ value +'][paid_value]');
 
     return $input;
   }
@@ -52,7 +52,7 @@ $(document).on('turbo:load', function() {
   }
 
   function getValueInputHidden(value) {
-    var $input = $('<input />').attr('type', 'text').attr('class', 'col-md-12').attr('value', value).attr('name', 'map[payment_maps]['+ value +'][payment_value]');
+    var $input = $('<input />').attr('type', 'text').attr('class', 'col-md-12 ls-mask-money').attr('value', value).attr('name', 'map[payment_maps]['+ value +'][payment_value]');
 
     return $input;
   }
@@ -118,6 +118,7 @@ $(document).on('turbo:load', function() {
       }
 
       $('#payments tbody').append(getLine(value));
+      $('.ls-mask-money').mask('#.##0,00', {reverse: true});
     }
   }
 

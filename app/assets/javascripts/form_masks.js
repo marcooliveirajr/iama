@@ -6,9 +6,9 @@ $(document).on('turbo:load', function(){
   $('.ls-mask-phone-extension').mask('0000');
   $('.ls-mask-cpf').mask('000.000.000-00');
   $('.ls-mask-cnpj').mask('00.000.000/0000-00');
-  $('.ls-mask-money').mask('#.##0,00');
+  $('.ls-mask-money').mask('#.##0,00', {reverse: true});
   $('.ls-mask-money2').mask('000.000.000.000.000,00', {reverse: true});
-  $('.ls-mask-number').mask('#.##0');
+  $('.ls-mask-number').mask('#.##0', {reverse: true});
   $('.ls-mask-percent').mask('##0,00%');
 
   $('.ls-mask-phone').maskPhone();
