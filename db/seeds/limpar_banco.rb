@@ -29,7 +29,7 @@ puts "Tabelas protegidas que serão mantidas:"
 puts ""
 
 print "Deseja prosseguir? Digite SIM para confirmar: "
-confirmacao = STDIN.gets.chomp
+confirmacao = STDIN.gets.strip.upcase
 
 unless confirmacao == "SIM"
   puts "Operação cancelada."
