@@ -6,7 +6,7 @@ $(document).on('turbo:load', function() {
   }
 
   function getLineNumber(value) {
-    var $input = $('<input />').attr('type', 'text').attr('class', 'col-md-12').attr('value', getNumber()).attr('name', 'map[payment_maps['+ value +'[payment_id]]]');
+    var $input = $('<input />').attr('type', 'text').attr('class', 'col-md-12').attr('value', getNumber()).attr('name', 'map[payment_maps]['+ value +'][payment_id]');
 
     return $input;
   }
@@ -28,31 +28,31 @@ $(document).on('turbo:load', function() {
 
     today = dd+'/'+mm+'/'+yyyy;
 
-    var $date = $('<input />').attr('type', 'text').attr('class', 'col-md-12').attr('value', today).attr('name', 'map[payment_maps['+ value +'[payment_date]]]');
+    var $date = $('<input />').attr('type', 'text').attr('class', 'col-md-12').attr('value', today).attr('name', 'map[payment_maps]['+ value +'][payment_date]');
 
     return $date;
   }
 
   function getDayPayment(value) {
-    var $date = $('<input />').attr('class', 'col-md-12').attr('type', 'text').attr('name', 'map[payment_maps['+ value +'[pay_day]]]');
+    var $date = $('<input />').attr('class', 'col-md-12').attr('type', 'text').attr('name', 'map[payment_maps]['+ value +'][pay_day]');
 
     return $date;
   }
 
   function getValuePay(value) {
-    var $input = $('<input />').attr('class', 'col-md-12').attr('type', 'text').attr('name', 'map[payment_maps['+ value +'[paid_value]]]');
+    var $input = $('<input />').attr('class', 'col-md-12').attr('type', 'text').attr('name', 'map[payment_maps]['+ value +'][paid_value]');
 
     return $input;
   }
 
   function getValueRec(value) {
-    var $input = $('<input />').attr('class', 'col-md-12').attr('type', 'text').attr('name', 'map[payment_maps['+ value +'[recipient]]]');
+    var $input = $('<input />').attr('class', 'col-md-12').attr('type', 'text').attr('name', 'map[payment_maps]['+ value +'][recipient]');
 
     return $input;
   }
 
   function getValueInputHidden(value) {
-    var $input = $('<input />').attr('type', 'text').attr('class', 'col-md-12').attr('value', value).attr('name', 'map[payment_maps['+ value +'[payment_value]]]');
+    var $input = $('<input />').attr('type', 'text').attr('class', 'col-md-12').attr('value', value).attr('name', 'map[payment_maps]['+ value +'][payment_value]');
 
     return $input;
   }

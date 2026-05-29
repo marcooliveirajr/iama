@@ -3,10 +3,9 @@
 <fieldset>
 
   <ul class="ls-tabs-nav">
-    <li class="ls-active"><a data-ls-module="tabs" href="#track">Dados da Cirurgia</a></li>
-    <li><a data-ls-module="tabs" href="#receipt">Dados do Recibo</a></li>
-    <li><a data-ls-module="tabs" href="#contact">Dados do Pagamento</a></li>
-    </li>
+    <li class="ls-active"><a href="#track">Dados da Cirurgia</a></li>
+    <li><a href="#receipt">Dados do Recibo</a></li>
+    <li><a href="#contact">Dados do Pagamento</a></li>
   </ul>
 
   <div class="ls-tabs-container">
@@ -532,12 +531,12 @@
           <tbody>
             <% @map.payment_maps.each do |payment_map| %>
             <tr>
-              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_id]]]", payment_map.payment_id, class: 'col-md-10' %></td>
-              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_date]]]", payment_map.payment_date.try(:strftime, "%d/%m/%Y"), class: 'col-md-10' %></td>
-              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[pay_day]]]", payment_map.pay_day.try(:strftime, "%d/%m/%Y"), class: 'col-md-10' %></td>
-              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[payment_value]]]", payment_map.payment_value, class: 'col-md-12' %></td>
-              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[paid_value]]]", payment_map.paid_value, class: 'col-md-10' %></td>
-              <td><%= text_field_tag "map[payment_maps[#{payment_map.id}[recipient]]]", payment_map.recipient, class: 'col-md-10' %></td>
+              <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][payment_id]", payment_map.payment_id, class: 'col-md-10' %></td>
+              <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][payment_date]", payment_map.payment_date.try(:strftime, "%d/%m/%Y"), class: 'col-md-10' %></td>
+              <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][pay_day]", payment_map.pay_day.try(:strftime, "%d/%m/%Y"), class: 'col-md-10' %></td>
+              <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][payment_value]", payment_map.payment_value, class: 'col-md-12' %></td>
+              <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][paid_value]", payment_map.paid_value, class: 'col-md-10' %></td>
+              <td><%= text_field_tag "map[payment_maps][#{payment_map.id}][recipient]", payment_map.recipient, class: 'col-md-10' %></td>
               <td>
                 <button type='button' class='ls-btn remove-Payment'>
                   <span class='ls-ico-remove'></span>
